@@ -3,4 +3,4 @@ El proyecto mejorará en la implementación del código, a las siguientes caract
 
 - Laravel 8
 - VueJS
-- Aolicar métodos de Clean Code
+- Aplicar técnicas de Clean Code
