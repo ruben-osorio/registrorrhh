@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type"
+    content="text/html; charset=utf-8" />
+<!-- Viewport metatags -->
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- iOS webapp metatags -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- iOS webapp icons -->
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-retina.png" />
+
+<!-- CSS Reset -->
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<!--  Fluid Grid System -->
+<link rel="stylesheet" type="text/css" href="css/fluid.css" media="screen" />
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.theme.css" media="screen" />
+<!--  Main Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.css" media="screen" />
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<!-- jQuery JavaScript File -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<!-- jQuery-UI JavaScript Files -->
+<script type="text/javascript" src="jui/js/jquery-ui-1.8.20.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.timepicker.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen" />
+
+<!-- Plugin Files -->
+
+<!-- FileInput Plugin -->
+<script type="text/javascript" src="js/jquery.fileinput.js"></script>
+<!-- Placeholder Plugin -->
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<!-- Mousewheel Plugin -->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar Plugin -->
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<!-- Tooltips Plugin -->
+<script type="text/javascript" src="plugins/tipsy/jquery.tipsy-min.js"></script>
+<link rel="stylesheet" href="plugins/tipsy/tipsy.css" />
+<!-- DataTables Plugin -->
+<script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+<!-- Validation Plugin -->
+<script type="text/javascript" src="plugins/validate/jquery.validate.min.js"></script>
+
+<!-- Chosen Plugin -->
+<script type="text/javascript" src="plugins/chosen/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="plugins/chosen/chosen.css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+</style>
+
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="js/demo/demo.validation.js"></script>
+
+<!-- Core JavaScript Files -->
+<script type="text/javascript" src="js/core/dandelion.core.js"></script>
+
+<!-- Customizer JavaScript File (remove if not needed) -->
+<script type="text/javascript" src="js/core/dandelion.customizer.js"></script>
+
+<title>EXPERIENCIA FUERA DEL MINISTERIO</title>
+
+ <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-81A87B40
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/None/ccs-yui-calendar.css" />
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//fin_conButton_Cancel_OnClick @6-211D3CD5
+function fin_conButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End fin_conButton_Cancel_OnClick
+
+//cat_conButton_Cancel_OnClick @14-B1AC7119
+function cat_conButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End cat_conButton_Cancel_OnClick
+
+//eval_conButton_Cancel_OnClick @41-DE991662
+function eval_conButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End eval_conButton_Cancel_OnClick
+
+//Handle eval_condate_evalInlineDatePicker1 @45-A757E16A
+function eval_condate_evalInlineDatePicker1_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle eval_condate_evalInlineDatePicker1
+
+//bind_events @1-4E26AA82
+function bind_events() {
+    addEventHandler("eval_condate_eval", "load", eval_condate_evalInlineDatePicker1_start);
+    addEventHandler("fin_conButton_Cancel", "click", fin_conButton_Cancel_OnClick);
+    addEventHandler("cat_conButton_Cancel", "click", cat_conButton_Cancel_OnClick);
+    addEventHandler("eval_conButton_Cancel", "click", eval_conButton_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+
+<body>
+
+	
+    
+	<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
+	<div id="da-wrapper" class="fluid">
+    
+        <!-- Header -->
+        <div id="da-header">
+        
+        	<div id="da-header-top">
+                
+                <!-- Container -->
+                <div class="da-container clearfix">
+                    
+                    <!-- Logo Container. All images put here will be vertically centere -->
+                    <div id="da-logo-wrap">
+                        <div id="da-logo">
+                            <div id="da-logo-img"><a href="dashboard.html"><img src="images/logo.png" alt="Dandelion Admin" width="280" height="90" /></a></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Header Toolbar Menu -->
+                    <!-- Header Toolbar Menu -->
+                    <div id="da-header-toolbar" class="clearfix">
+                        <div id="da-user-profile">
+                            
+                            <div id="da-user-info"><span class="da-user-title">Ministerio de Educaci&oacute;n</span>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                                    
+                </div>
+            </div>
+            
+            <div id="da-header-bottom">
+                <!-- Container -->
+                <div class="da-container clearfix">
+                
+                	
+                	
+                    <!-- Breadcrumbs -->
+                    <div id="da-breadcrumb">
+                        <ul>
+                            <li><a href="dashboard.html"><img src="images/icons/black/16/home.png" alt="Home" />Inicio</a></li>
+                           
+                            <li class="active"><span>Financiamiento</span></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <!-- Content -->
+        <div id="da-content">
+            
+            <!-- Container -->
+            <div class="da-container clearfix">
+            
+                <!-- Sidebar -->
+                <div id="da-sidebar-separator"></div>                
+                
+                <!-- Main Content Wrapper -->
+                
+                
+                	<!-- Content Area -->
+                	<div id="da-content-area">
+                	  <div class="grid_4">
+                	    <div class="da-panel">
+                	      <div class="da-panel-content">
+                	        <div class="grid_4">
+                	          <div class="da-panel">
+                	            <div class="da-panel-header"> <span class="da-panel-title"> <img src="images/icons/color/accept.png" alt="" />
+                	              <h2> FINANCIAMIENTO</h2>
+              	              </span> </div><br />
+
+                	            <div class="da-panel-content">
+                	            
+                	              <!--ROA t1 -->
+                	           
+                                  
+                                  
+                                  <!--formulario 2 -->
+                                   <!-- BEGIN Record fin_con -->
+                                   
+                                  <div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        FUENTE</span>
+                                    
+                                </div>
+                                <div class="da-panel-content">
+                                     <form id="fin_con" method="post" class="da-form" name="{HTMLFormName}" action="{Action}">
+                                    	<div class="da-form-block">
+                                  
+                                        <input id="fin_conid_per" maxlength="10" type="hidden" value="{id_per}" name="{id_per_Name}">
+                                        <!-- BEGIN Error -->
+                                        <div class="da-message warning">
+                                        {Error}
+                                    </div>
+                                            		
+                                          <!-- END Error -->
+                                          
+			
+                          <div class="da-form-row">
+                            <div class="da-form-col-3-8">
+            					<label>FUENTE DE FINANCIAMIENTO: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+      
+                                    <select id="fin_consource_fin" name="{source_fin_Name}">
+                                  <option selected value="">Seleccionar Valor</option>
+                                  {source_fin_Options}
+                                </select>                           
+                                 
+                                        
+                                    
+                                   </div>
+                            </div>
+				  		</div>
+                                        
+
+
+                                    
+                                        
+                                        <div class="da-button-row">
+
+                   <!-- BEGIN Button Button_Insert --><input type="submit" id="fin_conButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="fin_conButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="fin_conButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->  
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                <!-- END Record fin_con -->
+                                  <!-- formulario 2-->
+       
+   
+   
+       <!--formulario 2 -->
+                                  <!-- BEGIN Record cat_con -->
+                                   
+                                  <div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        CATEGORIA</span>
+                                    
+                                </div>
+                                <div class="da-panel-content">
+                                    
+                                     <form id="cat_con" method="post" class="da-form" name="{HTMLFormName}" action="{Action}">
+                                    	<div class="da-form-block">
+                                     
+                                        <input id="cat_conid_per" maxlength="10" type="hidden" value="{id_per}" name="{id_per_Name}">
+                                        <!-- BEGIN Error -->
+                                        <div class="da-message warning">
+                                        {Error}
+                                    </div>
+                                            		
+                                          <!-- END Error -->
+                                          
+					<div class="da-form-row">
+
+                            <div class="da-form-col-3-8">
+            					<label>CATEGOR&Iacute;A: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                              
+                                   
+                                       
+                                     <ul class="da-form-list inline">
+                                  <!-- BEGIN RadioButton cat -->
+                                  <li><input type="radio" id="cat_concat_{cat:optionNumber}" value="{Value}" name="{cat_Name}" {Check}><label for="cat_concat_{cat:optionNumber}">{Description}</label></li>
+                                  <!-- END RadioButton cat --> 
+                                  </ul>   
+                                   </div>
+                            </div>
+
+				  </div>
+                  
+                  
+                  
+                  <div class="da-form-row">
+
+                            <div class="da-form-col-4-8">
+            					<label>NIVEL DE PUESTO: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                              
+                                   
+                                       
+                                     <ul class="da-form-list">
+       
+                                  
+                                  <!-- BEGIN RadioButton level --><li><input type="radio" id="cat_conlevel_{level:optionNumber}" value="{Value}" name="{level_Name}" {Check}><label for="cat_conlevel_{level:optionNumber}">{Description}</label></li><!-- END RadioButton level -->
+                                  </ul>   
+                                   </div>
+                            </div>
+
+				
+                         <div class="da-form-col-4-8">
+            					<label>PUESTO DE CARRERA: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                                     
+                              		<ul class="da-form-list inline">
+                                    <!-- BEGIN RadioButton post_car --><li><input type="radio" id="cat_conpost_car_{post_car:optionNumber}" value="{Value}" name="{post_car_Name}" {Check}><label for="cat_conpost_car_{post_car:optionNumber}">{Description}</label></li><!-- END RadioButton post_car -->
+                                    </ul>      
+                                       
+                                   </div>
+                            </div>  
+				<br />
+<br />
+
+                         <div class="da-form-col-4-8"><br />
+<br />
+
+            					<label>MODALIDAD DE INGRESO (SOLO SI ES PUESTO DE CARRERA): <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                                     
+                              		<ul class="da-form-list">
+                            
+                                    
+                                     <!-- BEGIN RadioButton mod_ent --><li><input type="radio" id="cat_conmod_ent_{mod_ent:optionNumber}" value="{Value}" name="{mod_ent_Name}" {Check}><label for="cat_conmod_ent_{mod_ent:optionNumber}">{Description}</label></li><!-- END RadioButton mod_ent -->
+                                    </ul>      
+                                       
+                                   </div>
+                            </div>  
+				  </div>                               
+                                            
+           
+           
+           
+           
+           <div class="da-form-row">
+                         <div class="da-form-col-4-8">
+            					<label>FORMA DE RECLUTAMIENTO: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                                     
+                              		<ul class="da-form-list"> 
+                                    <!-- BEGIN RadioButton form_rec --><li><input type="radio" id="cat_conform_rec_{form_rec:optionNumber}" value="{Value}" name="{form_rec_Name}" {Check}><label for="cat_conform_rec_{form_rec:optionNumber}">{Description}</label></li><!-- END RadioButton form_rec -->
+                                    </ul>      
+                                       
+                                   </div>
+                            </div>  
+                            
+                            
+   <div class="da-form-col-4-8">
+            					<label>JORNADA DE TRABAJO: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                                     <ul class="da-form-list"> 
+                              		<!-- BEGIN RadioButton jornal --><li><input type="radio" id="cat_conjornal_{jornal:optionNumber}" value="{Value}" name="{jornal_Name}" {Check}><label for="cat_conjornal_{jornal:optionNumber}">{Description}</label></li><!-- END RadioButton jornal -->      
+                                    </ul>      
+                                   </div>
+                            </div>                         
+   
+   
+   
+                            
+				  </div>
+                  
+                  
+                  
+                                                   
+                                            
+                        <div class="da-form-row">
+                            <div class="da-form-col-3-8">
+            					
+                                <label>SUELDO BASE:<span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                                  <input id="cat_consal_base" maxlength="10" type="text" value="{sal_base}" name="{sal_base_Name}">  
+                               </div>
+                            </div>
+                           
+                           
+                           
+                           
+                           
+				  </div>
+
+                                        </div>
+                                        
+                                        <div class="da-button-row">
+                                      
+                  
+              <!-- BEGIN Button Button_Insert --><input type="submit" id="cat_conButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="cat_conButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="cat_conButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->      
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        	<!-- END Record cat_con -->
+                                  <!-- formulario 2-->
+        <!--formulario 2 -->
+                         <!-- BEGIN Record eval_con -->
+                                   
+                                  <div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        EVALUACIÓN</span>
+                                    
+                                </div>
+                                <div class="da-panel-content">
+                                     <form id="fin_con" method="post" class="da-form" name="{HTMLFormName}" action="{Action}">
+                                    	<div class="da-form-block">
+                                  
+                                        <input id="eval_conid_per" maxlength="10" type="hidden" value="{id_per}" name="{id_per_Name}">
+                                        <!-- BEGIN Error -->
+                                        <div class="da-message warning">
+                                        {Error}
+                                    </div>
+                                            		
+                                          <!-- END Error -->
+                                          
+			
+                          <div class="da-form-row">
+                          
+                          <div class="da-form-col-1-8">
+            					
+                                <label>FECHA EVALUACIÓN:<span class="required">*</span></label>
+                               <div class="da-form-item">            
+                                  <input id="eval_condate_eval" maxlength="100" type="text" value="{date_eval}" name="{date_eval_Name}">
+                               </div>
+                         </div>
+                          
+                          
+                            <div class="da-form-col-1-8">
+            					<label>RESULTADO DE LA EVALUACIÓN: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                          
+                                   <select id="eval_conres_eval" name="{res_eval_Name}">
+                                  <option selected value="">Seleccionar Valor</option>
+                         			{res_eval_Options} 
+                                </select>                 
+                                    
+                                   </div>
+                            </div>
+                            
+                            <div class="da-form-col-2-8">
+            					<label>CONSECUENCIA DE LA EVALUACIÓN: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                                          
+                                 <select id="eval_concons_eval" name="{cons_eval_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {cons_eval_Options} 
+        </select>   
+                                   </div>
+                            </div>
+                            <div class="da-form-col-2-8">
+            					
+                                <label>RESPONSABLE DE LA EVALUACIÓN:<span class="required">*</span></label>
+                               <div class="da-form-item">            
+                                  <input id="eval_conresp_eval" maxlength="200" type="text" value="{resp_eval}" name="{resp_eval_Name}">
+                               </div>
+                         </div>
+                            <div class="da-form-col-2-8">
+            					<label>TIPO DE RESPONSABLE: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                          
+                                 <select id="eval_contype_resp" name="{type_resp_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {type_resp_Options} 
+        </select>                
+                                    
+                                   </div>
+                            </div>
+                            
+				  		</div>
+                                        
+
+
+                                    
+                                        
+                                        <div class="da-button-row">
+ 
+        
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="eval_conButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="eval_conButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="eval_conButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                <!-- END Record eval_con -->
+                                  <!-- formulario 2-->
+                	             
+              	              </div>
+              	            </div>
+              	          </div>
+                	      
+                	    </div>
+                	  </div>
+                	  <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div id="da-footer">
+        	<div class="da-container clearfix">
+            	<p>Copyright 2013. Ministerio de Educaci&oacute;n
+            </div>
+        </div>
+    </div>
+	
+    
+</body>
+</html>

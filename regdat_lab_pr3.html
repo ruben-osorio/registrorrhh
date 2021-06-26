@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type"
+    content="text/html; charset=utf-8" />
+<!-- Viewport metatags -->
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- iOS webapp metatags -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- iOS webapp icons -->
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-retina.png" />
+
+<!-- CSS Reset -->
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<!--  Fluid Grid System -->
+<link rel="stylesheet" type="text/css" href="css/fluid.css" media="screen" />
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.theme.css" media="screen" />
+<!--  Main Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.css" media="screen" />
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<!-- jQuery JavaScript File -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<!-- jQuery-UI JavaScript Files -->
+<script type="text/javascript" src="jui/js/jquery-ui-1.8.20.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.timepicker.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen" />
+
+<!-- Plugin Files -->
+
+<!-- FileInput Plugin -->
+<script type="text/javascript" src="js/jquery.fileinput.js"></script>
+<!-- Placeholder Plugin -->
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<!-- Mousewheel Plugin -->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar Plugin -->
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<!-- Tooltips Plugin -->
+<script type="text/javascript" src="plugins/tipsy/jquery.tipsy-min.js"></script>
+<link rel="stylesheet" href="plugins/tipsy/tipsy.css" />
+<!-- DataTables Plugin -->
+<script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+<!-- Validation Plugin -->
+<script type="text/javascript" src="plugins/validate/jquery.validate.min.js"></script>
+
+<!-- Chosen Plugin -->
+<script type="text/javascript" src="plugins/chosen/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="plugins/chosen/chosen.css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+</style>
+
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="js/demo/demo.validation.js"></script>
+
+<!-- Core JavaScript Files -->
+<script type="text/javascript" src="js/core/dandelion.core.js"></script>
+
+<!-- Customizer JavaScript File (remove if not needed) -->
+<script type="text/javascript" src="js/core/dandelion.customizer.js"></script>
+
+<title>DATOS LABORALES</title>
+
+ <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-81A87B40
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/None/ccs-yui-calendar.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//soc_secuButton_Cancel_OnClick @6-57135015
+function soc_secuButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End soc_secuButton_Cancel_OnClick
+
+//old_casButton_Cancel_OnClick @22-E04D0A87
+function old_casButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End old_casButton_Cancel_OnClick
+
+//cta_bancButton_Cancel_OnClick @42-A6BB72C3
+function cta_bancButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End cta_bancButton_Cancel_OnClick
+
+//permanente_docsButton_Cancel_OnClick @53-F69402DC
+function permanente_docsButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End permanente_docsButton_Cancel_OnClick
+
+//ult_declButton_Cancel_OnClick @66-1173D8A0
+function ult_declButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End ult_declButton_Cancel_OnClick
+
+//char_perButton_Cancel_OnClick @91-99AD1313
+function char_perButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End char_perButton_Cancel_OnClick
+
+//Handle old_casdate_startInlineDatePicker1 @27-E0415E65
+function old_casdate_startInlineDatePicker1_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle old_casdate_startInlineDatePicker1
+
+//Handle old_casdate_casInlineDatePicker2 @29-FD753013
+function old_casdate_casInlineDatePicker2_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle old_casdate_casInlineDatePicker2
+
+//Handle permanente_docsdate_cad_ciInlineDatePicker1 @59-745AE125
+function permanente_docsdate_cad_ciInlineDatePicker1_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle permanente_docsdate_cad_ciInlineDatePicker1
+
+//Handle ult_decldate_dbrInlineDatePicker1 @70-E671341F
+function ult_decldate_dbrInlineDatePicker1_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle ult_decldate_dbrInlineDatePicker1
+
+//Handle ult_decldate_diInlineDatePicker2 @72-A371096F
+function ult_decldate_diInlineDatePicker2_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle ult_decldate_diInlineDatePicker2
+
+//Handle char_perdate_desInlineDatePicker1 @104-10B77CA2
+function char_perdate_desInlineDatePicker1_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle char_perdate_desInlineDatePicker1
+
+//bind_events @1-DD30FFB0
+function bind_events() {
+    addEventHandler("old_casdate_start", "load", old_casdate_startInlineDatePicker1_start);
+    addEventHandler("old_casdate_cas", "load", old_casdate_casInlineDatePicker2_start);
+    addEventHandler("permanente_docsdate_cad_ci", "load", permanente_docsdate_cad_ciInlineDatePicker1_start);
+    addEventHandler("ult_decldate_dbr", "load", ult_decldate_dbrInlineDatePicker1_start);
+    addEventHandler("ult_decldate_di", "load", ult_decldate_diInlineDatePicker2_start);
+    addEventHandler("char_perdate_des", "load", char_perdate_desInlineDatePicker1_start);
+    addEventHandler("soc_secuButton_Cancel", "click", soc_secuButton_Cancel_OnClick);
+    addEventHandler("old_casButton_Cancel", "click", old_casButton_Cancel_OnClick);
+    addEventHandler("cta_bancButton_Cancel", "click", cta_bancButton_Cancel_OnClick);
+    addEventHandler("permanente_docsButton_Cancel", "click", permanente_docsButton_Cancel_OnClick);
+    addEventHandler("ult_declButton_Cancel", "click", ult_declButton_Cancel_OnClick);
+    addEventHandler("char_perButton_Cancel", "click", char_perButton_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+
+<body>
+
+	
+    
+	<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
+	<div id="da-wrapper" class="fluid">
+    
+        <!-- Header -->
+        <div id="da-header">
+        
+        	<div id="da-header-top">
+                
+                <!-- Container -->
+                <div class="da-container clearfix">
+                    
+                    <!-- Logo Container. All images put here will be vertically centere -->
+                    <div id="da-logo-wrap">
+                        <div id="da-logo">
+                            <div id="da-logo-img"><a href="dashboard.html"><img src="images/logo.png" alt="Dandelion Admin" width="280" height="90" /></a></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Header Toolbar Menu -->
+                    <!-- Header Toolbar Menu -->
+                    <div id="da-header-toolbar" class="clearfix">
+                        <div id="da-user-profile">
+                            
+                            <div id="da-user-info"><span class="da-user-title">Ministerio de Desarrollo Productivo</span>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                                    
+                </div>
+            </div>
+            
+            <div id="da-header-bottom">
+                <!-- Container -->
+                <div class="da-container clearfix">
+                
+                	
+                	
+                    <!-- Breadcrumbs -->
+                    <div id="da-breadcrumb">
+                        <ul>
+                            <li><a href="dashboard.html"><img src="images/icons/black/16/home.png" alt="Home" />Inicio</a></li>
+                           
+                            <li class="active"><span>Datos Laborales</span></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <!-- Content -->
+        <div id="da-content">
+            
+            <!-- Container -->
+            <div class="da-container clearfix">
+            
+                <!-- Sidebar -->
+                <div id="da-sidebar-separator"></div>                
+                
+                <!-- Main Content Wrapper -->
+                
+                
+                	<!-- Content Area -->
+                	<div id="da-content-area">
+                	  <div class="grid_4">
+                	    <div class="da-panel">
+                	      <div class="da-panel-content">
+                	        <div class="grid_4">
+                	          <div class="da-panel">
+                	            <div class="da-panel-header"> <span class="da-panel-title"> <img src="images/icons/color/accept.png" alt="" />
+                	              <h2> DATOS LABORALES</h2>
+              	              </span> </div><br />
+
+                	            <div class="da-panel-content">
+                	            
+                	              <!--ROA t1 -->
+                	           
+                                  
+                                  
+                                 
+       
+   
+       
+       
+       <!-- BEGIN Record old_cas -->
+   
+                         <div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        DATOS DE ANTIGUEDAD (Registrado por RRHH seg&uacute;n &uacute;ltimo CAS presentado)</span>
+                                    
+                                </div>
+                                <div class="da-panel-content">
+                                     <form id="fin_con" method="post" class="da-form" name="{HTMLFormName}" action="{Action}">
+                                    	<div class="da-form-block">
+                               
+                                        <input id="old_casid_func" maxlength="10" type="hidden" value="{id_func}" name="{id_func_Name}">
+                                        <input id="old_casid_per" maxlength="10" type="hidden" value="{id_per}" name="{id_per_Name}">
+                                        <!-- BEGIN Error -->
+                                        <div class="da-message warning">
+                                        {Error}
+                                    </div>
+                                            		
+                                          <!-- END Error -->
+                                          
+			
+                          <div class="da-form-row">
+
+                            <div class="da-form-col-2-8">
+            					<label>ULTIMA FECHA DE CALIFICACIÓN: <span class="required">*</span></label>
+								
+                                   <div class="da-form-item">                               
+								
+                                   <input id="old_casdate_cas" maxlength="100" type="text" value="{date_cas}" name="{date_cas_Name}" >
+                                   </div>
+                            </div>
+                            
+                           <div class="da-form-col-1-8">
+            					<label> AÑOS: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                          
+                                   <input id="old_casyear_rat" maxlength="10" type="text" value="{year_rat}" name="{year_rat_Name}" >
+                                   </div>
+                            </div>
+                            <div class="da-form-col-1-8">
+            					<label>MESES: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                          
+                                   <input id="old_casmonth_rat" maxlength="10" type="text" value="{month_rat}" name="{month_rat_Name}" >
+                                   </div>
+                            </div>
+                            <div class="da-form-col-1-8">
+            					<label>DIAS: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                          
+                                   <input id="old_casday_rat" maxlength="10" type="text" value="{day_rat}" name="{day_rat_Name}" >
+                                   </div>
+                            </div>
+  
+				  		</div>
+                                        
+						<div class="da-button-row">
+
+        
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="cta_bancButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="cta_bancButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="cta_bancButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->
+                                        </div>
+										
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+        <!-- END Record old_cas -->               
+       <!-- formulario 2 FIN-->
+       
+       
+       
+       <!--formulario 2 INI-->
+       <!-- BEGIN Record cta_banc -->
+                         <div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        DATOS DONDE SE ABONA SU SUELDO</span>
+                                    
+                                </div>
+                                <div class="da-panel-content">
+                                   
+                                     <form id="cta_banc" method="post" class="da-form" name="{HTMLFormName}" action="{Action}">
+                                    	<div class="da-form-block">
+                                  
+                                        <input id="cta_bancid_func" maxlength="10" type="hidden" value="{id_func}" name="{id_func_Name}">
+                                        <!-- BEGIN Error -->
+                                        <div class="da-message warning">
+                                        {Error}
+                                    </div>
+                                            		
+                                          <!-- END Error -->
+                                          
+			
+                          <div class="da-form-row">
+                          
+                          <div class="da-form-col-2-8">
+            					
+                                <label>BANCO:<span class="required">*</span></label>
+                               <div class="da-form-item">        
+                                  <input id="cta_bancbank" maxlength="200" type="text" value="{bank}" name="{bank_Name}">
+                               </div>
+                         </div>
+                          
+                          
+                            <div class="da-form-col-2-8">
+            					<label>TIPO DE CUENTA: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                          
+                                  <ul class="da-form-list">   <!-- BEGIN RadioButton type_ac --><li><input type="radio" id="cta_banctype_ac_{type_ac:optionNumber}" value="{Value}" name="{type_ac_Name}" {Check}><label for="cta_banctype_ac_{type_ac:optionNumber}">{Description}</label></li><!-- END RadioButton type_ac --></ul>
+                                  
+                                   </div>
+                            </div>
+                            
+                            <div class="da-form-col-2-8">
+            					<label>NÚMERO DE CUENTA: <span class="required">*</span></label>
+                                   <div class="da-form-item">   
+                                  
+                                 <input id="cta_bancnum_ac" maxlength="50" type="text" value="{num_ac}" name="{num_ac_Name}">
+
+                                   </div>
+                            </div>
+                            
+                            
+                             <div class="da-form-col-2-8">
+            					
+                                <label>DISTRITO EN LA QUE SE APERTURÓ:<span class="required">*</span></label>
+                               <div class="da-form-item">        
+                                  <input id="cta_bancdist_ac" maxlength="100" type="text" value="{dist_ac}" name="{dist_ac_Name}">
+                               </div>
+                         </div>
+  
+				  		</div>
+                                        
+         <div class="da-button-row">
+
+        
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="cta_bancButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="cta_bancButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="cta_bancButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+        <!-- END Record cta_banc -->              
+       <!-- formulario 2 FIN-->
+       
+       
+        <!--formulario 2 -->
+                                                       	                                 
+<!-- BEGIN Record permanente_docs -->
+                                 
+                        	<div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        
+                                       <h2>DOCUMENTACION ENTREGADA                                    </h2>
+                                	</span>
+                                </div>
+                            	
+                                <div class="da-panel-content">
+  
+<form id="permanente_docs" method="post" name="{HTMLFormName}" action="{Action}" class="da-form">
+
+<div id="da-ex-val1-error" class="da-message error" style="display:none;"></div>
+ 
+  <div class="da-form-block">
+  <!--contenedor R1 -->
+  	
+ 
+           
+      <div class="da-form-row">
+         <input id="permanente_docsid_per" maxlength="10"  type="hidden"  value="{id_per}" name="{id_per_Name}">
+            <div class="da-form-col-4-8">
+            					<label>Curriculum Vitae: <span class="required">*</span></label>
+                               <div class="da-form-item">                                                                  
+                                                                                      	
+                       
+                        <ul class="da-form-list"> 
+                       <!-- BEGIN RadioButton cv --><li><input type="radio" id="permanente_docscv_{cv:optionNumber}" value="{Value}" name="{cv_Name}" {Check}><label for="permanente_docscv_{cv:optionNumber}">{Description}</label></li><!-- END RadioButton cv --></ul>
+                               </div>
+                            </div>        
+                            
+		<div class="da-form-col-4-8">
+            					<label>Fotocopia CI: <span class="required">*</span></label>
+                               <div class="da-form-item">                                                                  
+                                    <ul class="da-form-list">                               
+                              <!-- BEGIN RadioButton ci --><li><input type="radio" id="permanente_docsci_{ci:optionNumber}" value="{Value}" name="{ci_Name}" {Check}><label for="permanente_docsci_{ci:optionNumber}">{Description}</label></li><!-- END RadioButton ci -->
+                       </ul>
+                               </div>
+                            </div>  
+                    </div>                                                              
+            <div class="da-form-row">               
+             <div class="da-form-col-4-8">
+                 <label>FECHA DE CADUCIDAD <span class="required">*</span></label>
+                 <div class="da-form-item small">                               
+      				<br />                          
+                	 <span class="formNote">Ejemplo: 01/12/2018</span> 
+                    <input id="permanente_docsdate_cad_ci" maxlength="100" type="text" value="{date_cad_ci}" name="{date_cad_ci_Name}">
+                 </div>
+            </div>
+            
+            <div class="da-form-col-4-8">
+            			<label>Fotocopia Certificado Nac: <span class="required">*</span></label>
+                        <div class="da-form-item">                                                                  
+                           <ul class="da-form-list">                                                                   
+                                                       
+                            <!-- BEGIN RadioButton cn --><li><input type="radio" id="permanente_docscn_{cn:optionNumber}" value="{Value}" name="{cn_Name}" {Check}><label for="permanente_docscn_{cn:optionNumber}">{Description}</label></li><!-- END RadioButton cn -->
+                       		</ul>
+                          </div>
+                      </div>              
+                      
+					<div class="da-form-col-4-8">
+            			<label>Fotocopia Certificado Matrimonio: <span class="required">*</span></label>
+                        <div class="da-form-item">                                                                  
+                           <ul class="da-form-list">                                                                   
+                         
+                              <!-- BEGIN RadioButton cm --><li><input type="radio" id="permanente_docscm_{cm:optionNumber}" value="{Value}" name="{cm_Name}" {Check}><label for="permanente_docscm_{cm:optionNumber}">{Description}</label></li><!-- END RadioButton cm -->
+                       		</ul>
+                          </div>
+                      </div>              
+                           
+ </div>
+
+     <div class="clear"></div>  	
+   <!-- Div Roacorp -->
+   <!-- BEGIN Error -->
+  {Error}
+    <!-- END Error -->     
+  
+  <div class="da-button-row">
+
+        
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="permanente_docsButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="permanente_docsButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="permanente_docsButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->
+        
+     </div>
+</form>
+<br>
+                                        
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Record permanente_docs -->
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+           <div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        
+                                       <h2>DECLARACIÓN DE INCOMPATIBILIDAD                                  </h2>
+                                	</span>
+                                </div>
+                            	
+                                <div class="da-panel-content">
+                                	                                 
+
+<!-- BEGIN Record ult_decl -->
+<form id="ult_decl" method="post" name="{HTMLFormName}" action="{Action}" class="da-form">
+
+  <div class="da-form-block">
+  <!--contenedor R1 -->
+  	
+ 
+           
+      <div class="da-form-row">
+                   
+    <input id="ult_declid_func" maxlength="10" type="hidden" value="{id_func}" name="{id_func_Name}">
+                  <div class="da-form-col-4-8">
+            					<label>DECLARACIÓN JURADA DE BIENES Y RENTAS:: <span class="required">*</span></label>
+                                 <div class="da-form-item small">   <br />
+                         
+                                     <span class="formNote">Ejemplo: 20/10/1980</span>                                      
+                                   <input id="ult_decldate_dbr" maxlength="100" type="text" value="{date_dbr}" name="{date_dbr_Name}">
+                               </div>   
+                            </div>           
+                           
+              <div class="da-form-col-4-8">
+            					<label>DECLARACIÓN JURADA DE INCOMPATIBILIDAD: <span class="required">*</span></label>
+                                 <div class="da-form-item small">   <br />
+                         
+                                     <span class="formNote">Ejemplo: 20/10/1980</span>                                      
+                               <input id="ult_decldate_di" maxlength="100" type="text" value="{date_di}" name="{date_di_Name}">
+                               </div>   
+                            </div>
+            
+					              
+                           
+ </div>
+
+     <div class="clear"></div>  	
+   <input id="funcionarioon_off" maxlength="4" size="4" value="{on_off}" name="{on_off_Name}" type="hidden">
+   <!-- Div Roacorp -->
+   <!-- BEGIN Error -->
+  {Error}
+    <!-- END Error -->
+
+                   
+  
+  <div class="da-button-row">
+
+        
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="ult_declButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="ult_declButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="ult_declButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->
+        
+     </div>
+</form>
+<!-- END Record ult_decl -->
+                                        
+                                  
+                                </div>
+                            </div>
+                        </div>                      
+                                 
+                                 
+                                 
+         <!--FRAME 3 -->      
+                         <div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        
+                                       <h2>  DATOS DEL CARGO ACTUAL QUE DESEMPEÑA </h2>
+                                	</span>
+                                </div>
+                      
+                                <div class="da-panel-content">
+                                	                                 
+
+<!-- BEGIN Record char_per -->
+<form id="char_per" method="post" name="{HTMLFormName}" action="{Action}" class="da-form">
+  <div class="da-form-block">
+  <!--contenedor R1 -->
+  	<br />
+
+
+      <input type="hidden"  id="char_perid_per" maxlength="10" size="10" value="{id_per}" name="{id_per_Name}">
+                  
+        <div class="da-form-row">                        
+
+
+            <div class="da-form-col-4-8">
+                 <label>CARGO <span class="required">*</span></label>
+                 <div class="da-form-item small">                                         
+                    <textarea id="char_percharge"  name="{charge_Name}">{charge}</textarea>
+                 </div>
+            </div>
+        </div>
+
+
+     <div class="clear"></div>  	
+   <!-- Div Roacorp -->
+   <!-- BEGIN Error -->
+  {Error}
+    <!-- END Error -->
+
+                   
+  
+  <div class="da-button-row">
+        
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="char_perButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="char_perButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="char_perButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->
+        
+     </div>
+</form>
+<!-- END Record char_per -->           
+                                  
+                              </div>
+                            </div>
+                        </div>                         
+                                 
+                            </div>
+                        </div>        <!-- formulario 2-->
+                	             
+              	              </div>
+              	            </div>
+              	          </div>
+                	      
+                	    </div>
+                	  </div>
+                	  <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <!-- Footer -->
+        <div id="da-footer">
+        	<div class="da-container clearfix">
+            	<p></div>
+                <img src="images/logo_mini.jpg" alt="Ministerio de Educación " />
+        </div>
+    </div>
+	
+    
+</body>
+</html>
+<script>
+$(document).ready(function(){
+
+   var url_string = window.location.href;
+	var url = new URL(url_string);
+	var c = url.searchParams.get("id_func");
+  $('#old_casid_func').val(c);
+});
+</script>

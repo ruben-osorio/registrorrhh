@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Viewport metatags -->
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- iOS webapp metatags -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- iOS webapp icons -->
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-retina.png" />
+
+<!-- CSS Reset -->
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<!--  Fluid Grid System -->
+<link rel="stylesheet" type="text/css" href="css/fluid.css" media="screen" />
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.theme.css" media="screen" />
+<!--  Main Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.css" media="screen" />
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<!-- jQuery JavaScript File -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<!-- jQuery-UI JavaScript Files -->
+<script type="text/javascript" src="jui/js/jquery-ui-1.8.20.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.timepicker.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen" />
+
+<!-- Plugin Files -->
+
+<!-- FileInput Plugin -->
+<script type="text/javascript" src="js/jquery.fileinput.js"></script>
+<!-- Placeholder Plugin -->
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<!-- Mousewheel Plugin -->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar Plugin -->
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<!-- Tooltips Plugin -->
+<script type="text/javascript" src="plugins/tipsy/jquery.tipsy-min.js"></script>
+<link rel="stylesheet" href="plugins/tipsy/tipsy.css" />
+<!-- DataTables Plugin -->
+<script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+<!-- Validation Plugin -->
+<script type="text/javascript" src="plugins/validate/jquery.validate.min.js"></script>
+
+<!-- Chosen Plugin -->
+<script type="text/javascript" src="plugins/chosen/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="plugins/chosen/chosen.css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+</style>
+
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="js/demo/demo.validation.js"></script>
+
+<!-- Core JavaScript Files -->
+<script type="text/javascript" src="js/core/dandelion.core.js"></script>
+
+<!-- Customizer JavaScript File (remove if not needed) -->
+<script type="text/javascript" src="js/core/dandelion.customizer.js"></script>
+
+<title>DATOS VARIOS</title>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-81A87B40
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/None/ccs-yui-calendar.css" />
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//lang_funcButton_Cancel_OnClick @6-5FD7FCA4
+function lang_funcButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End lang_funcButton_Cancel_OnClick
+
+//ot_conButton_Cancel_OnClick @38-5D729118
+function ot_conButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End ot_conButton_Cancel_OnClick
+
+//doc_uniButton_Cancel_OnClick @64-A613E92D
+function doc_uniButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End doc_uniButton_Cancel_OnClick
+
+//Handle doc_unidate_startInlineDatePicker1 @71-6380DDCA
+function doc_unidate_startInlineDatePicker1_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_startInlineDatePicker1
+
+//Handle doc_unidate_endInlineDatePicker2 @73-BEF6FFF2
+function doc_unidate_endInlineDatePicker2_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_endInlineDatePicker2
+
+//Handle doc_unidate_start1InlineDatePicker3 @78-A6FBE49D
+function doc_unidate_start1InlineDatePicker3_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_start1InlineDatePicker3
+
+//Handle doc_unidate_end1InlineDatePicker4 @80-90FE5A88
+function doc_unidate_end1InlineDatePicker4_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_end1InlineDatePicker4
+
+//Handle doc_unidate_start2InlineDatePicker5 @85-60390CAE
+function doc_unidate_start2InlineDatePicker5_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_start2InlineDatePicker5
+
+//Handle doc_unidate_end2InlineDatePicker6 @87-00827884
+function doc_unidate_end2InlineDatePicker6_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_end2InlineDatePicker6
+
+//Handle doc_unidate_start3InlineDatePicker7 @92-94A85680
+function doc_unidate_start3InlineDatePicker7_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_start3InlineDatePicker7
+
+//Handle doc_unidate_end3InlineDatePicker8 @94-0FD07CEB
+function doc_unidate_end3InlineDatePicker8_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_end3InlineDatePicker8
+
+//Handle doc_unidate_start4InlineDatePicker9 @99-36CDDA89
+function doc_unidate_start4InlineDatePicker9_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_start4InlineDatePicker9
+
+//Handle doc_unidate_end4InlineDatePicker10 @101-F04EF25F
+function doc_unidate_end4InlineDatePicker10_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle doc_unidate_end4InlineDatePicker10
+
+//bind_events @1-1172EC15
+function bind_events() {
+    addEventHandler("doc_unidate_start", "load", doc_unidate_startInlineDatePicker1_start);
+    addEventHandler("doc_unidate_end", "load", doc_unidate_endInlineDatePicker2_start);
+    addEventHandler("doc_unidate_start1", "load", doc_unidate_start1InlineDatePicker3_start);
+    addEventHandler("doc_unidate_end1", "load", doc_unidate_end1InlineDatePicker4_start);
+    addEventHandler("doc_unidate_start2", "load", doc_unidate_start2InlineDatePicker5_start);
+    addEventHandler("doc_unidate_end2", "load", doc_unidate_end2InlineDatePicker6_start);
+    addEventHandler("doc_unidate_start3", "load", doc_unidate_start3InlineDatePicker7_start);
+    addEventHandler("doc_unidate_end3", "load", doc_unidate_end3InlineDatePicker8_start);
+    addEventHandler("doc_unidate_start4", "load", doc_unidate_start4InlineDatePicker9_start);
+    addEventHandler("doc_unidate_end4", "load", doc_unidate_end4InlineDatePicker10_start);
+    addEventHandler("lang_funcButton_Cancel", "click", lang_funcButton_Cancel_OnClick);
+    addEventHandler("ot_conButton_Cancel", "click", ot_conButton_Cancel_OnClick);
+    addEventHandler("doc_uniButton_Cancel", "click", doc_uniButton_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+
+<body>
+
+	
+    
+	<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
+	<div id="da-wrapper" class="fluid">
+    
+        <!-- Header -->
+        <div id="da-header">
+        
+        	<div id="da-header-top">
+                
+                <!-- Container -->
+                <div class="da-container clearfix">
+                    
+                    <!-- Logo Container. All images put here will be vertically centere -->
+                    <div id="da-logo-wrap">
+                        <div id="da-logo">
+                            <div id="da-logo-img">
+                                <a href="dashboard.html">
+                                    <img src="images/logo.png" alt="Dandelion Admin" width="280" height="90" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Header Toolbar Menu -->
+                    <!-- Header Toolbar Menu -->
+                    <div id="da-header-toolbar" class="clearfix">
+                        <div id="da-user-profile">
+                            
+                            <div id="da-user-info"><span class="da-user-title">Ministerio de Desarrollo Productivo</span>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                                    
+                </div>
+            </div>
+            
+            <div id="da-header-bottom">
+                <!-- Container -->
+                <div class="da-container clearfix">
+                
+                	
+                	
+                    <!-- Breadcrumbs -->
+                    <div id="da-breadcrumb">
+                        <ul>
+                            <li><a href="dashboard.html"><img src="images/icons/black/16/home.png" alt="Home" />Idiomas, Conocimento, Documentación Universitaria</a><span></span></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <!-- Content -->
+        <div id="da-content">
+            
+            <!-- Container -->
+            <div class="da-container clearfix">
+            
+                <!-- Sidebar -->
+                <div id="da-sidebar-separator"></div>                
+                
+                <!-- Main Content Wrapper -->
+                
+                
+                	<!-- Content Area -->
+                	<div id="da-content-area">
+                	  <div class="grid_4">
+                	    <div class="da-panel">
+                	      <div class="da-panel-content">
+                	        <div class="grid_4">
+                	          <div class="da-panel">
+                	            <div class="da-panel-header"> <span class="da-panel-title"> <img src="images/icons/color/accept.png" alt="" />
+                	              <h2> IDIOMAS, CONOCIMIENTO y DOCENCIA UNIVERSITARIA</h2>
+                                  <div class="da-panel-content">
+                                    <div class="da-message info">
+                                     <h5>IMPORTANTE</h5>
+                                      <ul>
+                                        <li>El presente Formulario constituye una <strong>Declaraci&oacute;n Jurada </strong>de la veracidad de la informaci&oacute;n y datos contenidos en el mismo.</li>
+                                        <li> De comprobarse la falsedad de alg&uacute;n dato o informaci&oacute;n declarado, el Declarante ser&aacute;
+                                          sujeto de sanciones seg&uacute;n lo determinado por la normativa vigente. </li>
+                                        <li>El contenido de la presente declaraci&oacute;n es de exclusiva y &uacute;nica responsabilidad
+                                          del declarante.</li>
+                                      </ul>
+                                    </div>
+                                   
+                                </div>
+              	              </span> </div><br />
+
+                	            <div class="da-panel-content">
+                	            
+                	              <!--ROA t1 -->
+                	              <div class="grid_4">
+                        	
+              	                </div>        
+                                
+                                
+                	              <!--ROA t1 -->
+                	          
+                	              <br />
+                                  
+                                  
+                                  
+                                  
+                                  <!--formulario 2 -->
+                     <!-- BEGIN Record lang_func -->
+                                   
+                           <div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        IDIOMAS</span>
+                                    
+                                </div>
+                                <div class="da-panel-content">
+                                	<form id="lang_func" method="post"   class="da-form" name="{HTMLFormName}" action="{Action}">
+                                 
+                                    	<div class="da-form-block">
+                                        <input id="lang_funcid_func"  type="hidden" value="{id_func}" name="{id_func_Name}">
+                                        <!-- BEGIN Error -->
+                                        <div class="da-message warning">
+                                        {Error}
+                                       </div>
+                                        <!-- END Error -->
+                                       
+
+
+         
+          <div class="da-form-row">
+          
+          
+           <div class="da-form-col-2-8">
+            					
+                               <label>DESCRIPCIÓN: <span class="required">*</span></label>
+                               <div class="da-form-item"> 
+                                    <input id="lang_funcdescp"  type="text" value="{descp}" name="{descp_Name}">      
+                               </div>                           
+
+                              </div>
+                          
+                           
+                           <div class="da-form-col-2-8">
+            					<label>LEE: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                                     
+                                    <select id="lang_funcread_l" name="{read_l_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {read_l_Options} 
+        </select>
+                                        
+                                     <label for="funcionarioexpe" generated="true" class="error" style="display:none;"></label>
+                                   </div>
+                            </div>
+                           
+                           
+              <div class="da-form-col-2-8">
+                                <label>HABLA: <span class="required">*</span></label>
+                               <div class="da-form-item"> 
+                   <select id="lang_funcspeak_l" name="{speak_l_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {speak_l_Options} 
+        </select>                                
+                               </div>
+              </div>             
+               <div class="da-form-col-2-8">
+            					
+                                <label>ESCRIBE:<span class="required">*</span></label>
+                               <div class="da-form-item">                               
+
+                                    <select id="lang_funcwrite_l" name="{write_l_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {write_l_Options} 
+        </select>
+                                    
+                                    
+                               </div>
+                            </div>
+          
+          
+          <div class="da-form-col-2-8">
+            					
+                               <div class="da-form-item"> 
+  
+                  <input id="lang_funcdescp1" type="text" value="{descp1}" name="{descp1_Name}">
+                                              
+                               </div>                           
+
+                              </div>
+                          
+                           
+                           <div class="da-form-col-2-8">
+            			
+                                   <div class="da-form-item">                               
+                                     
+                                     <select id="lang_funcread_l1" name="{read_l1_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {read_l1_Options} 
+        </select>
+                                        
+                                     
+                                   </div>
+                            </div>
+                           
+                           
+              <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                   <select id="lang_funcspeak_l1" name="{speak_l1_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {speak_l1_Options} 
+        </select>                         
+                               </div>
+              </div>             
+               <div class="da-form-col-2-8">
+            					
+                               <div class="da-form-item">                               
+
+                                   <select id="lang_funcwrite_l1" name="{write_l1_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {write_l1_Options} 
+        </select>
+                                    
+                               </div>
+                            </div>
+          
+          
+          
+          
+                            <div class="da-form-col-2-8">
+            					
+                               <div class="da-form-item"> 
+    
+                   <input id="lang_funcdescp2" type="text"  value="{descp2}" name="{descp2_Name}">                           
+                               </div>                           
+
+                              </div>
+                          
+                           
+                           <div class="da-form-col-2-8">
+            			
+                                   <div class="da-form-item">                               
+                                     
+                                   <select id="lang_funcread_l2" name="{read_l2_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {read_l2_Options} 
+        </select>
+                                        
+                                     <label for="funcionarioexpe" generated="true" class="error" style="display:none;"></label>
+                                   </div>
+                            </div>
+                           
+                           
+              <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                  <select id="lang_funcspeak_l2" name="{speak_l2_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {speak_l2_Options} 
+        </select>                           
+                               </div>
+              </div>             
+               <div class="da-form-col-2-8">
+            					
+                               <div class="da-form-item">                               
+
+                                   <select id="lang_funcwrite_l2" name="{write_l2_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {write_l2_Options} 
+        </select>
+                               </div>
+                            </div>
+                           
+          <div class="da-form-col-2-8">
+            					
+                               <div class="da-form-item"> 
+           
+                  <input id="lang_funcdescp3" type="text" value="{descp3}" name="{descp3_Name}">
+                                              
+                               </div>                           
+
+                              </div>
+                          
+                           
+                           <div class="da-form-col-2-8">
+            			
+                                   <div class="da-form-item">                               
+                                     
+                            <select id="lang_funcread_l3" name="{read_l3_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {read_l3_Options} 
+        </select>
+                                        
+                                     <label for="funcionarioexpe" generated="true" class="error" style="display:none;"></label>
+                                   </div>
+                            </div>
+                           
+                           
+              <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                   <select id="lang_funcspeak_l3" name="{speak_l3_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {speak_l3_Options} 
+        </select>                         
+                               </div>
+              </div>             
+               <div class="da-form-col-2-8">
+            					
+                               <div class="da-form-item">                               
+
+            <select id="lang_funcwrite_l3" name="{write_l3_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {write_l3_Options} 
+        </select>  
+                                    
+                               </div>
+                            </div>                              
+		 </div>
+         
+         
+         
+       
+                               		   </div>
+                                        
+                                        <div class="da-button-row">
+                         <!-- BEGIN Button Button_Insert --><input type="submit" id="lang_funcButton_Insert"  alt="Agregar" value="Guardar Idiomas" name="{Button_Name}" class="da-tooltip-sw da-button blue" title="Guarde la sección de Idiomas"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="lang_funcButton_Update"  alt="Enviar" value="Guardar Idiomas" name="{Button_Name}" class="da-tooltip-sw da-button blue" title="Guarde la sección de Idiomas"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="lang_funcButton_Cancel"  alt="Cancelar" value="Cancelar" name="{Button_Name}" class="da-button blue"><!-- END Button Button_Cancel -->               	
+                                            
+                    
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                        	<!-- END Record lang_func -->
+                                  <!-- formulario 2-->
+                	             
+              	
+<!--INICIO FORMULARIO --> 
+ <div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        OTROS CONOCIMIENTOS</span>
+                                    
+                                </div>
+    <div class="da-panel-content">
+    <!-- BEGIN Record ot_con -->
+      <form id="lang_func" method="post"   class="da-form" name="{HTMLFormName}" action="{Action}">
+                                 
+        <div class="da-form-block">
+                <input id="ot_conid_func"  type="hidden" value="{id_func}" name="{id_func_Name}">
+				<!-- BEGIN Error -->
+				<div class="da-message warning">
+				{Error}
+			   </div>
+				<!-- END Error -->
+
+			  <div class="da-form-row">
+
+			   <div class="da-form-col-2-8">
+									
+								   <label>DESCRIPCIÓN: <span class="required">*</span></label>
+								   <div class="da-form-item"> 
+                                        <input id="ot_condesc_o" type="text" value="{desc_o}" name="{desc_o_Name}">      
+								   </div>  
+                 
+                                   <div class="da-form-item"> 
+                                        <input id="ot_condesc_o1"  type="text"  value="{desc_o1}" name="{desc_o1_Name}">      
+								   </div>   
+                                   <div class="da-form-item"> 
+                                        <input id="ot_condesc_o2" type="text" value="{desc_o2}" name="{desc_o2_Name}">      
+								   </div>   
+                                   <div class="da-form-item"> 
+                                        <input id="ot_condesc_o3" type="text" value="{desc_o3}" name="{desc_o3_Name}">      
+								   </div>    
+                                    <div class="da-form-item"> 
+                                        <input id="ot_condesc_o4"  type="text" value="{desc_o4}" name="{desc_o4_Name}">      
+								   </div>                    
+
+			   </div>
+               
+               <div class="da-form-col-2-8">
+            					<label>NIVEL DE CALIFICACIÓN: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                             
+         <select id="ot_conlevel" name="{level_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {level_Options} 
+        </select>
+                                   </div>
+                                   
+                                 <div class="da-form-item">                               
+                                     
+                                    <select id="ot_conlevel1" name="{level1_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {level1_Options} 
+        </select>
+                                   </div>
+                                    <div class="da-form-item">                               
+                                     
+                                   <select id="ot_conlevel2" name="{level2_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {level2_Options} 
+        </select>
+                                   </div>
+                                    <div class="da-form-item">                               
+                                     
+                                  <select id="ot_conlevel3" name="{level3_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {level3_Options} 
+        </select>
+                                   </div>  
+                                   <div class="da-form-item">                               
+                                <select id="ot_conlevel4" name="{level4_Name}">
+          <option selected value="">Seleccionar Valor</option>
+ {level4_Options} 
+        </select>
+                                   </div> 
+                            </div>
+															   
+			 </div>
+
+        </div>
+                                        
+                                        <div class="da-button-row">
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="lang_funcButton_Insert"  alt="Agregar" value="Guardar Otros Conocimientos" name="{Button_Name}" class="da-tooltip-sw da-button blue" title="Guarde la sección de Otros Conocimientos"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="lang_funcButton_Update"  alt="Enviar" value="Guardar Otros Conocimientos" name="{Button_Name}" class="da-tooltip-sw da-button blue" title="Guarde la sección de Otros Conocimientos"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="lang_funcButton_Cancel"  alt="Cancelar" value="Cancelar" name="{Button_Name}" class="da-button blue"><!-- END Button Button_Cancel -->               	
+
+                                        </div>
+                                    </form>
+                                    <!-- END Record ot_con -->
+                                </div>
+ </div>
+ <!--FIN FORMULARIO -->                
+                
+                
+<!--INICIO FORMULARIO --> 
+ <div class="da-panel">
+        <div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                       <a name="roa0" id="roa0"></a> DOCENCIA UNIVERSITARIA</span>                 
+        </div>
+    <div class="da-panel-content">
+    <!-- BEGIN Record doc_uni -->
+       <form id="doc_uni" method="post"  class="da-form" name="{HTMLFormName}" action="{Action}">                          
+        <div class="da-form-block">
+                <input id="doc_uniid_func" type="hidden" value="{id_func}" name="{id_func_Name}">
+				<!-- BEGIN Error -->
+				<div class="da-message warning">
+				{Error}
+			   </div>
+				<!-- END Error -->
+
+			  
+               <!--CUERPO -->
+ <div class="da-form-row">
+          
+          
+           <div class="da-form-col-2-8">
+            					
+                               <label>UNIVERSIDAD: <span class="required">*</span></label>
+                               <div class="da-form-item"> 
+                                    <input id="doc_uniuniv" type="text" value="{univ}" name="{univ_Name}">     
+                               </div>                           
+
+           </div>
+                          
+                           
+          <div class="da-form-col-2-8">
+            					<label>ASIGNATURA: <span class="required">*</span></label>
+                                   <div class="da-form-item">                               
+                                     
+                                     <input id="doc_uniasign" type="text" value="{asign}" name="{asign_Name}">   
+                                     
+                                   </div>
+          </div>
+                           
+                           
+        <div class="da-form-col-2-8">
+                                <label>CARRERA: <span class="required">*</span></label>
+                               <div class="da-form-item"> 
+                   <input id="doc_unicareer" type="text" value="{career}" name="{career_Name}">                                
+                               </div>
+       </div>             
+        
+		<div class="da-form-col-1-8">
+            					
+                               <label>DESDE FECHA: <span class="required">*</span></label>
+                               <div class="da-form-item">   
+                                    <input id="doc_unidate_start"type="text" maxlength="100" size="8" value="{date_start}" name="{date_start_Name}">   
+                               </div>                           
+
+           </div>	
+         
+			<div class="da-form-col-1-8">
+            					
+                               <label>HASTA FECHA: <span class="required">*</span></label>
+                               <div class="da-form-item"> 
+                                    <input id="doc_unidate_end" type="text" value="{date_end}" name="{date_end_Name}">     
+                               </div>                           
+
+           </div>		 
+        
+
+      <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                                    <input id="doc_uniuniv1" type="text" value="{univ1}" name="{univ1_Name}">     
+                               </div>                           
+           </div>               
+          <div class="da-form-col-2-8">
+                                   <div class="da-form-item">                               
+                                     
+                                   <input id="doc_uniasign1" type="text" value="{asign1}" name="{asign1_Name}">
+                                   </div>
+          </div>            
+        <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                                  <input id="doc_unicareer1" type="text" value="{career1}" name="{career1_Name}">             
+                               </div>
+       </div>             
+		<div class="da-form-col-1-8">
+            					
+                               <div class="da-form-item"> 
+                                    <input id="doc_unidate_start1"  type="text" value="{date_start1}" name="{date_start1_Name}">      
+                               </div>                           
+
+           </div>	
+			<div class="da-form-col-1-8">
+            					
+                               <div class="da-form-item">  
+                                    <input id="doc_unidate_end1" type="text" value="{date_end1}" name="{date_end1_Name}">     
+                               </div>                           
+           </div>		
+           
+           
+                 <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                                    <input id="doc_uniuniv2"  type="text" value="{univ2}" name="{univ2_Name}">     
+                               </div>                           
+           </div>               
+          <div class="da-form-col-2-8">
+                                   <div class="da-form-item">                               
+                                     
+                                   <input id="doc_uniasign2" type="text" value="{asign2}" name="{asign2_Name}">
+                                   </div>
+          </div>            
+        <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                   <input id="doc_unicareer2" maxlength="100" type="text"size="50" value="{career2}" name="{career2_Name}">                                
+                               </div>
+       </div>             
+		<div class="da-form-col-1-8">
+            					
+                               <div class="da-form-item"> 
+                                    <input id="doc_unidate_start2" type="text" size="8" value="{date_start2}" name="{date_start2_Name}">    
+                               </div>                           
+
+           </div>	
+			<div class="da-form-col-1-8">
+            					
+                               <div class="da-form-item"> 
+                                    <input id="doc_unidate_end2" type="text" size="8" value="{date_end2}" name="{date_end2_Name}">      
+                               </div>                           
+           </div>		
+           
+           
+                 <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                                    <input id="doc_uniuniv3" type="text" maxlength="200" size="50" value="{univ3}" name="{univ3_Name}">     
+                               </div>                           
+           </div>               
+          <div class="da-form-col-2-8">
+                                   <div class="da-form-item">                               
+                                     
+                                   <input id="doc_uniasign3" type="text" maxlength="100" size="50" value="{asign3}" name="{asign3_Name}">
+                                   </div>
+          </div>            
+        <div class="da-form-col-2-8">
+                               <div class="da-form-item">                               <input id="doc_unicareer3" type="text" maxlength="100" size="50" value="{career3}" name="{career3_Name}">
+                               </div>
+       </div>             
+		<div class="da-form-col-1-8">
+            					
+                               <div class="da-form-item">   
+                                    <input id="doc_unidate_start3" type="text" value="{date_start3}" name="{date_start3_Name}">   
+                               </div>                           
+
+           </div>	
+			<div class="da-form-col-1-8">
+            					
+                               <div class="da-form-item"> 
+                                    <input id="doc_unidate_end3"  type="text" value="{date_end3}" name="{date_end3_Name}">     
+                               </div>                           
+           </div>		
+           
+           
+                 <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                                    <input id="doc_uniuniv4"  type="text"  maxlength="200" size="50" value="{univ4}" name="{univ4_Name}">     
+                               </div>                           
+           </div>               
+          <div class="da-form-col-2-8">
+                                   <div class="da-form-item">                               
+                                      <input id="doc_uniasign4"  type="text"  maxlength="100" size="50" value="{asign4}" name="{asign4_Name}">
+                                   </div>
+          </div>            
+        <div class="da-form-col-2-8">
+                               <div class="da-form-item"> 
+                   <input id="doc_unicareer4" type="text" value="{career4}" name="{career4_Name}">                                
+                               </div>
+       </div>             
+		<div class="da-form-col-1-8">
+            					
+                               <div class="da-form-item">    
+                                    <input id="doc_unidate_start4" type="text" value="{date_start4}" name="{date_start4_Name}">   
+                               </div>                           
+
+           </div>	
+			<div class="da-form-col-1-8">
+            					
+                               <div class="da-form-item"> 
+                                    <input id="doc_unidate_end4"   type="text" " value="{date_end4}" name="{date_end4_Name}">   
+                               </div>                           
+           </div>		 
+
+</div>
+				<!--CUERPO -->
+        </div>
+                                        
+			<div class="da-button-row">
+
+
+
+<!-- BEGIN Button Button_Insert --><input type="submit" id="doc_uniButton_Insert"  class="da-tooltip-sw da-button blue" alt="Agregar" value="Guardar Docencia Universitaria" name="{Button_Name}"  title="Guarde la sección de Docencia Universitaria"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="doc_uniButton_Update"  class="da-tooltip-sw da-button blue" alt="Enviar" value="Guardar Docencia Universitaria" name="{Button_Name}"  title="Guarde la sección de Docencia Universitaria"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel -->
+	<input type="submit" id="doc_uniButton_Cancel"  class="da-button blue" alt="Cancelar" value="Cancelar" name="doc_uniButton_Cancel" />
+	<!-- END Button Button_Cancel -->
+                 	
+
+			</div>
+		</form>
+		
+	</div>
+ </div>
+ <!--FIN FORMULARIO -->                                      
+                              
+              	            </div>
+              	          </div>
+                	      
+                	    </div>
+                	  </div>
+                	  <div class="clear"></div>
+                    </div>
+                </div>
+            </div>    
+                
+                
+
+        </div>
+        
+        <!-- Footer -->
+        <div id="da-footer">
+        	<div class="da-container clearfix">
+            	<p></div>
+                <img src="images/logo_mini.jpg" alt="Ministerio de Educación " />
+        </div>
+    </div>
+	
+    
+</body>
+</html>
