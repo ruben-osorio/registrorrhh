@@ -1,0 +1,104 @@
+                <html xmlns:o="urn:schemas-microsoft-com:office:office"
+                xmlns:x="urn:schemas-microsoft-com:office:excel"
+                xmlns="http://www.w3.org/TR/REC-html40">
+
+                <head>
+                <meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+                <meta name=ProgId content=Excel.Sheet>
+                <!--[if gte mso 9]><xml>
+                 <o:DocumentProperties>
+                  <o:LastAuthor>Sriram</o:LastAuthor>
+                  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+                  <o:Version>10.2625</o:Version>
+                 </o:DocumentProperties>
+                 <o:OfficeDocumentSettings>
+                  <o:DownloadComponents/>
+                 </o:OfficeDocumentSettings>
+                </xml><![endif]-->
+                <style>
+                <!--table
+                    {mso-displayed-decimal-separator:"\.";
+                    mso-displayed-thousand-separator:"\,";}
+                @page
+                    {margin:1.0in .75in 1.0in .75in;
+                    mso-header-margin:.5in;
+                    mso-footer-margin:.5in;}
+                tr
+                    {mso-height-source:auto;}
+                col
+                    {mso-width-source:auto;}
+                br
+                    {mso-data-placement:same-cell;}
+                .style0
+                    {mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    white-space:nowrap;
+                    mso-rotate:0;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    border:none;
+                    mso-protection:locked visible;
+                    mso-style-name:Normal;
+                    mso-style-id:0;}
+                td
+                    {mso-style-parent:style0;
+                    padding-top:1px;
+                    padding-right:1px;
+                    padding-left:1px;
+                    mso-ignore:padding;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    border:none;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    mso-protection:locked visible;
+                    white-space:nowrap;
+                    mso-rotate:0;}
+                .xl24
+                    {mso-style-parent:style0;
+                    white-space:normal;}
+                -->
+                </style>
+                <!--[if gte mso 9]><xml>
+                 <x:ExcelWorkbook>
+                  <x:ExcelWorksheets>
+                   <x:ExcelWorksheet>
+                    <x:Name>srirmam</x:Name>
+                    <x:WorksheetOptions>
+                     <x:Selected/>
+                     <x:ProtectContents>False</x:ProtectContents>
+                     <x:ProtectObjects>False</x:ProtectObjects>
+                     <x:ProtectScenarios>False</x:ProtectScenarios>
+                    </x:WorksheetOptions>
+                   </x:ExcelWorksheet>
+                  </x:ExcelWorksheets>
+                  <x:WindowHeight>10005</x:WindowHeight>
+                  <x:WindowWidth>10005</x:WindowWidth>
+                  <x:WindowTopX>120</x:WindowTopX>
+                  <x:WindowTopY>135</x:WindowTopY>
+                  <x:ProtectStructure>False</x:ProtectStructure>
+                  <x:ProtectWindows>False</x:ProtectWindows>
+                 </x:ExcelWorkbook>
+                </xml><![endif]-->
+                </head>
+
+                <body link=blue vlink=purple>
+                <table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >AP. PATERNO</td><td class=xl24 width=64 >AP. MATERNO</td><td class=xl24 width=64 >NOMBRE(S)</td><td class=xl24 width=64 >FECHA INGRESO</td><td class=xl24 width=64 >CARGO</td></tr><tr><td class=xl24 width=64 ></td><td class=xl24 width=64 >CARTAGENA</td><td class=xl24 width=64 >ANGEL EDIN</td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN POLITICAS DE DESARROLLO DEL PLURILINGUISMO</td></tr><tr><td class=xl24 width=64 >ALBA</td><td class=xl24 width=64 >TARIFA</td><td class=xl24 width=64 >EDWARD RAMIRO</td><td class=xl24 width=64 >2012-04-17</td><td class=xl24 width=64 >PROFESIONAL V EN INVESTIGACION EDUCATIVA CUANTITATIVA</td></tr><tr><td class=xl24 width=64 >ALVAREZ</td><td class=xl24 width=64 >LANDAETA</td><td class=xl24 width=64 >FERNANDA MARIEL</td><td class=xl24 width=64 >2012-05-23</td><td class=xl24 width=64 >ADMINISTRATIVO II APOYO A LA GENERACION DE INDICADORES EDUCATIVOS PARA LA PRIMERA INFANCIA</td></tr><tr><td class=xl24 width=64 >AYAVIRI</td><td class=xl24 width=64 >ALVAREZ</td><td class=xl24 width=64 >CRISTOBAL</td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN EDUCACION DE GESTION DEL RIESGO EN ARMONIA Y EQUILIBRIO CON LA MADRE TIERRA Y EL COSMOS</td></tr><tr><td class=xl24 width=64 >CACERES</td><td class=xl24 width=64 >ORTIZ</td><td class=xl24 width=64 >XIMENA </td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN DESARROLLO DE IDENTIDADES CULTURALES DE PUEBLOS INDIGENAS Y AFROBOLIVIANOS</td></tr><tr><td class=xl24 width=64 >CALLAPA</td><td class=xl24 width=64 >QUIROZ</td><td class=xl24 width=64 >IVAN ABELARDO</td><td class=xl24 width=64 >2012-04-11</td><td class=xl24 width=64 >PROFESIONAL V EN DESARROLLO DE APLICACIONES WEB</td></tr><tr><td class=xl24 width=64 >CARLO</td><td class=xl24 width=64 >MORALES</td><td class=xl24 width=64 >NOEMY CATALINA</td><td class=xl24 width=64 >2012-07-19</td><td class=xl24 width=64 >PROFESIONAL V PROGRAMA PARA PADRES</td></tr><tr><td class=xl24 width=64 >CAYAMPI</td><td class=xl24 width=64 >ARRAYADAN</td><td class=xl24 width=64 >ANA MARIA</td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN POLITICAS PUBLICAS DE INTRACULTURALIDAD, INTERCULTURALIDAD Y PLURILINGUISMO</td></tr><tr><td class=xl24 width=64 >CONDORI </td><td class=xl24 width=64 >SUXO</td><td class=xl24 width=64 >JEMUEL PAZ</td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN POLITICAS TICS PARA DESARROLLAR LENGUAS Y CULTURAS INDIGENAS</td></tr><tr><td class=xl24 width=64 >CRESPO</td><td class=xl24 width=64 >VILLALBA</td><td class=xl24 width=64 >JHANNETH ROXANA </td><td class=xl24 width=64 >2012-07-19</td><td class=xl24 width=64 >PROFESIONAL V EDUCACION INICIAL EN FAMILIA COMUNITARIA EN ZONAS DE FRONTERAS Y POBLACIONES VULNERABLES</td></tr><tr><td class=xl24 width=64 >FLORES</td><td class=xl24 width=64 >RIVERO</td><td class=xl24 width=64 >LUIS FERNANDO</td><td class=xl24 width=64 >2012-04-11</td><td class=xl24 width=64 >PROFESIONAL V EN ESTADISTICA EDUCATIVA</td></tr><tr><td class=xl24 width=64 >FLORES</td><td class=xl24 width=64 >VASQUEZ</td><td class=xl24 width=64 >JESUS REYNALDO</td><td class=xl24 width=64 >2012-04-17</td><td class=xl24 width=64 >PROFESIONAL V EN INVESTIGACION EDUCATIVA CUALITATIVA</td></tr><tr><td class=xl24 width=64 >FLOREZ</td><td class=xl24 width=64 >BAHOZ</td><td class=xl24 width=64 >CATALINA XIMENA</td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN BASE DE DATOS Y NORMATIVA RUDEPI</td></tr><tr><td class=xl24 width=64 >GOMEZ</td><td class=xl24 width=64 >LIZARRO</td><td class=xl24 width=64 >ALEJANDRO ANTONIO</td><td class=xl24 width=64 >2012-04-17</td><td class=xl24 width=64 >PROFESIONAL V EN PLANIFICACION Y GESTION DE LA INVESTIGACION EDUCATIVA</td></tr><tr><td class=xl24 width=64 >GUTIERREZ</td><td class=xl24 width=64 >CARRILLO</td><td class=xl24 width=64 >RUBEN PABLO</td><td class=xl24 width=64 >2012-04-17</td><td class=xl24 width=64 >ADMINISTRATIVO II EN APOYO A LA GENERACION DE LINEAS DE INVESTIGACION EDUCATIVA</td></tr><tr><td class=xl24 width=64 >GUTIERREZ</td><td class=xl24 width=64 >CHAVEZ</td><td class=xl24 width=64 >OLIVIA </td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN GESTION Y ADMINISTRACION EN HUERTOS ESCOLARES PEDAGOGICOS </td></tr><tr><td class=xl24 width=64 >HUANCA</td><td class=xl24 width=64 >CALLISAYA</td><td class=xl24 width=64 >GLORIA </td><td class=xl24 width=64 >2012-06-14</td><td class=xl24 width=64 >PROFESIONAL V EN FORMACION INICIAL DE MAESTRAS-OS (EDUCACION INICIAL COMUNITARIA)</td></tr><tr><td class=xl24 width=64 >JALDIN </td><td class=xl24 width=64 >MONTAÑO</td><td class=xl24 width=64 >CONSTANTINA</td><td class=xl24 width=64 >2012-05-17</td><td class=xl24 width=64 >PROFESIONAL V EN GESTION INSTITUCIONAL (EDUCACION INICIAL EN FAMILIA COMUNITARIA)</td></tr><tr><td class=xl24 width=64 >JIMENEZ </td><td class=xl24 width=64 >MURILLO</td><td class=xl24 width=64 >VICTOR CARLOS</td><td class=xl24 width=64 >2012-05-09</td><td class=xl24 width=64 >PROFESIONAL V EN DESARROLLO Y MANTENIMIENTO DE APLICACIONES DE ESCRITORIO</td></tr><tr><td class=xl24 width=64 >LOPEZ</td><td class=xl24 width=64 >GUERRA</td><td class=xl24 width=64 >ROBERTO CARLOS</td><td class=xl24 width=64 >2012-05-09</td><td class=xl24 width=64 >PROFESIONAL V PARA ANALISIS Y DISEÑO DE APLICACIONES INFORMATICAS PARA PRIMERA INFANCIA</td></tr><tr><td class=xl24 width=64 >MANTILLA</td><td class=xl24 width=64 >GUTIERREZ</td><td class=xl24 width=64 >JULIO ROSENDO</td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN EDUCACION DE CAMBIO CLIMATICO EN ARMONIA Y EQUILIBRIO CON LA MADRE TIERRA Y EL COSMOS </td></tr><tr><td class=xl24 width=64 >MAYTA</td><td class=xl24 width=64 >CHURA</td><td class=xl24 width=64 >WILLIAM</td><td class=xl24 width=64 >2012-08-17</td><td class=xl24 width=64 >PROFESIONAL EN BASE DE DATOS DE EDUCACION BASICA</td></tr><tr><td class=xl24 width=64 >OCSA </td><td class=xl24 width=64 >LAIME</td><td class=xl24 width=64 >JORGE VICTOR WALTER</td><td class=xl24 width=64 >2012-04-17</td><td class=xl24 width=64 >ADMINISTRATIVO II EN APOYO A LAS POLITICAS DE GESTION E INVESTIGACION EDUCATIVA</td></tr><tr><td class=xl24 width=64 >PAREDES</td><td class=xl24 width=64 >ALARCON</td><td class=xl24 width=64 >MARISOL</td><td class=xl24 width=64 >2012-04-12</td><td class=xl24 width=64 >PROFESIONAL V EN GENERACION DE ESTADISTICAS</td></tr><tr><td class=xl24 width=64 >ROJAS</td><td class=xl24 width=64 >SANZETENEA</td><td class=xl24 width=64 >SHEILA PAOLA</td><td class=xl24 width=64 >2012-08-17</td><td class=xl24 width=64 >PROFESIONAL V EN ANALISIS EDUCATIVO</td></tr><tr><td class=xl24 width=64 >TAPIA</td><td class=xl24 width=64 >SUXO</td><td class=xl24 width=64 >RAMIRO </td><td class=xl24 width=64 >2012-04-11</td><td class=xl24 width=64 >PROFESIONAL V EN ANALISIS EDUCATIVO II</td></tr><tr><td class=xl24 width=64 >VASQUEZ</td><td class=xl24 width=64 >REY</td><td class=xl24 width=64 >MENRRY</td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >PROFESIONAL V EN DERECHOS DE PUEBLOS INDIGENAS, AFROBOLIVIANOS Y PLURILINGUISMO</td></tr><tr><td class=xl24 width=64 >YUJRA</td><td class=xl24 width=64 >ARISACA </td><td class=xl24 width=64 >LAUREANA</td><td class=xl24 width=64 >2012-04-04</td><td class=xl24 width=64 >TECNICO IV EDUCACION DE MEDIO AMBIENTE EN ARMONIA Y EQUILIBRIO CON LA MADRE TIERRA Y EL COSMOS</td></tr></table></body></html>

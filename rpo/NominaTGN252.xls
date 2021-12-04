@@ -1,0 +1,104 @@
+                <html xmlns:o="urn:schemas-microsoft-com:office:office"
+                xmlns:x="urn:schemas-microsoft-com:office:excel"
+                xmlns="http://www.w3.org/TR/REC-html40">
+
+                <head>
+                <meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+                <meta name=ProgId content=Excel.Sheet>
+                <!--[if gte mso 9]><xml>
+                 <o:DocumentProperties>
+                  <o:LastAuthor>Sriram</o:LastAuthor>
+                  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+                  <o:Version>10.2625</o:Version>
+                 </o:DocumentProperties>
+                 <o:OfficeDocumentSettings>
+                  <o:DownloadComponents/>
+                 </o:OfficeDocumentSettings>
+                </xml><![endif]-->
+                <style>
+                <!--table
+                    {mso-displayed-decimal-separator:"\.";
+                    mso-displayed-thousand-separator:"\,";}
+                @page
+                    {margin:1.0in .75in 1.0in .75in;
+                    mso-header-margin:.5in;
+                    mso-footer-margin:.5in;}
+                tr
+                    {mso-height-source:auto;}
+                col
+                    {mso-width-source:auto;}
+                br
+                    {mso-data-placement:same-cell;}
+                .style0
+                    {mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    white-space:nowrap;
+                    mso-rotate:0;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    border:none;
+                    mso-protection:locked visible;
+                    mso-style-name:Normal;
+                    mso-style-id:0;}
+                td
+                    {mso-style-parent:style0;
+                    padding-top:1px;
+                    padding-right:1px;
+                    padding-left:1px;
+                    mso-ignore:padding;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    border:none;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    mso-protection:locked visible;
+                    white-space:nowrap;
+                    mso-rotate:0;}
+                .xl24
+                    {mso-style-parent:style0;
+                    white-space:normal;}
+                -->
+                </style>
+                <!--[if gte mso 9]><xml>
+                 <x:ExcelWorkbook>
+                  <x:ExcelWorksheets>
+                   <x:ExcelWorksheet>
+                    <x:Name>srirmam</x:Name>
+                    <x:WorksheetOptions>
+                     <x:Selected/>
+                     <x:ProtectContents>False</x:ProtectContents>
+                     <x:ProtectObjects>False</x:ProtectObjects>
+                     <x:ProtectScenarios>False</x:ProtectScenarios>
+                    </x:WorksheetOptions>
+                   </x:ExcelWorksheet>
+                  </x:ExcelWorksheets>
+                  <x:WindowHeight>10005</x:WindowHeight>
+                  <x:WindowWidth>10005</x:WindowWidth>
+                  <x:WindowTopX>120</x:WindowTopX>
+                  <x:WindowTopY>135</x:WindowTopY>
+                  <x:ProtectStructure>False</x:ProtectStructure>
+                  <x:ProtectWindows>False</x:ProtectWindows>
+                 </x:ExcelWorkbook>
+                </xml><![endif]-->
+                </head>
+
+                <body link=blue vlink=purple>
+                <table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >AP. PATERNO</td><td class=xl24 width=64 >AP. MATERNO</td><td class=xl24 width=64 >NOMBRE(S)</td><td class=xl24 width=64 >FECHA INGRESO</td><td class=xl24 width=64 >CARGO</td></tr><tr><td class=xl24 width=64 >CALLATA</td><td class=xl24 width=64 >MAMANI</td><td class=xl24 width=64 >ALFREDO </td><td class=xl24 width=64 >2012-11-03</td><td class=xl24 width=64 >AUXILIAR II</td></tr><tr><td class=xl24 width=64 >CASTELLON</td><td class=xl24 width=64 >GORENA</td><td class=xl24 width=64 >ALEJANDRO DANIEL</td><td class=xl24 width=64 >2012-05-14</td><td class=xl24 width=64 >DOCENTE EN TEORIA DE LA MUSICA Y RITMICA - HISTORIA DEL ARTE Y DE LA DANZA ESCUELA DE DANZA DEL BALLET OFICIAL</td></tr><tr><td class=xl24 width=64 >CASTRO</td><td class=xl24 width=64 >OROPEZA</td><td class=xl24 width=64 >JULIA RICARDA</td><td class=xl24 width=64 >2012-05-18</td><td class=xl24 width=64 >AUXILIAR - PORTERO MENSAJERO</td></tr><tr><td class=xl24 width=64 >FERNANDEZ</td><td class=xl24 width=64 >LARUTA</td><td class=xl24 width=64 >MARISOL PAMELA</td><td class=xl24 width=64 >2012-03-01</td><td class=xl24 width=64 >PROFESIONAL V EN GESTION INSTITUCIONAL Y GESTION DE CONFLICTOS</td></tr><tr><td class=xl24 width=64 >GUARDIA</td><td class=xl24 width=64 >TAVERA</td><td class=xl24 width=64 >REYNA PATRICIA MARUSKA</td><td class=xl24 width=64 >2012-04-26</td><td class=xl24 width=64 >ADMINISTRATIVO II EN COMUNICACION</td></tr><tr><td class=xl24 width=64 >HERRERA</td><td class=xl24 width=64 >VELASQUEZ</td><td class=xl24 width=64 >LUCIA VERONICA</td><td class=xl24 width=64 >2012-04-26</td><td class=xl24 width=64 >TECNICO VI EN GESTIONES ADMINISTRATIVAS</td></tr><tr><td class=xl24 width=64 >MARTINEZ</td><td class=xl24 width=64 >JIMENEZ</td><td class=xl24 width=64 >WILSON LUIS</td><td class=xl24 width=64 >2012-05-18</td><td class=xl24 width=64 >PROFESOR DE GUITARRA II</td></tr><tr><td class=xl24 width=64 >MARTINEZ</td><td class=xl24 width=64 >RAMIREZ</td><td class=xl24 width=64 >ROCIO PAMELA </td><td class=xl24 width=64 >2012-05-14</td><td class=xl24 width=64 >DOCENTE EN TECNICA CLASICA - NIVEL ELEMENTAL ESCUELA DE DANZA DE BALLET OFICIAL</td></tr><tr><td class=xl24 width=64 >MENDOZA</td><td class=xl24 width=64 >MORALES</td><td class=xl24 width=64 >ADRIANA </td><td class=xl24 width=64 >2012-08-27</td><td class=xl24 width=64 >AUXILIAR II DE LA UNIDAD DE TITULOS PROFESIONALES</td></tr><tr><td class=xl24 width=64 >PINTO</td><td class=xl24 width=64 >LUJAN</td><td class=xl24 width=64 >MARIA DEL CARMEN</td><td class=xl24 width=64 >2012-05-18</td><td class=xl24 width=64 >TECNICO ADMINISTRATIVO</td></tr><tr><td class=xl24 width=64 >QUISBERT</td><td class=xl24 width=64 >OROSCO</td><td class=xl24 width=64 >FRANKLIN BLADIMIR</td><td class=xl24 width=64 >2012-01-05</td><td class=xl24 width=64 >ADMINISTRATIVO II EN DESARROLLO DE CONTENIDOS WEB</td></tr><tr><td class=xl24 width=64 >RODRIGUEZ</td><td class=xl24 width=64 >BARROS</td><td class=xl24 width=64 >PAMELA PILAR</td><td class=xl24 width=64 >2012-05-14</td><td class=xl24 width=64 >DOCENTE EN TECNICA CLASICA - NIVEL PREPARATORIO ESCUELA DE DANZA DE BALLET OFICIAL</td></tr><tr><td class=xl24 width=64 >ZABALA</td><td class=xl24 width=64 >QUISBERT</td><td class=xl24 width=64 >YESMIN</td><td class=xl24 width=64 >2012-08-27</td><td class=xl24 width=64 >AUXILIAR II DE LA UNIDAD DE TITULOS PROFESIONALES</td></tr><tr><td class=xl24 width=64 >ZUÑAGUA</td><td class=xl24 width=64 >CLAVEL</td><td class=xl24 width=64 >JUAN CARLOS</td><td class=xl24 width=64 >2012-05-18</td><td class=xl24 width=64 >PROFESOR DE ANTROPOLOGIA CULTURAL</td></tr></table></body></html>

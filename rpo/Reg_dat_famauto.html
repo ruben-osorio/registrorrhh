@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Reg_dat_famauto</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.16254">
+<script language="JavaScript" type="text/javascript">
+var needCheck = true;
+function ShowNewEmptyRow(thisObj)
+{
+ var NS6 = (!document.all && document.getElementById) ? 1 : 0;
+ var IE  = (document.all) ? 1 : 0;
+ var O = typeof(opera) != "undefined";
+ var i;
+
+ var FormState = document.dat_fam.FormState.value.split(";");
+ var AllLength = parseInt(FormState[0])+parseInt(FormState[1]);
+   if (needCheck)
+   {
+        for (i=1;i<=FormState[0];i++)
+            document.getElementById('type_p'+i).onchange = null;
+        if (thisObj.onchange == null)
+            return;
+   }
+   thisObj.onchange = null;
+   
+   if (parseInt(FormState[0]) == 0 ) {
+      FormState[0] = 1;
+   }
+
+   for (i=FormState[0]; i<AllLength; i++) {
+     var objRow = document.getElementById('row'+i);
+     if (NS6 || O) {
+       if (objRow.style.display == "none") {
+           objRow.style.display = '';
+           objRow.LastAttribute == "True";
+           break;
+       }
+     } else 
+     {
+       if (objRow.style.display == "none") {
+           objRow.style.display = "block"; 
+           objRow.LastAttribute == "True";
+           break;
+       }
+     }
+   }
+}
+
+</script>
+</head>
+<body>
+<!-- BEGIN EditableGrid dat_fam -->
+<form id="dat_fam" method="post" name="{HTMLFormName}" action="{Action}">
+  <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+  <h2>Dat Fam </h2>
+  <table>
+    <!-- BEGIN Error -->
+    <tr>
+      <td colspan="5">{Error}</td>
+    </tr>
+    <!-- END Error -->
+    <tr>
+      <th scope="col">Id Func</th>
+ 
+      <th scope="col">Type P</th>
+ 
+      <th scope="col">Name</th>
+ 
+      <th scope="col">L Name1</th>
+ 
+      <th scope="col">Borrar</th>
+    </tr>
+ 
+    <!-- BEGIN Row -->
+    <!-- BEGIN RowError -->
+    <tr id="row{RowIDAttribute}" title="{RowNameAttribute}" class="Row" {RowStyleAttribute}>
+      <td colspan="5">{Error}</td>
+    </tr>
+    <!-- END RowError -->
+    <tr>
+      <td><label style="display: none;" for="dat_famid_func_{dat_fam:rowNumber}">Id Func</label><input id="dat_famid_func_{dat_fam:rowNumber}" maxlength="10" size="10" value="{id_func}" name="{id_func_Name}"></td> 
+      <td><label style="display: none;" for="dat_famtype_p_{dat_fam:rowNumber}">Type P</label><input id="dat_famtype_p_{dat_fam:rowNumber}" maxlength="100" size="50" value="{type_p}" name="{type_p_Name}"></td> 
+      <td><label style="display: none;" for="dat_famname_{dat_fam:rowNumber}">Name</label><input id="dat_famname_{dat_fam:rowNumber}" maxlength="100" size="50" value="{name}" name="{name_Name}"></td> 
+      <td><label style="display: none;" for="dat_faml_name1_{dat_fam:rowNumber}">L Name1</label><input id="dat_faml_name1_{dat_fam:rowNumber}" maxlength="100" size="50" value="{l_name1}" name="{l_name1_Name}"></td> 
+      <td>
+        <!-- BEGIN Panel CheckBox_Delete_Panel --><label style="display: none;" for="dat_famCheckBox_Delete_PanelCheckBox_Delete_{dat_fam:rowNumber}">Borrar</label> 
+        <!-- BEGIN CheckBox CheckBox_Delete --><input type="checkbox" id="dat_famCheckBox_Delete_PanelCheckBox_Delete_{dat_fam:rowNumber}" value="1" name="{CheckBox_Delete_Name}" {CheckBox_Delete}><!-- END CheckBox CheckBox_Delete --><!-- END Panel CheckBox_Delete_Panel -->&nbsp;</td>
+    </tr>
+ <!-- END Row -->
+    <!-- BEGIN NoRecords -->
+    <tr>
+      <td colspan="5">No hay registros</td>
+    </tr>
+    <!-- END NoRecords -->
+    <tr>
+      <td style="TEXT-ALIGN: right" colspan="5">
+        <!-- BEGIN Button Button_Submit --><input type="submit" id="dat_famButton_Submit" class="Button" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Submit -->
+        <!-- BEGIN Button Cancel --><input type="submit" id="dat_famCancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Cancel --></td>
+    </tr>
+  </table>
+</form>
+<!-- END EditableGrid dat_fam --><br>
+</body>
+</html>

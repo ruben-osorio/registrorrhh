@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>RegMovilidad</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.1.1.18992">
+<link rel="stylesheet" type="text/css" href="Styles/Simple/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Simple/jquery-ui.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-2504AB44
+</script>
+<script src="ClientI18N.php?file=Globalize.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-6EC00E66
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/Simple/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="Styles/Simple/ccs-jquery-ui-calendar.css">
+{page:scriptIncludes}
+<script type="text/javascript">
+//End Include User Scripts
+
+//Common Script Start @1-8BFA436B
+jQuery(function ($) {
+    var features = { };
+    var actions = { };
+    var params = { };
+//End Common Script Start
+
+//Controls Selecting @1-6CBAAC10
+    $('body').ccsBind(function() {
+        features["char_perdate_endInlineDatePicker1"] = $('*:ccsControl(char_per, date_end)');
+    });
+//End Controls Selecting
+
+//Feature Parameters @1-C743D6A1
+    params["char_perdate_endInlineDatePicker1"] = { 
+        dateFormat: "ShortDate",
+        isWeekend: true
+    };
+//End Feature Parameters
+
+//Feature Init @1-80558506
+    features["char_perdate_endInlineDatePicker1"].ccsBind(function() {
+        this.ccsDateTimePicker(params["char_perdate_endInlineDatePicker1"]);
+    });
+//End Feature Init
+
+//Plugin Calls @1-53A2C266
+    $('*:ccsControl(char_per, Button_Cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+//End Plugin Calls
+
+//Common Script End @1-562554DE
+});
+//End Common Script End
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>&nbsp; 
+<!-- BEGIN Report funcionario -->
+<table class="MainTable" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img alt="" src="Styles/Simple/Images/Spacer.gif"></td> 
+          <td class="th"><strong>Funcionario </strong></td> 
+          <td class="HeaderRight"><img alt="" src="Styles/Simple/Images/Spacer.gif"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+        <!-- BEGIN Section Page_Header -->
+        <tr class="Caption">
+          <th scope="col">Nombres</th>
+ 
+          <th scope="col">Apellido Paterno</th>
+ 
+          <th scope="col">Apellido Materno</th>
+ 
+          <th scope="col">Apellido de Casada</th>
+        </tr>
+ <!-- END Section Page_Header -->
+        <!-- BEGIN Section Page_Footer --><!-- END Section Page_Footer -->
+        <!-- BEGIN Section Detail -->
+        <tr class="Row">
+          <td>{name} </td> 
+          <td>{l_name1} </td> 
+          <td>{l_name2} </td> 
+          <td>{l_name_es} </td>
+        </tr>
+ <!-- END Section Detail -->
+        <!-- BEGIN Section Report_Footer -->
+        <!-- BEGIN Panel NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="4">No hay registros</td>
+        </tr>
+ <!-- END Panel NoRecords --><!-- END Section Report_Footer -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Report funcionario --><br>
+</p>
+<p>&nbsp;</p>
+<!-- BEGIN Record char_per -->
+<form id="char_per" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/Simple/Images/Spacer.gif"></td> 
+            <td class="th"><strong>Registro Movilidad de Funcionario</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/Simple/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr id="ErrorBlock" class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="char_perdir_g">Dirección General o Viceministerio:</label></td> 
+            <td>
+              <select id="char_perdir_g" name="{dir_g_Name}">
+                <option selected value="">Seleccionar Valor</option>
+                {dir_g_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_perunit">Unidad:</label></td> 
+            <td>
+              <select id="char_perunit" name="{unit_Name}">
+                <option selected value="">Seleccionar Valor</option>
+                {unit_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_perarea">Equipo:</label></td> 
+            <td>
+              <select id="char_perarea" name="{area_Name}">
+                <option selected value="">Seleccionar Valor</option>
+                {area_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_perboss_is">Jefe Inmediato Superior:</label></td> 
+            <td><input type="text" id="char_perboss_is" maxlength="200" size="50" value="{boss_is}" name="{boss_is_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_perboss_ij">Jefe Inmediato Jerarquico:</label></td> 
+            <td><input type="text" id="char_perboss_ij" maxlength="200" size="50" value="{boss_ij}" name="{boss_ij_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_percharge">Cargo:</label></td> 
+            <td><input type="text" id="char_percharge" maxlength="200" size="50" value="{charge}" name="{charge_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">Fecha de Designación Inicial:</td> 
+            <td>&nbsp;<input type="text" id="char_perfecha_des_ini" value="{fecha_des_ini}" name="{fecha_des_ini_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">Fecha de Designación Movilidad:</td> 
+            <td><label for="char_perdate_des" style="display: none;">&nbsp;</label><input type="text" id="char_perdate_des" value="{date_des}" name="{date_des_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_perdate_end">Fecha Finalización:</label></td> 
+            <td><input type="text" id="char_perdate_end" maxlength="100" size="8" value="{date_end}" name="{date_end_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_pernum_memo">Numero Memorandum:</label></td> 
+            <td><input type="text" id="char_pernum_memo" maxlength="50" size="50" value="{num_memo}" name="{num_memo_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_Update --><input type="submit" id="char_perButton_Update" class="Button" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Cancel --><input type="submit" id="char_perButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record char_per --><br>
+</body>
+</html>

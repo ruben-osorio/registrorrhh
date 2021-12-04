@@ -1,0 +1,1237 @@
+/* CCSTheme v 3.x */
+/* General */
+
+/* Colors */
+.PageBgColorUniversal {
+	background-color: #30353a;
+	}
+
+.FormTitleBgColorUniversal {
+	background-color: #525961;
+	}
+
+.FormTitleFontColorUniversal {
+	color: #e3e8f0;
+	}
+
+.CaptionBgColorUniversal {
+	background-color: #b4bac3;
+	}
+
+.CaptionFontColorUniversal {
+	color: #000000;
+	}
+
+.DataBgColorUniversal {
+	background-color: #ebedef;
+	}
+
+.AltDataBgColorUniversal {
+	background-color: #cdd1d7;
+	}
+
+.DataFontColorUniversal {
+	color: #000000;
+	}
+
+.LinkColorUniversal {
+	color: #2525f7;
+	}
+
+.VisitedLinkColorUniversal {
+	color: #3697b8;
+	}
+
+.HoverLinkColorUniversal {
+	color: #8e25f7;
+	}
+
+.ColorBgButtonUniversal {
+	background-color: #525961;
+}
+
+.ColorFontButtonUniversal {
+	color: #e3e8f0;
+}
+
+.ColorBgButtonPassiveUniversal {
+	background-color: #8c9197;
+}
+
+.ColorFontButtonPassiveUniversal {
+	color: #f5f7fc;
+}
+
+
+
+.HeaderUniversal {
+	width: 100%;
+	}
+
+.HeaderUniversal th { 
+	font-family: Franklin Gothic Medium; font-size: 110%; text-align: left;
+	padding: 3px;
+	background-image: url('Images/HeaderBg.gif');  color: #e3e8f0;
+	width: 100%;
+	white-space: nowrap;
+	
+	}
+
+
+html>body .HeaderUniversal th {
+	font-family: Franklin Gothic Medium; font-size: 140%; text-align: left;
+}
+
+
+/*ie6*/
+* html body .HeaderUniversal th {
+	font-family: Franklin Gothic Medium; font-size: 140%; text-align: left;
+}
+/*end*/
+
+.HeaderUniversal a:link { 
+	color: #e3e8f0;
+	}
+
+.HeaderUniversal a:visited { 
+	color: #e3e8f0;
+	}
+
+.HeaderUniversal a:hover, .CaptionUniversal a:active { 
+	color: #e3e8f0; text-decoration: none;
+	}
+
+.HeaderLeftUniversal { 
+	background-image: url('Images/HeaderLeft.gif');
+	}
+
+.HeaderRightUniversal { 
+	background-image: url('Images/HeaderRight.gif');
+	background-position: right top;
+	}
+
+.HeaderLeftUniversal img{
+	width: 21px; height: 18px;
+	}
+
+.HeaderRightUniversal img{
+	width: 21px; height: 18px;
+	}
+
+
+/* Grid Options */
+.GridUniversal { 
+	border: solid 1px #b4bac3; border-bottom: 0px;
+	width: 100%;
+	}
+
+.CaptionUniversal th { 
+	font-family: Franklin Gothic Book; font-size: 80%; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #b4bac3; color: #000000;
+	white-space: nowrap;
+	}
+
+.CaptionUniversal td { 
+	font-family: Franklin Gothic Book; font-size: 80%; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #b4bac3; color: #000000;
+	white-space: nowrap;
+	}
+
+
+html>body .CaptionUniversal th, html>body .CaptionUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%; text-align: left; vertical-align: top;
+}
+
+
+/*ie6*/
+* html body .CaptionUniversal th, * html body .CaptionUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%; text-align: left; vertical-align: top;
+}
+/*end*/
+
+.CaptionUniversal a:link { 
+	color: #000000;
+	}
+
+.CaptionUniversal a:visited { 
+	color: #000000;
+	}
+
+.CaptionUniversal a:hover, .CaptionUniversal a:active { 
+	color: #8e25f7;
+	}
+
+.CaptionUniversal img {
+	margin: 2px; 
+	vertical-align: middle;
+	}
+
+.CaptionUniversal input {
+	vertical-align: middle;
+	}
+
+.RowUniversal th { 
+	font-family: Franklin Gothic Book; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #ebedef; color: #000000;
+	white-space: nowrap;
+	color: #000000;
+	}
+
+.RowUniversal td { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	vertical-align: top;
+	background-color: #ebedef; 
+	color: #000000;
+	}
+	
+
+html>body .RowUniversal th, html>body .RowUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .RowUniversal th, * html body .RowUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+caption.RowUniversal { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border: solid 1px #b4bac3; border-bottom: 0px;
+	text-align: left;
+	vertical-align: top;
+	background-color: #ebedef; 
+	color: #000000;
+	}
+
+
+html>body caption.RowUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body caption.RowUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.RowUniversal a:link { 
+	color: #2525f7;
+	}
+
+.RowUniversal a:visited { 
+	color: #3697b8;
+	}
+
+.RowUniversal a:hover, .RowUniversal a:active { 
+	color: #8e25f7;
+	}
+
+.SeparatorUniversal{
+	color: #525961;
+	}
+
+.SeparatorUniversal td{
+	height: 1px;
+	}
+
+
+.AltRowUniversal th { 
+	font-family: Franklin Gothic Book; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #ebedef; color: #000000;
+	white-space: nowrap;
+	color: #000000;
+	}
+
+.AltRowUniversal td { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	vertical-align: top;
+	background-color: #cdd1d7; 
+	color: #000000;
+	}
+
+
+html>body .AltRowUniversal th, html>body .AltRowUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .AltRowUniversal th, * html body .AltRowUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.AltRowUniversal a:link { 
+	color: #2525f7;
+	}
+
+.AltRowUniversal a:visited { 
+	color: #3697b8;
+	}
+
+.AltRowUniversal a:hover, .AltRowUniversal a:active { 
+	color: #8e25f7;
+	}
+
+.NoRecordsUniversal td { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	background-color: #ebedef; 
+	color: #000000;
+	vertical-align: top;
+	}
+
+.FooterUniversal td { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #ebedef; color: #000000;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	color: #000000;
+	}
+
+
+html>body .NoRecordsUniversal td, html>body .FooterUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .NoRecordsUniversal td, * html body .FooterUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.FooterUniversal a:link { 
+	color: #2525f7;
+	}
+
+.FooterUniversal a:visited { 
+	color: #3697b8;
+	}
+
+.FooterUniversal a:hover, .FooterUniversal a:active { 
+	color: #8e25f7;
+	}
+
+.FooterUniversal img {
+	border: 0px;
+	margin: 2px; 
+	vertical-align: middle;
+	}
+
+.FooterUniversal input {
+	margin: 2px;
+	vertical-align: middle;
+	}
+
+/* Record Options */
+.RecordUniversal { 
+	border: solid 1px #b4bac3; border-bottom: 0px;
+	width: 100%;
+	}
+
+.ErrorUniversal td { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	color: #FF0000;
+	vertical-align: top;
+	background-color: #ebedef; 
+	}
+
+
+* html>body .ErrorUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .ErrorUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.ControlsUniversal th { 
+	font-family: Franklin Gothic Book; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #ebedef; color: #000000;
+	white-space: nowrap;
+	color: #000000;
+	}
+
+.ControlsUniversal td { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	vertical-align: top;
+	background-color: #ebedef; 
+	color: #000000;
+	}
+
+.ControlsUniversal .CaptionUniversal th {
+	font-family: Franklin Gothic Book; font-size: 100%; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #b4bac3; color: #000000;
+	font-weight: bold;
+	white-space: nowrap;
+	}	
+.BottomUniversal td { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #ebedef; color: #000000;
+	text-align: right;
+	vertical-align: middle;
+	white-space: nowrap;
+	color: #000000;
+	}
+
+
+html>body .ControlsUniversal th, html>body .ControlsUniversal td, html>body .BottomUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .ControlsUniversal th, * html body .ControlsUniversal td, * html body .BottomUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.BottomUniversal a:link { 
+	color: #2525f7;
+	}
+
+.BottomUniversal a:visited { 
+	color: #3697b8;
+	}
+
+.BottomUniversal a:hover, .CaptionUniversal a:active { 
+	color: #8e25f7;
+	}
+
+.BottomUniversal img {
+	margin: 2px;
+	vertical-align: middle; 
+	}
+
+.BottomUniversal input {
+	margin: 2px;
+	vertical-align: middle;
+	}
+
+/* Report */
+.GroupCaptionUniversal th{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	white-space: nowrap;
+	text-align: left;
+	vertical-align: top;
+	font-weight: bold;
+	background-color: #cdd1d7; 
+	color: #000000;
+	}
+
+.GroupCaptionUniversal td{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	vertical-align: top;
+	font-weight: bold;
+	background-color: #ebedef; 
+	color: #000000;
+	}
+
+
+html>body .GroupCaptionUniversal th, html>body .GroupCaptionUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .GroupCaptionUniversal th, * html body .GroupCaptionUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.GroupCaptionUniversal a:link {
+	color: #000000;
+	}
+
+.GroupCaptionUniversal a:visited{
+	color: #000000;
+	}
+
+.GroupCaptionUniversal a:hover, .GroupCaptionUniversal a:active{
+	color: #8e25f7;
+	}
+
+.GroupFooterUniversal td{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	background-color: #b4bac3; 
+	color: #000000;
+	}
+
+
+html>body .GroupFooterUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .GroupFooterUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.GroupFooterUniversal a:link {
+	color: #2525f7;
+	}
+
+.GroupFooterUniversal a:visited{
+	color: #3697b8;
+	}
+
+.GroupFooterUniversal a:hover, .GroupFooterUniversal a:active{
+	color: #8e25f7;
+	}
+
+.GroupFooterUniversal img {
+	margin: 2px; 
+	vertical-align: middle;
+	}
+
+.GroupFooterUniversal input {
+	margin: 2px;
+	vertical-align: middle;
+	}
+
+.SubTotalUniversal td{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	vertical-align: top;
+	font-weight: bold;
+	background-color: #cdd1d7; 
+	color: #000000;
+	border-bottom: 2px solid #525961;
+	}
+
+
+html>body .SubTotalUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .SubTotalUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.SubTotalUniversal a:link {
+	color: #2525f7;
+	}
+
+.SubTotalUniversal a:visited{
+	color: #3697b8;
+	}
+
+.SubTotalUniversal a:hover, .SubTotalUniversal a:active{
+	color: #8e25f7;
+	}
+
+.TotalUniversal td{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+	font-weight: bold;
+	background-color: #cdd1d7; 
+	color: #000000;
+	}
+
+
+html>body .TotalUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .TotalUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.TotalUniversal a:link {
+	color: #2525f7;
+	}
+
+.TotalUniversal a:visited{
+	color: #3697b8;
+	}
+
+.TotalUniversal a:hover, .TotalUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Form Options */
+.ButtonUniversal { 
+	background-color: #525961; color: #e3e8f0; border-left: solid 1px #EDEDED; border-top: solid 1px #EDEDED; border-right: solid 1px #848284; border-bottom: solid 1px #848284; padding: 2px; font-weight: bold; font-family: Tahoma; font-size: 11px; font-weight: bold;
+	}
+
+/* Calendar */
+
+.CalendarUniversal { 
+	border: solid 1px #b4bac3;
+	width: 100%;
+	}
+
+.CalendarWeekdayNameUniversal{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: center; 
+	vertical-align: top;
+	white-space: nowrap;
+	background-color: #cdd1d7; 
+	color: #000000;
+	font-weight: normal;
+	}
+
+
+html>body .CalendarWeekdayNameUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarWeekdayNameUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarWeekdayNameUniversal a:link {
+	color: #2525f7;
+	}
+
+.CalendarWeekdayNameUniversal a:visited{
+	color: #3697b8;
+	}
+
+.CalendarWeekdayNameUniversal a:hover, .CalendarWeekdayNameUniversal a:active{
+	color: #8e25f7;
+	}
+
+.CalendarWeekendNameUniversal{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	white-space: nowrap;
+	text-align: center; 
+	vertical-align: top;
+	background-color: #cdd1d7;	
+	color: #000000;
+	font-weight: normal;
+	}
+
+
+html>body .CalendarWeekendNameUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarWeekendNameUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarWeekendNameUniversal a:link {
+	color: #000000;
+	}
+
+.CalendarWeekendNameUniversal a:visited{
+	color: #000000;
+	}
+
+.CalendarWeekendNameUniversal a:link, .CalendarWeekendNameUniversal a:visited{
+	color: #8e25f7;
+	}
+
+/* Calendar Day */
+.CalendarDayUniversal{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: center;
+	background-color: #ebedef;	
+	color: #000000;
+	}
+
+
+html>body .CalendarDayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarDayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarDayUniversal a:link {
+	color: #2525f7;
+	}
+
+.CalendarDayUniversal a:visited{
+	color: #3697b8;
+	}
+
+.CalendarDayUniversal a:hover, .CalendarDayUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Calendar Weekend */
+.CalendarWeekendUniversal{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: center;
+	background-color: #cdd1d7;	
+	color: #000000;
+	}
+
+
+html>body .CalendarWeekendUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarWeekendUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarWeekendUniversal a:link {
+	color: #2525f7;
+	}
+
+.CalendarWeekendUniversal a:visited{
+	color: #3697b8;
+	}
+
+.CalendarWeekendUniversal a:hover, .CalendarWeekendUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Calendar Today */
+.CalendarTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 1px;
+	border: 2px solid #b4bac3; border-top: 1px solid #b4bac3;
+	text-align: center;
+	background-color: #ebedef;	
+	color: #000000;
+	}
+
+
+html>body .CalendarTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarTodayUniversal a:link {
+	color: #2525f7;
+	}
+
+.CalendarTodayUniversal a:visited{
+	color: #3697b8;
+	}
+
+.CalendarTodayUniversal a:hover, .CalendarTodayUniversal a:active {
+	color: #8e25f7;
+	}
+
+/* Calendar Weekend Today */
+.CalendarWeekendTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 1px;
+	border: 2px solid #b4bac3; border-top: 1px solid #b4bac3;
+	text-align: center;
+	background-color: #cdd1d7;	
+	color: #000000;
+	}
+
+
+html>body .CalendarWeekendTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarWeekendTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarWeekendTodayUniversal a:link {
+	color: #2525f7;
+	}
+
+.CalendarWeekendTodayUniversal a:visited{
+	color: #3697b8;
+	}
+
+.CalendarWeekendTodayUniversal a:hover, .CalendarWeekendTodayUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Calendar Other Month's Day */
+.CalendarOtherMonthDayUniversal{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: center;
+	background-color: #ebedef;	
+	color: #525961;
+	}
+
+
+html>body .CalendarOtherMonthDayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarOtherMonthDayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarOtherMonthDayUniversal a:link {
+	color: #525961;
+	}
+
+.CalendarOtherMonthDayUniversal a:visited{
+	color: #525961;
+	}
+
+.CalendarOtherMonthDayUniversal a:hover, .CalendarOtherMonthDayUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Calendar Other Month's Today */
+.CalendarOtherMonthTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 1px;
+	border: 2px solid #b4bac3; border-top: 1px solid #b4bac3;
+	text-align: center;
+	background-color: #ebedef;	
+	color: #525961;
+	}
+
+
+html>body .CalendarOtherMonthTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarOtherMonthTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarOtherMonthTodayUniversal a:link {
+	color: #525961;
+	}
+
+.CalendarOtherMonthTodayUniversal a:visited{
+	color: #525961;
+	}
+
+.CalendarOtherMonthTodayUniversal a:hover, .CalendarOtherMonthTodayUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Calendar Other Month's Weekend */
+.CalendarOtherMonthWeekendUniversal {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: center;
+	background-color: #cdd1d7;	
+	color: #525961;
+	}
+
+
+html>body .CalendarOtherMonthWeekendUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarOtherMonthWeekendUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarOtherMonthWeekendUniversal a:link {
+	color: #525961;
+	}
+
+.CalendarOtherMonthWeekendUniversal a:visited{
+	color: #525961;
+	}
+
+.CalendarOtherMonthWeekendUniversal a:hover, .CalendarOtherMonthWeekendUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Calendar Other Month's Weekend Today */
+.CalendarOtherMonthWeekendTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 1px;
+	border: 2px solid #b4bac3; border-top: 1px solid #b4bac3;
+	text-align: center;
+	color: #525961;
+	background-color: #cdd1d7;	
+	}
+	
+
+html>body .CalendarOtherMonthWeekendTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarOtherMonthWeekendTodayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarOtherMonthWeekendTodayUniversal a:link {
+	color: #525961;
+	}
+
+.CalendarOtherMonthWeekendTodayUniversal a:visited{
+	color: #525961;
+	}
+
+.CalendarOtherMonthWeekendTodayUniversal a:hover, .CalendarOtherMonthWeekendTodayUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Calendar Selected Day (for DatePicker) */
+.CalendarSelectedDayUniversal{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #b4bac3;
+	color: #000000;
+	text-align: center;
+	font-weight: bold;
+	}
+	
+
+html>body .CalendarSelectedDayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarSelectedDayUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarSelectedDayUniversal a:link {
+	color: #000000;
+	}
+
+.CalendarSelectedDayUniversal a:visited{
+	color: #000000;
+	}
+
+.CalendarSelectedDayUniversal a:hover, .CalendarSelectedDayUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Calendar Navigator */
+.CalendarNavigatorUniversal {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	background-color: #ebedef; color: #000000;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	color: #000000;
+	}
+
+
+html>body .CalendarNavigatorUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarNavigatorUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarNavigatorUniversal a:link {
+	color: #2525f7;
+	}
+
+.CalendarNavigatorUniversal a:visited{
+	color: #3697b8;
+	}
+
+.CalendarNavigatorUniversal a:hover, .CalendarNavigatorUniversal a:active{
+	color: #8e25f7;
+	}
+
+.CalendarNavigatorUniversal img{
+	margin: 2px;
+	vertical-align: middle; 	
+	}
+
+.CalendarNavigatorUniversal td {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	}
+
+.CalendarNavigatorUniversal th {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	}
+
+
+html>body .CalendarNavigatorUniversal th, html>body .CalendarNavigatorUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarNavigatorUniversal th, * html body .CalendarNavigatorUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+/* Calendar Extra */
+.CalendarEventUniversal{
+	font-family: Franklin Gothic Book; font-size: 80%;
+	text-align: left;
+	}
+
+
+html>body .CalendarEventUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .CalendarEventUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+/*end*/
+
+.CalendarEventUniversal a:link {
+	color: #2525f7;
+	}
+
+.CalendarEventUniversal a:visited{
+	color: #3697b8;
+	}
+
+.CalendarEventUniversal a:hover, .CalendarEventUniversal a:active{
+	color: #8e25f7;
+	}
+
+/* Changes for Section508 */
+table tr td strong {
+	padding: 0px;
+	margin: 0px;
+}
+
+.thUniversal { 
+	font-family: Franklin Gothic Book; font-size: 80%;
+	font-weight: bold;
+}
+
+
+html>body .thUniversal {
+	font-size: 100%;
+}
+
+
+/*ie6*/
+* html body .thUniversal {
+	font-size: 100%;
+}
+/*end*/
+
+.HeaderUniversal .thUniversal { 
+	font-family: Franklin Gothic Medium; font-size: 110%; text-align: left;
+	padding: 3px;
+	background-image: url('Images/HeaderBg.gif');  color: #e3e8f0;
+	width: 100%;
+	white-space: nowrap;
+}
+
+
+html>body .HeaderUniversal .thUniversal {
+	font-family: Franklin Gothic Medium; font-size: 140%; text-align: left;
+}
+
+
+/*ie6*/
+* html body .HeaderUniversal .thUniversal {
+	font-family: Franklin Gothic Medium; font-size: 140%; text-align: left;
+}
+/*end*/
+
+.CaptionUniversal .thUniversal { 
+	font-family: Franklin Gothic Book; font-size: 80%; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #b4bac3; color: #000000;
+	white-space: nowrap;
+}
+
+
+html>body .CaptionUniversal .thUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%; text-align: left; vertical-align: top;
+}
+
+
+/*ie6*/
+* html body .CaptionUniversal .thUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%; text-align: left; vertical-align: top;
+}
+/*end*/
+
+.RowUniversal .thUniversal { 
+	font-family: Franklin Gothic Book; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #ebedef; color: #000000;
+	white-space: nowrap;
+	color: #000000;
+}
+
+.AltRowUniversal .thUniversal { 
+	font-family: Franklin Gothic Book; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #ebedef; color: #000000;
+	white-space: nowrap;
+	color: #000000;
+}
+
+.ControlsUniversal .thUniversal { 
+	font-family: Franklin Gothic Book; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	background-color: #ebedef; color: #000000;
+	white-space: nowrap;
+	color: #000000;
+}
+
+.GroupCaptionUniversal .thUniversal {
+	font-family: Franklin Gothic Book; font-size: 80%;
+	padding: 3px;
+	border-bottom: solid 1px #b4bac3;
+	text-align: left;
+	white-space: nowrap;
+	vertical-align: top;
+	font-weight: bold;
+	background-color: #cdd1d7; 
+	color: #000000;
+}
+
+
+html>body .GroupCaptionUniversal .thUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+html>body .RowUniversal .thUniversal, html>body .AltRowUniversal .thUniversal, html>body .ControlsUniversal .thUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%; font-weight: normal; text-align: left; vertical-align: top;
+}
+
+
+/*ie6*/
+* html body .GroupCaptionUniversal .thUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%;
+}
+
+* html body .RowUniversal .thUniversal, * html body .AltRowUniversal .thUniversal, * html body .ControlsUniversal .thUniversal {
+	font-family: Franklin Gothic Book; font-size: 100%; font-weight: normal; text-align: left; vertical-align: top;
+}
+/*end*/
+
+/* Class for Application Builder Menu */
+.simpleMenuUniversal td {
+	font-family: Franklin Gothic Book; font-size: 80%;
+}
+
+
+html>body .simpleMenuUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+} 
+
+
+/*ie6*/
+* html body .simpleMenuUniversal td {
+	font-family: Franklin Gothic Book; font-size: 100%;
+} 
+/*end*/
+
+.SorterUniversal img, .Navigator img {
+	border:0;
+}

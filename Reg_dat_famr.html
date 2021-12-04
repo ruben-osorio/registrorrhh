@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!-- Viewport metatags -->
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- iOS webapp metatags -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- iOS webapp icons -->
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-retina.png" />
+
+<!-- CSS Reset -->
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<!--  Fluid Grid System -->
+<link rel="stylesheet" type="text/css" href="css/fluid.css" media="screen" />
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.theme.css" media="screen" />
+<!--  Main Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.css" media="screen" />
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<!-- jQuery JavaScript File -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<!-- jQuery-UI JavaScript Files -->
+<script type="text/javascript" src="jui/js/jquery-ui-1.8.20.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.timepicker.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen" />
+
+<!-- Plugin Files -->
+
+<!-- FileInput Plugin -->
+<script type="text/javascript" src="js/jquery.fileinput.js"></script>
+<!-- Placeholder Plugin -->
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<!-- Mousewheel Plugin -->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar Plugin -->
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<!-- Tooltips Plugin -->
+<script type="text/javascript" src="plugins/tipsy/jquery.tipsy-min.js"></script>
+<link rel="stylesheet" href="plugins/tipsy/tipsy.css" />
+<!-- DataTables Plugin -->
+<script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+<!-- Validation Plugin -->
+<script type="text/javascript" src="plugins/validate/jquery.validate.min.js"></script>
+
+<!-- Chosen Plugin -->
+<script type="text/javascript" src="plugins/chosen/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="plugins/chosen/chosen.css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+</style>
+
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="js/demo/demo.validation.js"></script>
+
+<!-- Core JavaScript Files -->
+<script type="text/javascript" src="js/core/dandelion.core.js"></script>
+
+<!-- Customizer JavaScript File (remove if not needed) -->
+<script type="text/javascript" src="js/core/dandelion.customizer.js"></script>
+
+<title>DATOS FAMILIARES</title>
+<script type="text/javascript"> 
+	    $(document).ready(function() { 
+	      $("#funcionario").validate({ 
+	        rules: { 
+	          date_born: "required",// simple rule, converted to {required:true} 
+	          p_email: {// compound rule 
+				  required: true, 
+				  email: true 
+	        }, 
+	        job_email: {// compound rule 
+				  required: true 
+				  
+	        }, 
+	  //      comment: { 
+	   //       required: true 
+	   //     } 
+        }, 
+	 //       messages: { 
+	 //         comment: "Please enter a comment." 
+	  //      } 
+	      }); 
+	    }); 
+  </script> 
+ <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script language="JavaScript" type="text/javascript">
+var needCheck = true;
+
+function ShowNewEmptyRow(thisObj)
+{
+ var NS6 = (!document.all && document.getElementById) ? 1 : 0;
+ var IE  = (document.all) ? 1 : 0;
+ var O = typeof(opera) != "undefined";
+ var i;
+        
+ var FormState = document.dat_fam.FormState.value.split(";");
+ var AllLength = parseInt(FormState[0])+ parseInt(FormState[1]);
+   if (needCheck)
+   {
+        for (i=1;i<=FormState[0];i++)
+            document.getElementById('type_p'+i).onchange = null;
+        if (thisObj.onchange == null)
+            return;
+   }
+        thisObj.onchange = null;
+
+        
+
+   if (parseInt(FormState[0]) == 0 ) {
+      FormState[0] = 1;
+   }
+
+   for (i=FormState[0]; i<AllLength; i++) {
+     var objRow = document.getElementById('row'+i);
+     if (NS6 || O) {
+       if (objRow.style.display == "none") {
+           objRow.style.display = '';
+objRow.LastAttribute == "True";
+
+           break;
+       }
+     } else 
+     {
+       if (objRow.style.display == "none") {
+           objRow.style.display = "block"; 
+     objRow.LastAttribute == "True";
+
+           break;
+       }
+     }
+   }
+}
+
+    (function($) {  
+        $.getroa = function(key)   {  
+            key = key.replace(/[\[]/, '\\[');  
+            key = key.replace(/[\]]/, '\\]');  
+            var pattern = "[\\?&]" + key + "=([^&#]*)";  
+            var regex = new RegExp(pattern);  
+            var url = unescape(window.location.href);  
+            var results = regex.exec(url);  
+            if (results === null) {  
+                return null;  
+            } else {  
+                return results[1];  
+            }  
+        }  
+    })(jQuery);  
+   
+   
+         
+</script>
+<script type="text/javascript">
+ 
+   // $("#combo").change(function(){
+ //   $('#capa').html(op);
+    $(document).ready(function(){
+    //$('#dat_famtype_p_4').change( function() {
+   
+    $('select').change( function() {
+    var op = $(this).attr("id");
+        var numid =  op.substring(14);  
+        var id_del_id = "id_func_" + numid;
+        
+        $('input[name='+ id_del_id +']').val($.getroa("id_func")); 
+        
+        if ( $(this).attr("value") == null )
+                   $('input[name='+ id_del_id +']').val("");
+        });
+    });
+ 
+   </script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//DEL  </script>
+
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="Styles/None/ccs-yui-calendar.css" />
+
+<script language="JavaScript" type="text/javascript">
+
+
+//dat_fam1Button_Delete_OnClick @28-C5632794
+function dat_fam1Button_Delete_OnClick()
+{
+    var result = true;
+//End dat_fam1Button_Delete_OnClick
+
+//Confirmation Message @29-BED55CD3
+    return confirm('Borrar registro?');
+//End Confirmation Message
+
+//Close dat_fam1Button_Delete_OnClick @28-BC33A33A
+    return result;
+}
+//End Close dat_fam1Button_Delete_OnClick
+
+//dat_fam1Button_Cancel_OnClick @30-E9C7F9F5
+function dat_fam1Button_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End dat_fam1Button_Cancel_OnClick
+
+//bind_events @1-BA33EFFD
+function bind_events() {
+    addEventHandler("dat_fam1Button_Delete", "click", dat_fam1Button_Delete_OnClick);
+    addEventHandler("dat_fam1Button_Cancel", "click", dat_fam1Button_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+
+<body>
+
+	
+    
+	<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
+	<div id="da-wrapper" class="fluid">
+    
+        <!-- Header -->
+        <div id="da-header">
+        
+        	<div id="da-header-top">
+                
+                <!-- Container -->
+                <div class="da-container clearfix">
+                    
+                    <!-- Logo Container. All images put here will be vertically centere -->
+                    <div id="da-logo-wrap">
+                        <div id="da-logo">
+                            <div id="da-logo-img">
+                                <a href="dashboard.html">
+                                    <img src="images/logo.png" alt="Dandelion Admin" width="280" height="90" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Header Toolbar Menu -->
+                    <!-- Header Toolbar Menu -->
+                    <div id="da-header-toolbar" class="clearfix">
+                        <div id="da-user-profile">
+                            
+                            <div id="da-user-info"><span class="da-user-title">Gobierno Autónomo Municipal de El Alto</span>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                                    
+                </div>
+            </div>
+            
+            <div id="da-header-bottom">
+                <!-- Container -->
+                <div class="da-container clearfix">
+                
+                	
+                	
+                    <!-- Breadcrumbs -->
+                    <div id="da-breadcrumb">
+                        <ul>
+                            <li><a href="dashboard.html"><img src="images/icons/black/16/home.png" alt="Home" />Inicio</a></li>
+                           
+                            <li class="active"><span>Datos Familiares</span></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <!-- Content -->
+        <div id="da-content">
+            
+            <!-- Container -->
+            <div class="da-container clearfix">
+            
+                <!-- Sidebar -->
+                <div id="da-sidebar-separator"></div>                
+                
+                <!-- Main Content Wrapper -->
+                
+                
+                	<!-- Content Area -->
+                	<div id="da-content-area">
+                	  <div class="grid_4">
+                	    <div class="da-panel">
+                	      <div class="da-panel-content">
+                	        <div class="grid_4">
+                	          <div class="da-panel">
+                	            <div class="da-panel-header"> <span class="da-panel-title"> <img src="images/icons/color/accept.png" alt="" />
+                	              <h2> DATOS FAMILIARES EN PRIMER GRADO</h2>
+                                  <div class="da-panel-content">
+                                    
+                                    <div class="da-message info">
+                                     <h5>IMPORTANTE</h5>
+                                      <ul>
+                                        <li>El presente Formulario constituye una <strong>Declaración Jurada </strong>de la veracidad de la información y datos contenidos en el mismo.</li>
+                                        <li> De comprobarse la falsedad de algún dato o información declarado, el Declarante será
+                                          sujeto de sanciones según lo determinado por la normativa vigente. </li>
+                                        <li>El contenido de la presente declaración es de exclusiva y única responsabilidad
+                                          del declarante.</li>
+                                      </ul>
+                                    </div>
+                                   
+                                </div>
+              	              </span> </div>
+                	            <div class="da-panel-content">
+                	          <br />
+
+                	              <!--ROA t1 -->
+                	              <div class="grid_4">
+                        	<div class="da-panel collapsible scrollable">
+                	                  <div class="da-panel-header"> <span class="da-panel-title"> <img src="images/icons/black/16/list.png" alt="" /> LISTA DE FAMILIARES REGISTRADOS (FAMILIARES EN PRIMER GRADO)</span> </div>
+                	                  <div class="da-panel-content">
+                	                    <!-- BEGIN Grid dat_fam -->
+                	                
+                	                 
+                	                    <table class="da-table">
+                	                      <thead>
+                	                        <tr>
+                	                          <th>ACCI&Oacute;N</th>
+                	                          <th>TIPO DE PARENTESCO</th>
+                	                          <th>NOMBRES</th>
+                	                          <th>APELLIDO PATERNO</th>
+                	                          <th>APELLIDO MATERNO</th>
+                	                          <th>SEXO</th>
+                	                          <th>FECHA DE NACIMIENTO</th>
+                	                          <th>LUGAR NACIMIENTO</th>
+                	                          <th>TIPO Y NRO. DE DOCUMENTO</th>
+                	                      
+              	                          </tr>
+              	                        </thead>
+                	                      <tbody>
+                	                        <!-- BEGIN Row -->
+                	                        <tr>
+                	                          <td style="TEXT-ALIGN: right">
+                                              <a href="{id_datf_Src}#roa0"  id="dat_famid_datf_{dat_fam:rowNumber}" class="da-button green">
+                                            
+                                        	Editar
+                                        	</a>
+                                              </td>
+                	                          <td>{type_p}&nbsp;</td>
+                	                          <td>{name}&nbsp;</td>
+                	                          <td>{l_name1}&nbsp;</td>
+                	                          <td>{l_name2}&nbsp;</td>
+                	                          <td>{sex}&nbsp;</td>
+                	                          <td>{born_date}&nbsp;</td>
+                	                          <td>{pb_nat}&nbsp;</td>
+                	                          <td>{tn_doc}&nbsp;</td>
+              	                          </tr>
+                	                        <!-- END Row -->
+                	                        <!-- BEGIN NoRecords -->
+                	                        <tr>
+                	                          <td colspan="9">No hay registros</td>
+              	                          </tr>
+                	                        <!-- END NoRecords -->
+              	                        </tbody>
+              	                      </table>
+              	                    </div>
+              	                  </div>
+              	                </div>
+                	              <!--ROA t1 -->
+                	              <!-- END Grid dat_fam -->
+                	             <div class="grid_4">
+                        	<div class="da-panel">
+                                  <a href="{dat_fam_Insert_Src}" id="dat_famdat_fam_Insert" class="da-button blue">Haga CLICK AQU&Iacute; para un Nuevo Registro</a>
+                            </div>
+                        </div>  
+                                  
+                                  <!--formulario 2 -->
+                                   <!-- BEGIN Record dat_fam1 -->
+                                   
+                                  <div class="grid_2">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        
+                                        <a name="roa0" id="roa0"></a>DATOS DE FAMILIARES</span>
+                                    
+                                </div>
+                                <div class="da-panel-content">
+                                
+                                     <form id="dat_fam1" method="post"  class="da-form" name="{HTMLFormName}" action="{Action}">
+                                    	<div class="da-form-inline">
+                                            <div class="da-form-row">
+                                                <label for="dat_fam1type_p">TIPO PARENTESCO</label>
+                                                <div class="da-form-item">
+                                                    
+                                                    
+                                                    <select class="error" id="dat_fam1type_p" name="{type_p_Name}">
+                                                  	<option selected value="">Seleccionar Valor</option>				
+                                                    {type_p_Options} 
+                                              		</select>
+              <span class="errorMessage">Empieze ingresando este campo, es importante por favor.</span>
+              <input id="dat_fam1id_func" value="{id_func}" type="hidden" name="{id_func_Name}" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="da-form-row">
+                                                <label>NOMBRES:</label>
+                                                <div class="da-form-item">
+                                                	
+                                                    <input id="dat_fam1name" value="{name}" maxlength="100" size="50" name="{name_Name}" type="text"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="da-form-row">
+                                                <label>APELLIDO PATERNO</label>
+                                                <div class="da-form-item">
+                                                	
+                                                    <input id="dat_fam1l_name1" value="{l_name1}" maxlength="100" size="50" name="{l_name1_Name}" type="text" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="da-form-row">
+                                                <label>APELLIDO MATERNO</label>
+                                                <div class="da-form-item">
+                                                	
+                                                    <input id="dat_fam1l_name2" value="{l_name2}" maxlength="100" size="50" name="{l_name2_Name}" type="text"/>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="da-form-row">
+                                                <label>SEXO</label>
+                                                <div class="da-form-item">
+                                           
+
+<!-- BEGIN RadioButton sex --><ul class="da-form-list inline"><input type="radio" id="dat_fam1sex_{sex:optionNumber}" value="{Value}" name="{sex_Name}" {Check}><label for="dat_fam1sex_{sex:optionNumber}">{Description}</label></ul><!-- END RadioButton sex -->
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            <div class="da-form-row">
+                                                <label>FECHA NACIMIENTO:</label>
+                                                <div class="da-form-item">
+                                                	<span class="formNote">Ej. 20/10/1979</span>
+                                               
+                                                    <input id="dat_fam1born_date" value="{born_date}" maxlength="100" size="8" name="{born_date_Name}" type="text" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="da-form-row">
+                                                <label>LUGAR NACIMIENTO/PA&Iacute;S</label>
+                                                <div class="da-form-item">
+                                                	<span class="formNote">Ej. La Paz/Bolivia</span>
+                                           
+                                                    <input id="dat_fam1pb_nat" value="{pb_nat}" maxlength="100" size="50" name="{pb_nat_Name}" type="text" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="da-form-row">
+                                                <label>TIPO Y N&Uacute;MERO DE DOCUMENTO</label>
+                                                <div class="da-form-item">
+                                                	<span class="formNote">Ej. 4880567 LP </span>
+                                      
+                                                    <input id="dat_fam1tn_doc" value="{tn_doc}" maxlength="100" size="50" name="{tn_doc_Name}" type="text" />
+                                                </div>
+                                            </div>
+                                            <!-- BEGIN Error -->
+                                            {Error}			
+                                          <!-- END Error -->
+                                        </div>
+                                        
+                                        <div class="da-button-row">
+                                        	
+                                          <!-- BEGIN Button Button_Insert -->
+				  <input type="submit" id="dat_fam1Button_Insert"  value="Guardar" alt="Agregar" name="{Button_Name}" class="da-button blue"/>
+				  <!-- END Button Button_Insert -->
+				  <!-- BEGIN Button Button_Update -->
+				  <input type="submit" id="dat_fam1Button_Update"  value="Guardar" alt="Enviar" name="{Button_Name}" class="da-button blue"/>
+				  <!-- END Button Button_Update -->
+				  <!-- BEGIN Button Button_Delete -->
+				  <input type="submit" id="dat_fam1Button_Delete"  value="Borrar" alt="Borrar" name="{Button_Name}" class="da-button blue"/>
+				  <!-- END Button Button_Delete -->
+				  <!-- BEGIN Button Button_Cancel -->
+				  <input type="submit" id="dat_fam1Button_Cancel"  value="Cancelar" alt="Cancelar" name="{Button_Name}" class="da-button blue"/>
+				  <!-- END Button Button_Cancel -->
+                    
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        		<!-- END Record dat_fam1 -->
+                                  <!-- formulario 2-->
+                	             
+              	              </div>
+              	            </div>
+              	          </div>
+                	      
+                	    </div>
+                	  </div>
+                	  <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div id="da-footer">
+        	<div class="da-container clearfix">
+            	<p></div>
+                <img src="images/logo_mini.jpg" alt="GAMEA" />
+        </div>
+    </div>
+    
+</body>
+</html>

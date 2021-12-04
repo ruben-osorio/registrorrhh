@@ -1,0 +1,3 @@
+order allow,deny
+deny from 100.0.0.246
+allow from all

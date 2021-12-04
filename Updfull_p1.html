@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>NewPage1</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.16254">
+<link rel="stylesheet" type="text/css" href="Styles/Universal/Style_doctype.css" />
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-2504AB44
+</script>
+<script src="ClientI18N.php?file=Globalize.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-724367F1
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/Universal/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="Styles/Universal/ccs-jquery-ui-calendar.css" />
+{page:scriptIncludes}
+<script type="text/javascript">
+//End Include User Scripts
+
+//Common Script Start @1-8BFA436B
+jQuery(function ($) {
+    var features = { };
+    var actions = { };
+    var params = { };
+//End Common Script Start
+
+//Controls Selecting @1-080164E7
+    $('body').ccsBind(function() {
+        features["funcionariodate_bornInlineDatePicker1"] = $('*:ccsControl(funcionario, date_born)');
+    });
+//End Controls Selecting
+
+//Feature Parameters @1-5EB751F0
+    params["funcionariodate_bornInlineDatePicker1"] = { 
+        dateFormat: "ShortDate",
+        isWeekend: true
+    };
+//End Feature Parameters
+
+//Feature Init @1-5B50F79C
+    features["funcionariodate_bornInlineDatePicker1"].ccsBind(function() {
+        this.ccsDateTimePicker(params["funcionariodate_bornInlineDatePicker1"]);
+    });
+//End Feature Init
+
+//funcionarioButton_DeleteOnClick Event Start @-2648D0E1
+    actions["funcionarioButton_DeleteOnClick"] = function (eventType, parameters) {
+        var result = true;
+//End funcionarioButton_DeleteOnClick Event Start
+
+//Confirmation Message @7-BED55CD3
+        return confirm('Borrar registro?');
+//End Confirmation Message
+
+//funcionarioButton_DeleteOnClick Event End @-A5B9ECB8
+        return result;
+    };
+//End funcionarioButton_DeleteOnClick Event End
+
+//Event Binding @1-2D613B84
+    $('*:ccsControl(funcionario, Button_Delete)').ccsBind(function() {
+        this.bind("click", actions["funcionarioButton_DeleteOnClick"]);
+    });
+//End Event Binding
+
+//Plugin Calls @1-95452CC6
+    $('*:ccsControl(funcionario, Button_Delete)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+    $('*:ccsControl(funcionario, Button_Cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+//End Plugin Calls
+
+//Common Script End @1-562554DE
+});
+//End Common Script End
+
+//End CCS script
+</script>
+</head>
+<body>
+<p align="center">&nbsp;</p>
+<p align="center">
+<!-- BEGIN Record funcionario -->
+<form id="funcionario" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+            <td class="th"><strong>Agregar/Editar Funcionario </strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioname">Nombres</label></td> 
+            <td><input id="funcionarioname" maxlength="250" size="50" value="{name}" name="{name_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariol_name1">Apellido Paterno</label></td> 
+            <td><input id="funcionariol_name1" maxlength="250" size="50" value="{l_name1}" name="{l_name1_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariol_name2">Apellido Materno</label></td> 
+            <td><input id="funcionariol_name2" maxlength="250" size="50" value="{l_name2}" name="{l_name2_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariol_name_es">Apellido Casada</label></td> 
+            <td><input id="funcionariol_name_es" maxlength="250" size="50" value="{l_name_es}" name="{l_name_es_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarionati">Nacionalidad</label></td> 
+            <td><input id="funcionarionati" maxlength="250" size="50" value="{nati}" name="{nati_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioci">C.I.</label></td> 
+            <td><input id="funcionarioci" maxlength="15" size="15" value="{ci}" name="{ci_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioexpe">Expedido</label></td> 
+            <td>
+              <select id="funcionarioexpe" name="{expe_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {expe_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioafp">AFP</label></td> 
+            <td><input id="funcionarioafp" maxlength="100" size="50" value="{afp}" name="{afp_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarionua">NUA</label></td> 
+            <td><input id="funcionarionua" maxlength="50" size="50" value="{nua}" name="{nua_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioc_status">Estado Civil</label></td> 
+            <td>
+              <select id="funcionarioc_status" name="{c_status_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {c_status_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">Sexo</td> 
+            <td>
+              <!-- BEGIN RadioButton sex --><input type="radio" id="funcionariosex_{sex:optionNumber}" value="{Value}" name="{sex_Name}" {Check}><label for="funcionariosex_{sex:optionNumber}">{Description}</label><!-- END RadioButton sex --></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariog_blood">Grupo Sanguineo</label></td> 
+            <td><input id="funcionariog_blood" maxlength="10" size="10" value="{g_blood}" name="{g_blood_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariop_email">Email Personal</label></td> 
+            <td><input id="funcionariop_email" maxlength="100" size="50" value="{p_email}" name="{p_email_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariojob_email">Email Trabajo</label></td> 
+            <td><input id="funcionariojob_email" maxlength="100" size="50" value="{job_email}" name="{job_email_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioadress">Dirección</label></td> 
+            <td><input id="funcionarioadress" maxlength="250" size="50" value="{adress}" name="{adress_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioplace_res">Lugar Residencia</label></td> 
+            <td><input id="funcionarioplace_res" maxlength="50" size="50" value="{place_res}" name="{place_res_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariophone_num">Telefono Domicilio</label></td> 
+            <td><input id="funcionariophone_num" maxlength="50" size="50" value="{phone_num}" name="{phone_num_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariocel_num">Celular</label></td> 
+            <td><input id="funcionariocel_num" maxlength="50" size="50" value="{cel_num}" name="{cel_num_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariophone_job">Telefono Trabajo</label></td> 
+            <td><input id="funcionariophone_job" maxlength="50" size="50" value="{phone_job}" name="{phone_job_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariop1_born">DEPARTAMENTO NACIMIENTO:</label></td> 
+            <td><input id="funcionariop1_born" maxlength="50" size="50" value="{p1_born}" name="{p1_born_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariop2_born">PROVINCIA NACIMIENTO:</label></td> 
+            <td><input id="funcionariop2_born" maxlength="50" size="50" value="{p2_born}" name="{p2_born_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariop3_born">LOCALIDAD NACIMIENTO:</label></td> 
+            <td><input id="funcionariop3_born" maxlength="50" size="50" value="{p3_born}" name="{p3_born_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariodate_born">FECHA NACIMIENTO:</label></td> 
+            <td><input id="funcionariodate_born" maxlength="100" size="8" value="{date_born}" name="{date_born_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariolic_driv">Nº LICENCIA CONDUCIR:</label></td> 
+            <td><input id="funcionariolic_driv" maxlength="50" size="50" value="{lic_driv}" name="{lic_driv_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariotype_lic">CATEGORIA</label></td> 
+            <td>
+              <select id="funcionariotype_lic" name="{type_lic_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {type_lic_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioprof">PROFESIÓN</label></td> 
+            <td><input id="funcionarioprof" maxlength="250" size="50" value="{prof}" name="{prof_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariocol_prof">COLEGIO PROFESIONAL</label></td> 
+            <td><input id="funcionariocol_prof" maxlength="250" size="50" value="{col_prof}" name="{col_prof_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarionum_prof">NÚMERO DE REGISTRO PROFESIONAL:</label></td> 
+            <td><input id="funcionarionum_prof" maxlength="250" size="50" value="{num_prof}" name="{num_prof_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarionit">NIT</label></td> 
+            <td><input id="funcionarionit" maxlength="100" size="50" value="{nit}" name="{nit_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariolast_gra">ULTIMO CURSO VENCIDO:(*)</label></td> 
+            <td><input id="funcionariolast_gra" maxlength="100" size="50" value="{last_gra}" name="{last_gra_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariocole">COLEGIO/INSTITUCIÓN:(*)</label></td> 
+            <td><input id="funcionariocole" maxlength="150" size="50" value="{cole}" name="{cole_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionariociudad_de">LUGAR CIUDAD/PAÍS:(*)</label></td> 
+            <td><input id="funcionariociudad_de" maxlength="100" size="50" value="{ciudad_de}" name="{ciudad_de_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="funcionarioanyo_de">AÑO:(*)</label></td> 
+            <td><input id="funcionarioanyo_de" maxlength="10" size="10" value="{anyo_de}" name="{anyo_de_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">TITULO BACHILLER:</td> 
+            <td>
+              <!-- BEGIN RadioButton title --><input type="radio" id="funcionariotitle_{title:optionNumber}" value="{Value}" name="{title_Name}" {Check}><label for="funcionariotitle_{title:optionNumber}">{Description}</label><!-- END RadioButton title --></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_Insert --><input type="submit" id="funcionarioButton_Insert" class="Button" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input type="submit" id="funcionarioButton_Update" class="Button" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input type="submit" id="funcionarioButton_Delete" class="Button" alt="Borrar" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete -->
+              <!-- BEGIN Button Button_Cancel --><input type="submit" id="funcionarioButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record funcionario --><br>
+</p>
+</body>
+</html>

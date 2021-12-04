@@ -1,0 +1,674 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Viewport metatags -->
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- iOS webapp metatags -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- iOS webapp icons -->
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-retina.png" />
+
+<!-- CSS Reset -->
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<!--  Fluid Grid System -->
+<link rel="stylesheet" type="text/css" href="css/fluid.css" media="screen" />
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.theme.css" media="screen" />
+<!--  Main Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.css" media="screen" />
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<!-- jQuery JavaScript File -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<!-- jQuery-UI JavaScript Files -->
+<script type="text/javascript" src="jui/js/jquery-ui-1.8.20.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.timepicker.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen" />
+
+<!-- Plugin Files -->
+
+<!-- FileInput Plugin -->
+<script type="text/javascript" src="js/jquery.fileinput.js"></script>
+<!-- Placeholder Plugin -->
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<!-- Mousewheel Plugin -->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar Plugin -->
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<!-- Tooltips Plugin -->
+<script type="text/javascript" src="plugins/tipsy/jquery.tipsy-min.js"></script>
+<link rel="stylesheet" href="plugins/tipsy/tipsy.css" />
+
+<!-- Validation Plugin -->
+<script type="text/javascript" src="plugins/validate/jquery.validate.min.js"></script>
+
+<!-- Chosen Plugin -->
+<script type="text/javascript" src="plugins/chosen/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="plugins/chosen/chosen.css" media="screen" />
+
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="js/demo/demo.validation.js"></script>
+
+<!-- Core JavaScript Files -->
+<script type="text/javascript" src="js/core/dandelion.core.js"></script>
+
+<!-- Customizer JavaScript File (remove if not needed) -->
+<script type="text/javascript" src="js/core/dandelion.customizer.js"></script>
+
+<title>Datos Personales</title>
+
+</head>
+
+<body>
+
+	
+    
+	<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
+	<div id="da-wrapper" class="fluid">
+    
+        <!-- Header -->
+        <div id="da-header">
+        
+        	<div id="da-header-top">
+                
+                <!-- Container -->
+                <div class="da-container clearfix">
+                    
+                    <!-- Logo Container. All images put here will be vertically centere -->
+                    <div id="da-logo-wrap">
+                        <div id="da-logo">
+                            <div id="da-logo-img">
+                                <a href="dashboard.html">
+                                    <img src="images/logo.png" alt="Dandelion Admin" width="280" height="90" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Header Toolbar Menu -->
+                    <!-- Header Toolbar Menu -->
+                    <div id="da-header-toolbar" class="clearfix">
+                        <div id="da-user-profile">
+                            
+                            <div id="da-user-info">
+                                John Doe
+                                <span class="da-user-title">Creative Director</span>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                                    
+                </div>
+            </div>
+            
+            <div id="da-header-bottom">
+                <!-- Container -->
+                <div class="da-container clearfix">
+                
+                	
+                	
+                    <!-- Breadcrumbs -->
+                    <div id="da-breadcrumb">
+                        <ul>
+                            <li><a href="dashboard.html"><img src="images/icons/black/16/home.png" alt="Home" />Dashboard</a></li>
+                            <li><a href="#">Form</a></li>
+                            <li class="active"><span>Validation</span></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <!-- Content -->
+        <div id="da-content">
+            
+            <!-- Container -->
+            <div class="da-container clearfix">
+            
+                <!-- Sidebar -->
+                <div id="da-sidebar-separator"></div>
+                <div id="da-sidebar">
+                
+                    <!-- Main Navigation -->
+                    <div id="da-main-nav" class="da-button-container">
+                        <ul>
+                            <li>
+                            	<a href="dashboard.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/home.png" alt="Dashboard" />
+                                    </span>
+                                	Dashboard
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="#">
+                                	<!-- Nav Notification -->
+                                    <span class="da-nav-count">32</span>
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/graph.png" alt="Charts" />
+                                    </span>
+                                	Statistics and Charts
+                                </a>
+                                <ul class="closed">
+                                	<li><a href="statistic.html">Statistic Widgets</a></li>
+                                	<li><a href="charts.html">Chart Gallery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                            	<a href="calendar.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/day_calendar.png" alt="Calendar" />
+                                    </span>
+                                	Calendar
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="file.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/file_cabinet.png" alt="File Handling" />
+                                    </span>
+                                	File Handling
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="table.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/table_1.png" alt="Table" />
+                                    </span>
+                                	Table
+                                </a>
+                            </li>
+                            <li class="active">
+                            	<a href="#">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/create_write.png" alt="Form" />
+                                    </span>
+                                	Form
+                                </a>
+                                <ul>
+                                	<li><a href="form-layouts.html">Layouts</a></li>
+                                	<li><a href="form-elements.html">Elements</a></li>
+                                	<li><a href="form-validation.html">Validation</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                            	<a href="ui.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/settings.png" alt="" />
+                                    </span>
+                                    UI Elements
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="widgets.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/cog_4.png" alt="Widgets" />
+                                    </span>
+                                    Widgets
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="#">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/word_documents_1.png" alt="Layout and Typography" />
+                                    </span>
+                                    Layout and Typography
+                                </a>
+                                <ul class="closed">
+                                	<li><a href="grids.html">Grids and Panels</a></li>
+                                	<li><a href="typography.html">Typography</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                            	<a href="gallery.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/images_2.png" alt="Gallery" />
+                                    </span>
+                                    Gallery
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="error.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/alert.png" alt="Error Pages" />
+                                    </span>
+                                    Error Page (404)
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="icons.html">
+                                	<!-- Icon Container -->
+                                	<span class="da-nav-icon">
+                                    	<img src="images/icons/black/32/pacman.png" alt="Icons" />
+                                    </span>
+                                    Icons
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+                <!-- Main Content Wrapper -->
+                <div id="da-content-wrap" class="clearfix">
+                
+                	<!-- Content Area -->
+                	<div id="da-content-area">
+                    	<div class="grid_3">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/color/accept.png" alt="" />
+                                        DATOS PERSONALES
+                                    </span>
+                                </div>
+                            	<div class="da-form-item large">
+                            	  <input type="text" name="req1" />
+                          	  </div>
+                                <div class="da-panel-content">
+                                	<form id="da-ex-validate1" class="da-form">
+                                    	<div id="da-ex-val1-error" class="da-message error" style="display:none;"></div>
+                                        <div class="da-form-inline">
+                                            <div class="da-form-row">
+                                                <label>Required<span class="required">*</span></label>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>Email<span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                    <input type="text" name="email1" />
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>URL<span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                    <input type="text" name="url1" />
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>Password <span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                    <input id="pass1" type="text" name="pass1" />
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>Confirm Password <span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                    <input type="text" name="cpass1" />
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>Round Number<span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                    <input type="text" name="digits1" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="da-button-row">
+                                        	<input type="submit" value="Validate Me" class="da-button red" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                    	<div class="grid_3">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/color/accept.png" alt="" />
+                                       <h2>  DATOS PERSONALES</h2>
+                                    </span>
+                                </div>
+                            	<div class="da-form-item large">
+                            	  <input type="text" name="req1" />
+                          	  </div>
+                                <div class="da-panel-content">
+                                	
+                                    <!-- BEGIN Record funcionario -->
+<form id="funcionario" method="post" name="{HTMLFormName}" action="{Action}" class="da-form">
+  <h2> </h2>
+  <div class="da-form-row">
+                                                <label>Required<span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                    <input type="text" name="req1" />
+                                                </div>
+                                            </div>
+  <table>
+    <!-- BEGIN Error -->
+    <tr>
+      <td colspan="2">{Error}</td>
+    </tr>
+    <!-- END Error -->
+    <tr>
+      <td>NOMBRES:(*)</td> 
+      <td>{name}</td>
+    </tr>
+ 
+    <tr>
+      <td>APELLIDO PATERNO:(*)</td> 
+      <td>{l_name1}</td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariol_name2">APELLIDO MATERNO:(*)</label></td> 
+      <td>{l_name2}</td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariol_name_es">L Name Es</label></td> 
+      <td><input id="funcionariol_name_es" maxlength="250" size="50" value="{l_name_es}" name="{l_name_es_Name}"></td>
+    </tr>
+ 		
+    <tr>
+      <td><label for="funcionarionationality">&nbsp;</label></td> 
+      <td></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionati">Nati</label></td> 
+      <td><input id="funcionarionati" maxlength="250" size="50" value="{nati}" name="{nati_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td>Ci</td> 
+      <td>{ci}</td>
+    </tr>
+ 
+    <tr>
+      <td>Date Born</td> 
+      <td>{date_born}</td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioexpe">Expe</label></td> 
+      <td>
+        <select id="funcionarioexpe" name="{expe_Name}">
+          <option selected value="">Seleccionar Valor</option>
+          {expe_Options}
+        </select>
+ </td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioafp">Afp</label></td> 
+      <td>
+        <!-- BEGIN RadioButton afp --><input type="radio" id="funcionarioafp_{afp:optionNumber}" value="{Value}" name="{afp_Name}" {Check}><label for="funcionarioafp_{afp:optionNumber}">{Description}</label><!-- END RadioButton afp --></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionua">Nua</label></td> 
+      <td><input id="funcionarionua" maxlength="50" size="50" value="{nua}" name="{nua_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioc_status">C Status</label></td> 
+      <td>
+        <!-- BEGIN RadioButton c_status --><input type="radio" id="funcionarioc_status_{c_status:optionNumber}" value="{Value}" name="{c_status_Name}" {Check}><label for="funcionarioc_status_{c_status:optionNumber}">{Description}</label><!-- END RadioButton c_status --></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariosex">Sex</label></td> 
+      <td>
+        <!-- BEGIN RadioButton sex --><input type="radio" id="funcionariosex_{sex:optionNumber}" value="{Value}" name="{sex_Name}" {Check}><label for="funcionariosex_{sex:optionNumber}">{Description}</label><!-- END RadioButton sex --></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariog_blood">G Blood</label></td> 
+      <td><input id="funcionariog_blood" maxlength="10" size="10" value="{g_blood}" name="{g_blood_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop_email">P Email</label></td> 
+      <td><input id="funcionariop_email" maxlength="100" size="50" value="{p_email}" name="{p_email_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariojob_email">Job Email</label></td> 
+      <td><input id="funcionariojob_email" maxlength="100" size="50" value="{job_email}" name="{job_email_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioadress">Adress</label></td> 
+      <td><textarea id="funcionarioadress" rows="3" cols="50" name="{adress_Name}">{adress}</textarea></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioplace_res">Place Res</label></td> 
+      <td><input id="funcionarioplace_res" maxlength="50" size="50" value="{place_res}" name="{place_res_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariophone_num">Phone Num</label></td> 
+      <td><input id="funcionariophone_num" maxlength="50" size="50" value="{phone_num}" name="{phone_num_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocel_num">Cel Num</label></td> 
+      <td><input id="funcionariocel_num" maxlength="50" size="50" value="{cel_num}" name="{cel_num_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariophone_job">Phone Job</label></td> 
+      <td><input id="funcionariophone_job" maxlength="50" size="50" value="{phone_job}" name="{phone_job_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop1_born">P1 Born</label></td> 
+      <td><input id="funcionariop1_born" maxlength="50" size="50" value="{p1_born}" name="{p1_born_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop2_born">P2 Born</label></td> 
+      <td><input id="funcionariop2_born" maxlength="50" size="50" value="{p2_born}" name="{p2_born_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop3_born">P3 Born</label></td> 
+      <td><input id="funcionariop3_born" maxlength="50" size="50" value="{p3_born}" name="{p3_born_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariolic_driv">Lic Driv</label></td> 
+      <td><input id="funcionariolic_driv" maxlength="50" size="50" value="{lic_driv}" name="{lic_driv_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariotype_lic">Type Lic</label></td> 
+      <td>
+        <!-- BEGIN RadioButton type_lic --><input type="radio" id="funcionariotype_lic_{type_lic:optionNumber}" value="{Value}" name="{type_lic_Name}" {Check}><label for="funcionariotype_lic_{type_lic:optionNumber}">{Description}</label><!-- END RadioButton type_lic --></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioprof">Prof</label></td> 
+      <td><input id="funcionarioprof" maxlength="250" size="50" value="{prof}" name="{prof_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocol_prof">Col Prof</label></td> 
+      <td><input id="funcionariocol_prof" maxlength="250" size="50" value="{col_prof}" name="{col_prof_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionum_prof">Num Prof</label></td> 
+      <td><input id="funcionarionum_prof" maxlength="250" size="50" value="{num_prof}" name="{num_prof_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionit">Nit</label></td> 
+      <td><input id="funcionarionit" maxlength="100" size="50" value="{nit}" name="{nit_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioon_off">On Off</label></td> 
+      <td><input id="funcionarioon_off" maxlength="4" size="4" value="{on_off}" name="{on_off_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariolast_gra">Last Gra</label></td> 
+      <td><input id="funcionariolast_gra" maxlength="100" size="50" value="{last_gra}" name="{last_gra_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocole">Cole</label></td> 
+      <td><input id="funcionariocole" maxlength="150" size="50" value="{cole}" name="{cole_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariociudad_de">Ciudad De</label></td> 
+      <td><input id="funcionariociudad_de" maxlength="100" size="50" value="{ciudad_de}" name="{ciudad_de_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioanyo_de">Anyo De</label></td> 
+      <td><input id="funcionarioanyo_de" maxlength="10" size="10" value="{anyo_de}" name="{anyo_de_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td>Title</td> 
+      <td>
+        <!-- BEGIN RadioButton title --><input type="radio" id="funcionariotitle_{title:optionNumber}" value="{Value}" name="{title_Name}" {Check}><label for="funcionariotitle_{title:optionNumber}">{Description}</label><!-- END RadioButton title --></td>
+    </tr>
+ 
+    <tr>
+      <td style="TEXT-ALIGN: right" colspan="2">
+        <!-- BEGIN Button Button_Update --><input type="submit" id="funcionarioButton_Update" class="Button" alt="Enviar" value="Guardar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="funcionarioButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --></td>
+    </tr>
+  </table>
+</form>
+<!-- END Record funcionario --><br>	
+                                        
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        
+                    	
+                        
+                        <div class="clear"></div>
+                        
+                    	<div class="grid_2">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/color/accept.png" alt="" />
+                                        Validation Example 3
+                                    </span>
+                                </div>
+                                <div class="da-panel-content">
+                                	<form id="da-ex-validate3" class="da-form">
+                                        <div class="da-form-inline">
+                                            <div class="da-form-row">
+                                                <label>Radio Button <span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                	<ul class="da-form-list">
+                                                    	<li><input type="radio" name="gender" /> <label>Male</label></li>
+                                                    	<li><input type="radio" name="gender" /> <label>Female</label></li>
+                                                    </ul>
+                                                    <label for="gender" class="error" generated="true" style="display:none;"></label>
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>Checkbox <span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                	<ul class="da-form-list">
+                                                    	<li><input type="checkbox" name="sport" /> <label>Soccer</label></li>
+                                                    	<li><input type="checkbox" name="sport" /> <label>Badminton</label></li>
+                                                    	<li><input type="checkbox" name="sport" /> <label>Tennis</label></li>
+                                                    </ul>
+                                                    <label for="sport" class="error" generated="true" style="display:none;"></label>
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>File <span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                	<input type="file" name="file1" class="da-custom-file" />
+                                                    <label for="file1" class="error" generated="true" style="display:none;"></label>
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>Dropdown <span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                	<select name="dd1">
+                                                    	<option></option>
+                                                    	<option value="1">Option 1</option>
+                                                    	<option value="2">Option 2</option>
+                                                    	<option value="3">Option 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>Dropdown with Chosen <span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                    <select id="da-ex-val-chzn" name="chosen1">
+                                                        <option></option>
+                                                        <option value="1">Option 1</option>
+                                                        <option value="2">Option 2</option>
+                                                        <option value="3">Option 3</option>
+                                                    </select>
+                                                    <label for="da-ex-val-chzn" generated="true" class="error" style="display:none;"></label>
+                                                </div>
+                                            </div>
+                                            <div class="da-form-row">
+                                                <label>Spinner</label>
+                                                <div class="da-form-item large">
+                                                	<input id="da-ex-val-spin" type="text" name="spin1" value="3" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="da-button-row">
+                                        	<input type="submit" value="Validate Me" class="da-button green" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    	
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <div id="da-footer">
+        	<div class="da-container clearfix">
+            	<p>Copyright 2012. Dandelion Admin. All Rights Reserved.
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

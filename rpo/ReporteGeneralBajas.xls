@@ -1,0 +1,104 @@
+                <html xmlns:o="urn:schemas-microsoft-com:office:office"
+                xmlns:x="urn:schemas-microsoft-com:office:excel"
+                xmlns="http://www.w3.org/TR/REC-html40">
+
+                <head>
+                <meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+                <meta name=ProgId content=Excel.Sheet>
+                <!--[if gte mso 9]><xml>
+                 <o:DocumentProperties>
+                  <o:LastAuthor>Sriram</o:LastAuthor>
+                  <o:LastSaved>2005-01-02T07:46:23Z</o:LastSaved>
+                  <o:Version>10.2625</o:Version>
+                 </o:DocumentProperties>
+                 <o:OfficeDocumentSettings>
+                  <o:DownloadComponents/>
+                 </o:OfficeDocumentSettings>
+                </xml><![endif]-->
+                <style>
+                <!--table
+                    {mso-displayed-decimal-separator:"\.";
+                    mso-displayed-thousand-separator:"\,";}
+                @page
+                    {margin:1.0in .75in 1.0in .75in;
+                    mso-header-margin:.5in;
+                    mso-footer-margin:.5in;}
+                tr
+                    {mso-height-source:auto;}
+                col
+                    {mso-width-source:auto;}
+                br
+                    {mso-data-placement:same-cell;}
+                .style0
+                    {mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    white-space:nowrap;
+                    mso-rotate:0;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    border:none;
+                    mso-protection:locked visible;
+                    mso-style-name:Normal;
+                    mso-style-id:0;}
+                td
+                    {mso-style-parent:style0;
+                    padding-top:1px;
+                    padding-right:1px;
+                    padding-left:1px;
+                    mso-ignore:padding;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    border:none;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    mso-protection:locked visible;
+                    white-space:nowrap;
+                    mso-rotate:0;}
+                .xl24
+                    {mso-style-parent:style0;
+                    white-space:normal;}
+                -->
+                </style>
+                <!--[if gte mso 9]><xml>
+                 <x:ExcelWorkbook>
+                  <x:ExcelWorksheets>
+                   <x:ExcelWorksheet>
+                    <x:Name>srirmam</x:Name>
+                    <x:WorksheetOptions>
+                     <x:Selected/>
+                     <x:ProtectContents>False</x:ProtectContents>
+                     <x:ProtectObjects>False</x:ProtectObjects>
+                     <x:ProtectScenarios>False</x:ProtectScenarios>
+                    </x:WorksheetOptions>
+                   </x:ExcelWorksheet>
+                  </x:ExcelWorksheets>
+                  <x:WindowHeight>10005</x:WindowHeight>
+                  <x:WindowWidth>10005</x:WindowWidth>
+                  <x:WindowTopX>120</x:WindowTopX>
+                  <x:WindowTopY>135</x:WindowTopY>
+                  <x:ProtectStructure>False</x:ProtectStructure>
+                  <x:ProtectWindows>False</x:ProtectWindows>
+                 </x:ExcelWorkbook>
+                </xml><![endif]-->
+                </head>
+
+                <body link=blue vlink=purple>
+                <table x:str border=0 cellpadding=0 cellspacing=0 style='border-collapse: collapse;table-layout:fixed;'><tr><td class=xl24 width=64 >AP. PATERNO</td><td class=xl24 width=64 >AP. MATERNO</td><td class=xl24 width=64 >NOMBRE(S)</td><td class=xl24 width=64 >ESTADO</td><td class=xl24 width=64 >CARGO</td></tr><tr><td class=xl24 width=64 >LOBO </td><td class=xl24 width=64 >CARRILLO</td><td class=xl24 width=64 >YEZENIA</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN</td><td class=xl24 width=64 >2012-10-01</td></tr><tr><td class=xl24 width=64 >MOOR</td><td class=xl24 width=64 >ARCE</td><td class=xl24 width=64 >ENRIQUE</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN</td><td class=xl24 width=64 >2012-11-30</td></tr><tr><td class=xl24 width=64 >EGUINO</td><td class=xl24 width=64 >MEDINA</td><td class=xl24 width=64 >JOSE ALBARO</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >CANASTA</td><td class=xl24 width=64 >2012-09-05</td></tr><tr><td class=xl24 width=64 >ALARCON</td><td class=xl24 width=64 >PEREZ</td><td class=xl24 width=64 >SHIRLEY LIZETTE</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >ESCOBAR</td><td class=xl24 width=64 >YUPANQUI</td><td class=xl24 width=64 >JAVIER OSCAR</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-07-09</td></tr><tr><td class=xl24 width=64 >ALVAREZ</td><td class=xl24 width=64 >BENITEZ</td><td class=xl24 width=64 >EVELING </td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >GOITIA</td><td class=xl24 width=64 >ORTEGA</td><td class=xl24 width=64 >GROVER LUIS</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >BALTAZAR</td><td class=xl24 width=64 >FLORES</td><td class=xl24 width=64 >SILVIA YURVISHA</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-08-23</td></tr><tr><td class=xl24 width=64 >BASCOPE</td><td class=xl24 width=64 >TEJADA</td><td class=xl24 width=64 >GASTON</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-04-12</td></tr><tr><td class=xl24 width=64 >BURGOA</td><td class=xl24 width=64 >VARGAS</td><td class=xl24 width=64 >REINA DINCA</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-08-07</td></tr><tr><td class=xl24 width=64 >HIDALGO</td><td class=xl24 width=64 >AGUILAR</td><td class=xl24 width=64 >MARIA DEL CARMEN</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >CALLISAYA</td><td class=xl24 width=64 >BUSTAMANTE</td><td class=xl24 width=64 >KATERINNE</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >MIRANDA</td><td class=xl24 width=64 >GARAVITO</td><td class=xl24 width=64 >VILMA </td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >MORA </td><td class=xl24 width=64 >CESPEDEZ</td><td class=xl24 width=64 >DIANA MACKENA</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-08-31</td></tr><tr><td class=xl24 width=64 >NINA </td><td class=xl24 width=64 >GUARAYA</td><td class=xl24 width=64 >JORGE MAURICIO</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >RODRIGUEZ</td><td class=xl24 width=64 >QUISBERT</td><td class=xl24 width=64 >CARLA DANIELA</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >RUIZ</td><td class=xl24 width=64 >CHARCA</td><td class=xl24 width=64 >JHOVANA </td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >TGN-252</td><td class=xl24 width=64 >2012-05-31</td></tr><tr><td class=xl24 width=64 >RUIZ</td><td class=xl24 width=64 >VILA</td><td class=xl24 width=64 >VIRGINIA MATILDE</td><td class=xl24 width=64 >PASIVO</td><td class=xl24 width=64 >UNICEF</td><td class=xl24 width=64 >2012-05-29</td></tr></table></body></html>

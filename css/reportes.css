@@ -1,0 +1,182 @@
+/*
+
+=====================================
+
+ * Data Tables and Cascading Style Sheets Gallery *
+
+ *  http://icant.co.uk/csstablegallery/index.php  *
+
+ * Author: Velizar Garvalov at  http://www.vhg-design.com/ *
+
+ =====================================
+
+*/
+
+
+
+table {
+
+	width: 100%;
+	margin:0; 
+ 	padding:0;
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;	
+	color: #2e333b;
+	
+}
+
+table, tr, th, td {
+	
+	border-radius:3px; 
+-moz-border-radius:3px; /* Firefox */ 
+-webkit-border-radius:3px; /* Safari y Chrome */ 
+}
+
+caption {
+	margin:0; 
+ 	padding:0;
+	background: #f3f3f3;
+	height: 40px;
+	line-height: 40px;
+	text-indent: 28px;
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;	
+	font-size: 14px;
+	font-weight: bold;
+	color: #555d6d;
+	text-align: left;
+	letter-spacing: 3px;
+	border-top: dashed 1px #c2c2c2;
+	border-bottom: dashed 1px #c2c2c2;
+}
+
+
+
+/* HEAD */
+
+
+
+thead {
+	color:#F90;
+	background-color: #FFFFFF;
+	border: none;
+
+}
+
+thead tr th {
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	color: #2e333b;
+
+	background-repeat: repeat-x;
+	border-left:solid 1px #FF9900;
+	border-right:solid 1px #FF9900;	
+	border-collapse: collapse;
+}
+/* BODY */
+tbody tr {
+	background: #eeeeee;
+	font-size: 13px;
+}
+
+tbody tr.odd {
+	background: #F0FFFF;
+}
+
+tbody tr:hover, tbody tr.odd:hover {
+	background: #ffffff;
+}
+
+tbody tr th, tbody tr td {
+	padding: 6px;
+	border: solid 1px #dddddd;
+}
+
+tbody tr th {
+	background: #495362;
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;	
+	font-size: 12px;
+	padding: 6px;
+	text-align: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	border-bottom: solid 1px white;
+}
+/* LINKS */
+table a {
+	color: #FF6600;
+	text-decoration: none;
+	font-size: 13px;
+	border-bottom: solid 1px white;
+}
+table a:hover {
+	color: #FF9900;
+	border-bottom: none;
+}
+/* FOOTER */
+tfoot {
+	background: #f3f3f3;
+	height: 24px;
+	line-height: 24px;
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;	
+	font-size: 14px;
+	font-weight: bold;
+	color: #2e333b;
+	text-align: center;
+	letter-spacing: 3px;
+	border-top: solid 2px #326e87;
+	border-bottom: dashed 1px #c2c2c2;
+}
+tfoot tr th, tfoot tr td {
+	/*padding: .1em .6em;*/
+}
+tfoot tr th {
+	border-top: solid 1px #326e87;
+}
+
+tfoot tr td {
+	text-align: right;
+}
+fieldset { border:1px solid #2e333b;
+border-radius:3px; 
+-moz-border-radius:3px; /* Firefox */ 
+-webkit-border-radius:3px; /* Safari y Chrome */ 
+ }
+
+legend {
+  padding: 0.2em 0.5em;
+  border:1px solid #2e333b;
+  color:#2e333b;
+  font-size:90%;
+  text-align:left;
+  border-radius:3px; 
+-moz-border-radius:3px; /* Firefox */ 
+-webkit-border-radius:3px; /* Safari y Chrome */ 
+  }
+/* CAJITAS DE EXITO ERROR Y DEMAS */  
+.infore, .successre, .warningre, .errorre, .validationre {
+border: 1px solid;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+.infore {
+color: #00529B;
+background-color: #BDE5F8;
+background-image: url('info.png');
+}
+.successre {
+color: #4F8A10;
+background-color: #DFF2BF;
+background-image:url(../data/images/success.png);
+}
+.warningre {
+color: #9F6000;
+background-color: #FEEFB3;
+background-image: url(../data/images/ImgCritical_32.png);
+}
+.errorre {
+color: #D8000C;
+background-color: #FFBABA;
+background-image: url(../data/images/ImgCritical_32.png);
+}

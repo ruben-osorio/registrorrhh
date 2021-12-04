@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!-- Viewport metatags -->
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- iOS webapp metatags -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<!-- iOS webapp icons -->
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-retina.png" />
+
+<!-- CSS Reset -->
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen" />
+<!--  Fluid Grid System -->
+<link rel="stylesheet" type="text/css" href="css/fluid.css" media="screen" />
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.theme.css" media="screen" />
+<!--  Main Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/dandelion.css" media="screen" />
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<!-- jQuery JavaScript File -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+
+
+<!-- jQuery-UI JavaScript Files -->
+<script type="text/javascript" src="jui/js/jquery-ui-1.8.20.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.timepicker.min.js"></script>
+<script type="text/javascript" src="jui/js/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen" />
+
+<!-- Plugin Files -->
+
+<!-- FileInput Plugin -->
+<script type="text/javascript" src="js/jquery.fileinput.js"></script>
+<!-- Placeholder Plugin -->
+<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+<!-- Mousewheel Plugin -->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<!-- Scrollbar Plugin -->
+<script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<!-- Tooltips Plugin -->
+<script type="text/javascript" src="plugins/tipsy/jquery.tipsy-min.js"></script>
+<link rel="stylesheet" href="plugins/tipsy/tipsy.css" />
+
+
+
+<!-- Validation Plugin -->
+<script type="text/javascript" src="plugins/validate/jquery.validate.min.js"></script>
+
+<!-- Chosen Plugin -->
+<script type="text/javascript" src="plugins/chosen/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="plugins/chosen/chosen.css" media="screen" />
+
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="js/demo/demo.validation.js"></script>
+
+
+<!-- Chosen Plugin -->
+<script type="text/javascript" src="plugins/chosen/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="plugins/chosen/chosen.css" media="screen" />
+<style type="text/css">
+body,td,th {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+</style>
+
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="js/demo/demo.validation.js"></script>
+
+<!-- Core JavaScript Files -->
+<script type="text/javascript" src="js/core/dandelion.core.js"></script>
+
+<!-- Customizer JavaScript File (remove if not needed) -->
+<script type="text/javascript" src="js/core/dandelion.customizer.js"></script>
+
+<title>Datos Personales</title>
+<script type="text/javascript"> 
+	    $(document).ready(function() { 
+	      $("#funcionario").validate({ 
+	        rules: { 
+	          date_born: "required",// simple rule, converted to {required:true} 
+	          p_email: {// compound rule 
+				  required: true, 
+				  email: true 
+	        }, 
+
+            Nro_ref1:{
+                required:true
+            },
+            Nro_ref2:{
+                required:true
+            },
+            cel_num:{
+                    required:true
+                },
+            nua:{
+                required:true
+            },
+	  //      comment: { 
+	   //       required: true 
+	   //     } 
+        }, 
+	 //       messages: { 
+	 //         comment: "Please enter a comment." 
+	  //      } 
+	      }); 
+	    }); 
+  </script> 
+ 
+</head>
+
+<body>
+
+	
+    
+	<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
+	<div id="da-wrapper" class="fluid">
+    
+        <!-- Header -->
+        <div id="da-header">
+        
+        	<div id="da-header-top">
+                
+                <!-- Container -->
+                <div class="da-container clearfix">
+                    
+                    <!-- Logo Container. All images put here will be vertically centere -->
+                    <div id="da-logo-wrap">
+                        <div id="da-logo">
+                            <div id="da-logo-img">
+                                <a href="dashboard.html">
+                                    <img src="images/logo.png" alt="Dandelion Admin" width="280" height="90" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Header Toolbar Menu -->
+                    <!-- Header Toolbar Menu -->
+                    <div id="da-header-toolbar" class="clearfix">
+                        <div id="da-user-profile">
+                            
+                            <div id="da-user-info">
+                                {name}
+                                <span class="da-user-title">Gobierno Autónomo Municipal de El Alto</span>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                                    
+                </div>
+            </div>
+            
+            <div id="da-header-bottom">
+                <!-- Container -->
+                <div class="da-container clearfix">
+                
+                	
+                	
+                    <!-- Breadcrumbs -->
+                    <div id="da-breadcrumb">
+                        <ul>
+                            <li><a href="dashboard.html"><img src="images/icons/black/16/home.png" alt="Home" />Inicio</a></li>
+                           
+                            <li class="active"><span>Datos Personales</span></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <!-- Content -->
+        <div id="da-content">
+            
+            <!-- Container -->
+            <div class="da-container clearfix">
+            
+                <!-- Sidebar -->
+                <div id="da-sidebar-separator"></div>                
+                
+                <!-- Main Content Wrapper -->
+                
+                
+                	<!-- Content Area -->
+                	<div id="da-content-area">
+                    	
+                        
+                        
+                        
+                    	<div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/color/accept.png" alt="" />
+                                       <h2>  DATOS PERSONALES</h2>
+                                       <h4>{name} {l_name1} {l_name2}</h4>
+                                       <div class="da-panel-content">
+                                    
+                                    <div class="da-message info">
+                                     <h5>IMPORTANTE</h5>
+                                      <ul>
+                                        <li>El presente Formulario constituye una <strong>Declaración Jurada </strong>de la veracidad de la información y datos contenidos en el mismo.</li>
+                                        <li> De comprobarse la falsedad de algún dato o información declarado, el Declarante será
+                                          sujeto de sanciones según lo determinado por la normativa vigente. </li>
+                                        <li>El contenido de la presente declaración es de exclusiva y única responsabilidad
+                                          del declarante.</li>
+                                      </ul>
+                                    </div>
+                                   
+                                </div>
+                                    </span>
+                                </div>
+                            	
+                                <div class="da-panel-content">
+                                	
+                                    <!-- BEGIN Record funcionario -->
+<form id="funcionario" method="post" name="{HTMLFormName}" action="{Action}" class="da-form">
+<div id="da-ex-val1-error" class="da-message error" style="display:none;"></div>
+ 
+  <div class="da-form-block">
+  <!--contenedor R1 -->
+  	<!-- BEGIN Error -->
+                                        <div class="da-message warning">
+                                        {Error}
+                                    </div>
+                                            		
+                                          <!-- END Error -->
+  
+  <div class="da-form-row">
+                            <div class="da-form-col-2-8">
+            					<label>CI: {ci} EXPEDIDO EN: <span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                                   <select id="funcionarioexpe" name="{expe_Name}">
+                                      <option selected value="">Seleccionar Valor</option>
+                                      {expe_Options}
+                                    </select>
+                                    
+                                    <label for="funcionarioexpe" generated="true" class="error" style="display:none;"></label>
+                               </div>
+                            </div>
+                           
+                           <div class="da-form-col-2-8">
+                                <label>Nacionalidad <span class="required">*</span></label>
+                               <div class="da-form-item small">                               
+                                   <input id="funcionarionati" type="text" maxlength="250" size="50" value="{nati}" name="{nati_Name}">
+                               </div>
+                           </div>
+                           
+                           <div class="da-form-col-2-8">            					<label>FECHA DE NACIMIENTO: <span class="required">*</span></label>
+                                 <div class="da-form-item small">   <br />
+
+                                     <span class="formNote">Ej: 20/10/1980<br />
+</span>                           
+                                   <input id="funcionariodate_born" type="text" value="{date_born}" name="{date_born_Name}">   
+                               </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="da-form-col-2-8">                                <label>DEPARTAMENTO NACIMIENTO <span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                                  
+                                   <input id="funcionariop1_born" type="text" maxlength="50" size="50" value="{p1_born}" name="{p1_born_Name}">
+                               </div>
+                           </div>
+	  </div>
+  
+ <div class="da-form-row">
+                            
+                           
+                           
+                           
+                            <div class="da-form-col-2-8">
+                         
+            					<label>PROVINCIA NACIMIENTO: <span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                                   <input id="funcionariop2_born"  type="text" maxlength="50" size="50" value="{p2_born}" name="{p2_born_Name}">
+                               </div>
+                            </div>                           
+                           <div class="da-form-col-2-8">
+                                <label>LOCALIDAD NACIMIENTO <span class="required">*</span></label>
+                               <div class="da-form-item small">                               
+                                  <input id="funcionariop3_born" type="text" maxlength="50" size="50" value="{p3_born}" name="{p3_born_Name}">
+                               </div>
+                           </div>
+                         	<div class="da-form-col-2-8">
+            					<label>LUGAR DE RESIDENCIA: <span class="required">*</span></label>
+                               <div class="da-form-item small">                                                                  
+                                   <input id="funcionarioplace_res"  type="text" maxlength="50" size="50" value="{place_res}" name="{place_res_Name}">
+                               </div>
+                            </div>  
+                            <div class="da-form-col-2-8">
+            					
+                                    <label>APELLIDO CASADA(O)</label>
+             <div class="da-form-item ">                               
+              <input id="funcionariol_name_es" type="text"  maxlength="250" size="50" value="{l_name_es}" name="{l_name_es_Name}">
+             </div>
+                               </div>
+                             
+ </div>
+            
+ <div class="da-form-row">
+                            
+                           
+                           <div class="da-form-col-4-8">
+                                <label>DIRECCIÓN ZONA/CALLE/AVENIDA/N&Uacute;MERO(Ej. ZONA CENTRAL / AV. ARCE / No.1825): <span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                                  <textarea id="funcionarioadress" rows="3" cols="50" name="{adress_Name}">{adress}</textarea>
+                               </div>
+                           </div>
+                           
+                           
+                           <div class="da-form-col-2-8">
+            					<label>TEL&Eacute;FONO DOMICILIO:<span class="required">*</span></label>
+                             	<div class="da-form-item">                                <input id="funcionariophone_num" type="text" maxlength="50" size="50" value="{phone_num}" name="{phone_num_Name}">
+               					</div>
+                            </div>
+                           
+                           <div class="da-form-col-2-8">
+                                <label>CELULAR:<span class="required">*</span></label>
+                               <div class="da-form-item">                                                          
+                                  <input id="funcionariocel_num"  type="text"  value="{cel_num}" name="{cel_num_Name}">
+                             </div>
+                      </div>
+                           
+ </div>
+
+<div class="da-form-row">
+                           <div class="da-form-col-4-8">
+            					<label>ADMINISTRADORA FONDO DE PENSIONES: <span class="required">*</span></label>
+                               <div class="da-form-item">                                                                  
+                                    <ul class="da-form-list">
+                                                    	
+                                                        <!-- BEGIN RadioButton afp --><li><input type="radio" id="funcionarioafp_{afp:optionNumber}" value="{Value}" name="{afp_Name}" {Check}><label for="funcionarioafp_{afp:optionNumber}">{Description}</label></li><!-- END RadioButton afp -->
+                       </ul>
+                               </div>
+                            </div>
+                           
+                           <div class="da-form-col-4-8">
+                                <label>NUA/CUA: <span class="required">*</span></label>
+                               <div class="da-form-item small">                               
+                                  <input id="funcionarionua"  type="text" value="{nua}" name="{nua_Name}">
+                               </div>
+                           </div>
+                           
+ </div>
+                            
+
+     
+     <div class="da-form-row">
+	 
+			<div class="da-form-col-3-8">
+                                                <label>ESTADO CIVIL: <span class="required">*</span></label>
+                                                <div class="da-form-item">
+                                                	<ul class="da-form-list">
+                                                    	<!-- BEGIN RadioButton c_status --><li><input type="radio" id="funcionarioc_status_{c_status:optionNumber}" value="{Value}" name="{c_status_Name}" {Check}><label for="funcionarioc_status_{c_status:optionNumber}">{Description}</label></li><!-- END RadioButton c_status -->
+                                                    	
+                                                    </ul>
+                                                    <label for="gender" class="error" generated="true" style="display:none;"></label>
+                                                </div>
+                                            </div>
+                                        	
+            <div class="da-form-col-3-8">
+                                                <label>SEXO: <span class="required">*</span></label>
+                                                <div class="da-form-item large">
+                                                	<ul class="da-form-list">
+                                                    
+                                                        
+<!-- BEGIN RadioButton sex --><li><input type="radio" id="funcionariosex_{sex:optionNumber}" value="{Value}" name="{sex_Name}" {Check}><label for="funcionariosex_{sex:optionNumber}">{Description}</label></li><!-- END RadioButton sex -->                                                    	
+                                                    </ul>
+                                                    <label for="gender" class="error" generated="true" style="display:none;"></label>
+                                                </div>
+                                            </div>
+
+            <div class="da-form-col-2-8">
+                                                <label>GRUPO SANGUINEO:<span class="required">*</span></label>
+                       <div class="da-form-item">
+                                                    
+                                                    <input id="funcionariog_blood" type="text" maxlength="10" size="10" value="{g_blood}" name="{g_blood_Name}">
+                        </div>
+                 </div>
+                
+     </div>         
+
+	
+ <div class="da-form-row">
+                            <div class="da-form-col-4-8">
+            					<label>N&ordm; LICENCIA CONDUCIR: </label>
+                               <div class="da-form-item">                            <input id="funcionariolic_driv" type="text"  maxlength="50" size="50" value="{lic_driv}" name="{lic_driv_Name}">
+                               </div>
+                            </div>
+                           
+                           <div class="da-form-col-4-8">
+                                <label>CATEGORIA:</label>
+                               <div class="da-form-item">                               
+                                  <ul class="da-form-list">
+                                                    
+                                                        
+                                                        <!-- BEGIN RadioButton type_lic --><li><input type="radio" id="funcionariotype_lic_{type_lic:optionNumber}" value="{Value}" name="{type_lic_Name}" {Check}><label for="funcionariotype_lic_{type_lic:optionNumber}">{Description}</label></li><!-- END RadioButton type_lic -->
+                                                    	
+                                                    </ul>
+                               </div>
+                           </div>
+                           
+ </div>
+         <div class="da-form-row">
+         
+         <div class="da-form-col-2-8">
+                                <label>TEL&Eacute;FONO TRABAJO:<span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                           
+                                  <input id="funcionariophone_job" type="text" maxlength="50" size="50" value="{phone_job}" name="{phone_job_Name}">
+                             </div>
+                      </div>
+                      
+                            <div class="da-form-col-3-8">
+            					<label>EMAIL PERSONAL:<span class="required">*</span></label>
+                             	<div class="da-form-item">                                                                  
+                                <input id="funcionariop_email" type="text" maxlength="100" size="50" value="{p_email}" name="{p_email_Name}">
+               					</div>
+                            </div>
+                           
+                           <div class="da-form-col-3-8">
+                                <label>EMAIL TRABAJO:<span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                                  <input id="funcionariojob_email" type="text"  maxlength="100" size="50" value="{job_email}" name="{job_email_Name}">
+                             </div>
+                      </div>
+                           
+ 	</div>
+    
+         
+  
+                    
+     <div class="da-form-row">
+
+                            <div class="da-form-col-2-8">
+            					<label>PROFESI&Oacute;N:<span class="required">*</span></label>
+                             	<div class="da-form-item large">                                <input id="funcionarioprof"  type="text" maxlength="250" size="50" value="{prof}" name="{prof_Name}">
+               					</div>
+                            </div>
+
+                            <div class="da-form-col-2-8">
+                                <label>NIT:<span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                            
+                                  <input id="funcionarionit" type="text" maxlength="100" size="50" value="{nit}" name="{nit_Name}">
+                             </div>
+                            </div>
+
+                            <div class="da-form-col-2-8">
+            					<label>COLEGIO PROFESIONAL:<span class="required">*</span></label>
+                             	<div class="da-form-item">                        
+                                <input id="funcionariocol_prof"  type="text" maxlength="250" size="50" value="{col_prof}" name="{col_prof_Name}">
+               					</div>
+                            </div>
+
+                           <div class="da-form-col-2-8" >
+                                <label>N&Uacute;MERO DE REGISTRO PROFESIONAL:<span class="required">*</span></label>
+                               <div class="da-form-item">                               
+                                   <input id="funcionarionum_prof"  type="text"  value="{num_prof}" name="{num_prof_Name}">
+                             </div>
+                      </div>    
+
+ 	</div>
+
+      <!-- Inicio Numeros de referencia -->
+
+
+
+      <div class="grid_4">
+          <div class="da-panel">
+              <div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        DATOS DE FAMILIARES EN CASO DE EMERGENCIA
+                                    </span>
+              </div>
+              <div class="da-panel-content">
+                  <div class="da-form-block">
+
+                      <div class="da-form-row">
+
+                          <div class="da-form-col-3-8">
+                              <label>N&Uacute;MERO DE REFERENCIA 1:<span class="required">*</span></label><br />
+                              <div class="da-form-item large">
+                                  <span class="formNote">En formato: Nombre - Numero de Celular<br />
+                                  <input type="text" id="funcionarioNro_ref1" value="{Nro_ref1}" name="{Nro_ref1_Name}">
+                              </div>
+                          </div>
+
+                          <div class="da-form-col-4-8">
+                              <label>N&Uacute;MERO DE REFERENCIA 2:<span class="required">*</span></label><br />
+                              <div class="da-form-item">
+                                  <span class="formNote">En formato: Nombre - Numero de Celular<br />
+                                  <input type="text" name="{Nro_ref2_Name}" value="{Nro_ref2}" id="funcionarioNro_ref2">
+                              </div>
+                          </div>
+
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Fin Numeros de referencia -->
+    
+     <div class="clear"></div>
+                        
+                    	<div class="grid_4">
+                        	<div class="da-panel">
+                            	<div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        FORMACION ESCOLAR PRIMARIA - SECUNDARIA (&Uacute;ltimo curso vencido)
+                                    </span>
+                                </div>
+                                <div class="da-panel-content">
+                                	<div class="da-form-block">
+                                    <!--contenedor R1 -->
+                                     <div class="da-form-row">
+                                                            <div class="da-form-col-2-8">
+                                                                <label>ULTIMO CURSO VENCIDO:<span class="required">*</span></label>
+                                                                <div class="da-form-item">
+                                                                <input id="funcionariolast_gra" type="text" maxlength="100" size="50" value="{last_gra}" name="{last_gra_Name}">
+                                                                </div>
+                                                            </div>
+
+                                                           <div class="da-form-col-2-8">
+                                                                <label>COLEGIO\INSTITUCI&Oacute;N:<span class="required">*</span></label>
+                                                               <div class="da-form-item">
+                                                                   <input id="funcionariocole" type="text"  maxlength="150" size="50" value="{cole}" name="{cole_Name}">
+                                                             </div>
+                                                           </div>
+
+                                                            <div class="da-form-col-2-8">
+                                                                <label>LUGAR CIUDAD PA&Iacute;S:<span class="required">*</span></label>
+                                                                <div class="da-form-item">
+
+                                                                <input id="funcionariociudad_de" type="text" maxlength="100" size="50" value="{ciudad_de}" name="{ciudad_de_Name}">
+                                                                </div>
+                                                            </div>
+
+                                                           <div class="da-form-col-1-8">
+                                                                <label>A&Ntilde;O:<span class="required">*</span></label>
+                                                               <div class="da-form-item">
+
+                                                                   <input id="funcionarioanyo_de"  type="text" maxlength="10" size="10" value="{anyo_de}" name="{anyo_de_Name}">
+                                                             </div>
+                                                           </div>
+
+                                                      <div class="da-form-col-1-8">
+                                                                <label>T&Iacute;TULO: <span class="required">*</span></label>
+                                                                <div class="da-form-item">
+                                                                  <ul class="da-form-list  inline">
+
+                                    <!-- BEGIN RadioButton title --><li><input type="radio" id="funcionariotitle_{title:optionNumber}" value="{Value}" name="{title_Name}" {Check}><label for="funcionariotitle_{title:optionNumber}">{Description}</label></li><!-- END RadioButton title -->
+                                                                   </ul>
+                                                                </div>
+                                                      </div>
+                                    </div>
+                                    <!--contenedor R1 -->
+                                </div>
+                            </div>
+                             </div>
+
+   <input id="funcionarioon_off" maxlength="4" size="4" value="{on_off}" name="{on_off_Name}" type="hidden">
+                        </div>
+
+
+<!-- Inicio Campo libreta militar -->
+
+                            <div class="clear"></div>
+
+                            <div class="grid_4">
+                                <div class="da-panel">
+                                    <div class="da-panel-header">
+                                	<span class="da-panel-title">
+                                        <img src="images/icons/black/16/pencil.png" alt="" />
+                                        DATOS SERVICIO MILITAR
+                                    </span>
+                                    </div>
+                                    <div class="da-panel-content">
+                                        <div class="da-form-block">
+                                            <!--contenedor R1 -->
+                                            <div class="da-form-row">
+                                                <div class="da-form-col-2-8">
+                                                    <label>NRO. DE LIBRETA:</label>
+                                                    <div class="da-form-item">
+                                                        <input type="text" id="funcionarionro_libreta" value="{nro_libreta}" name="{nro_libreta_Name}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="da-form-col-2-8">
+                                                    <label>MATRICULA:<span class="required">*</span></label>
+                                                    <div class="da-form-item">
+                                                        <input type="text" id="funcionariomatricula" value="{matricula}" name="{matricula_Name}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="da-form-col-2-8">
+                                                    <label>AÑO:<span class="required">*</span></label>
+                                                    <div class="da-form-item">
+
+                                                        <input type="text" id="funcionarioanyo" value="{anyo}" name="{anyo_Name}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="da-form-col-2-8">
+                                                    <label>TIPO DE SERVICIO:<span class="required">*</span></label>
+                                                    <div class="da-form-item">
+
+                                                        <select name="{tipo_servicio_Name}" id="funcionariotipo_servicio">
+                                                            <option value="">Seleccionar Valor</option>
+                                                            {tipo_servicio_Options}
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <!--contenedor R1 -->
+                                        </div>
+                                    </div>
+                                </div>
+
+<!-- Fin Campo libreta militar -->
+
+
+
+   <!-- Div Roacorp -->
+
+                   
+  
+  <div class="da-button-row">
+        
+        <!-- BEGIN Button Button_Update --><input type="submit" id="funcionarioButton_Update" alt="Enviar" value="Guardar" class="da-button blue" name="{Button_Name}" /><!-- END Button Button_Update -->
+
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="funcionarioButton_Cancel"  alt="Cancelar" value="Cancelar" name="{Button_Name}" class="da-button gray left" /><!-- END Button Button_Cancel -->
+        <br />
+<br />
+
+     </div>
+</form>
+<!-- END Record funcionario --><br>	
+
+                                </div>
+                            </div>
+                            </div>
+                                               <div class="clear"></div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div id="da-footer">
+        
+        	<div class="da-container clearfix">
+            	<p></div>
+            <img src="images/logo_mini.jpg" alt="Ministerio de Educación " />
+        </div>
+    </div>
+    
+</body>
+</html>

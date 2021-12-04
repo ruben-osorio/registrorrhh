@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Regfull_p1</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.16254">
+</head>
+<body>
+<p value="Guardar y Finalizar">&nbsp;</p>
+<!-- BEGIN Record funcionario -->
+<form id="funcionario" method="post" name="{HTMLFormName}" action="{Action}">
+  <h2>Agregar/Editar Funcionario </h2>
+  <table>
+    <!-- BEGIN Error -->
+    <tr>
+      <td colspan="2">{Error}</td>
+    </tr>
+    <!-- END Error -->
+    <tr>
+      <td><label for="funcionarioname">Name</label></td> 
+      <td>{name}</td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariol_name1">L Name1</label></td> 
+      <td>{l_name1}</td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariol_name2">L Name2</label></td> 
+      <td>{l_name2}</td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariol_name_es">L Name Es</label></td> 
+      <td><input id="funcionariol_name_es" maxlength="250" size="50" value="{l_name_es}" name="{l_name_es_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionationality">&nbsp;</label></td> 
+      <td></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionati">Nati</label></td> 
+      <td><input id="funcionarionati" style="HEIGHT: 22px; WIDTH: 144px" maxlength="250" size="5" value="{nati}" name="{nati_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td>Ci</td> 
+      <td>{ci}</td>
+    </tr>
+ 
+    <tr>
+      <td>Date Born</td> 
+      <td><label for="funcionariodate_born" style="display: none;">Date Born</label><input id="funcionariodate_born" value="{date_born}" name="{date_born_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioexpe">Expe</label></td> 
+      <td>
+        <select id="funcionarioexpe" name="{expe_Name}">
+          <option selected value="">Seleccionar Valor</option>
+          {expe_Options}
+        </select>
+ </td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioafp">Afp</label></td> 
+      <td>
+        <!-- BEGIN RadioButton afp --><input type="radio" id="funcionarioafp_{afp:optionNumber}" value="{Value}" name="{afp_Name}" {Check}><label for="funcionarioafp_{afp:optionNumber}">{Description}</label><!-- END RadioButton afp --></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionua">Nua</label></td> 
+      <td><input id="funcionarionua" maxlength="50" size="50" value="{nua}" name="{nua_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioc_status">C Status</label></td> 
+      <td>
+        <!-- BEGIN RadioButton c_status --><input type="radio" id="funcionarioc_status_{c_status:optionNumber}" value="{Value}" name="{c_status_Name}" {Check}><label for="funcionarioc_status_{c_status:optionNumber}">{Description}</label><!-- END RadioButton c_status --></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariosex">Sex</label></td> 
+      <td>
+        <!-- BEGIN RadioButton sex --><input type="radio" id="funcionariosex_{sex:optionNumber}" value="{Value}" name="{sex_Name}" {Check}><label for="funcionariosex_{sex:optionNumber}">{Description}</label><!-- END RadioButton sex --></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariog_blood">G Blood</label></td> 
+      <td><input id="funcionariog_blood" maxlength="10" size="10" value="{g_blood}" name="{g_blood_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop_email">P Email</label></td> 
+      <td><input id="funcionariop_email" maxlength="100" size="50" value="{p_email}" name="{p_email_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariojob_email">Job Email</label></td> 
+      <td><input id="funcionariojob_email" maxlength="100" size="50" value="{job_email}" name="{job_email_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioadress">Adress</label></td> 
+      <td><textarea id="funcionarioadress" rows="3" cols="50" name="{adress_Name}">{adress}</textarea></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioplace_res">Place Res</label></td> 
+      <td><input id="funcionarioplace_res" maxlength="50" size="50" value="{place_res}" name="{place_res_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariophone_num">Phone Num</label></td> 
+      <td><input id="funcionariophone_num" maxlength="50" size="50" value="{phone_num}" name="{phone_num_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocel_num">Cel Num</label></td> 
+      <td><input id="funcionariocel_num" maxlength="50" size="50" value="{cel_num}" name="{cel_num_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariophone_job">Phone Job</label></td> 
+      <td><input id="funcionariophone_job" maxlength="50" size="50" value="{phone_job}" name="{phone_job_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop1_born">P1 Born</label></td> 
+      <td><input id="funcionariop1_born" maxlength="50" size="50" value="{p1_born}" name="{p1_born_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop2_born">P2 Born</label></td> 
+      <td><input id="funcionariop2_born" maxlength="50" size="50" value="{p2_born}" name="{p2_born_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop3_born">P3 Born</label></td> 
+      <td><input id="funcionariop3_born" maxlength="50" size="50" value="{p3_born}" name="{p3_born_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariolic_driv">Lic Driv</label></td> 
+      <td><input id="funcionariolic_driv" maxlength="50" size="50" value="{lic_driv}" name="{lic_driv_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariotype_lic">Type Lic</label></td> 
+      <td>
+        <!-- BEGIN RadioButton type_lic --><input type="radio" id="funcionariotype_lic_{type_lic:optionNumber}" value="{Value}" name="{type_lic_Name}" {Check}><label for="funcionariotype_lic_{type_lic:optionNumber}">{Description}</label><!-- END RadioButton type_lic --></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioprof">Prof</label></td> 
+      <td><input id="funcionarioprof" maxlength="250" size="50" value="{prof}" name="{prof_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocol_prof">Col Prof</label></td> 
+      <td><input id="funcionariocol_prof" maxlength="250" size="50" value="{col_prof}" name="{col_prof_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionum_prof">Num Prof</label></td> 
+      <td><input id="funcionarionum_prof" maxlength="250" size="50" value="{num_prof}" name="{num_prof_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionit">Nit</label></td> 
+      <td><input id="funcionarionit" maxlength="100" size="50" value="{nit}" name="{nit_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioon_off">On Off</label></td> 
+      <td><input id="funcionarioon_off" maxlength="4" size="4" value="{on_off}" name="{on_off_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariolast_gra">Last Gra</label></td> 
+      <td><input id="funcionariolast_gra" maxlength="100" size="50" value="{last_gra}" name="{last_gra_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocole">Cole</label></td> 
+      <td><input id="funcionariocole" maxlength="150" size="50" value="{cole}" name="{cole_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariociudad_de">Ciudad De</label></td> 
+      <td><input id="funcionariociudad_de" maxlength="100" size="50" value="{ciudad_de}" name="{ciudad_de_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioanyo_de">Anyo De</label></td> 
+      <td><input id="funcionarioanyo_de" maxlength="10" size="10" value="{anyo_de}" name="{anyo_de_Name}"></td>
+    </tr>
+ 
+    <tr>
+      <td>Title</td> 
+      <td>
+        <!-- BEGIN RadioButton title --><input type="radio" id="funcionariotitle_{title:optionNumber}" value="{Value}" name="{title_Name}" {Check}><label for="funcionariotitle_{title:optionNumber}">{Description}</label><!-- END RadioButton title --></td>
+    </tr>
+ 
+    <tr>
+      <td style="TEXT-ALIGN: right" colspan="2">&nbsp; 
+        <!-- BEGIN Button Button_Update1 --><input type="submit" id="funcionarioButton_Update1" class="Button" alt="Enviar" value="Guardar y Finalizar" name="{Button_Name}"><!-- END Button Button_Update1 -->&nbsp; 
+        <!-- BEGIN Button Button_Update --><input type="submit" id="funcionarioButton_Update" class="Button" alt="Enviar" value="Guardar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Cancel --><input type="submit" id="funcionarioButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --></td>
+    </tr>
+  </table>
+</form>
+<!-- END Record funcionario --><br>
+</body>
+</html>

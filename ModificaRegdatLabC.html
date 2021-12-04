@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>ModificaRegdatLabC</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.16254">
+<link rel="stylesheet" type="text/css" href="Styles/Universal/Style_doctype.css" />
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-2504AB44
+</script>
+<script src="ClientI18N.php?file=Globalize.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-724367F1
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/Universal/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="Styles/Universal/ccs-jquery-ui-calendar.css" />
+{page:scriptIncludes}
+<script type="text/javascript">
+//End Include User Scripts
+
+//Common Script Start @1-8BFA436B
+jQuery(function ($) {
+    var features = { };
+    var actions = { };
+    var params = { };
+//End Common Script Start
+
+//Controls Selecting @1-8BF50AB8
+    $('body').ccsBind(function() {
+        features["ult_decldate_diInlineDatePicker1"] = $('*:ccsControl(ult_decl, date_di)');
+        features["consultor_docsdate_cad_ciInlineDatePicker1"] = $('*:ccsControl(consultor_docs, date_cad_ci)');
+        features["char_condate_desInlineDatePicker1"] = $('*:ccsControl(char_con, date_des)');
+        features["char_condate_endInlineDatePicker2"] = $('*:ccsControl(char_con, date_end)');
+        features["contratodate_entInlineDatePicker1"] = $('*:ccsControl(contrato, date_ent)');
+        features["contratodate_endInlineDatePicker2"] = $('*:ccsControl(contrato, date_end)');
+    });
+//End Controls Selecting
+
+//Feature Parameters @1-B8179904
+    params["ult_decldate_diInlineDatePicker1"] = { 
+        dateFormat: "ShortDate",
+        isWeekend: true
+    };
+    params["consultor_docsdate_cad_ciInlineDatePicker1"] = { 
+        dateFormat: "ShortDate",
+        isWeekend: true
+    };
+    params["char_condate_desInlineDatePicker1"] = { 
+        dateFormat: "ShortDate",
+        isWeekend: true
+    };
+    params["char_condate_endInlineDatePicker2"] = { 
+        dateFormat: "ShortDate",
+        isWeekend: true
+    };
+    params["contratodate_entInlineDatePicker1"] = { 
+        dateFormat: "ShortDate",
+        isWeekend: true
+    };
+    params["contratodate_endInlineDatePicker2"] = { 
+        dateFormat: "ShortDate",
+        isWeekend: true
+    };
+//End Feature Parameters
+
+//Feature Init @1-C748CAE7
+    features["ult_decldate_diInlineDatePicker1"].ccsBind(function() {
+        this.ccsDateTimePicker(params["ult_decldate_diInlineDatePicker1"]);
+    });
+    features["consultor_docsdate_cad_ciInlineDatePicker1"].ccsBind(function() {
+        this.ccsDateTimePicker(params["consultor_docsdate_cad_ciInlineDatePicker1"]);
+    });
+    features["char_condate_desInlineDatePicker1"].ccsBind(function() {
+        this.ccsDateTimePicker(params["char_condate_desInlineDatePicker1"]);
+    });
+    features["char_condate_endInlineDatePicker2"].ccsBind(function() {
+        this.ccsDateTimePicker(params["char_condate_endInlineDatePicker2"]);
+    });
+    features["contratodate_entInlineDatePicker1"].ccsBind(function() {
+        this.ccsDateTimePicker(params["contratodate_entInlineDatePicker1"]);
+    });
+    features["contratodate_endInlineDatePicker2"].ccsBind(function() {
+        this.ccsDateTimePicker(params["contratodate_endInlineDatePicker2"]);
+    });
+//End Feature Init
+
+//Plugin Calls @1-DE0F1A0C
+    $('*:ccsControl(cta_banc, Button_Cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+    $('*:ccsControl(ult_decl, Button_Cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+    $('*:ccsControl(consultor_docs, Button_Cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+    $('*:ccsControl(char_con, Button_Cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+    $('*:ccsControl(contrato, Button_Cancel)').ccsBind(function() {
+        this.bind("click", function(){ $("body").data("disableValidation", true); });
+    });
+//End Plugin Calls
+
+//Common Script End @1-562554DE
+});
+//End Common Script End
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>&nbsp;</p>
+<p align="left">
+<!-- BEGIN Record cta_banc -->
+<form id="cta_banc" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+            <td class="th"><strong>Datos donde se abona su sueldo</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="cta_bancbank">Banco</label></td> 
+            <td><input id="cta_bancbank" maxlength="200" size="50" value="{bank}" name="{bank_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="cta_banctype_ac">Tipo de Cuenta</label></td> 
+            <td>
+              <select id="cta_banctype_ac" name="{type_ac_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {type_ac_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="cta_bancnum_ac">Numero de Cuenta</label></td> 
+            <td><input id="cta_bancnum_ac" maxlength="50" size="50" value="{num_ac}" name="{num_ac_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="cta_bancdist_ac">Ciudad/Distrito de Apertura</label></td> 
+            <td><input id="cta_bancdist_ac" maxlength="100" size="50" value="{dist_ac}" name="{dist_ac_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_Update --><input type="submit" id="cta_bancButton_Update" class="Button" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Cancel --><input type="submit" id="cta_bancButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --><input type="hidden" id="cta_bancid_func" value="{id_func}" name="{id_func_Name}"></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record cta_banc --></p>
+<p align="left"><br>
+<br>
+</p>
+<p align="left">
+<!-- BEGIN Record consultor_docs -->
+<form id="consultor_docs" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+            <td class="th"><strong>Documentación entregada&nbsp;</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="consultor_docscv">Curriculum Vitae</label></td> 
+            <td>
+              <select id="consultor_docscv" name="{cv_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {cv_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="consultor_docsci">Fotocopia CI </label></td> 
+            <td>
+              <select id="consultor_docsci" name="{ci_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {ci_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="consultor_docsdate_cad_ci">Fecha caducidad CI</label></td> 
+            <td><input id="consultor_docsdate_cad_ci" maxlength="100" size="8" value="{date_cad_ci}" name="{date_cad_ci_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="consultor_docscn">Fotocopia Certificado Nacimiento</label></td> 
+            <td>
+              <select id="consultor_docscn" name="{cn_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {cn_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="consultor_docscm">Fotocopia Certificado Matrimonio</label></td> 
+            <td>
+              <select id="consultor_docscm" name="{cm_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {cm_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_Update --><input type="submit" id="consultor_docsButton_Update" class="Button" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Cancel --><input type="submit" id="consultor_docsButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --><input type="hidden" id="consultor_docsid_con" value="{id_con}" name="{id_con_Name}"></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record consultor_docs --></p>
+<p align="left"><br>
+<br>
+</p>
+<p align="left">
+<!-- BEGIN Record ult_decl -->
+<form id="ult_decl" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+            <td class="th"><strong>Ultimas fechas</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="ult_decldate_di">Fecha Declaración Incompatibilidad</label></td> 
+            <td><input id="ult_decldate_di" maxlength="100" size="8" value="{date_di}" name="{date_di_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_Update --><input type="submit" id="ult_declButton_Update" class="Button" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Cancel --><input type="submit" id="ult_declButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --><input type="hidden" id="ult_declid_func" value="{id_func}" name="{id_func_Name}"></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record ult_decl --></p>
+<p align="left">
+<!-- BEGIN Record char_con -->
+<form id="char_con" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+            <td class="th"><strong>Datos del cargo actual que desempeña</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/Universal/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="char_condir_g">Dirección General</label></td> 
+            <td>
+              <select id="char_condir_g" name="{dir_g_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {dir_g_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_conunit">Unidad</label></td> 
+            <td>
+              <select id="char_conunit" name="{unit_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {unit_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_conarea">Area</label></td> 
+            <td>
+              <select id="char_conarea" name="{area_Name}">
+                <option selected value="">Seleccionar Valor</option>
+ {area_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_conboss_is">JEFE INMEDIATO SUPERIOR</label></td> 
+            <td><input id="char_conboss_is" maxlength="200" size="50" value="{boss_is}" name="{boss_is_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_conboss_ij">JEFE SUPERIOR JERÁRQUICO</label></td> 
+            <td><input id="char_conboss_ij" maxlength="200" size="50" value="{boss_ij}" name="{boss_ij_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_concharge">Cargo</label></td> 
+            <td><input id="char_concharge" maxlength="250" size="50" value="{charge}" name="{charge_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_condate_des">Fecha Designación</label></td> 
+            <td><input id="char_condate_des" maxlength="100" size="8" value="{date_des}" name="{date_des_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_condate_end">Fecha Finalización</label></td> 
+            <td><input id="char_condate_end" maxlength="100" size="8" value="{date_end}" name="{date_end_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="char_connum_res_con">Nº RESOLUCIÓN O MEMO</label></td> 
+            <td><input id="char_connum_res_con" maxlength="50" size="50" value="{num_res_con}" name="{num_res_con_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_Update --><input type="submit" id="char_conButton_Update" class="Button" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Cancel --><input type="submit" id="char_conButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --><input type="hidden" id="char_conid_con" value="{id_con}" name="{id_con_Name}"></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record char_con --><br>
+</p>
+<p align="left">
+<!-- BEGIN Record contrato -->
+<form id="contrato" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft">&nbsp;</td> 
+            <td class="th"><strong>Solo para consultores</strong></td> 
+            <td class="HeaderRight">&nbsp;</td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="8">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"></td> 
+            <td><input type="hidden" id="contratoid_func" value="{id_func}" name="{id_func_Name}"></td> 
+            <td class="th"><label>FECHA DE INICIO DE CONTRATO:</label></td> 
+            <td><input id="contratodate_ent" maxlength="100" size="8" value="{date_ent}" name="{date_ent_Name}"></td> 
+            <td class="th"><label>FECHA&nbsp;FINAL DE CONTRATO:</label></td> 
+            <td><input id="contratodate_end" maxlength="100" size="8" value="{date_end}" name="{date_end_Name}"></td> 
+            <td class="th"><label>NÚMERO DE CONTRATO</label></td> 
+            <td><input id="contratoname_con" maxlength="250" size="50" value="{name_con}" name="{name_con_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="8">
+              <!-- BEGIN Button Button_Update --><input type="submit" id="contratoButton_Update" class="Button" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Cancel --><input type="submit" id="contratoButton_Cancel" class="Button" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record contrato --><br>
+<br>
+<br>
+</p>
+</body>
+</html>

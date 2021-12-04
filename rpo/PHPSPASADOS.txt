@@ -1,0 +1,9 @@
+registrocompleto.php
+registrocompletoc.php
+regfull
+
+//BAJA FUNCIONARIO
+BajaFuncionario.php
+RegBaja.php
+RegBajac.php
+//----------------
