@@ -5,7 +5,6 @@ define('DB_USER', "registro");
 define('DB_PASS', "Roacorp");
 define('DB_DATABASE', "registrorrhh");// BASE DE DATOS CONSOLIDADA
 
-
 define('DB_SERVERC', "localhost");
 define('DB_USERC', "registro");
 define('DB_PASSC', "Roacorp");
