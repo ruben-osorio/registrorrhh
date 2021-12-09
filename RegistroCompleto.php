@@ -153,7 +153,7 @@ echo "?id_func=".$_SESSION['id_func'];?>" target="_blank" onclick="window.open(t
      <tr>
        <td><a href="Reg_exp_lab.php<?
 echo "?id_func=".$_SESSION['id_func'];?>" target="_blank" onclick="window.open(this.href, 5, 'width=1200,height=1000,scrollbars=yes'); return false;"> <h5 style="color: #606060;">EXPERIENCIA<br>
-        FUERA DEL MINISTERIO <br><br>   
+        FUERA DEL GAMEA <br><br>   
        </h5>    </a> </td>
       </tr>
       

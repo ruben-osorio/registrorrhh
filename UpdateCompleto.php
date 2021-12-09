@@ -20,24 +20,24 @@ if(!$rs1)
     <td colspan="6" ><strong>SERVIDOR TGN</strong></td>
 </tr>
   <tr>
-    <td width="180" height="102"><a href="Updfull_p1.php<?
+    <td width="180" height="102"><a href="Regfull_p1.php<?
 echo "?id_func=".$id_func;?>" target="_blank" onClick="window.open(this.href, 1, 'width=1200,height=1000,scrollbars=yes'); return false;"><img src="data/images/menu/1.png"/></a></td>
-    <td width="180"><a href="ModificaDatFam.php<?
+    <td width="180"><a href="Reg_dat_fam.php<?
 echo "?id_func=".$id_func;?>" target="_blank" onClick="window.open(this.href, 2, 'width=1200,height=1000,scrollbars=yes'); return false;"><img src="data/images/menu/2.png" /></a></td>
-    <td width="180"><a href="ModificaDatAc.php<?
+    <td width="180"><a href="Reg_dat_ac.php<?
 echo "?id_func=".$id_func;?>" target="_blank" onClick="window.open(this.href, 3, 'width=1200,height=1000,scrollbars=yes'); return false;"><img src="data/images/menu/3.png"/></a></td>
-    <td width="180"><a href="Upddat_idi.php<?
+    <td width="180"><a href="Regdat_idi.php<?
 echo "?id_func=".$id_func;?>" target="_blank" onClick="window.open(this.href, 4, 'width=1200,height=1000,scrollbars=yes'); return false;"><img src="data/images/menu/4.png"/></a></td>
  </tr>
   <tr>
-    <td width="170"><a href="ModificaExpLab.php<?
+    <td width="170"><a href="Reg_exp_lab.php<?
 echo "?id_func=".$id_func;?>" target="_blank" onClick="window.open(this.href, 5, 'width=1200,height=1000,scrollbars=yes'); return false;"><img src="data/images/menu/5.png"/></a></td>
  
  
-    <td height="108"><a href="ModificaCapPer.php<?
+    <td height="108"><a href="Reg_cap_per.php<?
 echo "?id_func=".$id_func;?>" target="_blank" onClick="window.open(this.href, 6, 'width=1200,height=1000,scrollbars=yes'); return false;"><img src="data/images/menu/6.png"/></a></td>
 
-    <td><a href="ModificaRegMovPer.php<?
+    <td><a href="reg_mov_per.php<?
 echo "?id_func=".$id_func."&id_per=".$id_per;?>" target="_blank" onClick="window.open(this.href, 9, 'width=1200,height=1000,scrollbars=yes,scrollbars=yes'); return false;"><img src="data/images/menu/7.png"/></a></td>
 
     <td><a href="ModificaFinCat.php<?

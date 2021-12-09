@@ -50,7 +50,7 @@ echo "?id_func=".$_SESSION['id_func']."&id_per=".$id_per;?>" target="_blank" onc
     <ul>
         <li><strong>REGISTRO DE DATOS FAMILIARES</strong></li>
         <li><strong>REGISTRO DE DATOS ACADEMICOS</strong></li>
-        <li><strong>EXPERIENCIA FUERA DEL MINISTERIO </strong></li>
+        <li><strong>EXPERIENCIA DEL GAMEA </strong></li>
         <li><strong>CAPACITACION </strong></li>
         <li><strong>MOVILIDAD</strong></li>
   </ul></p>          

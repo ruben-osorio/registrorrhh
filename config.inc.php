@@ -10,7 +10,6 @@ define('DB_USERC', "registro");
 define('DB_PASSC', "Roacorp");
 define('DB_DATABASEC', "registrorrhh");
 
-
 /*------------------------------------*/
 define("TABLE1", "dat_aca");
 define('TABLE2', "funcionario");
