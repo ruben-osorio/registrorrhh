@@ -31,6 +31,7 @@ if ( isset($_GET[id_func])&& isset($_GET[type]) )
 			'.TABLE30.'.id_con='.TABLE17.'.id_con and
 			'.TABLE30.'.status=1 
 			order by '.TABLE2.'.l_name1,'.TABLE2.'.l_name2,'.TABLE2.'.name desc limit 1  ');
+     
 		break;
 	}	
 	$r=$db->fetch_array($rs);
@@ -63,9 +64,9 @@ if ( isset($_GET[id_func])&& isset($_GET[type]) )
       </tr>
 	<tr>
         <td colspan="2"><div align="left">
-          <p><strong>Dirección General de Asuntos Administrativos<br />
-          Unidad de Recursos Humanos</strong></p>
-<strong>Página de Registro : http://192.168.20.5/registro<br>
+          <p><strong>Dirección de Talento Humano<br />
+          </strong></p>
+<strong>Página de Registro : http://172.16.0.18/registro<br>
         <br />
         </strong>        </div></td>
       </tr>
@@ -94,8 +95,8 @@ if ( isset($_GET[id_func])&& isset($_GET[type]) )
       </tr>
       <tr>
         <td colspan="2"><div align="center">
-          <p><strong>Ministerio de Desarrollo Productivo<br />
-          </strong><strong>          La Paz - Bolivia 2018</strong></p>
+          <p><strong>GAMEA<br />
+          </strong><strong>          La Paz - Bolivia 2021</strong></p>
         </div></td>
       </tr>
     </table>

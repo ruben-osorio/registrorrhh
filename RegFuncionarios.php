@@ -20,7 +20,7 @@ if (isset($_POST[save]))
 	$username= "$l_name1[0]"."$l_name2[0]"."$name[0]"."$dia"."$mes"."$ano";
 	
 	$date_born=cambia_dateN_to_dateMy_1($date_born);	
-	
+
 	$rsex=$db->query("SELECT id FROM ".TABLE4." WHERE username='$username'");
 	$rex=$db->fetch_array($rsex);
 	//echo mysql_num_rows($rsex);
@@ -59,7 +59,7 @@ if (isset($_POST[save]))
 			$r1=$db->fetch_array($rs1);
 			$id_func=$r1[id_func];			
 			
-			if (strcmp("TGN",$fuente) == 0)
+			if (strcmp("PLANTA",$fuente) == 0)
 			{
 				
 				$charge_=$_POST[charge_];
@@ -87,7 +87,7 @@ if (isset($_POST[save]))
 				$g1_f=$g1_i[0]+1;
 				$g1=$g1_i[0]."-".$g1_f;		
 
-				$db = new Database(DB_SERVER, DB_USER, DB_PASS, "ssrp");
+				$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registroRRHH");
 				$db->connect();
 				$rs1=$db->query("insert into ".TABLE3." (id_funcionario, id_per, gestion_1, dias_g1, gestion_2, dias_g2, observaciones)
 				VALUES ('$id_func','$id_permanente','$g1','0','','','')");
@@ -96,32 +96,14 @@ if (isset($_POST[save]))
 				$rsx=$db->query("insert into cat_per ( id_per)
 				VALUES ('$id_permanente')");
 				
-				
-				$estructura = 'files/';
-				$filename=ucfirst(strtolower(str_replace(' ','',$_POST[name]))).ucfirst(strtolower($_POST[l_name1])).ucfirst(strtolower($_POST[l_name2]))."_".$dia.$mes.$ano."_".$ci;				
-				mkdir($estructura.$filename, 0777, true);
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/CURRICULUM_VITAE");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/DATOS_PERSONALES");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/DESIGNACION_MOVILIDAD");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/ANTECEDENTES");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/LLAMADAS_DE_ATENCION");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/JEFE_INMEDIATO");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/EVALUACION");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/NECESIDAD_CAPACITACION");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/LICENCIAS");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/VACACIONES");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/BAJAS_MEDICAS");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/COMISION_CAPACITACION");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/COMISION_TRABAJO");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/SERVICIO_CIVIL");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/OTROS");
-				mkdir($estructura."/".$filename."/".$year_[0]."-TGN/INFORMES");
+		
 				//-------------------------permisos=1-PERMANENTE--------------------------------------------------
 				$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registroRRHH");
 				$db->connect();
-				$rs4=$db->query("insert into ".TABLE4." (id_func, username, password, nombre, ap_1, ap_2,permisos)
-				VALUES ('$id_func','$username','$ci','$name','$l_name1','$l_name2','1')");		
+
+				
+				$rs4=$db->query("insert into ".TABLE4." (id_func, username, password, nombre, ap_1, ap_2,fecha_nac, permisos)
+				VALUES ('$id_func','$username','$ci','$name','$l_name1','$l_name2','$fecha_nac','1')");		
 				//-------------------------permisos=1-PERMANENTE--------------------------------------------------				
 				//-------------------------PERMANENTE TABLA DESHABILITAR--------------------------------------------------	
 				$rs7=$db->query("insert into ".TABLE37." (id_func)
@@ -153,26 +135,10 @@ if (isset($_POST[save]))
 				(id_con, charge, date_des, num_res_con) values
 				('$id_contrato','$charge_cont','$date_start','$num_cont')");	
 				
-				$estructura = 'files/';
-				$nombres=explode(" ",$_POST[name]);
-				$filename=ucfirst(strtolower($nombres[0])).ucfirst(strtolower($nombres[1])).ucfirst(strtolower($_POST[l_name1])).ucfirst(strtolower($_POST[l_name2]))."_".$dia.$mes.$ano."_".$ci;
-								
-				mkdir($estructura.$filename, 0777, true);
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato);
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/DATOS_PERSONALES");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/EVALUACION_INFORMES");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/MEMORANDUMS");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/ATRASOS");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/COMISIONES");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/PERMISOS_LICENCIAS");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/OTROS");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/NECESIDAD_CAPACITACION");			
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/IMPUESTOS");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/CONTRATOS_Y_ADENDAS");
-				mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/PROCESO");	
+				
 				//-------------------------permisos=2-CONSULTOR--------------------------------------------------
-				$rs4=$db->query("insert into ".TABLE4." (id_func, username, password, nombre, ap_1, ap_2,permisos)
-				VALUES ('$id_func','$username','$ci','$name','$l_name1','$l_name2','2')");		
+				$rs4=$db->query("insert into ".TABLE4." (id_func, username, password, nombre, ap_1, ap_2,fecha_nac, permisos)
+				VALUES ('$id_func','$username','$ci','$name','$l_name1','$l_name2','$fecha_nac','2')");		
 				//-------------------------permisos=2-CONSULTOR--------------------------------------------------	
 				//-------------------------CONSULTOR TABLA DESHABILITAR--------------------------------------------------	
 				$rs7=$db->query("insert into ".TABLE37." (id_func)
@@ -240,7 +206,7 @@ $(function() {
 	$( ".datepick" ).datepicker({
 		showOn: "button",
 		buttonImage: "data/images/calendar.gif",
-		buttonImageOnly: true, changeMonth: true, changeYear: true, yearRange: '-100:+0',
+		buttonImageOnly: true, changeMonth: true, changeYear: true, yearRange: '-100:+2',
 	});
 	});
 function MM_openBrWindow(theURL,winName,features) { //v2.0
@@ -354,15 +320,16 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 		 echo '<option value="'.$_POST[fuente].'" selected="selected">'.$_POST[fuente].'</option>';
 	  }
       ?>             
-          <option value="PLANTA">10</option>
-		  <option value="PERSONAL EVENTUAL">PERSONAL EVENTUAL</option>
+          <option value="PLANTA">PLANTA</option>
+		  <option value="FUNCIONAMIENTO">PERSONAL EVENTUAL (Funcionamiento)</option>
+		  <option value="PROGRAMA">PERSONAL EVENTUAL (Programa)</option>
         </select>
       </div></td>
     </tr>
     <?
 	if (isset($_POST[save]))
 	{
-		if ($_POST[fuente]=='TGN')
+		if ($_POST[fuente]=='PLANTA')
 		{
 			echo '<tr>
 					<th><div align="left">FECHA DE INGRESO:</div></th>
