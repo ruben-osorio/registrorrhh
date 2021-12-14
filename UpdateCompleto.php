@@ -70,7 +70,9 @@ if(!$rs1)
 
         <!-- circular charts -->
         <!--LO QUE ESTA ABAJO ES EL MARGEN-->
-        <h4 class="heading_a uk-margin-bottom">Funcionarios<hr></h4>
+        <h4 class="heading_a uk-margin-bottom"><strong>Funcionarios</strong></h4>
+        <hr style="border:solid 2px #9b9c76;">
+
         <div class="md-card uk-margin-medium-bottom">
             <div class="md-card">
                 <div class="uk-overflow-container">
@@ -82,28 +84,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
-                            <a href="Regfull_p1.php<?
+                        <a href="Regfull_p1.php<?
+                                echo "?id_func=".$id_func;?>" 
+                                target="_blank" 
+                                onClick="window.open(this.href, 1, 'width=1200,height=1000,scrollbars=yes'); 
+                                return false;">
+                                <h2>
+                                 <font color="#3fa5b5">
+                                    <strong>Paso 1</strong>
+                                 </font>
+                                </h2>
+                                
+                            <div class="md-card-content">
+                                <div class="epc_chart" data-percent="100" data-bar-color="#03a9f4">
+                                    <span class="epc_chart_icon">
+                                            
+                                        <i class="uk-icon-user uk-icon-large"></i>
+                                            
+                                    </span>    
+                                </div>
+                            </div>   
+                        </a>
+                            <div class="md-card-overlay-content">
+                                <div class="uk-clearfix md-card-overlay-header">
+                                    <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
+                                    <a href="Regfull_p1.php<?
                                         echo "?id_func=".$id_func;?>" 
                                         target="_blank" 
                                         onClick="window.open(this.href, 1, 'width=1200,height=1000,scrollbars=yes'); 
                                         return false;">
-                                <div class="md-card-content">
-                                    <div class="epc_chart" data-percent="100" data-bar-color="#03a9f4">
-                                        <span class="epc_chart_icon">
-                                            
-                                            <i class="uk-icon-user uk-icon-large"></i>
-                                            
-                                        </span>    
-                                    </div>
-                                </div>   
-                            </a>
-                            <div class="md-card-overlay-content">
-                                <div class="uk-clearfix md-card-overlay-header">
-                                    <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Registro De Datos Personales Educacionales</strong>
-                                    </h3>   
+                                        <h3>
+                                            <strong>Registro De Datos Personales Educacionales</strong>
+                                        </h3> 
+                                    </a>  
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -122,24 +135,38 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="Reg_dat_fam.php<?
+                                echo "?id_func=".$id_func;?>" 
+                                target="_blank" 
+                                onClick="window.open(this.href, 2, 'width=1200,height=1000,scrollbars=yes'); 
+                                return false;">
+                                <h2>
+                                 <font color="#089a5b">
+                                    <strong>Paso 2</strong>
+                                 </font>
+                                </h2>
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#009688">
                                     <span class="epc_chart_icon">
-                                        <a href="Reg_dat_fam.php<?
-                                        echo "?id_func=".$id_func;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 2, 'width=1200,height=1000,scrollbars=yes'); return false;">
+                                        
                                         <i class="uk-icon-group uk-icon-large"></i>
-                                        </a>
+
                                     </span>
                                 </div>
                             </div>
+                        </a>    
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    <h3>
-                                        <strong>Registro De Datos Familiares</strong>
-                                    </h3>
+                                    <a href="Reg_dat_fam.php<?
+                                        echo "?id_func=".$id_func;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 2, 'width=1200,height=1000,scrollbars=yes'); 
+                                        return false;">
+                                        <h3>
+                                            <strong>Registro De Datos Familiares</strong>
+                                        </h3>
+                                    </a>    
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -158,26 +185,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="Reg_dat_ac.php<?
+                                    echo "?id_func=".$id_func;?>" 
+                                    target="_blank" 
+                                    onClick="window.open(this.href, 3, 'width=1200,height=1000,scrollbars=yes'); 
+                                    return false;">
+                                    <h2>
+                                      <font color="#116b8c">
+                                        <strong>Paso 3</strong>
+                                      </font>
+                                    </h2>     
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#607d8b">
                                     <span class="epc_chart_icon">
-                                        <a href="Reg_dat_ac.php<?
-                                        echo "?id_func=".$id_func;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 3, 'width=1200,height=1000,scrollbars=yes'); return false;">
+                                        
                                         <i class="uk-icon-institution  uk-icon-large"></i>
-                                        </a>
+                                        
                                     </span>    
                                 </div>
-                            </div>   
+                            </div> 
+                        </a>  
 
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Registro De Datos Academicos</strong>
-                                    </h3>   
+                                    <a href="Reg_dat_ac.php<?
+                                        echo "?id_func=".$id_func;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 3, 'width=1200,height=1000,scrollbars=yes'); 
+                                        return false;">
+                                        <h3>
+                                            <strong>Registro De Datos Academicos</strong>
+                                        </h3>
+                                    </a>   
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -196,26 +236,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="Regdat_idi.php<?
+                            echo "?id_func=".$id_func;?>" 
+                            target="_blank" 
+                            onClick="window.open(this.href, 4, 'width=1200,height=1000,scrollbars=yes'); 
+                            return false;">
+                            <h2>
+                                <font color="#9f1602">
+                                    <strong>Paso 4</strong>
+                                </font>
+                            </h2>  
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#a52a2a">
                                     <span class="epc_chart_icon">
-                                        <a href="Regdat_idi.php<?
-                                        echo "?id_func=".$id_func;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 4, 'width=1200,height=1000,scrollbars=yes'); return false;">
+                                        
                                         <i class="uk-icon-language  uk-icon-large"></i>
-                                        </a>
+                                        
                                     </span>    
                                 </div>
-                            </div>   
+                            </div>
+                        </a>       
 
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Idiomas Conocimiento Doc. Universitaria</strong>
-                                    </h3>   
+                                    <a href="Regdat_idi.php<?
+                                        echo "?id_func=".$id_func;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 4, 'width=1200,height=1000,scrollbars=yes'); 
+                                        return false;">
+                                        <h3>
+                                            <strong>Idiomas Conocimiento Doc. Universitaria</strong>
+                                        </h3>
+                                    </a>       
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -234,26 +287,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="Reg_exp_lab.php<?
+                                echo "?id_func=".$id_func;?>" 
+                                target="_blank" 
+                                onClick="window.open(this.href, 5, 'width=1200,height=1000,scrollbars=yes'); 
+                                return false;">
+                                <h2>
+                                   <font color="#0a41ad">
+                                     <strong>Paso 5</strong>
+                                   </font>
+                                </h2>
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#191970">
                                     <span class="epc_chart_icon">
-                                        <a href="Reg_exp_lab.php<?
-                                        echo "?id_func=".$id_func;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 5, 'width=1200,height=1000,scrollbars=yes'); return false;">
+                                        
                                         <i class="uk-icon-folder-open  uk-icon-large"></i>
-                                        </a>
+                                        
                                     </span>    
                                 </div>
-                            </div>   
+                            </div>
+                        </a>    
 
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Experiencia Fuera Del GAMEA</strong>
-                                    </h3>   
+                                    <a href="Reg_exp_lab.php<?
+                                        echo "?id_func=".$id_func;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 5, 'width=1200,height=1000,scrollbars=yes'); 
+                                        return false;">
+                                        <h3>
+                                           <strong>Experiencia Fuera Del GAMEA</strong>
+                                        </h3>   
+                                    </a>   
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -272,26 +338,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="Reg_cap_per.php<?
+                                echo "?id_func=".$id_func;?>" 
+                                target="_blank" 
+                                onClick="window.open(this.href, 6, 'width=1200,height=1000,scrollbars=yes'); 
+                                return false;">
+                                <h2>
+                                   <font color="#d3ca17">
+                                     <strong>Paso 6</strong>
+                                   </font>
+                                </h2>
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#daa520">
                                     <span class="epc_chart_icon">
-                                        <a href="Reg_cap_per.php<?
-                                        echo "?id_func=".$id_func;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 6, 'width=1200,height=1000,scrollbars=yes'); return false;">
+                                        
                                         <i class="uk-icon-graduation-cap  uk-icon-large"></i>
-                                        </a>
+                                        
                                     </span>    
                                 </div>
-                            </div>   
+                            </div>
+                        </a>       
 
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Capacitación</strong>
-                                    </h3>   
+                                    <a href="Reg_cap_per.php<?
+                                        echo "?id_func=".$id_func;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 6, 'width=1200,height=1000,scrollbars=yes'); 
+                                        return false;">                                    
+                                        <h3>
+                                            <strong>Capacitación</strong>
+                                        </h3>   
+                                    </a>    
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -310,26 +389,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="reg_mov_per.php<?
+                                echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
+                                target="_blank" 
+                                onClick="window.open(this.href, 9, 'width=1200,height=1000,scrollbars=yes,scrollbars=yes'); 
+                                return false;">
+                                <h2>
+                                   <font color="#85a532">
+                                     <strong>Paso 7</strong>
+                                   </font>
+                                </h2>
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#808000">
                                     <span class="epc_chart_icon">
-                                        <a href="reg_mov_per.php<?
-                                        echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 9, 'width=1200,height=1000,scrollbars=yes,scrollbars=yes'); return false;">
+                                        
                                         <i class="uk-icon-random  uk-icon-large"></i>
-                                        </a>
+                                        
                                     </span>    
                                 </div>
-                            </div>   
+                            </div>
+                        </a>       
 
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Movilidad</strong>
-                                    </h3>   
+                                    <a href="reg_mov_per.php<?
+                                        echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 9, 'width=1200,height=1000,scrollbars=yes,scrollbars=yes'); 
+                                        return false;">
+                                        <h3>
+                                            <strong>Movilidad</strong>
+                                        </h3>  
+                                    </a> 
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -348,26 +440,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="ModificaFinCat.php<?
+                                echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
+                                target="_blank" 
+                                onClick="window.open(this.href, 8, 'width=1000,height=700,scrollbars=yes,scrollbars=yes'); 
+                                return false;">
+                                <h2>
+                                   <font color="#f2930a">
+                                     <strong>Paso 8</strong>
+                                   </font>
+                                </h2>
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#ff8c00">
                                     <span class="epc_chart_icon">
-                                        <a href="ModificaFinCat.php<?
-                                        echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 8, 'width=1000,height=700,scrollbars=yes,scrollbars=yes'); return false;">
-                                        <i class="uk-icon-sitemap  uk-icon-large"></i>
-                                        </a>
+                                        
+                                        <i class="uk-icon-check-square  uk-icon-large"></i>
+                                        
                                     </span>    
                                 </div>
-                            </div>   
+                            </div>
+                        </a>       
 
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Categoría y Evaluación</strong>
-                                    </h3>   
+                                    <a href="ModificaFinCat.php<?
+                                        echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 8, 'width=1000,height=700,scrollbars=yes,scrollbars=yes'); 
+                                        return false;">
+                                        <h3>
+                                            <strong>Categoría y Evaluación</strong>
+                                        </h3>
+                                    </a>       
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -386,26 +491,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="ModificaRegdatLabP.php<?
+                                    echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
+                                    target="_blank" 
+                                    onClick="window.open(this.href, 7, 'width=1200,height=1000,scrollbars=yes'); 
+                                    return false;">
+                                    <h2>
+                                        <font color="#453489">
+                                           <strong>Paso 9</strong>
+                                        </font>
+                                    </h2>
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#483d8b">
                                     <span class="epc_chart_icon">
-                                        <a href="ModificaRegdatLabP.php<?
-                                        echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 7, 'width=1200,height=1000,scrollbars=yes'); return false;">
+                                        
                                         <i class="uk-icon-edit  uk-icon-large"></i>
-                                        </a>
+                                        
                                     </span>    
                                 </div>
-                            </div>   
+                            </div>
+                        </a>   
 
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Datos Laborales</strong>
-                                    </h3>   
+                                    <a href="ModificaRegdatLabP.php<?
+                                        echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 7, 'width=1200,height=1000,scrollbars=yes'); 
+                                        return false;">
+                                        <h3>
+                                            <strong>Datos Laborales</strong>
+                                        </h3>
+                                    </a>   
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
@@ -424,26 +542,39 @@ if(!$rs1)
                     <div>
                         <br>
                         <div class="md-card md-card-hover md-card-overlay">
+                        <a href="reporteper.php<?
+                                echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
+                                target="_blank" 
+                                onClick="window.open(this.href, 10, 'width=1200,height=1000, scrollbars=yes'); 
+                                return false;">
+                                <h2>
+                                    <font color="#1e7415">
+                                        <strong>Impresión</strong>
+                                    </font>
+                                </h2>
                             <div class="md-card-content">
                                 <div class="epc_chart" data-percent="100" data-bar-color="#2e8b57">
                                     <span class="epc_chart_icon">
-                                        <a href="reporteper.php<?
-                                        echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
-                                        target="_blank" 
-                                        onClick="window.open(this.href, 10, 'width=1200,height=1000, scrollbars=yes'); return false;">
+                                        
                                         <i class="uk-icon-file  uk-icon-large"></i>
-                                        </a>
+                                        
                                     </span>    
                                 </div>
-                            </div>   
+                            </div>
+                        </a>       
 
                             <div class="md-card-overlay-content">
                                 <div class="uk-clearfix md-card-overlay-header">
                                     <i class="md-icon material-icons md-card-overlay-toggler">&#xE5D4;</i>
-                                    
-                                    <h3>
-                                        <strong>Reporte Para Impresión</strong>
-                                    </h3>   
+                                    <a href="reporteper.php<?
+                                        echo "?id_func=".$id_func."&id_per=".$id_per;?>" 
+                                        target="_blank" 
+                                        onClick="window.open(this.href, 10, 'width=1200,height=1000, scrollbars=yes'); 
+                                        return false;">
+                                        <h3>
+                                            <strong>Reporte Para Impresión</strong>
+                                        </h3>   
+                                    </a>    
                                 </div>
                                 <div class="uk-clearfix md-card-overlay-header">
                                 <h3>
