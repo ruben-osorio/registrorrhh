@@ -22,8 +22,14 @@ Aplicación PHP heredada (2012–2018) migrada a **PHP 8.4**, preparada para des
 
 1. Crear un proyecto en Railway.
 2. Agregar un servicio **MySQL**.
-3. Agregar un servicio desde este repositorio de GitHub. Railway detecta el `Dockerfile`
-   (configurado en `railway.json`).
+3. Agregar un servicio desde este repositorio de GitHub. Railway detecta el `Dockerfile` de la raíz.
+4. En **Settings** del servicio de la aplicación:
+   - **Healthcheck Path**: `/login.php`
+   - **Restart Policy**: *On Failure*, 5 reintentos
+   - Si el builder no muestra *Dockerfile*, agregar la variable `RAILWAY_DOCKERFILE_PATH=Dockerfile`.
+
+> No se usa `railway.json`: Railway dejó de aceptar *Config as Code* en servicios nuevos
+> (desde el 28/08/2026) y lo retira por completo el 01/12/2026.
 
 ### 2. Variables de entorno del servicio de la aplicación
 
