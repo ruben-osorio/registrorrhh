@@ -8,6 +8,16 @@ set -e
 
 APP=/var/www/html
 
+# Apache con mod_php necesita un único MPM (prefork). Si otro quedó habilitado,
+# Apache no arranca ("AH00534: More than one MPM loaded").
+for mpm in event worker; do
+    rm -f "/etc/apache2/mods-enabled/mpm_${mpm}.load" "/etc/apache2/mods-enabled/mpm_${mpm}.conf"
+done
+if [ ! -e /etc/apache2/mods-enabled/mpm_prefork.load ]; then
+    ln -s ../mods-available/mpm_prefork.load /etc/apache2/mods-enabled/mpm_prefork.load
+    ln -s ../mods-available/mpm_prefork.conf /etc/apache2/mods-enabled/mpm_prefork.conf
+fi
+
 if [ -n "$SSRP_DATA_DIR" ]; then
     mkdir -p "$SSRP_DATA_DIR"
 

@@ -15,7 +15,10 @@ COPY docker/php.ini "$PHP_INI_DIR/conf.d/zz-ssrp.ini"
 
 # Apache: escuchar en el puerto que asigna Railway ($PORT)
 ENV PORT=8080
-RUN a2enmod rewrite headers \
+# mod_php requiere un único MPM (prefork); evita "AH00534: More than one MPM loaded"
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
+    && a2enmod mpm_prefork \
+    && a2enmod rewrite headers \
     && sed -ri 's/^Listen 80$/Listen ${PORT}/' /etc/apache2/ports.conf \
     && sed -ri 's/<VirtualHost \*:80>/<VirtualHost *:${PORT}>/' /etc/apache2/sites-available/000-default.conf \
     && printf 'ServerName localhost\nServerTokens Prod\nServerSignature Off\n' > /etc/apache2/conf-available/ssrp.conf \
