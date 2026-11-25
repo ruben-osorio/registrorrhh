@@ -1,14 +1,14 @@
-<?
+<?php
 require_once("security.php");
 require("config.inc.php");
 require("database.class.php");
 
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-if (isset($_POST[search]))
+if (isset($_POST['search']))
 {
-	$tosearch=strtoupper($_POST[tosearch]);
-	switch ($_POST[by])
+	$tosearch=strtoupper($_POST['tosearch']);
+	switch ($_POST['by'])
 	{
 		case 'app';
 /*		SELECT funcionario.id_func, name, l_name1, l_name2, permanente.id_per, source_fin
@@ -70,7 +70,7 @@ if (isset($_POST[search]))
 		
 		
 	}
-	switch ($_POST[by])
+	switch ($_POST['by'])
 	{
 		case 'app';
 /*		CONSULTORES*/
@@ -169,7 +169,7 @@ if (isset($_POST[search]))
 
 </form>
 </fieldset>
-<?
+<?php
 if ($sw==1)
 {
 	echo '<fieldset>
@@ -186,15 +186,15 @@ if ($sw==1)
  while ($r=$db->fetch_array($rs))
  {
  	echo ' <tr>   
-    <td>'.$r[l_name1].'</td>
-    <td>'.$r[l_name2].'</td>
-	 <td>'.$r[name].'</td>
-	  <td>'.$r[source_fin].'</td>';
+    <td>'.$r['l_name1'].'</td>
+    <td>'.$r['l_name2'].'</td>
+	 <td>'.$r['name'].'</td>
+	  <td>'.$r['source_fin'].'</td>';
 		echo '<td>
-	<a href="#" onclick="MM_openBrWindow(\'reporteper.php?id_per='.$r[id_per].'&id_func='.$r[id_func].'\',\'regpermiso\',\'scrollbars=yes,width=1050,height=500\')" title="Revisa Ficha Personal">
+	<a href="#" onclick="MM_openBrWindow(\'reporteper.php?id_per='.$r['id_per'].'&id_func='.$r['id_func'].'\',\'regpermiso\',\'scrollbars=yes,width=1050,height=500\')" title="Revisa Ficha Personal">
 	<img src="data/images/fichapers.png"></a>&nbsp;
 	
-	<a href="#" onclick="MM_openBrWindow(\'UpdateCompleto.php?id_per='.$r[id_per].'&id_func='.$r[id_func].'\',\'regpermiso\',\'scrollbars=yes,width=1050,height=450\')" title="Revisa Ficha Personal - TGN">
+	<a href="#" onclick="MM_openBrWindow(\'UpdateCompleto.php?id_per='.$r['id_per'].'&id_func='.$r['id_func'].'\',\'regpermiso\',\'scrollbars=yes,width=1050,height=450\')" title="Revisa Ficha Personal - TGN">
 	<img src="data/images/fichapersmod.png"></a>
 	</td>
   </tr>';
@@ -203,16 +203,16 @@ if ($sw==1)
   while ($r1=$db->fetch_array($rs1))
  {
  	echo ' <tr>   
-    <td>'.$r1[l_name1].'</td>
-    <td>'.$r1[l_name2].'</td>
-	 <td>'.$r1[name].'</td>
-	  <td>'.$r1[source_fin].'</td>';
+    <td>'.$r1['l_name1'].'</td>
+    <td>'.$r1['l_name2'].'</td>
+	 <td>'.$r1['name'].'</td>
+	  <td>'.$r1['source_fin'].'</td>';
 
 echo	'<td>
-	<a href="#" onclick="MM_openBrWindow(\'reportecon.php?id_con='.$r1[id_con].'&id_func='.$r1[id_func].'\',\'regpermiso\',\'scrollbars=yes,width=1050,height=500\')" title="Revisa Ficha Personal">
+	<a href="#" onclick="MM_openBrWindow(\'reportecon.php?id_con='.$r1['id_con'].'&id_func='.$r1['id_func'].'\',\'regpermiso\',\'scrollbars=yes,width=1050,height=500\')" title="Revisa Ficha Personal">
 	<img src="data/images/fichapers.png"></a>&nbsp;
 	
-	<a href="#" onclick="MM_openBrWindow(\'UpdateCompletoCon.php?id_con='.$r1[id_con].'&id_func='.$r1[id_func].'\',\'regpermiso\',\'scrollbars=yes,width=1050,height=450\')" title="Modificar Ficha Personal - CONSULTOR">
+	<a href="#" onclick="MM_openBrWindow(\'UpdateCompletoCon.php?id_con='.$r1['id_con'].'&id_func='.$r1['id_func'].'\',\'regpermiso\',\'scrollbars=yes,width=1050,height=450\')" title="Modificar Ficha Personal - CONSULTOR">
 	<img src="data/images/fichapersmod.png"></a>
 	</td>
   </tr>';

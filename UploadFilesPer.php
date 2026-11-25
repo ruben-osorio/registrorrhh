@@ -1,32 +1,32 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-if ( isset($_GET[id_per]) && isset($_GET[id_func]) )
+if ( isset($_GET['id_per']) && isset($_GET['id_func']) )
 {
-	$id_per=$_GET[id_per];
-	$id_func=$_GET[id_func];
+	$id_per=$_GET['id_per'];
+	$id_func=$_GET['id_func'];
 	$rs0=$db->query("select * from ".TABLE2." where id_func='$id_func'");
 	$r0=$db->fetch_array($rs0);
 	$sw=0;
-	if (isset($_POST[select_dest]))
+	if (isset($_POST['select_dest']))
 	{
-		$date_born=str_replace("-","",cambia_dateMy_to_dateN($r0[date_born]));
-		$ci=$r0[ci];
-		$filename=ucfirst(strtolower(str_replace(' ','',$r0[name]))).ucfirst(strtolower($r0[l_name1])).ucfirst(strtolower($r0[l_name2]))."_".$date_born."_".$ci;	
+		$date_born=str_replace("-","",cambia_dateMy_to_dateN($r0['date_born']));
+		$ci=$r0['ci'];
+		$filename=ucfirst(strtolower(str_replace(' ','',$r0['name']))).ucfirst(strtolower($r0['l_name1'])).ucfirst(strtolower($r0['l_name2']))."_".$date_born."_".$ci;	
 		$filename;
 		$rs5=$db->query("select date_ent from ".TABLE22." where id_per='$id_per'");
 		$r5=$db->fetch_array($rs5);
-		$year_cont=explode("-",$r5[date_ent]);
+		$year_cont=explode("-",$r5['date_ent']);
 		
 		$rs4=$db->query("select * from ".TABLE15." where id_per='$id_per'");
 		$r4=$db->fetch_array($rs4);
 		
-		$location=$year_cont[0]."-".$r4[source_fin]."-".$id_per;
-		$final_location="files"."/".$filename."/".$location."/".$_POST[upload_to_folder]."";		
+		$location=$year_cont[0]."-".$r4['source_fin']."-".$id_per;
+		$final_location="files"."/".$filename."/".$location."/".$_POST['upload_to_folder']."";		
 		if (file_exists($final_location))
 		{
 			$sw=1;
@@ -39,7 +39,7 @@ if ( isset($_GET[id_per]) && isset($_GET[id_func]) )
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="js/scripts.js"></script>
 <link href="data/css/reportes.css" rel="stylesheet" type="text/css" />
-<?
+<?php
 	if ($sw==1)
 	{
 		echo '<link rel="stylesheet" href="uploadify/uploadify.css" type="text/css" />
@@ -67,7 +67,7 @@ echo "$(document).ready(function() {
 ?>
 </head>
 <body>
-<?
+<?php
 	
 	
 	echo '
@@ -76,13 +76,13 @@ echo "$(document).ready(function() {
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
  <tr>
   <th scope="col">Nombre(s) y Apellido:</th>
-  <th scope="col"><strong>'.$r0[name].' '.$r0[l_name1].' '.$r0[l_name2].'</strong></th>
+  <th scope="col"><strong>'.$r0['name'].' '.$r0['l_name1'].' '.$r0['l_name2'].'</strong></th>
  </tr>
  <tr>';
  $rs1=$db->query("select * from ".TABLE22." where id_per='$id_per'");
  $r1=$db->fetch_array($rs1);
  echo '<th>Fecha Ingreso</td>
-  <td>'.cambia_dateMy_to_dateN($r1[date_ent]).'</td>
+  <td>'.cambia_dateMy_to_dateN($r1['date_ent']).'</td>
  </tr>
  <tr>';
  $rs2=$db->query("select * from ".TABLE28." where id_per='$id_per'");
@@ -90,13 +90,13 @@ echo "$(document).ready(function() {
  
  echo '
   <th>Cargo:</td>
-  <td>'.$r2[charge].'</td>
+  <td>'.$r2['charge'].'</td>
  </tr>
  <tr>';
  $rs3=$db->query("select * from ".TABLE15." where id_per='$id_per'");
  $r3=$db->fetch_array($rs3);
  echo '<th>Fuente de Financiamiento:</td>
-  <td>'.$r3[source_fin].'</td>
+  <td>'.$r3['source_fin'].'</td>
  </tr>
  <tr>
   <th>Cargar en:</td>
@@ -130,7 +130,7 @@ if ($sw==1)
 {
 	echo '<fieldset style="border: 1px solid #CDCDCD; padding: 8px; padding-bottom:0px; margin: 8px 0">
 
-		<legend><strong>Cargar Archivos en: '.$_POST[upload_to_folder].'</strong></legend>
+		<legend><strong>Cargar Archivos en: '.$_POST['upload_to_folder'].'</strong></legend>
 <hr width=100% size="1" color="" align="center">				
 		<div id="fileUpload2">You have a problem with your javascript</div>
 		<a href="javascript:$(\'#fileUpload2\').fileUploadStart()">Comenzar Carga</a> |  <a href="javascript:$(\'#fileUpload2\').fileUploadClearQueue()">Limpiar Lista de Carga</a>
@@ -145,6 +145,6 @@ else
 ?>
 </body>
 </html>
-<?
+<?php
 }
 ?>

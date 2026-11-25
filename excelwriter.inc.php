@@ -32,7 +32,7 @@
         *             On Failure return false    
         */
         
-        function ExcelWriter($file="")
+        function __construct($file="")
         {
             return $this->open($file);
         }
@@ -265,5 +265,8 @@ EOH;
             }    
             fwrite($this->fp,"<td class=xl24 width=64 >$value</td>");
         }
-    }
+    
+	// Alias del constructor estilo PHP 4
+	function ExcelWriter() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
+}
 ?> 

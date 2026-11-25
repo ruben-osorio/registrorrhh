@@ -1,19 +1,19 @@
-<?
+<?php
 require_once("security.php");
 require ("config.inc.php");
 require ("database.class.php");
 include ("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_func=$_GET[id];
+$id_func=$_GET['id'];
 $rs=$db->query("select nua, afp from ".TABLE2." where id_func='$id_func' and afp=''");
 $r=$db->fetch_array($rs);
 $c=count($r);
 if (count($r)>1)
 {
-	if (isset($_POST[save]))	
-	{	$nua=strtoupper($_POST[nua]);
-		$afp=strtoupper($_POST[afp]);
+	if (isset($_POST['save']))	
+	{	$nua=strtoupper($_POST['nua']);
+		$afp=strtoupper($_POST['afp']);
 		$rs1=$db->query("update ".TABLE2." set nua='$nua', afp='$afp' where id_func='$id_func'");
 		//$rs1=$db->query("insert into ".TABLE9." (id_per, name_sec, num_reg, date_afil) values ('$id','$name_medical_sec','$numb_secured','$date_start_sec')");
 		if ($rs1)
@@ -104,7 +104,7 @@ $(document).ready(function() {
 </fieldset>
 </body>
 </html>
-<?
+<?php
 
 $db->close();
 ?>

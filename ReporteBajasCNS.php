@@ -1,11 +1,11 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-if (isset($_POST[to_excel]))
+if (isset($_POST['to_excel']))
 {
 	include("excelwriter.inc.php");  
 	$excel=new ExcelWriter("ReporteBajaCNS.xls");
@@ -25,11 +25,11 @@ if (isset($_POST[to_excel]))
 	while ($r=$db->fetch_array($rs))
 	{		
 			$excel->writeRow();
-			$excel->writeCol($r[l_name1]);
-			$excel->writeCol($r[l_name2]);
-			$excel->writeCol($r[name]);
-			$excel->writeCol(cambia_dateMy_to_dateN($r[date_efect]));
-			$excel->writeCol(cambia_dateMy_to_dateN($r[date_des]));			
+			$excel->writeCol($r['l_name1']);
+			$excel->writeCol($r['l_name2']);
+			$excel->writeCol($r['name']);
+			$excel->writeCol(cambia_dateMy_to_dateN($r['date_efect']));
+			$excel->writeCol(cambia_dateMy_to_dateN($r['date_des']));			
 
 	}	
 	$excel->close();
@@ -75,11 +75,11 @@ echo '<fieldset>
 while ($r=$db->fetch_array($rs))
 {
 		echo ' <tr>   
-    	<td width="200">'.$r[l_name1].'</td>
-    	<td width="200">'.$r[l_name2].'</td>
-	 	<td width="200">'.$r[name].'</td>
-	  	<td width="200">'.$r[date_efect].'</td>
-	  	<td width="200">'.$r[date_des].'</td>
+    	<td width="200">'.$r['l_name1'].'</td>
+    	<td width="200">'.$r['l_name2'].'</td>
+	 	<td width="200">'.$r['name'].'</td>
+	  	<td width="200">'.$r['date_efect'].'</td>
+	  	<td width="200">'.$r['date_des'].'</td>
 		';	  	
 		$c++;
 	

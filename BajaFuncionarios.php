@@ -1,14 +1,14 @@
-<?
+<?php
 //BAJA CONSULTOR + LINK MOVILIDAD
 //ALP
 require("config.inc.php");
 require("database.class.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-if (isset($_POST[search]))
+if (isset($_POST['search']))
 {
-	$tosearch=strtoupper($_POST[tosearch]);
-	switch ($_POST[by])
+	$tosearch=strtoupper($_POST['tosearch']);
+	switch ($_POST['by'])
 	{
 		case 'app';
 /*		SELECT funcionario.id_func, name, l_name1, l_name2, permanente.id_per, source_fin
@@ -55,7 +55,7 @@ if (isset($_POST[search]))
 			");
 		break;
 	}
-	switch ($_POST[by])
+	switch ($_POST['by'])
 	{
 		case 'app';
 /*		CONSULTORES*/
@@ -140,7 +140,7 @@ if (isset($_POST[search]))
 
 </form>
 </fieldset>
-<?
+<?php
 if ($sw==1)
 {
 	echo '<fieldset>
@@ -158,11 +158,11 @@ if ($sw==1)
  while ($r=$db->fetch_array($rs))
  {
  	echo ' <tr>   
-    <td>'.$r[l_name1].'</td>
-    <td>'.$r[l_name2].'</td>
-	 <td>'.$r[name].'</td>
-	  <td><strong>'.$r[source_fin].'</strong></td>';
-	 if ($r[status]==1) 
+    <td>'.$r['l_name1'].'</td>
+    <td>'.$r['l_name2'].'</td>
+	 <td>'.$r['name'].'</td>
+	  <td><strong>'.$r['source_fin'].'</strong></td>';
+	 if ($r['status']==1) 
 	 {
 	 	echo '<td><strong>ACTIVO</strong></td>';
 	 }
@@ -172,7 +172,7 @@ if ($sw==1)
 	 }
 echo '	
 	<td>
-		<a href="#" onclick="MM_openBrWindow(\'RegBaja.php?id_func='.$r[id_func].'&id_per='.$r[id_per].'\',\'regpermiso\',\'scrollbars=yes,width=550,height=420\')" title="Baja Funcionario"><img src="data/images/down.png"></a>
+		<a href="#" onclick="MM_openBrWindow(\'RegBaja.php?id_func='.$r['id_func'].'&id_per='.$r['id_per'].'\',\'regpermiso\',\'scrollbars=yes,width=550,height=420\')" title="Baja Funcionario"><img src="data/images/down.png"></a>
 
 	</td>	
 	
@@ -183,11 +183,11 @@ echo '
   while ($r1=$db->fetch_array($rs1))
  {
  	echo ' <tr>   
-    <td>'.$r1[l_name1].'</td>
-    <td>'.$r1[l_name2].'</td>
-	 <td>'.$r1[name].'</td>
-	  <td><strong>'.$r1[source_fin].'</strong></td>';
-	 if ($r1[status]==1) 
+    <td>'.$r1['l_name1'].'</td>
+    <td>'.$r1['l_name2'].'</td>
+	 <td>'.$r1['name'].'</td>
+	  <td><strong>'.$r1['source_fin'].'</strong></td>';
+	 if ($r1['status']==1) 
 	 {
 	 	echo '<td><strong>ACTIVOC</strong></td>';
 	 }
@@ -198,7 +198,7 @@ echo '
 	 //echo 
 
 echo '	<td>
-	<a href="#" onclick="MM_openBrWindow(\'RegBajac.php?id_func='.$r1[id_func].'&id_con='.$r1[id_con].'\',\'regpermiso\',\'scrollbars=yes,width=800,height=750\')" title="Baja Consultor"><img src="data/images/down.png"></a>
+	<a href="#" onclick="MM_openBrWindow(\'RegBajac.php?id_func='.$r1['id_func'].'&id_con='.$r1['id_con'].'\',\'regpermiso\',\'scrollbars=yes,width=800,height=750\')" title="Baja Consultor"><img src="data/images/down.png"></a>
 	</td>
   </tr>';
  }

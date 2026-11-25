@@ -58,7 +58,7 @@ function old_cas_AfterInsert(& $sender)
 // -------------------------
     // Write your own code here.
     
-      $con=mysqli_connect("localhost","root","","ssrp");
+      $con=ssrp_mysqli_connect();
 
 	  if (mysqli_connect_errno())
 	  {
@@ -101,7 +101,7 @@ function old_cas_AfterUpdate(& $sender)
 // -------------------------
     // Write your own code here.
     
-      $con=mysqli_connect("localhost","root","","ssrp");
+      $con=ssrp_mysqli_connect();
 
 	  if (mysqli_connect_errno())
 	  {

@@ -235,7 +235,7 @@ window.onload = bind_events; //Assign bind_events @1-19F7B649
                     <div id="da-header-toolbar" class="clearfix">
                         <div id="da-user-profile">
                             
-                            <div id="da-user-info"><span class="da-user-title">Ministerio de Desarrollo Productivo</span>
+                            <div id="da-user-info"><span class="da-user-title">Ministerio de Educaci&oacute;n</span>
                             </div>
                            
                         </div>
@@ -323,13 +323,15 @@ window.onload = bind_events; //Assign bind_events @1-19F7B649
                                           
 			
                           <div class="da-form-row">
-
+                          
+                         
+                          
+                          
                             <div class="da-form-col-2-8">
             					<label>ULTIMA FECHA DE CALIFICACIÓN: <span class="required">*</span></label>
-								
                                    <div class="da-form-item">                               
-								
-                                   <input id="old_casdate_cas" maxlength="100" type="text" value="{date_cas}" name="{date_cas_Name}" >
+                          
+                                   <input id="old_casdate_cas" maxlength="100" type="text" value="{date_cas}" name="{date_cas_Name}" readonly>
                                    </div>
                             </div>
                             
@@ -337,34 +339,30 @@ window.onload = bind_events; //Assign bind_events @1-19F7B649
             					<label> AÑOS: <span class="required">*</span></label>
                                    <div class="da-form-item">                               
                           
-                                   <input id="old_casyear_rat" maxlength="10" type="text" value="{year_rat}" name="{year_rat_Name}" >
+                                   <input id="old_casyear_rat" maxlength="10" type="text" value="{year_rat}" name="{year_rat_Name}" readonly>
                                    </div>
                             </div>
                             <div class="da-form-col-1-8">
             					<label>MESES: <span class="required">*</span></label>
                                    <div class="da-form-item">                               
                           
-                                   <input id="old_casmonth_rat" maxlength="10" type="text" value="{month_rat}" name="{month_rat_Name}" >
+                                   <input id="old_casmonth_rat" maxlength="10" type="text" value="{month_rat}" name="{month_rat_Name}" readonly>
                                    </div>
                             </div>
                             <div class="da-form-col-1-8">
             					<label>DIAS: <span class="required">*</span></label>
                                    <div class="da-form-item">                               
                           
-                                   <input id="old_casday_rat" maxlength="10" type="text" value="{day_rat}" name="{day_rat_Name}" >
+                                   <input id="old_casday_rat" maxlength="10" type="text" value="{day_rat}" name="{day_rat_Name}" readonly>
                                    </div>
                             </div>
   
 				  		</div>
                                         
-						<div class="da-button-row">
-
+         <div class="da-button-row">
         
-        <!-- BEGIN Button Button_Insert --><input type="submit" id="cta_bancButton_Insert" class="da-button blue" alt="Agregar" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
-        <!-- BEGIN Button Button_Update --><input type="submit" id="cta_bancButton_Update" class="da-button blue" alt="Enviar" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
-        <!-- BEGIN Button Button_Cancel --><input type="submit" id="cta_bancButton_Cancel" class="da-button blue" alt="Cancelar" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel -->
+        
                                         </div>
-										
                                     </form>
                                 </div>
                             </div>
@@ -709,20 +707,11 @@ window.onload = bind_events; //Assign bind_events @1-19F7B649
         <!-- Footer -->
         <div id="da-footer">
         	<div class="da-container clearfix">
-            	<p></div>
-                <img src="images/logo_mini.jpg" alt="Ministerio de Educación " />
+            	<p>Copyright 2017. Ministerio de Educaci&oacute;n
+            </div>
         </div>
     </div>
 	
     
 </body>
 </html>
-<script>
-$(document).ready(function(){
-
-   var url_string = window.location.href;
-	var url = new URL(url_string);
-	var c = url.searchParams.get("id_func");
-  $('#old_casid_func').val(c);
-});
-</script>

@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>roa</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.16254">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-81A87B40
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/None/ccs-yui-calendar.css" />
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//funcionarioButton_Delete_OnClick @6-CE0CB993
+function funcionarioButton_Delete_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End funcionarioButton_Delete_OnClick
+
+//Handle funcionariodate_bornInlineDatePicker1 @32-5315FCE5
+function funcionariodate_bornInlineDatePicker1_start(sender) {
+    if (!sender || sender === window) return;
+    generateDatePicker(sender.id, "ShortDate","None");
+}
+//End Handle funcionariodate_bornInlineDatePicker1
+
+//bind_events @1-3F4580F4
+function bind_events() {
+    addEventHandler("funcionariodate_born", "load", funcionariodate_bornInlineDatePicker1_start);
+    addEventHandler("funcionarioButton_Delete", "click", funcionarioButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<!-- BEGIN Record funcionario -->
+<form id="funcionario" method="post" name="{HTMLFormName}" action="{Action}">
+  <h2>Agregar/Editar Funcionario </h2>
+ 
+  <table>
+    <!-- BEGIN Error -->
+    <tr>
+      <td colspan="2">{Error}</td> 
+    </tr>
+ <!-- END Error -->
+    <tr>
+      <td><label for="funcionarioname">Name</label></td> 
+      <td><input id="funcionarioname" value="{name}" maxlength="250" size="50" name="{name_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariol_name1">L Name1</label></td> 
+      <td><input id="funcionariol_name1" value="{l_name1}" maxlength="250" size="50" name="{l_name1_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariol_name2">L Name2</label></td> 
+      <td><input id="funcionariol_name2" value="{l_name2}" maxlength="250" size="50" name="{l_name2_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariol_name_es">L Name Es</label></td> 
+      <td><input id="funcionariol_name_es" value="{l_name_es}" maxlength="250" size="50" name="{l_name_es_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionationality">Nationality</label></td> 
+      <td><input id="funcionarionationality" value="{nationality}" maxlength="250" size="50" name="{nationality_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionati">Nati</label></td> 
+      <td><input id="funcionarionati" value="{nati}" maxlength="250" size="50" name="{nati_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioci">Ci</label></td> 
+      <td><input id="funcionarioci" value="{ci}" maxlength="15" size="15" name="{ci_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioexpe">Expe</label></td> 
+      <td><input id="funcionarioexpe" value="{expe}" maxlength="5" size="5" name="{expe_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioafp">Afp</label></td> 
+      <td><input id="funcionarioafp" value="{afp}" maxlength="100" size="50" name="{afp_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionua">Nua</label></td> 
+      <td><input id="funcionarionua" value="{nua}" maxlength="50" size="50" name="{nua_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioc_status">C Status</label></td> 
+      <td><input id="funcionarioc_status" value="{c_status}" maxlength="20" name="{c_status_Name}" size="20"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariosex">Sex</label></td> 
+      <td><input id="funcionariosex" value="{sex}" maxlength="20" name="{sex_Name}" size="20"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariog_blood">G Blood</label></td> 
+      <td><input id="funcionariog_blood" value="{g_blood}" maxlength="10" size="10" name="{g_blood_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop_email">P Email</label></td> 
+      <td><input id="funcionariop_email" value="{p_email}" maxlength="100" size="50" name="{p_email_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariojob_email">Job Email</label></td> 
+      <td><input id="funcionariojob_email" value="{job_email}" maxlength="100" size="50" name="{job_email_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioadress">Adress</label></td> 
+      <td><input id="funcionarioadress" value="{adress}" maxlength="250" size="50" name="{adress_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioplace_res">Place Res</label></td> 
+      <td><input id="funcionarioplace_res" value="{place_res}" maxlength="50" size="50" name="{place_res_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariophone_num">Phone Num</label></td> 
+      <td><input id="funcionariophone_num" value="{phone_num}" maxlength="50" size="50" name="{phone_num_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocel_num">Cel Num</label></td> 
+      <td><input id="funcionariocel_num" value="{cel_num}" maxlength="50" size="50" name="{cel_num_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariophone_job">Phone Job</label></td> 
+      <td><input id="funcionariophone_job" value="{phone_job}" maxlength="50" size="50" name="{phone_job_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop1_born">P1 Born</label></td> 
+      <td><input id="funcionariop1_born" value="{p1_born}" maxlength="50" size="50" name="{p1_born_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop2_born">P2 Born</label></td> 
+      <td><input id="funcionariop2_born" value="{p2_born}" maxlength="50" size="50" name="{p2_born_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariop3_born">P3 Born</label></td> 
+      <td><input id="funcionariop3_born" value="{p3_born}" maxlength="50" size="50" name="{p3_born_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariodate_born">Date Born</label></td> 
+      <td><input id="funcionariodate_born" value="{date_born}" maxlength="100" size="8" name="{date_born_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariolic_driv">Lic Driv</label></td> 
+      <td><input id="funcionariolic_driv" value="{lic_driv}" maxlength="50" size="50" name="{lic_driv_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariotype_lic">Type Lic</label></td> 
+      <td><input id="funcionariotype_lic" value="{type_lic}" maxlength="1" size="1" name="{type_lic_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioprof">Prof</label></td> 
+      <td><input id="funcionarioprof" value="{prof}" maxlength="250" size="50" name="{prof_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocol_prof">Col Prof</label></td> 
+      <td><input id="funcionariocol_prof" value="{col_prof}" maxlength="250" size="50" name="{col_prof_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionum_prof">Num Prof</label></td> 
+      <td><input id="funcionarionum_prof" value="{num_prof}" maxlength="250" size="50" name="{num_prof_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarionit">Nit</label></td> 
+      <td><input id="funcionarionit" value="{nit}" maxlength="100" size="50" name="{nit_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioon_off">On Off</label></td> 
+      <td><input id="funcionarioon_off" value="{on_off}" maxlength="4" size="4" name="{on_off_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariolast_gra">Last Gra</label></td> 
+      <td><input id="funcionariolast_gra" value="{last_gra}" maxlength="100" size="50" name="{last_gra_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariocole">Cole</label></td> 
+      <td><input id="funcionariocole" value="{cole}" maxlength="150" size="50" name="{cole_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariociudad_de">Ciudad De</label></td> 
+      <td><input id="funcionariociudad_de" value="{ciudad_de}" maxlength="100" size="50" name="{ciudad_de_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionarioanyo_de">Anyo De</label></td> 
+      <td><input id="funcionarioanyo_de" value="{anyo_de}" maxlength="10" size="10" name="{anyo_de_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td><label for="funcionariotitle">Title</label></td> 
+      <td><input id="funcionariotitle" value="{title}" maxlength="4" size="4" name="{title_Name}"></td> 
+    </tr>
+ 
+    <tr>
+      <td style="TEXT-ALIGN: right" colspan="2">
+        <!-- BEGIN Button Button_Insert --><input type="submit" id="funcionarioButton_Insert" class="Button" value="Agregar" alt="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+        <!-- BEGIN Button Button_Update --><input type="submit" id="funcionarioButton_Update" class="Button" value="Enviar" alt="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+        <!-- BEGIN Button Button_Delete --><input type="submit" id="funcionarioButton_Delete" class="Button" value="Borrar" alt="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record funcionario --><br>
+</body>
+</html>

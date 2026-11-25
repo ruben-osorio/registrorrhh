@@ -1,15 +1,15 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-$id_func=$_GET[id_func];
+$id_func=$_GET['id_func'];
 
-if ( isset($_GET[id_func])&& isset($_GET[type]) )
+if ( isset($_GET['id_func'])&& isset($_GET['type']) )
 {
-	switch ($_GET[type])
+	switch ($_GET['type'])
 	{
 		case '2';		
 		
@@ -54,7 +54,7 @@ if ( isset($_GET[id_func])&& isset($_GET[type]) )
 </script>
 
 <body style="font-family:tahoma; font-size: 11px;">
-<?
+<?php
 	if (!empty($r))
 	{
 		echo '<table width="100%" border="0" cellspacing="2" cellpadding="5" style="border: 1px dashed #000;">
@@ -64,38 +64,38 @@ if ( isset($_GET[id_func])&& isset($_GET[type]) )
 	<tr>
         <td colspan="2"><div align="left">
           <p><strong>Dirección General de Asuntos Administrativos<br />
-          Unidad de Recursos Humanos</strong></p>
-<strong>Página de Registro : http://192.168.20.5/registro<br>
+          Unidad de Recursos Humanos y Desarrollo Organizacional</strong></p>
+<strong>Página de Registro : http://rrhh.minedu.gob.bo/registro<br>
         <br />
         </strong>        </div></td>
       </tr>
       <tr>
         <td><div align="right">Apellidos: </div></td>
-        <td style="border: 1px solid #000;"><div align="left">'.$r[ap_1].' '.$r[ap_2].'</div></td>
+        <td style="border: 1px solid #000;"><div align="left">'.$r['ap_1'].' '.$r['ap_2'].'</div></td>
       </tr>
       <tr>
         <td><div align="right">Nombres:</div></td>
-        <td style="border: 1px solid #000;"><div align="left">'.$r[nombre].'</div></td>
+        <td style="border: 1px solid #000;"><div align="left">'.$r['nombre'].'</div></td>
       </tr>
       <tr>
         <td><div align="right">Fuente Financiamiento:</div></td>
-        <td style="border: 1px solid #000;"><div align="left">'.$r[source_fin].'</div></td>
+        <td style="border: 1px solid #000;"><div align="left">'.$r['source_fin'].'</div></td>
       </tr>
       <tr>
         <td width="29%"><div align="right">Nombre de Usuario:</div></td>
-        <td width="71%" style="border: 1px solid #000;"><div align="left"><strong>'.$r[username].'</strong></div></td>
+        <td width="71%" style="border: 1px solid #000;"><div align="left"><strong>'.$r['username'].'</strong></div></td>
       </tr>
       <tr>
         <td><div align="right">Contraseña:</div></td>
-        <td style="border: 1px solid #000;"><div align="left"><strong>'.$r[password].'</strong></div></td>
+        <td style="border: 1px solid #000;"><div align="left"><strong>'.$r['password'].'</strong></div></td>
       </tr>
       <tr>
         <td colspan="2" style="font-size:9px;"><div align="left"><strong>Nota.-</strong> Los datos proporcionados en esta hoja deben ser conservados de manera segura y privada, por favor mantengala en lugar reservado o desechela una vez memorizada la información de acceso.</div></td>
       </tr>
       <tr>
         <td colspan="2"><div align="center">
-          <p><strong>Ministerio de Desarrollo Productivo<br />
-          </strong><strong>          La Paz - Bolivia 2018</strong></p>
+          <p><strong>Ministerio de Educación<br />
+          </strong><strong>          La Paz - Bolivia 2016</strong></p>
         </div></td>
       </tr>
     </table>

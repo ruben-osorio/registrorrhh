@@ -121,7 +121,7 @@ class clsMenu {
   var $controls = array();
   var $ControlsVisible = array();
 
-  var $CCSEvents = "";
+  var $CCSEvents = array();
   var $CCSEventResult;
 
   var $RelativePath = "";
@@ -132,7 +132,7 @@ class clsMenu {
   var $IdField;
   var $RootId;
 
-  function clsMenu($ParentField, $IdField, $RootId) {
+  function __construct($ParentField, $IdField, $RootId) {
     $this->ParentField = $ParentField;
     $this->RootId      = $RootId;
     $this->IdField     = $IdField;
@@ -338,6 +338,9 @@ class clsMenu {
     return $errors;
   }
     
+
+	// Alias del constructor estilo PHP 4
+	function clsMenu() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 
@@ -358,7 +361,7 @@ class clsSQLParameters
 
   public $Parameters1;
 
-  function clsSQLParameters($ErrorBlock = "")
+  function __construct($ErrorBlock = "")
   {
     $this->ErrorBlock = $ErrorBlock;
   }
@@ -558,6 +561,9 @@ class clsSQLParameters
 
     return $Result;
   }
+
+	// Alias del constructor estilo PHP 4
+	function clsSQLParameters() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsSQLParameters Class
 
@@ -579,7 +585,7 @@ class clsSQLParameter
   public $Text;
   
 
-  function clsSQLParameter($ParameterSource, $DataType, $Format, $DBFormat, $InitValue, $DefaultValue, $UseIsNull = false, $ErrorBlock = "")
+  function __construct($ParameterSource, $DataType, $Format, $DBFormat, $InitValue, $DefaultValue, $UseIsNull = false, $ErrorBlock = "")
   {
     $this->Value = NULL;
 
@@ -790,6 +796,9 @@ class clsSQLParameter
     return $returnNull && $this->IsNull ? NULL : $this->DBValue;
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsSQLParameter() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsSQLParameter Class
@@ -856,14 +865,14 @@ class clsControl
   public $Attributes;
 
 
-  function clsControl($ControlType, $Name, $Caption, $DataType, $Format, $InitValue = "", & $Parent)
+  function __construct($ControlType, $Name, $Caption, $DataType, $Format, $InitValue = "", & $Parent)
   {
     global $ControlTypes;
 
     $this->Text = "";
     $this->Page = "";
     $this->Parameters = "";
-    $this->CCSEvents = "";
+    $this->CCSEvents = array();
     $this->Values = "";
     $this->BoundColumn = "";
     $this->TextColumn = "";
@@ -1005,7 +1014,7 @@ class clsControl
   {
     if($this->DSType == dsTable || $this->DSType == dsSQL || $this->DSType == dsProcedure)
     {
-      if(!isset($this->DataSource->CCSEvents)) $this->DataSource->CCSEvents = "";
+      if(!isset($this->DataSource->CCSEvents)) $this->DataSource->CCSEvents = array();
       if(!strlen($this->BoundColumn)) $this->BoundColumn = 0;
       if(!strlen($this->TextColumn)) $this->TextColumn = 1;
       $this->EventResult = CCGetEvent($this->DataSource->CCSEvents, "BeforeBuildSelect", $this);
@@ -1179,7 +1188,7 @@ class clsControl
         $Tpl->SetVar($this->Name . "_Options", $Options);
         $Tpl->ParseSafe($this->BlockName, false);
         break;
-      case ccsPageBreak:
+      case 'ccsPageBreak':
           $Tpl->SetVar($this->Name, $this->Text);
 
     }
@@ -1390,6 +1399,9 @@ class clsControl
   }
 
 
+
+	// Alias del constructor estilo PHP 4
+	function clsControl() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsControl Class
@@ -1406,7 +1418,7 @@ class clsField
   public $IsNull = true;
   public $DBValue = "";
 
-  function clsField($Name, $DataType, $DBFormat)
+  function __construct($Name, $DataType, $DBFormat)
   {
     $this->Name = $Name;
     $this->DataType = $DataType;
@@ -1530,6 +1542,9 @@ class clsField
   {
     return $returnNull && $this->IsNull ? NULL : $this->DBValue;
   }
+
+	// Alias del constructor estilo PHP 4
+	function clsField() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsField Class
@@ -1542,14 +1557,14 @@ class clsButton
   public $Visible;
   public $Pressed;
 
-  public $CCSEvents = "";
+  public $CCSEvents = array();
   public $CCSEventResult;
 
   public $Parent;
 
   public $Attributes;
 
-  function clsButton($Name, $Method, & $Parent)
+  function __construct($Name, $Method, & $Parent)
   {
     $this->Name    = $Name;
     $this->Visible = true;
@@ -1575,6 +1590,9 @@ class clsButton
     }
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsButton() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsButton Class
@@ -1588,7 +1606,7 @@ class clsPanel
   public $Components = array();
   public $ComponentsArray = array();
 
-  public $CCSEvents = "";
+  public $CCSEvents = array();
   public $CCSEventResult;
   public $PlaceholderName;
   public $MasterPage;
@@ -1596,7 +1614,7 @@ class clsPanel
   public $TemplateSource = "";
   public $isContentPlaceholder = false;
 
-  function clsPanel($Name, & $Parent)
+  function __construct($Name, & $Parent)
   {
     global $CCSFormFilter;
     $this->Name = $Name;
@@ -1665,6 +1683,9 @@ class clsPanel
     $PathToCurrentMasterPage = $Path;
   }
   
+
+	// Alias del constructor estilo PHP 4
+	function clsPanel() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsPanel Class
@@ -1688,14 +1709,14 @@ class clsFileUpload
   public $Text;
   public $State;
 
-  public $CCSEvents = "";
+  public $CCSEvents = array();
   public $CCSEventResult;
 
   public $Parent;
 
   public $Attributes;
 
-  function clsFileUpload($Name, $Caption, $TemporaryFolder, $FileFolder, $AllowedFileMasks, $DisallowedFileMasks, $FileSizeLimit, & $Parent)
+  function __construct($Name, $Caption, $TemporaryFolder, $FileFolder, $AllowedFileMasks, $DisallowedFileMasks, $FileSizeLimit, & $Parent)
   {
     global $CCSLocales;
 
@@ -1799,7 +1820,7 @@ class clsFileUpload
         $GoodFileMask = 0;
         $FileMasks=explode(';', $this->AllowedFileMasks);
         foreach ($FileMasks as $FileMask) {
-          $FileMask = preg_replace("/(\\*|\\?|\\\\|\\^|\\\$|\\.|\\[|\\]|\\||\\(|\\)|\\{|\\}|\\+|\\-)/ei", "\$meta_characters['\\1']", $FileMask);
+          $FileMask = preg_replace_callback("/(\*|\?|\\|\^|\\$|\.|\[|\]|\||\(|\)|\{|\}|\+|\-)/i", function ($m) use ($meta_characters) { return $meta_characters[$m[1]]; }, $FileMask);
           if (preg_match("/^$FileMask$/i", $FileName)) {
             $GoodFileMask = 1;
             break;
@@ -1811,7 +1832,7 @@ class clsFileUpload
       if ($GoodFileMask && $this->DisallowedFileMasks != "") {
         $FileMasks=explode(';', $this->DisallowedFileMasks);
         foreach ($FileMasks as $FileMask) {
-          $FileMask = preg_replace("/(\\*|\\?|\\\\|\\^|\\\$|\\.|\\[|\\]|\\||\\(|\\)|\\{|\\}|\\+|\\-)/ei", "\$meta_characters['\\1']", $FileMask);
+          $FileMask = preg_replace_callback("/(\*|\?|\\|\^|\\$|\.|\[|\]|\||\(|\)|\{|\}|\+|\-)/i", function ($m) use ($meta_characters) { return $meta_characters[$m[1]]; }, $FileMask);
           if (preg_match("/^$FileMask$/i", $FileName)) {
             $GoodFileMask = 0;
             break;
@@ -2008,6 +2029,9 @@ class clsFileUpload
     return $filesize;
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsFileUpload() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsFileUpload Class
@@ -2030,7 +2054,7 @@ class clsCaptcha {
     public $CCSEventResult;
     public $CCSEvents;
 
-    function clsCaptcha($Name, $Caption = "", $InitValue, $Width, $Height, $SessionName, $CaseSensitive, & $Parent) {
+    function __construct($Name, $Caption = "", $InitValue, $Width, $Height, $SessionName, $CaseSensitive, & $Parent) {
         $this->Name        = $Name;
         $this->Parent      = & $Parent;
         $this->Visible     = true;
@@ -2077,6 +2101,9 @@ class clsCaptcha {
             $Tpl->block_path = $ParentPath;
         }
     }
+
+	// Alias del constructor estilo PHP 4
+	function clsCaptcha() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsCaptcha Class
 
@@ -2094,12 +2121,12 @@ class clsDatePicker
 
   public $Attributes;
 
-  public $CCSEvents = "";
+  public $CCSEvents = array();
   public $CCSEventResult;
 
   public $Parent;
 
-  function clsDatePicker($Name, $FormName, $ControlName, & $Parent)
+  function __construct($Name, $FormName, $ControlName, & $Parent)
   {
     $this->Name        = $Name;
     $this->FormName    = $FormName;
@@ -2131,6 +2158,9 @@ class clsDatePicker
     }
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsDatePicker() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsDatePicker Class
@@ -2142,7 +2172,7 @@ class clsErrors
   public $ErrorsCount;
   public $ErrorDelimiter;
 
-  function clsErrors()
+  function __construct()
   {
     global $CCSIsXHTML;
     $this->Errors = array();
@@ -2185,6 +2215,9 @@ class clsErrors
       return "";
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsErrors() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsErrors Class
 
@@ -2198,10 +2231,13 @@ class clsSection
   public $CCSEventResult;
   public $Parent;
   public $Attributes;
-  function clsSection(& $Parent) {
+  function __construct(& $Parent) {
     $this->Parent = & $Parent;
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsSection() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsSection Class
 
@@ -2234,7 +2270,7 @@ class clsLocaleInfo {
   public $PHPLocale;
   public $Weekend;
 
-  function clsLocaleInfo($name, $LocaleInfoArray) {
+  function __construct($name, $LocaleInfoArray) {
     $this->Name = $name;
     $this->Language = $LocaleInfoArray[0];
     $this->Country = $LocaleInfoArray[1];
@@ -2291,6 +2327,9 @@ class clsLocaleInfo {
         $this->FirstWeekDay, $this->AMDesignator, $this->PMDesignator));
     return $this->FormatInfo;
   }
+
+	// Alias del constructor estilo PHP 4
+	function clsLocaleInfo() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsLocaleInfo
@@ -2307,7 +2346,7 @@ class clsLocale {
   public $Messages;
   public $InternalEncoding = "CP1252";
 
-  function clsLocale($name, $LocaleInfoArray, $dir = "") {
+  function __construct($name, $LocaleInfoArray, $dir = "") {
     $this->Name = $name;
     $this->Dir = $dir;
     $this->Translations = array();
@@ -2458,6 +2497,9 @@ class clsLocale {
     }
 
   }
+
+	// Alias del constructor estilo PHP 4
+	function clsLocale() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 //End clsLocale Class
@@ -2469,7 +2511,7 @@ class clsLocales {
   public $Locales;
   public $Dir;
 
-  function clsLocales($dir, $locale = "")  {
+  function __construct($dir, $locale = "")  {
     $this->Dir = $dir;
     $this->Locale = $locale;
     $this->DefaultLocale = "";
@@ -2581,6 +2623,9 @@ class clsLocales {
     }
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsLocales() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 
@@ -2607,7 +2652,7 @@ class clsAttribute {
   public  $Value;
   public  $Text;
 
-  function clsAttribute($Name, $Prefix, $DataType="", $Format = "") {
+  function __construct($Name, $Prefix, $DataType="", $Format = "") {
     $this->Name = $Name;
     $this->Prefix = $Prefix;
     if ($this->DataType)
@@ -2649,6 +2694,9 @@ class clsAttribute {
     return $this->Text;
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsAttribute() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsAttribute class
 
@@ -2660,7 +2708,7 @@ class clsAttributes {
   public $Accumulate = "";
   public $Prefix = "";
 
-  function clsAttributes($Prefix) {
+  function __construct($Prefix) {
     $this->Prefix = $Prefix;
   }
 
@@ -2726,6 +2774,9 @@ class clsAttributes {
     }
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsAttributes() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsAttributes class
 
@@ -2736,12 +2787,12 @@ class clsFlashChart {
   public $Width = 640;
   public $Height = 480;
   
-  public $CCSEvents = "";
+  public $CCSEvents = array();
   public $CCSEventResult;
 
   public $CallbackParameter;
 
-  function clsFlashChart($ComponentName, & $Parent){
+  function __construct($ComponentName, & $Parent){
     $this->Name = $ComponentName;
     $this->ComponentType = "FlashChart";
     $this->Visible = true;
@@ -2765,6 +2816,9 @@ class clsFlashChart {
       $Tpl->Parse("FlashChart " . $this->Name);
     }
   }
+
+	// Alias del constructor estilo PHP 4
+	function clsFlashChart() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsFlashChart class
 
@@ -2777,7 +2831,7 @@ class clsQuadraticPath {
   public $x3;
   public $y3;
   
-  function clsQuadraticPath($nx1, $ny1, $nx2, $ny2, $nx3, $ny3) {
+  function __construct($nx1, $ny1, $nx2, $ny2, $nx3, $ny3) {
     $this->x1 = $nx1;
     $this->y1 = $ny1;
     $this->x2 = $nx2;
@@ -2789,6 +2843,9 @@ class clsQuadraticPath {
   function ToString() {
     return $this->x1 . "," . $this->y1 . "," . $this->x2 . "," . $this->y2 . "," . $this->x3 . "," . $this->y3;
   }
+
+	// Alias del constructor estilo PHP 4
+	function clsQuadraticPath() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsQuadraticPath class
 
@@ -2800,7 +2857,7 @@ class clsQuadraticPaths {
   public $MinX;
   public $MinY;
   
-  function clsQuadraticPaths() {
+  function __construct() {
     $this->paths = array();
   }
   
@@ -3012,6 +3069,9 @@ class clsQuadraticPaths {
     }
   }
     
+
+	// Alias del constructor estilo PHP 4
+	function clsQuadraticPaths() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsQuadraticPaths class
 
@@ -3036,7 +3096,7 @@ class clsMasterPageTemplate {
   public $TemplateSource = "";
   public $TemplatePathValue;
   
-  function clsMasterPageTemplate() {
+  function __construct() {
     $this->Visible = true;
     $this->Redirect = "";
   }
@@ -3076,6 +3136,9 @@ class clsMasterPageTemplate {
     $this->HTML = $this->HTMLTemplate->GetVar("main");
   }
   
+
+	// Alias del constructor estilo PHP 4
+	function clsMasterPageTemplate() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End clsMasterPageTemplate class
 

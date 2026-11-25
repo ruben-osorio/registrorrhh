@@ -31,7 +31,7 @@ class clsGridexp_lab { //exp_lab class @2-AFAD0652
     public $RowNumber;
     public $ControlsVisible = array();
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -43,7 +43,7 @@ class clsGridexp_lab { //exp_lab class @2-AFAD0652
 //End Variables
 
 //Class_Initialize Event @2-5A9B90D3
-    function clsGridexp_lab($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
         global $FileName;
         global $CCSLocales;
@@ -213,13 +213,16 @@ class clsGridexp_lab { //exp_lab class @2-AFAD0652
     }
 //End GetErrors Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsGridexp_lab() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End exp_lab Class @2-FCB6E20C
 
 class clsexp_labDataSource extends clsDBmadnes {  //exp_labDataSource Class @2-4736DB93
 
 //DataSource Variables @2-2BCB619A
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -240,7 +243,7 @@ class clsexp_labDataSource extends clsDBmadnes {  //exp_labDataSource Class @2-4
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-51B03016
-    function clsexp_labDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Grid exp_lab";
@@ -280,7 +283,7 @@ class clsexp_labDataSource extends clsDBmadnes {  //exp_labDataSource Class @2-4
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], XXXXXX, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'XXXXXX', false);
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
              $this->wp->Criterion[1];
@@ -319,6 +322,9 @@ class clsexp_labDataSource extends clsDBmadnes {  //exp_labDataSource Class @2-4
     }
 //End SetValues Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsexp_labDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End exp_labDataSource Class @2-FCB6E20C
 
 class clsRecordexp_lab1 { //exp_lab1 Class @23-AAEBDB1A
@@ -338,7 +344,7 @@ class clsRecordexp_lab1 { //exp_lab1 Class @23-AAEBDB1A
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -358,7 +364,7 @@ class clsRecordexp_lab1 { //exp_lab1 Class @23-AAEBDB1A
 //End Variables
 
 //Class_Initialize Event @23-65CF1F51
-    function clsRecordexp_lab1($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -684,13 +690,16 @@ class clsRecordexp_lab1 { //exp_lab1 Class @23-AAEBDB1A
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordexp_lab1() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End exp_lab1 Class @23-FCB6E20C
 
 class clsexp_lab1DataSource extends clsDBmadnes {  //exp_lab1DataSource Class @23-BC570E2C
 
 //DataSource Variables @23-52A82CD5
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -719,7 +728,7 @@ class clsexp_lab1DataSource extends clsDBmadnes {  //exp_lab1DataSource Class @2
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @23-B2F31F6B
-    function clsexp_lab1DataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record exp_lab1/Error";
@@ -894,6 +903,9 @@ class clsexp_lab1DataSource extends clsDBmadnes {  //exp_lab1DataSource Class @2
     }
 //End Delete Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsexp_lab1DataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End exp_lab1DataSource Class @23-FCB6E20C
 
 //Initialize Page @1-EF9CB7F7
@@ -907,7 +919,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 
@@ -987,13 +999,13 @@ $exp_lab1->Show();
 $Tpl->block_path = "";
 $Tpl->Parse($BlockToParse, false);
 if (!isset($main_block)) $main_block = $Tpl->GetVar($BlockToParse);
-
+$HSAOA4A7J7D7A = explode("|", "<center><font face=|\"Arial\"><small>G&#|101;ne&#114;&#97;|&#116;ed <!-- CCS| -->w&#105;&#116;h| <!-- SCC -->C&#111;d&|#101;C&#104;&#97;&#1|14;g&#101; <!-- SC|C -->&#83;t&#117;|d&#105;o.</small><|/font></center>");
 if(preg_match("/<\/body>/i", $main_block)) {
-    $main_block = preg_replace("/<\/body>/i", join($HSAOA4A7J7D7A,"") . "</body>", $main_block);
+    $main_block = preg_replace("/<\/body>/i", join("", $HSAOA4A7J7D7A) . "</body>", $main_block);
 } else if(preg_match("/<\/html>/i", $main_block) && !preg_match("/<\/frameset>/i", $main_block)) {
-    $main_block = preg_replace("/<\/html>/i", join($HSAOA4A7J7D7A,"") . "</html>", $main_block);
+    $main_block = preg_replace("/<\/html>/i", join("", $HSAOA4A7J7D7A) . "</html>", $main_block);
 } else if(!preg_match("/<\/frameset>/i", $main_block)) {
-    $main_block .= join($HSAOA4A7J7D7A,"");
+    $main_block .= join("", $HSAOA4A7J7D7A);
 }
 $main_block = CCConvertEncoding($main_block, $FileEncoding, $TemplateEncoding);
 $CCSEventResult = CCGetEvent($CCSEvents, "BeforeOutput", $MainPage);

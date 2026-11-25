@@ -30,7 +30,7 @@ class clsNavigator
   public $PageSize;
   public $PageSizes = array(1,5,10,25,50);
 
-  function clsNavigator($ComponentName, $NavigatorName, $FileName, $NumberPages, $NavigatorType, & $Parent)
+  function __construct($ComponentName, $NavigatorName, $FileName, $NumberPages, $NavigatorType, & $Parent)
   {
     $this->TargetName = $ComponentName;
     $this->NavigatorName = $NavigatorName;
@@ -207,6 +207,9 @@ class clsNavigator
     $Tpl->Parse($NavigatorBlock, false);
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsNavigator() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End Navigator Class
 

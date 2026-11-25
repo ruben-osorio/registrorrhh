@@ -1,32 +1,32 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-if ( isset($_GET[id_con]) && isset($_GET[id_func]) )
+if ( isset($_GET['id_con']) && isset($_GET['id_func']) )
 {
-	$id_con=$_GET[id_con];
-	$id_func=$_GET[id_func];
+	$id_con=$_GET['id_con'];
+	$id_func=$_GET['id_func'];
 	$rs0=$db->query("select * from ".TABLE2." where id_func='$id_func'");
 	$r0=$db->fetch_array($rs0);
 	$sw=0;
-	if (isset($_POST[select_dest]))
+	if (isset($_POST['select_dest']))
 	{
-		$date_born=str_replace("-","",cambia_dateMy_to_dateN($r0[date_born]));
-		$ci=$r0[ci];
-		$filename=ucfirst(strtolower(str_replace(' ','',$r0[name]))).ucfirst(strtolower($r0[l_name1])).ucfirst(strtolower($r0[l_name2]))."_".$date_born."_".$ci;	
+		$date_born=str_replace("-","",cambia_dateMy_to_dateN($r0['date_born']));
+		$ci=$r0['ci'];
+		$filename=ucfirst(strtolower(str_replace(' ','',$r0['name']))).ucfirst(strtolower($r0['l_name1'])).ucfirst(strtolower($r0['l_name2']))."_".$date_born."_".$ci;	
 		$filename;
 		$rs5=$db->query("select date_ent from ".TABLE30." where id_con='$id_con'");
 		$r5=$db->fetch_array($rs5);
-		$year_cont=explode("-",$r5[date_ent]);
+		$year_cont=explode("-",$r5['date_ent']);
 		
 		$rs4=$db->query("select * from ".TABLE17." where id_con='$id_con'");
 		$r4=$db->fetch_array($rs4);
 		
-		$location=$year_cont[0]."-".$r4[source_fin]."-".$id_con;
-		$final_location="files"."/".$filename."/".$location."/".$_POST[upload_to_folder]."";		
+		$location=$year_cont[0]."-".$r4['source_fin']."-".$id_con;
+		$final_location="files"."/".$filename."/".$location."/".$_POST['upload_to_folder']."";		
 		if (file_exists($final_location))
 		{
 			$sw=1;
@@ -41,7 +41,7 @@ if ( isset($_GET[id_con]) && isset($_GET[id_func]) )
 <link href="data/css/style-ext.css" rel="stylesheet" type="text/css">
 <link href="data/css/reportes.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="estilo.css" type="text/css" media="all">
-<?
+<?php
 	if ($sw==1)
 	{
 		echo '<link rel="stylesheet" href="uploadify/uploadify.css" type="text/css" />
@@ -69,7 +69,7 @@ echo "$(document).ready(function() {
 ?>
 </head>
 <body>
-<?
+<?php
 	
 	
 	echo '
@@ -78,13 +78,13 @@ echo "$(document).ready(function() {
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
  <tr>
   <th scope="col">Nombre(s) y Apellido:</th>
-  <th scope="col"><strong>'.$r0[name].' '.$r0[l_name1].' '.$r0[l_name2].'</strong></th>
+  <th scope="col"><strong>'.$r0['name'].' '.$r0['l_name1'].' '.$r0['l_name2'].'</strong></th>
  </tr>
  <tr>';
  $rs1=$db->query("select * from ".TABLE30." where id_con='$id_con'");
  $r1=$db->fetch_array($rs1);
  echo '<th>Fecha Ingreso</td>
-  <td>'.cambia_dateMy_to_dateN($r1[date_ent]).'</td>
+  <td>'.cambia_dateMy_to_dateN($r1['date_ent']).'</td>
  </tr>
  <tr>';
  $rs2=$db->query("select * from ".TABLE31." where id_con='$id_con'");
@@ -92,13 +92,13 @@ echo "$(document).ready(function() {
  
  echo '
   <th>Cargo:</td>
-  <td>'.$r2[charge].'</td>
+  <td>'.$r2['charge'].'</td>
  </tr>
  <tr>';
  $rs3=$db->query("select * from ".TABLE17." where id_con='$id_con'");
  $r3=$db->fetch_array($rs3);
  echo '<th>Fuente de Financiamiento:</td>
-  <td>'.$r3[source_fin].'</td>
+  <td>'.$r3['source_fin'].'</td>
  </tr>
  <tr>
   <th>Cargar en:</td>
@@ -125,7 +125,7 @@ echo "$(document).ready(function() {
 if ($sw==1)
 {
 	echo '<fieldset style="border: 1px solid #CDCDCD; padding: 8px; padding-bottom:0px; margin: 8px 0">
-		<legend><strong>Cargar Archivos en: '.$_POST[upload_to_folder].'</strong></legend>
+		<legend><strong>Cargar Archivos en: '.$_POST['upload_to_folder'].'</strong></legend>
 <hr width=100% size="1" color="" align="center">				
 		<div id="fileUpload2">You have a problem with your javascript</div>
 		<div id="cabmid" class="btn1"><a href="javascript:$(\'#fileUpload2\').fileUploadStart()">&nbspComenzar Carga</a></div><div id="cabmid" class="btn1r"> <a href="javascript:$(\'#fileUpload2\').fileUploadClearQueue()">Limpiar Lista</a></div>
@@ -136,6 +136,6 @@ if ($sw==1)
 ?>
 </body>
 </html>
-<?
+<?php
 }
 ?>

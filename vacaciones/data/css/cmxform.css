@@ -1,0 +1,54 @@
+/**********************************
+
+Name: cmxform Styles
+
+***********************************/
+form.cmxform {
+
+}
+
+form.cmxform legend {
+
+}
+
+form.cmxform legend, form.cmxform label {
+
+}
+
+form.cmxform fieldset {
+
+}
+
+form.cmxform fieldset fieldset {
+
+}
+
+form.cmxform fieldset p, form.cmxform fieldset fieldset {
+
+}
+
+form.cmxform label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: #fff;
+	font-weight:bold;	
+	font-size:10px;
+	font-family: Verdana, Geneva, sans-serif;
+	background-color:red;
+	border:1px solid red;
+	padding:3px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	position:relative;
+	float:right;
+	margin-top:3px;
+	margin-right: 3px;
+	z-index:9999;
+	
+}
+div.error { display: none; }
+input {	 }
+input.checkbox { border: none }
+input:focus { border: 1px dotted black; }
+input.error { border: 1px dotted red; }
+form.cmxform .gray * {  }

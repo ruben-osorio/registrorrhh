@@ -45,7 +45,7 @@ if (isset($_GET['cms'])) {
 
 
 // MAGIC AUTOLOAD CLASSES FUNCTION
-function __autoload($class) {
+spl_autoload_register(function ($class) {
     if ($class == "uploader")
         require "core/uploader.php";
     elseif ($class == "browser")
@@ -56,7 +56,7 @@ function __autoload($class) {
         require "lib/class_$class.php";
     elseif (file_exists("lib/helper_$class.php"))
         require "lib/helper_$class.php";
-}
+});
 
 
 // json_encode() IMPLEMENTATION IF JSON EXTENSION IS MISSING

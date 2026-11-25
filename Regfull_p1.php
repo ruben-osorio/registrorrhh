@@ -26,7 +26,7 @@ class clsRecordfuncionario { //funcionario Class @2-BE3EDF20
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -46,7 +46,7 @@ class clsRecordfuncionario { //funcionario Class @2-BE3EDF20
 //End Variables
 
 //Class_Initialize Event @2-61C88DEA
-    function clsRecordfuncionario($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -610,13 +610,16 @@ class clsRecordfuncionario { //funcionario Class @2-BE3EDF20
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordfuncionario() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End funcionario Class @2-FCB6E20C
 
 class clsfuncionarioDataSource extends clsDBmadnes {  //funcionarioDataSource Class @2-5680E709
 
 //DataSource Variables @2-748A7246
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -672,7 +675,7 @@ class clsfuncionarioDataSource extends clsDBmadnes {  //funcionarioDataSource Cl
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-140397D5
-    function clsfuncionarioDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record funcionario/Error";
@@ -806,7 +809,7 @@ class clsfuncionarioDataSource extends clsDBmadnes {  //funcionarioDataSource Cl
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -930,6 +933,9 @@ class clsfuncionarioDataSource extends clsDBmadnes {  //funcionarioDataSource Cl
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsfuncionarioDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End funcionarioDataSource Class @2-FCB6E20C
 
 //Initialize Page @1-72CD12E5
@@ -943,7 +949,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 

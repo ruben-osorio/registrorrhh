@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("security.php");
 require("config.inc.php");
 require("database.class.php");
@@ -18,22 +18,22 @@ $id_func=$_SESSION['id_func'];
 
 //------------------------------------
 
-if (isset($_POST[save]))
-{ 	$c_status=$_POST[c_status];
-	$l_name_es=strtoupper($_POST[l_name_es]);
-	$nati=strtoupper($_POST[nati]);
-	$nua=$_POST[nua];
-	$afp=$_POST[afp];
-	$lic_driv=$_POST[lic_driv];
-	$type_lic=$_POST[type_lic];
+if (isset($_POST['save']))
+{ 	$c_status=$_POST['c_status'];
+	$l_name_es=strtoupper($_POST['l_name_es']);
+	$nati=strtoupper($_POST['nati']);
+	$nua=$_POST['nua'];
+	$afp=$_POST['afp'];
+	$lic_driv=$_POST['lic_driv'];
+	$type_lic=$_POST['type_lic'];
 	//echo "esta es la linea".$date_born; 
-	$adress=strtoupper($_POST[adress]);
-	$place_res=strtoupper($_POST[place_res]);
-	$p_email=strtolower($_POST[p_email]);
-	$job_email=strtolower($_POST[job_email]);
-	$phone_num=$_POST[phone_num];	
-	$cel_num=$_POST[cel_num];
-	$phone_job=$_POST[phone_job];
+	$adress=strtoupper($_POST['adress']);
+	$place_res=strtoupper($_POST['place_res']);
+	$p_email=strtolower($_POST['p_email']);
+	$job_email=strtolower($_POST['job_email']);
+	$phone_num=$_POST['phone_num'];	
+	$cel_num=$_POST['cel_num'];
+	$phone_job=$_POST['phone_job'];
 //	$date_born=cambia_dateN_to_dateMy_1(date_born);	
 //-----------------------------
 //id_dat id_func last_gra cole city_c year title
@@ -118,16 +118,16 @@ $(document).ready(function() {
  </tr>
  <tr>
   	<td class="form_row"><select name="c_status" id="c_status" class="textarea_normal" >
-  	  <option value="<? echo $rex[c_status];?>"><? echo $rex[c_status];?></option>
+  	  <option value="<?php echo $rex['c_status'];?>"><?php echo $rex['c_status'];?></option>
       <option value="SOLTERA(O)">SOLTERA(O)</option>
   	  <option value="CASADA(O)">CASADA(O)</option>
   	  <option value="VIUDA(0)">VIUDA(O)</option>
   	  <option value="DIVORCIADA(O)">DIVORCIADA(O)</option>
 	  </select></td>
-  	<td class="form_row"><input name="l_name_es" type="text" id="l_name_es" size="30" maxlength="64" value="<? echo $rex[l_name_es];?>" class="textarea_normal"/></td>
-  	<td class="form_row"><input name="nua" type="text" id="nua"  size="25" maxlength="35" class="textarea_normal" value="<? echo $rex[nua];?>"/></td>
+  	<td class="form_row"><input name="l_name_es" type="text" id="l_name_es" size="30" maxlength="64" value="<?php echo $rex['l_name_es'];?>" class="textarea_normal"/></td>
+  	<td class="form_row"><input name="nua" type="text" id="nua"  size="25" maxlength="35" class="textarea_normal" value="<?php echo $rex['nua'];?>"/></td>
 	<td class="form_row"><select name="afp" id="afp" class="textarea_normal">
-	  <option value="<? echo $rex[afp];?>"><? echo $rex[afp];?></option>
+	  <option value="<?php echo $rex['afp'];?>"><?php echo $rex['afp'];?></option>
 	  <option value="FUTURO">FUTURO</option>
 	  <option value="PREVISIÓN">PREVISION</option>
 	  </select></td>
@@ -139,16 +139,16 @@ $(document).ready(function() {
         <th>LUGAR DE RESIDENCIA:</th>
  	</tr>
 	<tr>
-  		<td><input name="lic_driv" type="digits" id="lic_driv"  size="25" maxlength="35" class="textarea_normal" value="<? echo $rex[lic_driv];?>"/></td>
+  		<td><input name="lic_driv" type="digits" id="lic_driv"  size="25" maxlength="35" class="textarea_normal" value="<?php echo $rex['lic_driv'];?>"/></td>
 	    <td><select name="type_lic" id="type_lic" class="textarea_normal">
-	      <option value="0"><? echo $rex[type_lic];?></option>
+	      <option value="0"><?php echo $rex['type_lic'];?></option>
 	      <option value="P">P</option>
 	      <option value="A">A</option>
 	      <option value="B">B</option>
 	      <option value="C">C</option>
         </select></td>
-		<td><input name="adress" type="text" id="adress" size="30" maxlength="64" class="textarea_normal" value="<? echo $rex[adress];?>"/></td>
-		<td><input name="place_res" type="text" id="place_res" size="30" maxlength="64" class="textarea_normal" value="<? echo $rex[place_res];?>"/></td>
+		<td><input name="adress" type="text" id="adress" size="30" maxlength="64" class="textarea_normal" value="<?php echo $rex['adress'];?>"/></td>
+		<td><input name="place_res" type="text" id="place_res" size="30" maxlength="64" class="textarea_normal" value="<?php echo $rex['place_res'];?>"/></td>
     </tr>
     
     <tr>
@@ -159,10 +159,10 @@ $(document).ready(function() {
 
 	</tr>
     <tr>
-        <td><input name="p_email" type="email" id="p_email" size="30" maxlength="128" value="<? echo $rex[p_email];?>" class="textarea_normal" /></td>
-        <td><input name="job_email" type="email" id="job_email" size="30" maxlength="128" value="<? echo $rex[job_email];?>" class="textarea_normal" /></td>
-  		<td><input name="phone_num" type="digits" id="phone_num"  size="25" maxlength="35" value="<? echo $rex[phone_num];?>" class="textarea_normal"/></td>
-   		<td><input name="cel_num" type="digits" id="cel_num"  size="25" maxlength="35" value="<? echo $rex[cel_num];?>" class="textarea_normal"/></td>
+        <td><input name="p_email" type="email" id="p_email" size="30" maxlength="128" value="<?php echo $rex['p_email'];?>" class="textarea_normal" /></td>
+        <td><input name="job_email" type="email" id="job_email" size="30" maxlength="128" value="<?php echo $rex['job_email'];?>" class="textarea_normal" /></td>
+  		<td><input name="phone_num" type="digits" id="phone_num"  size="25" maxlength="35" value="<?php echo $rex['phone_num'];?>" class="textarea_normal"/></td>
+   		<td><input name="cel_num" type="digits" id="cel_num"  size="25" maxlength="35" value="<?php echo $rex['cel_num'];?>" class="textarea_normal"/></td>
     </tr>
     <tr>
         <th>TELEFONO TRABAJO:</th>
@@ -172,7 +172,7 @@ $(document).ready(function() {
 
 	</tr>
     <tr>
-        <td><input name="phone_job" type="digits" id="phone_job"  size="25" maxlength="35" value="<? echo $rex[phone_job];?>" class="textarea_normal"/></td>
+        <td><input name="phone_job" type="digits" id="phone_job"  size="25" maxlength="35" value="<?php echo $rex['phone_job'];?>" class="textarea_normal"/></td>
         <td><input type="submit" class="submit" onclick="return probar()" name="save" id="loginbutton" value="Guardar" /></td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
@@ -181,7 +181,7 @@ $(document).ready(function() {
  </table>      
 </form>
 </fieldset>
-<?
+<?php
 /*
 $db->close();*/
 ?>

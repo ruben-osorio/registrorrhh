@@ -20,7 +20,7 @@ class clsSorter
   public $Parent;
   public $Attributes;
 
-  function clsSorter($ComponentName, $SorterName, $FileName, & $Parent)
+  function __construct($ComponentName, $SorterName, $FileName, & $Parent)
   {
     $this->TargetName = $ComponentName;
     $this->SorterName = $SorterName;
@@ -121,6 +121,9 @@ class clsSorter
   }
 
 
+
+	// Alias del constructor estilo PHP 4
+	function clsSorter() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End Sorter Class
 

@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 require('LoginSystem.class.php');
 $loginSys = new LoginSystem();

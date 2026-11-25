@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("security.php");
 
 require("config.inc.php");
@@ -6,10 +6,10 @@ require("database.class.php");
 require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_func=$_GET[id_func];
-if (isset($_POST[save]))
-{	$username=$_POST[username];
-	$password=$_POST[password];
+$id_func=$_GET['id_func'];
+if (isset($_POST['save']))
+{	$username=$_POST['username'];
+	$password=$_POST['password'];
 	//name	l_name1	l_name2	date_entrance	office	source_fin	f_status
 	$rs=$db->query("update ".TABLE4." set username='$username',	password='$password' where id_func='$id_func'");
 	if ($rs)
@@ -53,13 +53,13 @@ $r=$db->fetch_array($rs);
     <tr>
       <th><div align="left">Nombre de Usuario:</div></th>
       <td><div class="form_row">  
-        <input name="username" type="text" class="input " id="username" value="<? echo $r[username]; ?>" size="45" />
+        <input name="username" type="text" class="input " id="username" value="<?php echo $r['username']; ?>" size="45" />
     	  </div></td>
     </tr>
     <tr>
       <th><div align="left">Contraseña:</div></th>
       <td><div class="form_row">
-        <input name="passold" type="text" class="input " id="passold" value="<? echo $r[password]; ?>" size="40" />
+        <input name="passold" type="text" class="input " id="passold" value="<?php echo $r['password']; ?>" size="40" />
       </div></td>
     </tr>
         <tr>

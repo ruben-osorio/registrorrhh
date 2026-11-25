@@ -1,8 +1,8 @@
-<?
+<?php
 require_once("security.php");
 require("functions.inc.php");
 //$id_func='4';
-$id_func=$_GET[id_func];
+$id_func=$_GET['id_func'];
 
 require("config.inc.php");
 require("database.class.php");
@@ -15,7 +15,7 @@ $db->connect();
 
 if(isset($_GET['action']) && $_GET['action']=='DELETE')
 {
-$id_datf=$_GET[id_datf];
+$id_datf=$_GET['id_datf'];
 echo $id_datf;
 echo "
 DELETE FROM ".TABLE8." 
@@ -33,7 +33,7 @@ DELETE FROM ".TABLE8."
 //-----------------------------
 $post_numero = count($_POST);
 $con=($post_numero-1)/9;
-if (isset($_POST[save3]))
+if (isset($_POST['save3']))
 {	unset($_POST["save3"]);
 
 	$post_etiquetas = array_keys($_POST); // obtiene los nombres de las varibles
@@ -155,7 +155,7 @@ stylos
 </head>
 
 <body>
-<? 
+<?php 
 //------------------------------------
 //CONSULTA PARA OBTENER DATOS FAMILIARES
 	$rsc2=$db->query("
@@ -172,7 +172,7 @@ stylos
 </table>   
 <table width="950" border="0" align="center" cellpadding="2" cellspacing="0">   
 <form action="" method="post" name="form1" class="form" id="form2">   
-<? 
+<?php 
 //id_datf id_func type_p name l_name1 l_name2 sex born_date	pb_nat tn_doc
 $c=0;
 $f=1;
@@ -180,36 +180,36 @@ while ($rex2=$db->fetch_array($rsc2))
 	{
 echo '<tr><td colspan="4"><H2>FAMILIAR '.$f.'</H2></td></tr>
 	<tr>	
-	<input name="id_datf'.$c.'" type="hidden" id="id_datf"class="required" value="'.$rex2[id_datf].'"/>
+	<input name="id_datf'.$c.'" type="hidden" id="id_datf"class="required" value="'.$rex2['id_datf'].'"/>
 	<td>
-	<LABEL for="type_p'.$c.'"><strong>PARENTESCO: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="type_p'.$c.'" type="text" id="type_p" size="25" maxlength="64" class="required" value="'.$rex2[type_p].'"/>
+	<LABEL for="type_p'.$c.'"><strong>PARENTESCO: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="type_p'.$c.'" type="text" id="type_p" size="25" maxlength="64" class="required" value="'.$rex2['type_p'].'"/>
 	</td>
 	<td>
-	<LABEL for="name'.$c.'"><strong>NOMBRE:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="name'.$c.'" type="text" id="name" size="25" maxlength="64" class="required" value="'.$rex2[name].'"/>
+	<LABEL for="name'.$c.'"><strong>NOMBRE:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="name'.$c.'" type="text" id="name" size="25" maxlength="64" class="required" value="'.$rex2['name'].'"/>
 	</td>
 	<td>
-	<LABEL for="l_name1'.$c.'"><strong>APELLIDO PATERNO:</strong></LABEL><input name="l_name1'.$c.'" type="text" id="l_name1" size="25" maxlength="64" class="required" value="'.$rex2[l_name1].'"/>
+	<LABEL for="l_name1'.$c.'"><strong>APELLIDO PATERNO:</strong></LABEL><input name="l_name1'.$c.'" type="text" id="l_name1" size="25" maxlength="64" class="required" value="'.$rex2['l_name1'].'"/>
 	</td>
 	<td>
-	<LABEL for="l_name2'.$c.'"><strong>APELLIDO MATERNO:</strong></LABEL><input name="l_name2'.$c.'" type="text" id="l_name2" size="25" maxlength="64" class="required" value="'.$rex2[l_name2].'"/>
+	<LABEL for="l_name2'.$c.'"><strong>APELLIDO MATERNO:</strong></LABEL><input name="l_name2'.$c.'" type="text" id="l_name2" size="25" maxlength="64" class="required" value="'.$rex2['l_name2'].'"/>
 	</td>
 	</tr>
 	<tr>
 	<td>
-	<LABEL for="sex'.$c.'"><strong>SEXO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="sex'.$c.'" type="text" id="sex" size="25" maxlength="64" class="required" value="'.$rex2[sex].'"/>
+	<LABEL for="sex'.$c.'"><strong>SEXO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="sex'.$c.'" type="text" id="sex" size="25" maxlength="64" class="required" value="'.$rex2['sex'].'"/>
 	</td>
 	<td>
-	<LABEL for="born_date'.$c.'"><strong>FECHA DE NACIMIENTO:</strong></LABEL><input name="born_date'.$c.'" type="text" id="born_date" size="25" maxlength="64" class="required" value="'.$rex2[born_date].'"/>
+	<LABEL for="born_date'.$c.'"><strong>FECHA DE NACIMIENTO:</strong></LABEL><input name="born_date'.$c.'" type="text" id="born_date" size="25" maxlength="64" class="required" value="'.$rex2['born_date'].'"/>
 	</td>
 	<td>
-	<LABEL for="pb_nat'.$c.'"><strong>LUGAR DE NACIMIENTO:</strong></LABEL><input name="pb_nat'.$c.'" type="text" id="pb_nat" size="25" maxlength="64" class="required" value="'.$rex2[pb_nat].'"/>
+	<LABEL for="pb_nat'.$c.'"><strong>LUGAR DE NACIMIENTO:</strong></LABEL><input name="pb_nat'.$c.'" type="text" id="pb_nat" size="25" maxlength="64" class="required" value="'.$rex2['pb_nat'].'"/>
 	</td>
 	<td>
-	<LABEL for="tn_doc'.$c.'"><strong>TIPO Y NÚMERO DE DOCUMENTO:</strong></LABEL><input name="tn_doc'.$c.'" type="text" id="tn_doc" size="25" maxlength="64" class="required" value="'.$rex2[tn_doc].'"/>
+	<LABEL for="tn_doc'.$c.'"><strong>TIPO Y NÚMERO DE DOCUMENTO:</strong></LABEL><input name="tn_doc'.$c.'" type="text" id="tn_doc" size="25" maxlength="64" class="required" value="'.$rex2['tn_doc'].'"/>
 	</td>
 	</tr>
 	<td colspan="4">
-	<div class="errorre"><a href="?id_datf='.$rex2[id_datf].'&&id_func='.$rex2[id_func].'&action=DELETE">BORRAR DATOS DE FAMILIAR '.$f.'</a><div>
+	<div class="errorre"><a href="?id_datf='.$rex2['id_datf'].'&&id_func='.$rex2['id_func'].'&action=DELETE">BORRAR DATOS DE FAMILIAR '.$f.'</a><div>
 	</td>
 	';
 	$c++;

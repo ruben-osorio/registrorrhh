@@ -1,24 +1,24 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 $id=$_SESSION['id_func'];
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 { 	
 
-	$name=strtoupper($_POST[name]);
-	$l_name1=strtoupper($_POST[l_name1]);
-	$l_name2=strtoupper($_POST[l_name2]);
+	$name=strtoupper($_POST['name']);
+	$l_name1=strtoupper($_POST['l_name1']);
+	$l_name2=strtoupper($_POST['l_name2']);
 	
-	$ci=$_POST[ci];
-	$expe=$_POST[expe];
-	$date_born=$_POST[date_born];
-	$adress=strtoupper($_POST[adress]);
-	$phone_num=$_POST[phone_num];	
-	$cel_num=$_POST[cel_num];
-	$date_born=cambia_dateN_to_dateMy_1($_POST[date_born]);	
+	$ci=$_POST['ci'];
+	$expe=$_POST['expe'];
+	$date_born=$_POST['date_born'];
+	$adress=strtoupper($_POST['adress']);
+	$phone_num=$_POST['phone_num'];	
+	$cel_num=$_POST['cel_num'];
+	$date_born=cambia_dateN_to_dateMy_1($_POST['date_born']);	
 	$rs2=$db->query("update ".TABLE2." set ci='$ci', expe='$expe', adress='$adress', phone_num='$phone_num', cel_num='$cel_num', date_born='$date_born' where id='$id'");		
 	//	 
 	if($rs2)
@@ -110,11 +110,11 @@ $(document).ready(function() {
         
       </tr>
       <tr> 
-        <td><input name="name" type="text" class="textarea_normal required" id="name" value="<? echo $r1[name];?>" size="35" maxlength="64" readonly="readonly" /></td>
-        <td><input name="l_name1" type="text" class="textarea_normal" id="l_name1" value="<? echo $r1[l_name1];?>" size="35" maxlength="64" readonly="readonly" /></td>
-        <td><input name="l_name2" type="text" class="textarea_normal required" id="l_name2" value="<? echo $r1[l_name2];?>" size="35" maxlength="64" readonly="readonly" /></td>
+        <td><input name="name" type="text" class="textarea_normal required" id="name" value="<?php echo $r1['name'];?>" size="35" maxlength="64" readonly="readonly" /></td>
+        <td><input name="l_name1" type="text" class="textarea_normal" id="l_name1" value="<?php echo $r1['l_name1'];?>" size="35" maxlength="64" readonly="readonly" /></td>
+        <td><input name="l_name2" type="text" class="textarea_normal required" id="l_name2" value="<?php echo $r1['l_name2'];?>" size="35" maxlength="64" readonly="readonly" /></td>
         <td>
-        <input name="ci" id="ci"  type="text" size="25" maxlength="10" class=" textarea_normal required number" value="<? echo $r1[ci];?>"/>
+        <input name="ci" id="ci"  type="text" size="25" maxlength="10" class=" textarea_normal required number" value="<?php echo $r1['ci'];?>"/>
          Exp:
          <select name="expe" id="expe">
 <option value="LP">LA PAZ</option>
@@ -143,17 +143,17 @@ $(document).ready(function() {
       </tr>
       <tr>
         <td><p align="left">
-          <input name="adress" type="text" class="textarea_normal required" id="adress" value="<? echo $r1[adress];?>" size="30" maxlength="64" />
+          <input name="adress" type="text" class="textarea_normal required" id="adress" value="<?php echo $r1['adress'];?>" size="30" maxlength="64" />
         </p>
         <p align="left"> (Ej.  1785/Av. 14 de Septiembre/Obrajes)</p></td>
         <td><div align="left">
-          <input name="phone_num" type="text" class="textarea_normal" id="phone_num" value="<? echo $r1[phone_num];?>"  size="25" maxlength="10"/>
+          <input name="phone_num" type="text" class="textarea_normal" id="phone_num" value="<?php echo $r1['phone_num'];?>"  size="25" maxlength="10"/>
         </div></td>
         <td><div align="left">
-          <input name="cel_num" type="text" class="textarea_normal required number" id="cel_num" value="<? echo $r1[cel_num];?>"  size="25" maxlength="10"/>
+          <input name="cel_num" type="text" class="textarea_normal required number" id="cel_num" value="<?php echo $r1['cel_num'];?>"  size="25" maxlength="10"/>
         </div></td>
         <td><div align="left">
-          <input name="date_born" type="text" class="textarea_normal required" id="date_born" value="<? echo cambia_dateMy_to_dateN($r1[date_born]);?> " size="20" maxlength="20" readonly="readonly"/>
+          <input name="date_born" type="text" class="textarea_normal required" id="date_born" value="<?php echo cambia_dateMy_to_dateN($r1['date_born']);?> " size="20" maxlength="20" readonly="readonly"/>
         </div></td>
 
       </tr>
@@ -171,7 +171,7 @@ $(document).ready(function() {
 <p>NOTA 3. <strong>Si no cuenta con número de TELEFONO DOMICILIO, colocar el número cero (0) en el campo.</strong></p>
 </div>
 </fieldset>
-<?
+<?php
 }
 //$db->close();
 ?>

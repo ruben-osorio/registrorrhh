@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("security.php");
 ?>
 <ul id="navigation"><!-- Main Navigation Begin -->				

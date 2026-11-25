@@ -1,0 +1,29 @@
+# Control de versiones y herramientas
+.git
+.gitignore
+.dockerignore
+.vscode
+.codegraph
+odd/
+
+# Configuración solo para WAMP local
+/.htaccess
+
+# Respaldos, volcados y archivos que no son parte de la aplicación
+BACKS/
+*.rar
+*.sql
+*.docx
+*.xlsx
+*.xls
+*.pdf
+Thumbs.db
+**/Thumbs.db
+~$*
+NOTES/
+TESTING/
+confighosting/
+
+# Herramientas de administración de BD que no deben publicarse
+**/r1.php
+**/adminer*.php

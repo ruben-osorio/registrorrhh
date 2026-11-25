@@ -1,17 +1,23 @@
 <?php
-
-define('DB_SERVER', "localhost");
-define('DB_USER', "registroRRHH");
-define('DB_PASS', "Registro4880!");
-define('DB_DATABASE', "registroRRHH");// BASE DE DATOS CONSOLIDADA
-
-
-define('DB_SERVERC', "localhost");
-define('DB_USERC', "ruben");
-define('DB_PASSC', "roacorp");
-define('DB_DATABASEC', "ssrp");
-
-
+// Configuración de base de datos: variables de entorno (Railway) o valores
+// locales por defecto. Ver ssrp_db_config() en compat.php.
+if (!function_exists('ssrp_db_config')) {
+	require_once __DIR__ . '/compat.php';
+}
+$__ssrp_db = ssrp_db_config();
+if (!defined('DB_SERVER'))   define('DB_SERVER', $__ssrp_db['host']);
+if (!defined('DB_PORT'))     define('DB_PORT', $__ssrp_db['port']);
+if (!defined('DB_USER'))     define('DB_USER', $__ssrp_db['user']);
+if (!defined('DB_PASS'))     define('DB_PASS', $__ssrp_db['pass']);
+if (!defined('DB_DATABASE')) define('DB_DATABASE', $__ssrp_db['name']); // BASE DE DATOS CONSOLIDADA
+// Conexión secundaria usada por los módulos de registro (CAS); misma base consolidada
+if (!defined('DB_SERVERC'))   define('DB_SERVERC', DB_SERVER);
+if (!defined('DB_USERC'))     define('DB_USERC', DB_USER);
+if (!defined('DB_PASSC'))     define('DB_PASSC', DB_PASS);
+if (!defined('DB_DATABASEC')) define('DB_DATABASEC', DB_DATABASE);
+unset($__ssrp_db);
+//tablas-bd
+//define('TABLE1', "");
 /*------------------------------------*/
 define("TABLE1", "dat_aca");
 define('TABLE2', "funcionario");

@@ -1,19 +1,19 @@
-<?
-require("config.inc.php");
+<?php
+require("config.incp.php");
 require("database.class.php");
-$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
+$db = new Database(DB_SERVER, DB_USER, DB_PASS, 'registrorrhh');
 $db->connect();
-if (isset($_POST[search]))
+if (isset($_POST['search']))
 {
-	$tosearch=strtoupper($_POST[tosearch]);
-	switch ($_POST[by])
+	$tosearch=strtoupper($_POST['tosearch']);
+	switch ($_POST['by'])
 	{
 		case 'app';
 			$rs=$db->query("
 			select * from ".TABLE2.", ".TABLE22." 
 			where l_name1 like '%$tosearch%'
 			and ".TABLE2.".id_func=".TABLE22.".id_func
-			and ".TABLE22.".status='1'
+			and ".TABLE22.".status='1' order by l_name1
 			");		
 		break;
 		
@@ -22,7 +22,7 @@ if (isset($_POST[search]))
 			select * from ".TABLE2.", ".TABLE22." 
 			where l_name2 like '%$tosearch%'
 			and funcionario.id_func=permanente.id_func
-			and permanente.status='1'
+			and permanente.status='1' order by l_name1
 			");
 		break;
 
@@ -31,7 +31,7 @@ if (isset($_POST[search]))
 			select * from ".TABLE2.", ".TABLE22." 
 			where name like '%$tosearch%'
 			and funcionario.id_func=permanente.id_func
-			and permanente.status='1'
+			and permanente.status='1' order by l_name1
 			");
 		break;
 	}
@@ -75,7 +75,7 @@ if (isset($_POST[search]))
 
 </form>
 </fieldset>
-<?
+<?php
 if ($sw==1)
 {
 	echo '<fieldset>
@@ -92,13 +92,17 @@ if ($sw==1)
  while ($r=$db->fetch_array($rs))
  {
  	echo ' <tr>   
-    <td>'.$r[l_name1].'</td>
-    <td>'.$r[l_name2].'</td>
-	 <td>'.$r[name].'</td>
+    <td>'.$r['l_name1'].'</td>
+    <td>'.$r['l_name2'].'</td>
+	 <td>'.$r['name'].'</td>
 	  <td><strong>TGN</strong></td>
 
 	<td>
-	<a href="#" onclick="MM_openBrWindow(\'RepIndivFormVac.php?id='.$r[id_func].'\',\'regpermiso\',\'scrollbars=yes,width=650,height=420\')" title="Reporte Individual"><img src="data/images/report_calendar.png"></a>	
+
+	
+	<a href="http://100.0.0.152:8080/reportesrrhh/frameset?__report=reporte_individual.rptdesign&id_func='.$r['id_func'] . '" target="new"><img src="data/images/report_calendar.png"></a>
+
+	
 	</td>	
   </tr>';
  }

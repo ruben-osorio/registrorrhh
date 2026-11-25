@@ -31,7 +31,7 @@ class clsGridold_movc { //old_movc class @2-2ADA1A03
     public $RowNumber;
     public $ControlsVisible = array();
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -43,7 +43,7 @@ class clsGridold_movc { //old_movc class @2-2ADA1A03
 //End Variables
 
 //Class_Initialize Event @2-BA0D4F88
-    function clsGridold_movc($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
         global $FileName;
         global $CCSLocales;
@@ -198,13 +198,16 @@ class clsGridold_movc { //old_movc class @2-2ADA1A03
     }
 //End GetErrors Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsGridold_movc() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End old_movc Class @2-FCB6E20C
 
 class clsold_movcDataSource extends clsDBmadnes {  //old_movcDataSource Class @2-FDB53798
 
 //DataSource Variables @2-00BAB92C
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -222,7 +225,7 @@ class clsold_movcDataSource extends clsDBmadnes {  //old_movcDataSource Class @2
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-C7EE872B
-    function clsold_movcDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Grid old_movc";
@@ -256,7 +259,7 @@ class clsold_movcDataSource extends clsDBmadnes {  //old_movcDataSource Class @2
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_con", ccsInteger, "", "", $this->Parameters["urlid_con"], xxxxx, false);
+        $this->wp->AddParameter("1", "urlid_con", ccsInteger, "", "", $this->Parameters["urlid_con"], 'xxxxx', false);
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_con", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
              $this->wp->Criterion[1];
@@ -292,6 +295,9 @@ class clsold_movcDataSource extends clsDBmadnes {  //old_movcDataSource Class @2
     }
 //End SetValues Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsold_movcDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End old_movcDataSource Class @2-FCB6E20C
 
 class clsRecordold_movc1 { //old_movc1 Class @17-385B19A0
@@ -311,7 +317,7 @@ class clsRecordold_movc1 { //old_movc1 Class @17-385B19A0
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -331,7 +337,7 @@ class clsRecordold_movc1 { //old_movc1 Class @17-385B19A0
 //End Variables
 
 //Class_Initialize Event @17-832E7A53
-    function clsRecordold_movc1($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -672,13 +678,16 @@ class clsRecordold_movc1 { //old_movc1 Class @17-385B19A0
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordold_movc1() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End old_movc1 Class @17-FCB6E20C
 
 class clsold_movc1DataSource extends clsDBmadnes {  //old_movc1DataSource Class @17-2B3F5448
 
 //DataSource Variables @17-3E3C0370
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -705,7 +714,7 @@ class clsold_movc1DataSource extends clsDBmadnes {  //old_movc1DataSource Class 
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @17-ED8625D9
-    function clsold_movc1DataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record old_movc1/Error";
@@ -866,6 +875,9 @@ class clsold_movc1DataSource extends clsDBmadnes {  //old_movc1DataSource Class 
     }
 //End Delete Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsold_movc1DataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End old_movc1DataSource Class @17-FCB6E20C
 
 //Initialize Page @1-6692C4C0
@@ -879,7 +891,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 

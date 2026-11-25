@@ -1,17 +1,17 @@
-<?
+<?php
 require_once("security.php");
 require ("config.inc.php");
 require ("database.class.php");
 include ("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_func=$_GET[id];
+$id_func=$_GET['id'];
 
 $rs2=$db->query("select * from ".TABLE22." where id_func='$id_func' order by id_per desc limit 1");
 $r2=$db->fetch_array($rs2);
-$id_per=$r2[id_per];
+$id_per=$r2['id_per'];
 
-$date_ent=$r2[date_ent];
+$date_ent=$r2['date_ent'];
 $rs3=$db->query("select * from ".TABLE23." where id_per='$id_per'");
 
 //$r2=$db->fetch_array($rs2);
@@ -25,12 +25,12 @@ if (mysql_num_rows($rs3)==0)
 }
 if ($r3=$db->fetch_array($rs3))
 {
-	if (isset($_POST[save]))	
+	if (isset($_POST['save']))	
 	{		
 		//
-		$name_medical_sec=strtoupper($_POST[name_medical_sec]);
-		$numb_secured=strtoupper($_POST[numb_secured]);
-		$date_start_sec=cambia_dateN_to_dateMy_1($_POST[date_start_sec]);
+		$name_medical_sec=strtoupper($_POST['name_medical_sec']);
+		$numb_secured=strtoupper($_POST['numb_secured']);
+		$date_start_sec=cambia_dateN_to_dateMy_1($_POST['date_start_sec']);
 		//echo "update ".TABLE23." set name_sec='$name_medical_sec',  num_reg='$numb_secured', date_afil='$date_start_sec' where id_per='$id_per'";
 		$rs1=$db->query("update ".TABLE23." set name_sec='$name_medical_sec',  num_reg='$numb_secured', date_afil='$date_start_sec' where id_per='$id_per'");
 		
@@ -87,7 +87,7 @@ $(document).ready(function() {
 	</script>
 
 </head>
-<?
+<?php
 if ($sw==1)
 	{
 		echo '<div class="successre">'.$msg.'</div>';
@@ -104,51 +104,51 @@ if ($sw==1)
   <table width="100%" border="0" cellpadding="5" cellspacing="0">
     <tr>
       <th><div align="left">Nombres:</div></th>
-      <td><div align="left"><strong><? echo $r[name]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['name']; ?></strong></div></td>
     </tr>
     <tr>
       <th><div align="left">Apellidos:</div></th>
-      <td><div align="left"><strong><? echo $r[l_name1]." ".$r[l_name2]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['l_name1']." ".$r['l_name2']; ?></strong></div></td>
     </tr>
     <tr>
-    <?
+    <?php
 	$rs5=$db->query("select * from ".TABLE28." where id_per='$id_per' order by id_char_per desc limit 1");
 	$r5=$db->fetch_array($rs5);	
     ?>
       <th><div align="left">Cargo:</div></th>
-      <td><div align="left"><strong><? echo $r5[charge]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r5['charge']; ?></strong></div></td>
     </tr>
     <tr>
-    <?
+    <?php
 	  $rs4=$db->query("select * from ".TABLE23." where id_per='$id_per'");
 	  $r4=$db->fetch_array($rs3);
     ?>
       <th><div align="left">Fecha de Ingreso:</div></th>      
-      <td><div align="left"><strong><? echo cambia_dateMy_to_dateN($date_ent); ?></strong></div></td>
+      <td><div align="left"><strong><?php echo cambia_dateMy_to_dateN($date_ent); ?></strong></div></td>
     </tr>
     <tr>
-     <?
+     <?php
 	  $rs6=$db->query("select * from ".TABLE23." where id_per='$id_per'");
 	  $r6=$db->fetch_array($rs6);
      ?>
       <th><div align="left">Nombre Seguro:</div></th>
       <td><div align="left">
         <label for="name_medical_sec"></label>
-        <input class="required" name="name_medical_sec" type="text" id="name_medical_sec" size="45" value="<? echo $r6[name_sec];?>" />
+        <input class="required" name="name_medical_sec" type="text" id="name_medical_sec" size="45" value="<?php echo $r6['name_sec'];?>" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Número Asegurado:</div></th>
       <td><div align="left">
         <label for="numb_secured"></label>
-        <input name="numb_secured" type="text" class="required" id="numb_secured" value="<? echo $r6[num_reg];?>" />
+        <input name="numb_secured" type="text" class="required" id="numb_secured" value="<?php echo $r6['num_reg'];?>" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Fecha Afiliación:</div></th>
       <td><div align="left">
         <label for="date_start_sec"></label>
-        <input name="date_start_sec" type="text" class="required" id="date_start_sec" value="<? echo cambia_dateMy_to_dateN($r6[date_afil]);?>" readonly="readonly" />
+        <input name="date_start_sec" type="text" class="required" id="date_start_sec" value="<?php echo cambia_dateMy_to_dateN($r6['date_afil']);?>" readonly="readonly" />
       </div></td>
     </tr>
     <tr>
@@ -162,7 +162,7 @@ if ($sw==1)
 </fieldset>
 </body>
 </html>
-<?
+<?php
 }
 $db->close();
 ?>

@@ -1,27 +1,51 @@
-<?
+<?php
 require("functions.inc.php");
 require("config.inc.php");
 require("database.class.php");
 require("PDFcreator.class.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_func=$_GET[id];
-if (isset($_GET[id]))
-{
-	$rs=$db->query("select * from ".TABLE2." where id_func='$id_func'");
-	$r=$db->fetch_array($rs);
-	$rs7=$db->query("select * from ".TABLE22." where id_func='$id_func' order by id_per desc limit 1");
-	$r7=$db->fetch_array($rs7);
-	$id_per=$r7[id_per];
+$id_func=$_GET['id'];
+
+	$dbhandle = mysql_connect(DB_SERVER, 'ruben', '') 
+	or die("Unable to connect to MySQL");
 	
-	if (isset($_POST[calculate]))		
+	
+	$selected = mysql_select_db("registrorrhh",$dbhandle) 
+			or die("Could not select registrorrhh");
+			
+			
+if (isset($_GET['id']))
+{
+	$result = mysql_query("select * from funcionario where id_func='$id_func'")
+	or die(mysql_error());  
+
+	$r = mysql_fetch_array( $result );
+	
+	
+	//$rs=$db->query("select * from funcionario where id_func='$id_func'");
+	//$r=$db->fetch_array($rs);
+	
+	$result = mysql_query("select * from permanente where id_func='$id_func' order by id_per desc limit 1")
+	or die(mysql_error());  
+
+	$row = mysql_fetch_array( $result );
+	$id_per = $row['id_per'];
+	//$rs7=$db->query("select * from permanente where id_func='$id_func' order by id_per desc limit 1");
+	//$r7=$db->fetch_array($rs7);
+	//$id_per=$r7[id_per];
+	
+	$selected = mysql_select_db("ssrp",$dbhandle) 
+			or die("Could not select ssrp");
+			
+	if (isset($_POST['calculate']))		
 	{
-		$tiempo_1=$_POST[tiempo_1];
-		$tiempo_2=$_POST[tiempo_2];
-		$fecha_desde_1=cambia_dateN_to_dateMy_1($_POST[fecha_desde]);
-		$fecha_hasta_1=cambia_dateN_to_dateMy_1($_POST[fecha_hasta]);
+		$tiempo_1=$_POST['tiempo_1'];
+		$tiempo_2=$_POST['tiempo_2'];
+		$fecha_desde_1=cambia_dateN_to_dateMy_1($_POST['fecha_desde']);
+		$fecha_hasta_1=cambia_dateN_to_dateMy_1($_POST['fecha_hasta']);
 		
-		$fecha_retorno=$_POST[fecha_retorno];
+		$fecha_retorno=$_POST['fecha_retorno'];
 		
 		$date_parts1=explode("-", $fecha_desde_1);
 		$date_parts2=explode("-", $fecha_hasta_1);
@@ -43,43 +67,58 @@ if (isset($_GET[id]))
 		$total_final=$dias_total-$c;
 		echo "total dias fin de semana: ".$c;		
 	}
-	if (isset($_POST[submit]))
+	if (isset($_POST['submit']))
 	{		
-		$p_dias=$_POST[tiempo_1]+$_POST[tiempo_2];
-		$fecha_s=$_POST[fecha_s];		
+		$p_dias=$_POST['tiempo_1']+$_POST['tiempo_2'];
+		$fecha_s=$_POST['fecha_s'];		
 		
-		//echo "<br />select dias_g1, dias_g2 from ".TABLE3." where id_funcionario='$id_fun'";
-		$rs1=$db->query("select gestion_1, dias_g1, gestion_2,dias_g2 from ".TABLE3." where id_per='$id_per'");
+		//echo "<br />select dias_g1, dias_g2 from vacaciones where id_funcionario='$id_fun'";
+		
+		$selected = mysql_select_db("ssrp",$dbhandle) 
+			or die("Could not select ssrp");
+			
+			
+		$rs1=$db->query("select gestion_1, dias_g1, gestion_2,dias_g2 from vacaciones where id_per='$id_per'");
 		$r1=$db->fetch_array($rs1);
-		$f_dias=$r1[dias_g1]+$r1[dias_g2];
+		$f_dias=$r1['dias_g1']+$r1['dias_g2'];
+		
+		$newDateD = date('Y-m-d', strtotime($_POST['fecha_registro']));
+		
+		$fecha_cad= explode("-",$newDateD);
+
+		
+		//echo "................. = " . $newDateD . "...................";
 		//echo "saldo dias total ".$f_dias."<br />";
 		if ($f_dias>=$p_dias)
 		{
-			if ($r1[dias_g1]>=$p_dias)
+			if ($r1['dias_g1']>=$p_dias)
 			{
-				$saldo_g1=$r1[dias_g1]-$p_dias;
-				$saldo_g2=$r1[dias_g2];
+				$saldo_g1=$r1['dias_g1']-$p_dias;
+				$saldo_g2=$r1['dias_g2'];
 				/*echo "gestion 1: ".$saldo_g1."<br />"; //afecta solo a gestion 1
 				echo "gestion 2: ".$saldo_g2;*/
-				$gestion_used=$r1[gestion_1];
+				$gestion_used=$r1['gestion_1'];
 			}
 			else
 			{
 				$saldo_g1=0;				
-				$nuevos_dias=$r1[dias_g1]-$p_dias;				
-				$saldo_g2=$r1[dias_g2]+$nuevos_dias;
-				$gestion_used=$r1[gestion_1]."; ".$r1[gestion_2];
+				$nuevos_dias=$r1['dias_g1']-$p_dias;				
+				$saldo_g2=$r1['dias_g2']+$nuevos_dias;
+				$gestion_used=$r1['gestion_1']."; ".$r1['gestion_2'];
 /*				echo "gestion 1: ".$saldo_g1."<br />";
 				echo "gestion 2: ".$saldo_g2;	*/			
 			}					
 			//echo "<br />update ".TABLE3." SET dias_g1='$saldo_g1', dias_g2='$saldo_g2' where id_funcionario='$id_fun'";	
+			$selected = mysql_select_db("ssrp",$dbhandle) 
+			or die("Could not select ssrp");
+			
 			$rs2=$db->query("update ".TABLE3." SET dias_g1='$saldo_g1', dias_g2='$saldo_g2' where id_per='$id_per'");
 			//id_user	tipo	tiempo	fecha_i	hrs_i	fecha_f	hrs_f
 			$tipo=2;
 			
-			$fecha_desde=cambia_dateN_to_dateMy_1($_POST[fecha_desde]);
-			$fecha_hasta=cambia_dateN_to_dateMy_1($_POST[fecha_hasta]);			
-			$obs=$_POST[obs];
+			$fecha_desde=cambia_dateN_to_dateMy_1($_POST['fecha_desde']);
+			$fecha_hasta=cambia_dateN_to_dateMy_1($_POST['fecha_hasta']);			
+			$obs=$_POST['obs'];
 			//id_user	tipo	tiempo	fecha_ii	hrs_i	fecha_ff	hrs_f	obs
 
 			$rs3=$db->query("insert into ".TABLE5." (id_per, tipo, tiempo, fecha_ii, hrs_i, fecha_ff, hrs_f, obs) 
@@ -95,7 +134,7 @@ if (isset($_GET[id]))
 			$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM+5); //margen inferior del el pie 
 			$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 			$pdf->setLanguageArray($l);
-			$pdf->setPageFormat(OFICIO,P);
+			$pdf->setPageFormat('OFICIO','P');
 			$sistema  = 'ssrp';
 			$pdf->setCabecera2($cabecera);
 			
@@ -106,76 +145,110 @@ if (isset($_GET[id]))
 			$pdf->SetLeftMargin(0);
 			$pdf-> SetRightMargin(0);
 			
-			$pdf->setPageOrientation(P,0,0);
-			$rs4=$db->query("select date_ent from ".TABLE22." where id_per='$id_per'");
-			$r4=$db->fetch_array($rs4);
-			$fecha_ingreso=explode("-",$r4[date_ent]);
+			$pdf->setPageOrientation('P',0,0);
 			
+			$selected = mysql_select_db("registrorrhh",$dbhandle) 
+			or die("Could not select registrorrhh");
+			$result = mysql_query("select * from permanente where id_func='$id_func' order by id_per desc limit 1")
+			or die(mysql_error());  
+			
+			$row = mysql_fetch_array( $result );
+			$id_per = $row['id_per'];
+			//inicio agrego en 10/03/2016
+			
+			
+			//fin agrego 10/03/2016
+			$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
+			$db->connect();
+	
+		//	cambio RUBEN 10/03/2016
+			$rs4=$db->query("select date_ent from permanente where id_per='$id_per'");
+		//	$rs4=$db->query("select date_ent from permanente where id_func='$id_func' order by date_ent ASC limit 1");
+							
+			$r4=$db->fetch_array($rs4);
+			$fecha_ingreso=explode("-",$r4['date_ent']);
+			$tiempo2 = "";
+			
+			if ( $_POST['tiempo_2'] == 0.5 )
+				$tiempo2 = " 1/2";
+			
+				
 			
 			$html = '<table width="100%" cellspacing="0" cellpadding="5" border="0">
 			  <tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '.$fecha_ingreso[2].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			'.$fecha_ingreso[1].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$fecha_ingreso[0].'</td>
-			  </tr>
-			  <tr>
-				<td><br />
-			<br />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-'.$_POST[tiempo_1].'-&nbsp;&nbsp;('.strtoupper($_POST[lit_num]).')</td>
-				<td>&nbsp;</td>
-				<td><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$gestion_used.'</td>
-			  </tr>
+			    <td>&nbsp;</td>
+			    <td>&nbsp;</td>
+			    <td rowspan="2" valign="bottom"><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$fecha_ingreso[2].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$fecha_ingreso[1].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$fecha_ingreso[0].'</td>
+  </tr>
 			  <tr>
 				<td>&nbsp;</td>
-				<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$_POST[fecha_retorno].'</td>
+				<td></td>
+			  </tr>
+			  <tr>
+				<td>
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- '.$_POST['tiempo_1'].' '.$tiempo2 .'-&nbsp;(<FONT FACE="arial" SIZE="10" COLOR="black">'.$_POST['lit_num'].'</font>)</td>
+			
+			
+			
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$gestion_used.'</td>
+			  </tr>
+			  <tr>
+				<td>&nbsp;</td>
+				<td colspan="2">&nbsp;&nbsp;
+'.$_POST['fecha_retorno'].'</td>
 			  </tr>
 			  <tr  >
-				<td colspan="3"><br /><br /><br /><br /><div align="center">'.date("d",time()).'
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.date("m",time()).'
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.date("Y",time()).'
+				<td colspan="3"><br /><br /><br /><br /><div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $fecha_cad[2] .'
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $fecha_cad[1].'
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $fecha_cad[0] .'
 			</div></td>
 			  </tr>
 			  <tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>';
+				
+				$selected = mysql_select_db("ssrp",$dbhandle) 
+			or die("Could not select ssrp");
 				$rs6=$db->query("select gestion_1, dias_g1, gestion_2, dias_g2 from ".TABLE3." where id_per='$id_per'");
 				$r6=$db->fetch_array($rs6);
 				
-				if ($r6[dias_g1]!=0)
+				if ($r6['dias_g1']!=0)
 				{
-					$html.='<td><br /><br /><br /><br /><br /><br /><br />GESTION '.$r6[gestion_1].': '.cambia_formato_dias($r6[dias_g1]).' DIA(S)<br />GESTION '.$r6[gestion_2].': '.cambia_formato_dias($r6[dias_g2]).' DIA(S)</td>';	
+					$html.='<td><br /><br /><br /><br /><br /><br /><br />GESTION '.$r6['gestion_1'].': '.cambia_formato_dias($r6['dias_g1']).' DIA(S)<br />GESTION '.$r6['gestion_2'].': '.cambia_formato_dias($r6['dias_g2']).' DIA(S)</td>';	
 				}
 				else
 				{
-					if ($r6[dias_g2]!=0)
+					if ($r6['dias_g2']!=0)
 					{
-						$html.='<td><br /><br /><br /><br /><br /><br /><br />GESTION '.$r6[gestion_1].': CERRADO<br />GESTION '.$r6[gestion_2].': '.cambia_formato_dias($r6[dias_g2]).' DIA(S)</td>';
+						$html.='<td><br /><br /><br /><br /><br /><br /><br />GESTION '.$r6['gestion_1'].': CERRADO<br />GESTION '.$r6['gestion_2'].': '.cambia_formato_dias($r6['dias_g2']).' DIA(S)</td>';
 					}
 					else
 					{
-						$html.='<td><br /><br /><br /><br /><br /><br /><br />GESTION '.$r6[gestion_1].': CERRADO<br />GESTION '.$r6[gestion_2].': CERRAD0</td>';
+						$html.='<td><br /><br /><br /><br /><br /><br /><br />GESTION '.$r6['gestion_1'].': CERRADO<br />GESTION '.$r6['gestion_2'].': CERRAD0</td>';
 					}
 						
-				}	
-											
+				}
+
 			  $html.='</tr>
-			  <tr><td colspan="3" ><FONT FACE="arial" SIZE="5" COLOR="black"><br />'.$r[name].' '.$r[l_name1].' '.$r[l_name2].' ['.base64_encode($r[name].' '.$r[l_name1].' '.$r[l_name2]).']</font></td></tr>
-			</table>
-							   ';        
+			  <tr><td colspan="3" ><FONT FACE="arial" SIZE="5" COLOR="black"><br />'. $r['name'] .' '.$r['l_name1'].' '. $r['l_name2'].' ['.base64_encode($r['name'].' '.$r['l_name1'].' '.$r['l_name2']).']</font></td></tr>
+			</table>';        
 				   
 				   
 			$pdf->writeHTML($html, false, 0, true, 0);
 			$pdf->lastPage();
 			$rs5=$db->query("select id from ".TABLE5." where id_user='$id_fun' order by id desc limit 1");
 			$r5=$db->fetch_array($rs5);			
-			$nombre_archivo="FormVac-".$id_func."-".$id_per."-0".$r5[id]."-".ucfirst(strtolower($r[name])).ucfirst(strtolower($r[l_name1])).ucfirst(strtolower($r[l_name2]));
-			$pdf->Output("/FormsVac/".$nombre_archivo.".pdf", 'F');
+			$nombre_archivo="FormVac-".$id_func."-".$id_per."-0".$r5['id']."-".ucfirst(strtolower($r['name'])).ucfirst(strtolower($r['l_name1'])).ucfirst(strtolower($r['l_name2']));
+			$pdf->Output("FormsVac/".$nombre_archivo.".pdf", 'F');
 			/*end-pdf*/
 			
 			if ($rs2)
 			{
-				if (isset($_POST[save]))
+				if (isset($_POST['save']))
 				{
 					echo "<script>
 					window.opener.location.reload();
@@ -252,7 +325,14 @@ $(document).ready(function() {
 			changeYear: true,
 			buttonImage: "data/images/calendar.gif",
 			buttonImageOnly: true
-		});		
+		});	
+		$( "#fecha_registro" ).datepicker({
+			showOn: "button",
+			changeMonth: true,
+			changeYear: true,
+			buttonImage: "data/images/calendar.gif",
+			buttonImageOnly: true
+		});	
 	});
 	</script>
 </head>
@@ -266,34 +346,48 @@ $(document).ready(function() {
   <table width="100%" border="0" cellpadding="5">
       <tr>
       <td><div align="left">Nombres y Apellidos:</div></td>
-      <td><div align="left"><strong><? echo $r[name];?> <? echo $r[l_name1]." ".$r[l_name2];?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['name'];?> <?php echo $r['l_name1']." ".$r['l_name2'];?></strong></div></td>
     </tr>
     <tr>
       <td><div align="left">Fecha de Ingreso:</div></td>
-      <?
+      <?php
 		
       ?>
-      <td><div align="left"><strong><? echo cambia_dateMy_to_dateN($r7[date_ent]);?></strong></div></td>
+      <td><div align="left"><strong><?php 
+	  
+	  $selected = mysql_select_db("registrorrhh",$dbhandle) 
+			or die("Could not select registrorrhh");
+	  
+	  $result1 = mysql_query("select * from permanente where id_func='$id_func' order by date_ent asc limit 1")
+			or die(mysql_error());  
+
+			$row1 = mysql_fetch_array( $result1 );
+	  
+	  
+	  echo cambia_dateMy_to_dateN( $row1['date_ent']);?></strong></div></td>
     </tr>
-    <? 
+    <?php 
+	$selected = mysql_select_db("ssrp",$dbhandle) 
+	or die("Could not select ssrp");
+			
 	$rs1=$db->query("select gestion_1, dias_g1, gestion_2, dias_g2 from ".TABLE3." where id_per='$id_per'");
 	$r1=$db->fetch_array($rs1);
 	
 	?>
     <tr>
       <td><div align="left">Gestión 1:</div></td>
-      <td><div align="left"><strong><? echo $r1[gestion_1]." = ".cambia_formato_dias($r1[dias_g1]); ?> Dia(s)</strong></div></td>
+      <td><div align="left"><strong><?php echo $r1['gestion_1']." = ".cambia_formato_dias($r1['dias_g1']); ?> Dia(s)</strong></div></td>
     </tr>
     <tr>
       <td><div align="left">Gestión 2:</div></td>
-      <td><div align="left"><strong><? echo $r1[gestion_2]." = ".cambia_formato_dias($r1[dias_g2]); ?> Dia(s)</strong></div></div></td>
+      <td><div align="left"><strong><?php echo $r1['gestion_2']." = ".cambia_formato_dias($r1['dias_g2']); ?> Dia(s)</strong></div></div></td>
     </tr>
     <tr>
       <td><div align="left">Dias:</div></td>
       <td>
         <div align="left"> 
-        <?
-		if (isset($_POST[calculate]))
+        <?php
+		if (isset($_POST['calculate']))
 		{
 			echo '<input name="tiempo_1" type="text" id="tiempo_1" value="'.$total_final.'" size="7" style="font-size:17px; font-weight:bold"/>';
 		}
@@ -321,10 +415,10 @@ $(document).ready(function() {
       <td><div align="left">Desde:</div></td>
       <td>
         <div align="left">
-        <?
-		if (isset($_POST[calculate]))
+        <?php
+		if (isset($_POST['calculate']))
 		{
-			echo '<input type="text" name="fecha_desde" id="fecha_desde" class="required" value="'.$_POST[fecha_desde].'" />';
+			echo '<input type="text" name="fecha_desde" id="fecha_desde" class="required" value="'.$_POST['fecha_desde'].'" />';
 		}
 		else
 		{
@@ -338,11 +432,11 @@ $(document).ready(function() {
         <tr>
       <td><div align="left">Hasta:</div></td>
       <td><div align="left">
-        <?
-		if (isset($_POST[calculate]))
+        <?php
+		if (isset($_POST['calculate']))
 		{
 			echo '
-			<input type="text" name="fecha_hasta" id="fecha_hasta" class="required" value="'.$_POST[fecha_hasta].'"/>';
+			<input type="text" name="fecha_hasta" id="fecha_hasta" class="required" value="'.$_POST['fecha_hasta'].'"/>';
 		}
 		else
 		{
@@ -355,17 +449,28 @@ $(document).ready(function() {
     </tr>
         <tr>
           <td><div align="left">Fecha de Retorno:</div></td>
-          <td><div align="left">
-            
+          <td><div align="left"> 
             <input type="text" name="fecha_retorno" id="fecha_retorno" />
+          </div></td>
+        </tr>
+		<tr>
+          <td><div align="left">Fecha de Registro:</div></td>
+          <td><div align="left"> 
+            <input type="text" name="fecha_registro" id="fecha_registro"/>
+          </div></td>
+        </tr>
+		<tr>
+          <td></td>
+          <td><div align="left"> 
+      
           </div></td>
         </tr>
     <tr>
       <td>&nbsp;</td>
       <td><div align="left">
         
-        <?
-		if (isset($_POST[calculate]))
+        <?php
+		if (isset($_POST['calculate']))
 		{
 			echo '<input type="submit" name="submit" id="submit" value="Guardar" />';
 		}
@@ -383,6 +488,6 @@ $(document).ready(function() {
 </form>
 </fieldset>
 </body>
-<?
+<?php
 }
 ?>

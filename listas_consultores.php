@@ -1,4 +1,4 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
@@ -28,9 +28,9 @@ while ($r=$db->fetch_array($rs))
 {	
 	echo '<table width="100%" border="1" cellspacing="0" cellpadding="5">
   <tr>
-    <tD width="200">'.$r[ap_1].' '.$r[ap_2].'</tD>
-    <td width="200">'.$r[nombre].'</td>
-    <td width="100">'.$r[source_fin].'</td>
+    <tD width="200">'.$r['ap_1'].' '.$r['ap_2'].'</tD>
+    <td width="200">'.$r['nombre'].'</td>
+    <td width="100">'.$r['source_fin'].'</td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   </tr>
 </table>

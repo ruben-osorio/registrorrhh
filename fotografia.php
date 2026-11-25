@@ -121,7 +121,7 @@ include_once("db_connect.php");
                 <div id="da-header-toolbar" class="clearfix">
                     <div id="da-user-profile">
 
-                        <div id="da-user-info"><span class="da-user-title">Ministerio de Desarrollo Productivo</span>
+                        <div id="da-user-info"><span class="da-user-title">Ministerio de Educaci&oacute;n</span>
                         </div>
 
                     </div>
@@ -299,7 +299,7 @@ include_once("db_connect.php");
     <!-- Footer -->
     <div id="da-footer">
         <div class="da-container clearfix">
-            <p>&nbsp;</p>
+            <p>Copyright 2017</p>
             <img src="images/logo_mini.jpg" alt="Ministerio de Educación " />
         </div>
     </div>

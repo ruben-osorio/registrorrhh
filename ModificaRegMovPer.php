@@ -1,8 +1,8 @@
 <?php
 require_once("security.php");
 //$id_func=1;
-$id_func=$_GET[id_func];
-$id_per=$_GET[id_per];
+$id_func=$_GET['id_func'];
+$id_per=$_GET['id_per'];
 
 require("config.inc.php");
 require("database.class.php");
@@ -28,7 +28,7 @@ $con=($post_numero-1)/9;
 {
 echo $post[0] . " = " . $post[1];
 }*/
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 {
 unset($_POST["save"]);
 //echo $con;
@@ -193,7 +193,7 @@ stylos
 stylos
 -->
 </head>
-<? 
+<?php 
 //------------------------------------
 //CONSULTA PARA OBTENER DATOS ACADEMICOS
 	$rsc2=$db->query("
@@ -212,7 +212,7 @@ stylos
 </table>   
 <table width="989" border="0" align="center" cellpadding="2" cellspacing="0">   
 <form action="" method="post" name="form1" class="form" id="form2">   
-<? 
+<?php 
 $c=0;
 $f=1;
 //id_old_mov id_func charge rea_chan num_res gral_dir unit area date_start date_end TABLE: old_mov
@@ -221,35 +221,35 @@ while ($rex2=$db->fetch_array($rsc2))
 echo '
 <tr><td colspan="4"><H2>MOVILIDAD '.$f.'</h2></td></tr>
 	<tr>	
-	<input name="id_old_mov'.$c.'" type="hidden" id="id_old_mov"  value="'.$rex2[id_old_mov].'"/>
+	<input name="id_old_mov'.$c.'" type="hidden" id="id_old_mov"  value="'.$rex2['id_old_mov'].'"/>
 	<td>
-	<LABEL for="charge'.$c.'"><strong> CARGO EN LA INSTITUCION:</strong></LABEL><input name="charge'.$c.'" type="text" id="charge'.$c.'" size="30" maxlength="64"  value="'.$rex2[charge].'"/>
+	<LABEL for="charge'.$c.'"><strong> CARGO EN LA INSTITUCION:</strong></LABEL><input name="charge'.$c.'" type="text" id="charge'.$c.'" size="30" maxlength="64"  value="'.$rex2['charge'].'"/>
 	</td>
 	<td>
-	<LABEL for="rea_chan'.$c.'"><strong>MOTIVO CAMBIO DE PUESTO:</strong></LABEL><input name="rea_chan'.$c.'" type="text" id="rea_chan'.$c.'" size="30" maxlength="64"  value="'.$rex2[rea_chan].'"/>
+	<LABEL for="rea_chan'.$c.'"><strong>MOTIVO CAMBIO DE PUESTO:</strong></LABEL><input name="rea_chan'.$c.'" type="text" id="rea_chan'.$c.'" size="30" maxlength="64"  value="'.$rex2['rea_chan'].'"/>
 	</td>
 	<td>
-	<LABEL for="num_res'.$c.'"><strong>NÚMERO DE RESOLUCIÓN O MEMO:</strong></LABEL><input name="num_res'.$c.'" type="text" id="num_res'.$c.'" size="30" maxlength="64"  value="'.$rex2[num_res].'"/>
+	<LABEL for="num_res'.$c.'"><strong>NÚMERO DE RESOLUCIÓN O MEMO:</strong></LABEL><input name="num_res'.$c.'" type="text" id="num_res'.$c.'" size="30" maxlength="64"  value="'.$rex2['num_res'].'"/>
 	</td>
 	<td>
-	<LABEL for="gral_dir'.$c.'"><strong>DIRECCIÓN GENERAL:</strong></LABEL><input name="gral_dir'.$c.'" type="text" id="gral_dir'.$c.'" size="30" maxlength="64"  value="'.$rex2[gral_dir].'"/>
+	<LABEL for="gral_dir'.$c.'"><strong>DIRECCIÓN GENERAL:</strong></LABEL><input name="gral_dir'.$c.'" type="text" id="gral_dir'.$c.'" size="30" maxlength="64"  value="'.$rex2['gral_dir'].'"/>
 	</td>
 	</tr>
 	<tr>
 	<td>
-	<LABEL for="unit'.$c.'"><strong>UNIDAD: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="unit'.$c.'" type="text" id="unit'.$c.'" size="30" maxlength="64"  value="'.$rex2[unit].'"/>
+	<LABEL for="unit'.$c.'"><strong>UNIDAD: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="unit'.$c.'" type="text" id="unit'.$c.'" size="30" maxlength="64"  value="'.$rex2['unit'].'"/>
 	</td>
 	<td>
-	<LABEL for="area'.$c.'"><strong>AREA:  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </strong></LABEL><input name="area'.$c.'" type="text" id="area'.$c.'" size="30" maxlength="64"  value="'.$rex2[area].'"/>
+	<LABEL for="area'.$c.'"><strong>AREA:  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </strong></LABEL><input name="area'.$c.'" type="text" id="area'.$c.'" size="30" maxlength="64"  value="'.$rex2['area'].'"/>
 	<td>
-	<LABEL for="date_start'.$c.'"><strong>DE FECHA:</strong></LABEL><input name="date_start'.$c.'" type="text" id="date_start'.$c.'" size="30" maxlength="64"  value="'.$rex2[date_start].'"/>
+	<LABEL for="date_start'.$c.'"><strong>DE FECHA:</strong></LABEL><input name="date_start'.$c.'" type="text" id="date_start'.$c.'" size="30" maxlength="64"  value="'.$rex2['date_start'].'"/>
 	</td>
 		<td>
-	<LABEL for="date_end'.$c.'"><strong>A FECHA:  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </strong></LABEL><input name="date_end'.$c.'" type="text" id="date_end'.$c.'" size="30" maxlength="64"  value="'.$rex2[date_end].'"/>
+	<LABEL for="date_end'.$c.'"><strong>A FECHA:  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </strong></LABEL><input name="date_end'.$c.'" type="text" id="date_end'.$c.'" size="30" maxlength="64"  value="'.$rex2['date_end'].'"/>
 	</td>
 	</tr>
 	<td colspan="4">
-	<div class="errorre"><a href="?id_old_mov='.$rex2[id_old_mov].'&&id_per='.$rex2[id_per].' &action=DELETE">BORRAR DATOS DE MOVILIDAD '.$f.'</a><div>
+	<div class="errorre"><a href="?id_old_mov='.$rex2['id_old_mov'].'&&id_per='.$rex2['id_per'].' &action=DELETE">BORRAR DATOS DE MOVILIDAD '.$f.'</a><div>
 	</td>
 	
 	

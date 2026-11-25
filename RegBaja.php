@@ -1,4 +1,4 @@
-<?
+<?php
 //REGISTRO BAJA PERMANENTE
 //ALP
 require_once("security.php");
@@ -8,8 +8,8 @@ require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-$id_func=$_GET[id_func];
-$id_per=$_GET[id_per];
+$id_func=$_GET['id_func'];
+$id_per=$_GET['id_per'];
 
 $rs=$db->query("
 				SELECT * FROM ".TABLE2.",".TABLE22."
@@ -20,14 +20,14 @@ $rs=$db->query("
 
 if ($r=$db->fetch_array($rs))
 {	
-	if (isset($_POST[save]))
+	if (isset($_POST['save']))
 	{
 		$rs2=$db->query("update ".TABLE22." set status='0' where id_func='$id_func'");
 		$rsX=$db->query("update ".TABLE2." set estado='0' where id_func='$id_func'");
 		if ($rs2)
 		{
-			$date_pres=cambia_dateN_to_dateMy_1($_POST[date_pres]);
-			$date_efect=cambia_dateN_to_dateMy_1($_POST[date_efect]);
+			$date_pres=cambia_dateN_to_dateMy_1($_POST['date_pres']);
+			$date_efect=cambia_dateN_to_dateMy_1($_POST['date_efect']);
 			echo $date_efect;
 			$rs1=$db->query("insert into ".TABLE35."(id_per, date_pres, date_efect, reasone, comment) values ('$id_per','$date_pres','$date_efect','$_POST[reason]','$_POST[comment]')");
 			$rs3=$db->query("
@@ -50,6 +50,9 @@ if ($r=$db->fetch_array($rs))
 		}				
 	}	
 }	
+/*SELECT * FROM ".TABLE22." 
+				WHERE	id_per='id_per' 
+				AND 	id_fun='$id_func'*/
 
 if ($sw==1)
 {
@@ -106,20 +109,20 @@ $(document).ready(function() {
     <tr>
       <th><div align="left">Nombres:</div></th>
       <td><div class="form_row">  
-        <input name="name" type="text" class="input required" id="name" value="<? echo $r[name]; ?>" size="45" />
+        <input name="name" type="text" class="input required" id="name" value="<?php echo $r['name']; ?>" size="45" />
     
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Apellido Paterno:</div></th>
       <td><div class="form_row">
-        <input name="lname_1" type="text" class="input required" id="lname_1" value="<? echo $r[l_name1]; ?>" size="40" />
+        <input name="lname_1" type="text" class="input required" id="lname_1" value="<?php echo $r['l_name1']; ?>" size="40" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Apellido Materno:</div></th>
       <td><div class="form_row">
-        <input name="lname_2" type="text" class="input required" id="lname_2" value="<? echo $r[l_name2]; ?>" size="40" />
+        <input name="lname_2" type="text" class="input required" id="lname_2" value="<?php echo $r['l_name2']; ?>" size="40" />
       </div></td>
     <tr>
       <th><div align="left">Fecha Presentaci&oacute;n:</div></th>
@@ -173,5 +176,5 @@ $(document).ready(function() {
 </fieldset>
 
 
-<iframe src="http://100.0.0.152:8080/reportesrrhh/frameset?__report=reporte_perm_baja.rptdesign&id_func=<? echo $id_func; ?> " style="width: 100%; height: 100%;">
+<iframe src="http://100.0.0.152:8080/reportesrrhh/frameset?__report=reporte_perm_baja.rptdesign&id_func=<?php echo $id_func; ?> " style="width: 100%; height: 100%;">
 

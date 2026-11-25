@@ -43,7 +43,7 @@ function Page_BeforeShow(& $sender)
 // -------------------------
     // Write your own code here.
     
-     $con=mysqli_connect("localhost","registroRRHH","Registro4880!","registroRRHH");
+     $con=ssrp_mysqli_connect();
   if (mysqli_connect_errno())
   {
   	echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -56,7 +56,7 @@ function Page_BeforeShow(& $sender)
     $Result = $db->next_record();
     if ($Result) 
     {
-		$evaluacion_planes->titulo->Value = $db->f("titulo");
+		if (isset($evaluacion_planes->titulo)) { $evaluacion_planes->titulo->Value = $db->f("titulo"); }
 		$flag = $db->f("p7");
     }
     $db->close();

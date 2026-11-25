@@ -1,23 +1,23 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
-$id_func=$_GET[id_func];
-$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registroRRHH");
+$id_func=$_GET['id_func'];
+$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
 $db->connect();
 $sw=0;
 $rsexe=$db->query("SELECT * FROM ".TABLE2." WHERE id_func='$id_func'");
 $rexe=$db->fetch_array($rsexe);
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 {	
-	$name=strtoupper($_POST[name]);
-	$l_name1=strtoupper($_POST[l_name1]);
-	$l_name2=strtoupper($_POST[l_name2]);
-	$ci=$_POST[ci];
-	$expe=$_POST[expe];	
-	$fecha_nac=$_POST[date_born];
+	$name=strtoupper($_POST['name']);
+	$l_name1=strtoupper($_POST['l_name1']);
+	$l_name2=strtoupper($_POST['l_name2']);
+	$ci=$_POST['ci'];
+	$expe=$_POST['expe'];	
+	$fecha_nac=$_POST['date_born'];
 	
-	$fech_nac=explode("-",$_POST[date_born]);	
+	$fech_nac=explode("-",$_POST['date_born']);	
 	$dia=$fech_nac[0];
 	$mes=$fech_nac[1];
 	$ano=$fech_nac[2];
@@ -27,10 +27,10 @@ if (isset($_POST[save]))
 	$rsex=$db->query("SELECT id FROM ".TABLE4." WHERE id_func='$id_func'");
 	$rex=$db->fetch_array($rsex);
 	
-	$fuente=$_POST[fuente];	
-  	if (isset($_POST[key_form]))
+	$fuente=$_POST['fuente'];	
+  	if (isset($_POST['key_form']))
   	{
-		if ($_POST[key_form])
+		if ($_POST['key_form'])
 		{		
 			$rs=$db->query("select * from ".TABLE2." where id_func='$id_func'");	
 						
@@ -38,8 +38,8 @@ if (isset($_POST[save]))
 			{
 				if (strcmp("TGN",$fuente) == 0)
 				{
-					$charge_=$_POST[charge_];
-					$start_date=cambia_dateN_to_dateMy_1($_POST[start_date]);
+					$charge_=$_POST['charge_'];
+					$start_date=cambia_dateN_to_dateMy_1($_POST['start_date']);
 					$year_=explode("-",$start_date);
 										
 					$rsver=$db->query("select * from ".TABLE30." where id_func='$id_func'");					
@@ -54,7 +54,7 @@ if (isset($_POST[save]))
 					
 					$rs5=$db->query("select id_per from ".TABLE22." order by id_per desc limit 1");
 					$r5=$db->fetch_array($rs5);					
-					$id_permanente=$r5[id_per];
+					$id_permanente=$r5['id_per'];
 					
 					$rs6=$db->query("insert into ".TABLE15." (id_per, source_fin) values ('$id_permanente','$fuente')");				
 													
@@ -73,10 +73,29 @@ if (isset($_POST[save]))
 					VALUES ('$id_func','$g1','0','','','')");
 					
 					$estructura = 'files/';
-					$filename=ucfirst(strtolower(str_replace(' ','',$_POST[name]))).ucfirst(strtolower($_POST[l_name1])).ucfirst(strtolower($_POST[l_name2]))."_".$dia.$mes.$ano."_".$ci;		
-				
+					$filename=ucfirst(strtolower(str_replace(' ','',$_POST['name']))).ucfirst(strtolower($_POST['l_name1'])).ucfirst(strtolower($_POST['l_name2']))."_".$dia.$mes.$ano."_".$ci;		
+				/*	echo $filename;		
+					mkdir($estructura.$filename, 0777, true);					
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/CURRICULUM_VITAE");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/DATOS_PERSONALES");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/DESIGNACION_MOVILIDAD");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/ANTECEDENTES");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/LLAMADAS_DE_ATENCION");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/JEFE_INMEDIATO");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/EVALUACION");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/NECESIDAD_CAPACITACION");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/LICENCIAS");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/VACACIONES");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/BAJAS_MEDICAS");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/COMISION_CAPACITACION");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/COMISION_TRABAJO");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/SERVICIO_CIVIL");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/OTROS");
+					mkdir($estructura."/".$filename."/".$year_[0]."-TGN/INFORMES");
+				*/	
 					//-------------------------permisos=1-PERMANENTE--------------------------------------------------
-					$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registroRRHH");
+					$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
 					$db->connect();
 					$rs4=$db->query("update ".TABLE4." set permisos='1' where id_func='$id_func' ");					
 					//-------------------------PERMANENTE TABLA DESHABILITAR--------------------------------------------------	
@@ -87,11 +106,11 @@ if (isset($_POST[save]))
 				}
 				else
 				{
-					$num_cont=$_POST[num_cont];
-					$charge_cont=strtoupper($_POST[charge_cont]);
-					$date_start=cambia_dateN_to_dateMy_1($_POST[date_start]);
+					$num_cont=$_POST['num_cont'];
+					$charge_cont=strtoupper($_POST['charge_cont']);
+					$date_start=cambia_dateN_to_dateMy_1($_POST['date_start']);
 					$year=explode("-",$date_start);
-					$date_end=cambia_dateN_to_dateMy_1($_POST[date_end]);	
+					$date_end=cambia_dateN_to_dateMy_1($_POST['date_end']);	
 					//			
 					$rsver=$db->query("select * from ".TABLE22." where id_func='$id_func'");					
 					if (mysql_num_rows($rsver)!=0)
@@ -105,7 +124,7 @@ if (isset($_POST[save]))
 					
 					$rs5=$db->query("select id_con from ".TABLE30." order by id_con desc limit 1");
 					$r5=$db->fetch_array($rs5);
-					$id_contrato=$r5[id_con];
+					$id_contrato=$r5['id_con'];
 					
 					$rs6=$db->query("insert into ".TABLE17." (id_con, source_fin) values ('$id_contrato','$fuente')");
 													
@@ -114,10 +133,24 @@ if (isset($_POST[save]))
 					('$id_contrato','$charge_cont','$date_start','$num_cont')");	
 					
 					$estructura = 'files/';
-					$nombres=explode(" ",$_POST[name]);
-					$filename=ucfirst(strtolower($nombres[0])).ucfirst(strtolower($nombres[1])).ucfirst(strtolower($_POST[l_name1])).ucfirst(strtolower($_POST[l_name2]))."_".$dia.$mes.$ano."_".$ci;
+					$nombres=explode(" ",$_POST['name']);
+					$filename=ucfirst(strtolower($nombres[0])).ucfirst(strtolower($nombres[1])).ucfirst(strtolower($_POST['l_name1'])).ucfirst(strtolower($_POST['l_name2']))."_".$dia.$mes.$ano."_".$ci;
 									
-			
+					//mkdir($estructura.$filename, 0777, true);
+				/*
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato);
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/DATOS_PERSONALES");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/EVALUACION_INFORMES");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/MEMORANDUMS");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/ATRASOS");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/COMISIONES");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/PERMISOS_LICENCIAS");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/OTROS");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/NECESIDAD_CAPACITACION");			
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/IMPUESTOS");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/CONTRATOS_Y_ADENDAS");
+					mkdir($estructura."/".$filename."/".$year[0]."-".$_POST[fuente]."-".$id_contrato."/PROCESO");	
+				*/
 					//-------------------------permisos=2-CONSULTOR--------------------------------------------------
 					$rs4=$db->query("update ".TABLE4." set permisos='2' where id_func='$id_func'");						
 					//-------------------------CONSULTOR TABLA DESHABILITAR--------------------------------------------------	
@@ -166,7 +199,9 @@ $(document).ready(function() {
 });
 </script>
 
-
+<!--<link rel="stylesheet" href="data/css/ui/admincp/jquery-ui-1.8.17.custom.css">-->
+<!--<link rel="stylesheet" href="../../themes/base/jquery.ui.all.css">-->
+<!--<script src="data/js/jquery-1.7.1.min.js"></script>-->
 
 <script src="data/js/ui/jquery.ui.core.js"></script>
 <script src="data/js/ui/jquery.ui.widget.js"></script>
@@ -191,61 +226,65 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
     <tr>
       <th><div align="left">NOMBRES:</div></th>
       <td><div >      
-        <input class="textarea_normal required"  name="name" type="text" id="name" size="45" value="<? echo $rexe[name]?>" />
+        <input class="textarea_normal required"  name="name" type="text" id="name" size="45" value="<?php echo $rexe['name']?>" />
     
       </div></td>
     </tr>
     <tr>
       <th><div align="left">APELLIDO PATERNO:</div></th>
       <td><div >
-        <input class="textarea_normal" name="l_name1" type="text"  id="l_name1" size="40" value="<? echo $rexe[l_name1]?>"  />
+        <input class="textarea_normal" name="l_name1" type="text"  id="l_name1" size="40" value="<?php echo $rexe['l_name1']?>"  />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">APELLIDO MATERNO:</div></th>
       <td><div >
-        <input class="textarea_normal required" name="l_name2" type="text"  id="l_name2" size="40"  value="<? echo $rexe[l_name2]?>" />
+        <input class="textarea_normal required" name="l_name2" type="text"  id="l_name2" size="40"  value="<?php echo $rexe['l_name2']?>" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">CARNET DE INDENTIDAD:</div></th>
       <td><div >
-        <input class="textarea_normal required number" name="ci" type="text"  id="ci" size="40" value="<? echo $rexe[ci]?>" />
+        <input class="textarea_normal required number" name="ci" type="text"  id="ci" size="40" value="<?php echo $rexe['ci']?>" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">EXPEDIDO:</div></th>
       <td><div >
-      <input class="textarea_normal required" name="expe" type="text"  id="expe" size="40" value="<? echo $rexe[expe]?>" />
+      <input class="textarea_normal required" name="expe" type="text"  id="expe" size="40" value="<?php echo $rexe['expe']?>" />
        </div></td>
     </tr>
         <tr>
       <th><div align="left">FECHA NACIMIENTO:</div></th>
       <td><div >
-        <input class="textarea_normal required" name="date_born" type="text"  id="date_born" size="25" value="<? echo cambia_dateMy_to_dateN($rexe[date_born])?>" />
+        <input class="textarea_normal required" name="date_born" type="text"  id="date_born" size="25" value="<?php echo cambia_dateMy_to_dateN($rexe['date_born'])?>" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">FUENTE DE FINANCIAMIENTO:</div></th>
       <td><div >
        <select class="select_normal required" name="fuente" id="fuente" class="textarea_normal" > 
-      <?
-	  if (isset($_POST[fuente]))
+      <?php
+	  if (isset($_POST['fuente']))
 	  {
-		 echo '<option value="'.$_POST[fuente].'" selected="selected">'.$_POST[fuente].'</option>';
+		 echo '<option value="'.$_POST['fuente'].'" selected="selected">'.$_POST['fuente'].'</option>';
 	  }
       ?>             
           <option value="TGN">TGN</option>
           <option value="TGN-252">TGN-252</option>
           <option value="CANASTA">CANASTA</option>
-
+          <option value="UNICEF">UNICEF</option>
+          <option value="COSUDE">COSUDE</option>
+          <option value="ASDI">ASDI</option>
+		  <option value="ASDI">BID</option>
+		  <option value="ASDI">DINAMARCA</option>
         </select>
       </div></td>
     </tr>
-    <?
-	if (isset($_POST[save]))
+    <?php
+	if (isset($_POST['save']))
 	{
-		if ($_POST[fuente]=='TGN')
+		if ($_POST['fuente']=='TGN')
 		{
 			echo '<tr>
 					<th><div align="left">FECHA DE INGRESO:</div></th>
@@ -295,7 +334,12 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 			}			
 	}
     ?>   
-
+<!--    <tr>	
+      <td><div align="left">FECHA DE INGRESO:</div></td>
+        <td><div align="left"><span >
+          <input class="datepick textarea_normal" name="date_ent" type="text"  id="date_born2" size="25" />
+        </span></div></td>
+    </tr>-->
     <tr>
       <td colspan="2"><div align="right" >
 
@@ -309,6 +353,6 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
   </table>
 </form>
 </fieldset>
-<?
+<?php
 $db->close();
 ?>

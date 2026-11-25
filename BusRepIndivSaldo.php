@@ -1,12 +1,12 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
-$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
+$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
 $db->connect();
-if (isset($_POST[search]))
+if (isset($_POST['search']))
 {
-	$tosearch=strtoupper($_POST[tosearch]);
-	switch ($_POST[by])
+	$tosearch=strtoupper($_POST['tosearch']);
+	switch ($_POST['by'])
 	{
 		case 'app';
 			$rs=$db->query("
@@ -75,7 +75,7 @@ if (isset($_POST[search]))
 
 </form>
 </fieldset>
-<?
+<?php
 if ($sw==1)
 {
 	echo '<fieldset>
@@ -92,13 +92,13 @@ if ($sw==1)
  while ($r=$db->fetch_array($rs))
  {
  	echo ' <tr>   
-    <td>'.$r[l_name1].'</td>
-    <td>'.$r[l_name2].'</td>
-	 <td>'.$r[name].'</td>
+    <td>'.$r['l_name1'].'</td>
+    <td>'.$r['l_name2'].'</td>
+	 <td>'.$r['name'].'</td>
 	  <td><strong>TGN</strong></td>
 
 	<td>
-	<a href="#" onclick="MM_openBrWindow(\'RepIndivSaldo.php?id='.$r[id_func].'\',\'regpermiso\',\'scrollbars=yes,width=600,height=420\')" title="Reporte Individual"><img src="data/images/reporte.png"></a>	
+	<a href="#" onclick="MM_openBrWindow(\'RepIndivSaldo.php?id='.$r['id_func'].'\',\'regpermiso\',\'scrollbars=yes,width=600,height=420\')" title="Reporte Individual"><img src="data/images/reporte.png"></a>	
 	</td>	
   </tr>';
  }

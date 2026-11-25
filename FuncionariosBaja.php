@@ -1,12 +1,12 @@
 <script type="text/javascript" src="js/scripts.js"></script>
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require ("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 //EXCELLLL
-if (isset($_POST[to_excel]))
+if (isset($_POST['to_excel']))
 {
 	include("excelwriter.inc.php");  
 	$excel=new ExcelWriter("FuncionariosBaja.xls");
@@ -43,23 +43,23 @@ AND contrato.id_con=baja_con.id_con
 //l_name1,l_name2,name, source_fin, charge, date_efect, reasone
 	while ($r1=$db->fetch_array($rs1))
 	{		$excel->writeRow();
-			$excel->writeCol($r1[l_name1]);
-			$excel->writeCol($r1[l_name2]);
-			$excel->writeCol($r1[name]);
-			$excel->writeCol($r1[source_fin]);
-			$excel->writeCol(cambia_dateMy_to_dateN($r1[date_efect]));
-			$excel->writeCol($r1[reasone]);
+			$excel->writeCol($r1['l_name1']);
+			$excel->writeCol($r1['l_name2']);
+			$excel->writeCol($r1['name']);
+			$excel->writeCol($r1['source_fin']);
+			$excel->writeCol(cambia_dateMy_to_dateN($r1['date_efect']));
+			$excel->writeCol($r1['reasone']);
 	}
 //------------------------------	
 //l_name1,l_name2,name, source_fin, charge, date_efect, reasone
 	while ($r4=$db->fetch_array($rs4))
 	{		$excel->writeRow();
-			$excel->writeCol($r4[l_name1]);
-			$excel->writeCol($r4[l_name2]);
-			$excel->writeCol($r4[name]);
-			$excel->writeCol($r4[source_fin]);
-			$excel->writeCol(cambia_dateMy_to_dateN($r4[date_efec]));
-			$excel->writeCol($r4[reasone]);
+			$excel->writeCol($r4['l_name1']);
+			$excel->writeCol($r4['l_name2']);
+			$excel->writeCol($r4['name']);
+			$excel->writeCol($r4['source_fin']);
+			$excel->writeCol(cambia_dateMy_to_dateN($r4['date_efec']));
+			$excel->writeCol($r4['reasone']);
 	}	
 	
 	
@@ -126,14 +126,14 @@ echo '<fieldset>
 while ($r=$db->fetch_array($rs))
 //l_name1,l_name2,name, source_fin, charge, date_efect, reasone
 {echo " <tr>   
-    	<td>".$r[l_name1]."</td>
-    	<td>".$r[l_name2]."</td>
-	 	<td>".$r[name]."</td>
-		<td>".$r[source_fin]."</td>
-		<td>".cambia_dateMy_to_dateN($r[date_efect])."</td>
-		<td>".$r[reasone]."</td>	
+    	<td>".$r['l_name1']."</td>
+    	<td>".$r['l_name2']."</td>
+	 	<td>".$r['name']."</td>
+		<td>".$r['source_fin']."</td>
+		<td>".cambia_dateMy_to_dateN($r['date_efect'])."</td>
+		<td>".$r['reasone']."</td>	
 			<td>
-	<a href=\"#\" onclick=\"MM_openBrWindow('DetPas.php?id_func=".$r[id_func]."&id_per=".$r[id_per]."','regpermiso','scrollbars=yes,width=600,height=420')\" title=\"Detalles Funcionario Pasivo\"><img src=\"data/images/modify.png\"></a>
+	<a href=\"#\" onclick=\"MM_openBrWindow('DetPas.php?id_func=".$r['id_func']."&id_per=".$r['id_per']."','regpermiso','scrollbars=yes,width=600,height=420')\" title=\"Detalles Funcionario Pasivo\"><img src=\"data/images/modify.png\"></a>
 	</td>
 		</tr>			
 		";
@@ -142,14 +142,14 @@ while ($r=$db->fetch_array($rs))
 while ($r2=$db->fetch_array($rs2))
 //l_name1,l_name2,name, source_fin, charge, date_efect, reasone
 {echo " <tr>   
-    	<td>".$r2[l_name1]."</td>
-    	<td>".$r2[l_name2]."</td>
-	 	<td>".$r2[name]."</td>
-		<td>".$r2[source_fin]."</td>
-		<td>".cambia_dateMy_to_dateN($r2[date_efec])."</td>
-		<td>".$r2[reasone]."</td>	
+    	<td>".$r2['l_name1']."</td>
+    	<td>".$r2['l_name2']."</td>
+	 	<td>".$r2['name']."</td>
+		<td>".$r2['source_fin']."</td>
+		<td>".cambia_dateMy_to_dateN($r2['date_efec'])."</td>
+		<td>".$r2['reasone']."</td>	
 					<td>
-	<a href=\"#\" onclick=\"MM_openBrWindow('DetPasc.php?id_func=".$r2[id_func]."&id_con=".$r2[id_con]."','regpermiso','scrollbars=yes,width=600,height=420')\" title=\"Detalles Funcionario Pasivo\"><img src=\"data/images/modify.png\"></a>
+	<a href=\"#\" onclick=\"MM_openBrWindow('DetPasc.php?id_func=".$r2['id_func']."&id_con=".$r2['id_con']."','regpermiso','scrollbars=yes,width=600,height=420')\" title=\"Detalles Funcionario Pasivo\"><img src=\"data/images/modify.png\"></a>
 	</td>
 		</tr>			
 		";

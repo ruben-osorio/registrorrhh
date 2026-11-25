@@ -31,7 +31,7 @@ class clsGridcapacitacion { //capacitacion class @2-534A6BBD
     public $RowNumber;
     public $ControlsVisible = array();
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -43,7 +43,7 @@ class clsGridcapacitacion { //capacitacion class @2-534A6BBD
 //End Variables
 
 //Class_Initialize Event @2-93F414F1
-    function clsGridcapacitacion($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
         global $FileName;
         global $CCSLocales;
@@ -203,13 +203,16 @@ class clsGridcapacitacion { //capacitacion class @2-534A6BBD
     }
 //End GetErrors Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsGridcapacitacion() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End capacitacion Class @2-FCB6E20C
 
 class clscapacitacionDataSource extends clsDBmadnes {  //capacitacionDataSource Class @2-E45E3632
 
 //DataSource Variables @2-BF7EE52E
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -228,7 +231,7 @@ class clscapacitacionDataSource extends clsDBmadnes {  //capacitacionDataSource 
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-C060C34A
-    function clscapacitacionDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Grid capacitacion";
@@ -264,7 +267,7 @@ class clscapacitacionDataSource extends clsDBmadnes {  //capacitacionDataSource 
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxxxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxxxx', false);
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
              $this->wp->Criterion[1];
@@ -302,6 +305,9 @@ class clscapacitacionDataSource extends clsDBmadnes {  //capacitacionDataSource 
     }
 //End SetValues Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clscapacitacionDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End capacitacionDataSource Class @2-FCB6E20C
 
 class clsRecordcapacitacion1 { //capacitacion1 Class @21-D5C7B927
@@ -321,7 +327,7 @@ class clsRecordcapacitacion1 { //capacitacion1 Class @21-D5C7B927
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -341,7 +347,7 @@ class clsRecordcapacitacion1 { //capacitacion1 Class @21-D5C7B927
 //End Variables
 
 //Class_Initialize Event @21-4A383482
-    function clsRecordcapacitacion1($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -389,7 +395,7 @@ class clsRecordcapacitacion1 { //capacitacion1 Class @21-D5C7B927
             $this->num_meses = new clsControl(ccsTextBox, "num_meses", "num_meses", ccsInteger, "", CCGetRequestParam("num_meses", $Method, NULL), $this);
             if(!$this->FormSubmitted) {
                 if(!is_array($this->type_cap->Value) && !strlen($this->type_cap->Value) && $this->type_cap->Value !== false)
-                    $this->type_cap->SetText(EXTERNA);
+                    $this->type_cap->SetText('EXTERNA');
                 if(!is_array($this->num_hrs->Value) && !strlen($this->num_hrs->Value) && $this->num_hrs->Value !== false)
                     $this->num_hrs->SetText(0);
                 if(!is_array($this->num_dias->Value) && !strlen($this->num_dias->Value) && $this->num_dias->Value !== false)
@@ -668,13 +674,16 @@ class clsRecordcapacitacion1 { //capacitacion1 Class @21-D5C7B927
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordcapacitacion1() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End capacitacion1 Class @21-FCB6E20C
 
 class clscapacitacion1DataSource extends clsDBmadnes {  //capacitacion1DataSource Class @21-1D25F5BF
 
 //DataSource Variables @21-CB234D52
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -702,7 +711,7 @@ class clscapacitacion1DataSource extends clsDBmadnes {  //capacitacion1DataSourc
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @21-9D109641
-    function clscapacitacion1DataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record capacitacion1/Error";
@@ -869,6 +878,9 @@ class clscapacitacion1DataSource extends clsDBmadnes {  //capacitacion1DataSourc
     }
 //End Delete Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clscapacitacion1DataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End capacitacion1DataSource Class @21-FCB6E20C
 
 //Initialize Page @1-1B4FCAA3
@@ -882,7 +894,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 

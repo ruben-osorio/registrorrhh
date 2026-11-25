@@ -1,19 +1,19 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
-$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
+$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
 $db->connect();
 
-if(isset($_POST[submit]))
+if(isset($_POST['submit']))
 {
-	$date_1=$_POST[date_1];
-	$mes_1=$_POST[mes];
-	$date_2=$_POST[date_2];
-	$mes_2=$_POST[mes2];	
-	$rs=$db->query("select *, day(date_ent) AS diai	from funcionario ,permanente where permanente.id_func=funcionario.id_func AND permanente.status='1'order by diai DESC" );	
+	$date_1=$_POST['date_1'];
+	$mes_1=$_POST['mes'];
+	$date_2=$_POST['date_2'];
+	$mes_2=$_POST['mes2'];	
+//	$rs=$db->query("select * from ".TABLE2.",".TABLE22." where ".TABLE22.".id_func=".TABLE2.".id_func AND ".TABLE22.".status='1' order by ".TABLE22.".date_ent, ".TABLE2.".l_name1 asc" );	
 	
-	//$rs=$db->query("select * from funcionario ,permanente where permanente.id_func=funcionario.id_func AND permanente.status='1' order by permanente.date_ent, funcionario.l_name1 asc" );	
+	$rs=$db->query("select *, day(date_ent) AS diai	from funcionario ,permanente where permanente.id_func=funcionario.id_func AND permanente.status='1'order by diai ASC" );	
 	
 	if (mysql_num_rows($rs)!=0)
 	{
@@ -107,30 +107,33 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
  </tr>
 </table>
 </form>
-<?
+<?php
 if ($sw==1)
 {
 	echo '<br><table width="100%" border="0" cellspacing="0" cellpadding="0">';
 	while ($r=$db->fetch_array($rs))
 	{	
-		$fecha_ing=explode("-",$r[date_ent]);
+		$fecha_ing=explode("-",$r['date_ent']);
 		$year=$fecha_ing[0];
 		$mes=$fecha_ing[1];
 		$dia=$fecha_ing[2];
 		
-		$id_per=$r[id_per];
-		$id_func=$r[id_func];	
-		if ($mes>=$mes_1 && $mes<=$mes_2 && $year!="2013")
+		$id_per=$r['id_per'];
+		$id_func=$r['id_func'];	
+		if ($mes>=$mes_1 && $mes<=$mes_2 && $year!="2018")
 		{
 			echo "<tr>
-			<td>".$r[id_func]."</td>
+			<td>".$r['id_func']."</td>
 			<td>".$c."</td>
-			<td>".$r[l_name1]." ".$r[l_name2]." ".$r[name]."</td>
+			<td>".$r['l_name1']." ".$r['l_name2']." ".$r['name']."</td>
 			<td><strong>".$dia."-".$mes."-".$year."</strong></td>";
-			$rs1=$db->query("select * from vacaciones where id_per='$id_per'");
+			$db = new Database(DB_SERVER, DB_USER, DB_PASS, "ssrp");
+			$db->connect();
+			$rs1=$db->query("select * from ".TABLE3." where id_per='$id_per'");
 			$r1=$db->fetch_array($rs1);
-			echo "<td>".$r1[gestion_1].": ".$r1[dias_g1]."<br />".$r1[gestion_2].": ".$r1[dias_g2]."</td>";
-			echo '<td><a href="#" onclick="MM_openBrWindow(\'AsignGestVac.php?id='.$r[id_func].'\',\'___\',\'scrollbars=yes,width=620,height=500\')" title="Asignar Nueva Gestión"><img src="data/images/add_vac.png"></a></td>';
+			echo "<td>".$r1['gestion_1'].": ".$r1['dias_g1']."<br />".$r1['gestion_2'].": ".$r1['dias_g2']."</td>";
+			echo '<td><a href="#" onclick="MM_openBrWindow(\'AsignGestVac.php?id='.$r['id_func'].'\',\'___\',\'scrollbars=yes,width=620,height=500\')" title="Nuevo"><img src="data/images/add_vac.png"></a></td>';
+			echo '<td><a href="#" onclick="MM_openBrWindow(\'UpdGestVac.php?id='.$r['id_func'].'\',\'___\',\'scrollbars=yes,width=620,height=500\')" title="Actualización">Actualización</a></td>';
 		}
 	}
 	echo "</table>";

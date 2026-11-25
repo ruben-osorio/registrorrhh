@@ -7,7 +7,7 @@ $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
 //$id_func='4';
-$id_func=$_GET[id_func];
+$id_func=$_GET['id_func'];
 //-----------------------------
 //ELIMINAR REGISTRO
 $id_dat=$_GET['id_dat'];
@@ -29,7 +29,7 @@ $con=($post_numero-1)/19;
 {
 echo $post[0] . " = " . $post[1];
 }*/
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 {
 unset($_POST["save"]);
 //echo $con;
@@ -212,7 +212,7 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
 <link href="data/css/style-ext.css" rel="stylesheet" type="text/css">
 <link href="css/reportes.css" rel="stylesheet" type="text/css">
 </head>
-<? 
+<?php 
 //------------------------------------
 //CONSULTA PARA OBTENER DATOS ACADEMICOS
 	$rsc2=$db->query("
@@ -231,7 +231,7 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
 </table>   
 <table width="989" border="0" align="center" cellpadding="2" cellspacing="0">   
 <form action="" method="post" name="form1" class="form" id="form2">   
-<? 
+<?php 
 $c=0;
 $f=1;
 //level date_start date_end career_esp name_inst end city country acad_title revala inst_revala date_exp_a num_tit_a prov_nat_title revalp inst_revalp date_exp_p num_tit_p
@@ -239,11 +239,11 @@ while ($rex2=$db->fetch_array($rsc2))
 	{
 echo '<tr><th colspan="6"><h2>TITULO ACADEMICO '.$f.'</h2></th></tr>
 	<tr>	
-	<input name="id_dat'.$c.'" type="hidden" id="id_dat"  value="'.$rex2[id_dat].'"/>
+	<input name="id_dat'.$c.'" type="hidden" id="id_dat"  value="'.$rex2['id_dat'].'"/>
 	<td>
 	<LABEL for="name"><strong>NIVEL:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL>
 			<select name="level'.$c.'" id="level'.$c.'" >    
-                <option value="'.$rex2[level].'">'.$rex2[level].'</option>			    
+                <option value="'.$rex2['level'].'">'.$rex2['level'].'</option>			    
                 <option value="PRE-GRADO">Pre-grado</option>
                 <option value="EGRESADO">Egresado</option>
                 <option value="TÉCNICO MEDIO">Técnico Medio</option>
@@ -257,24 +257,24 @@ echo '<tr><th colspan="6"><h2>TITULO ACADEMICO '.$f.'</h2></th></tr>
 	
 	</td>
 	<td>
-	<LABEL for="date_start'.$c.'"><strong>FECHA DE INCIO:</strong></LABEL><input name="date_start'.$c.'" type="text" id="date_start'.$c.'" size="25" maxlength="64"  value="'.$rex2[date_start].'"/>
+	<LABEL for="date_start'.$c.'"><strong>FECHA DE INCIO:</strong></LABEL><input name="date_start'.$c.'" type="text" id="date_start'.$c.'" size="25" maxlength="64"  value="'.$rex2['date_start'].'"/>
 	</td>
 	<td>
-	<LABEL for="date_end'.$c.'"><strong>FECHA FINAL:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="date_end'.$c.'" type="text" id="date_end'.$c.'" size="25" maxlength="64"  value="'.$rex2[date_end].'"/>
+	<LABEL for="date_end'.$c.'"><strong>FECHA FINAL:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="date_end'.$c.'" type="text" id="date_end'.$c.'" size="25" maxlength="64"  value="'.$rex2['date_end'].'"/>
 	</td>
 	<td>
-	<LABEL for="career_esp'.$c.'"><strong>CARRERA:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="career_esp'.$c.'" type="text" id="career_esp'.$c.'" size="25" maxlength="64"  value="'.$rex2[career_esp].'"/>
+	<LABEL for="career_esp'.$c.'"><strong>CARRERA:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="career_esp'.$c.'" type="text" id="career_esp'.$c.'" size="25" maxlength="64"  value="'.$rex2['career_esp'].'"/>
 	</td>
 	</tr>
 	<tr>
 	<td>
-	<LABEL for="name_inst'.$c.'"><strong>NOMBRE INSTITUCION:</strong></LABEL><input name="name_inst'.$c.'" type="text" id="name_inst'.$c.'" size="25" maxlength="64"  value="'.$rex2[name_inst].'"/>
+	<LABEL for="name_inst'.$c.'"><strong>NOMBRE INSTITUCION:</strong></LABEL><input name="name_inst'.$c.'" type="text" id="name_inst'.$c.'" size="25" maxlength="64"  value="'.$rex2['name_inst'].'"/>
 	</td>
 	<td>
 	<LABEL for="end'.$c.'"><strong>CONCLUIDA:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL>
 			<select name="end'.$c.'" id="end'.$c.'" >        
-        		<option value="'.$rex2[end].'">';
-				if($rex2[end]==0) 
+        		<option value="'.$rex2['end'].'">';
+				if($rex2['end']==0) 
 				echo 'NO'; 
 				else echo 'SI';
 								
@@ -284,18 +284,18 @@ echo '<tr><th colspan="6"><h2>TITULO ACADEMICO '.$f.'</h2></th></tr>
         	</select>
 	</td>
 	<td>
-	<LABEL for="city'.$c.'"><strong>LUGAR: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="city'.$c.'" type="text" id="city'.$c.'" size="25" maxlength="64"  value="'.$rex2[city].'"/>
+	<LABEL for="city'.$c.'"><strong>LUGAR: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="city'.$c.'" type="text" id="city'.$c.'" size="25" maxlength="64"  value="'.$rex2['city'].'"/>
 	</td>
 	<td>
-	<LABEL for="country'.$c.'"><strong>PAIS DE ESTUDIO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="country'.$c.'" type="text" id="country'.$c.'" size="25" maxlength="64"  value="'.$rex2[country].'"/>
+	<LABEL for="country'.$c.'"><strong>PAIS DE ESTUDIO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="country'.$c.'" type="text" id="country'.$c.'" size="25" maxlength="64"  value="'.$rex2['country'].'"/>
 	</td>
 	</tr>
 	<tr>	
 	<td>
 	<LABEL for="acad_title'.$c.'"><strong>TITULO ACADEMICO: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL>
 				<select name="acad_title'.$c.'" id="acad_title'.$c.'" >        
-        		<option value="'.$rex2[acad_title].'">';
-				if($rex2[acad_title]==0) 
+        		<option value="'.$rex2['acad_title'].'">';
+				if($rex2['acad_title']==0) 
 				echo 'NO'; 
 				else echo 'SI';
 								
@@ -307,8 +307,8 @@ echo '<tr><th colspan="6"><h2>TITULO ACADEMICO '.$f.'</h2></th></tr>
 	<td>
 	<LABEL for="revala'.$c.'"><strong>REVALIDADO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL>
 			<select name="revala'.$c.'" id="revala'.$c.'" >        
-        		<option value="'.$rex2[revala].'">';
-				if($rex2[revala]==0) 
+        		<option value="'.$rex2['revala'].'">';
+				if($rex2['revala']==0) 
 				echo 'NO'; 
 				else echo 'SI';
 								
@@ -318,22 +318,22 @@ echo '<tr><th colspan="6"><h2>TITULO ACADEMICO '.$f.'</h2></th></tr>
         	</select>	
 	</td>
 	<td>
-	<LABEL for="inst_revala'.$c.'"><strong>INSTITUCION QUE REVALIDA:</strong></LABEL><input name="inst_revala'.$c.'" type="text" id="inst_revala'.$c.'" size="25" maxlength="64"  value="'.$rex2[inst_revala].'"/>
+	<LABEL for="inst_revala'.$c.'"><strong>INSTITUCION QUE REVALIDA:</strong></LABEL><input name="inst_revala'.$c.'" type="text" id="inst_revala'.$c.'" size="25" maxlength="64"  value="'.$rex2['inst_revala'].'"/>
 	
 	</td>
 	<td>
-	<LABEL for="date_exp_a'.$c.'"><strong>FECHA DE EXPEDICION:</strong></LABEL><input name="date_exp_a'.$c.'" type="text" id="date_exp_a'.$c.'" size="25" maxlength="64"  value="'.$rex2[date_exp_a].'"/>
+	<LABEL for="date_exp_a'.$c.'"><strong>FECHA DE EXPEDICION:</strong></LABEL><input name="date_exp_a'.$c.'" type="text" id="date_exp_a'.$c.'" size="25" maxlength="64"  value="'.$rex2['date_exp_a'].'"/>
 	</td>
 	</tr>
 	<tr>
 	<td>
-	<LABEL for="num_tit_a'.$c.'"><strong>NUMERO DE TITULO:</strong></LABEL><input name="num_tit_a'.$c.'" type="text" id="num_tit_a'.$c.'" size="25" maxlength="64"  value="'.$rex2[num_tit_a].'"/>
+	<LABEL for="num_tit_a'.$c.'"><strong>NUMERO DE TITULO:</strong></LABEL><input name="num_tit_a'.$c.'" type="text" id="num_tit_a'.$c.'" size="25" maxlength="64"  value="'.$rex2['num_tit_a'].'"/>
 	</td>
 	<td>
 	<LABEL for="prov_nat_title'.$c.'"><strong>TITULO EN PROVISION NACIONAL:</strong></LABEL>
 			<select name="prov_nat_title'.$c.'" id="prov_nat_title'.$c.'" >        
-        		<option value="'.$rex2[prov_nat_title].'">';
-				if($rex2[prov_nat_title]==0) 
+        		<option value="'.$rex2['prov_nat_title'].'">';
+				if($rex2['prov_nat_title']==0) 
 				echo 'NO'; 
 				else echo 'SI';
 								
@@ -347,8 +347,8 @@ echo '<tr><th colspan="6"><h2>TITULO ACADEMICO '.$f.'</h2></th></tr>
 	<td>
 	<LABEL for="revalp'.$c.'"><strong>REVALIDADO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL>
 			<select name="revalp'.$c.'" id="revalp'.$c.'" >        
-        		<option value="'.$rex2[revalp].'">';
-				if($rex2[revalp]==0) 
+        		<option value="'.$rex2['revalp'].'">';
+				if($rex2['revalp']==0) 
 				echo 'NO'; 
 				else echo 'SI';
 								
@@ -358,21 +358,21 @@ echo '<tr><th colspan="6"><h2>TITULO ACADEMICO '.$f.'</h2></th></tr>
         	</select>	
 	</td>
 	<td>
-	<LABEL for="inst_revalp'.$c.'"><strong>INSTITUCION QUE LO REVALIDA:</strong></LABEL><input name="inst_revalp'.$c.'" type="text" id="inst_revalp'.$c.'" size="25" maxlength="64" value="'.$rex2[inst_revalp].'"/>
+	<LABEL for="inst_revalp'.$c.'"><strong>INSTITUCION QUE LO REVALIDA:</strong></LABEL><input name="inst_revalp'.$c.'" type="text" id="inst_revalp'.$c.'" size="25" maxlength="64" value="'.$rex2['inst_revalp'].'"/>
 	</td>
 	</tr>	
 	
 	
 	<tr>	
 	<td>
-	<LABEL for="date_exp_p'.$c.'"><strong>FECHA DE EXPEDICION:</strong></LABEL><input name="date_exp_p'.$c.'" type="text" id="date_exp_p'.$c.'" size="25" maxlength="64" value="'.$rex2[date_exp_p].'"/> 
+	<LABEL for="date_exp_p'.$c.'"><strong>FECHA DE EXPEDICION:</strong></LABEL><input name="date_exp_p'.$c.'" type="text" id="date_exp_p'.$c.'" size="25" maxlength="64" value="'.$rex2['date_exp_p'].'"/> 
 	</td>
 	<td>
-	<LABEL for="num_tit_p'.$c.'"><strong>NUMERO DE TITULO:</strong></LABEL><input name="num_tit_p'.$c.'" type="text" id="num_tit_p'.$c.'" size="25" maxlength="64" value="'.$rex2[num_tit_p].'"/>
+	<LABEL for="num_tit_p'.$c.'"><strong>NUMERO DE TITULO:</strong></LABEL><input name="num_tit_p'.$c.'" type="text" id="num_tit_p'.$c.'" size="25" maxlength="64" value="'.$rex2['num_tit_p'].'"/>
 	</td>
 	</tr>
 	<td colspan="4">
-	<div class="errorre"><a href="?id_dat='.$rex2[id_dat].'&&id_func='.$rex2[id_func].'&action=DELETE">BORRAR DATOS ACADÉMICOS '.$f.'</a><div>
+	<div class="errorre"><a href="?id_dat='.$rex2['id_dat'].'&&id_func='.$rex2['id_func'].'&action=DELETE">BORRAR DATOS ACADÉMICOS '.$f.'</a><div>
 	</td>
 	';
 	$c++;

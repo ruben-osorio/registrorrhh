@@ -1,14 +1,14 @@
-<?
+<?php
 require_once("security.php");
 require ("config.inc.php");
 require ("database.class.php");
 include ("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_func=$_GET[id];
+$id_func=$_GET['id'];
 $rs=$db->query("select id_per from funcionario ,permanente where funcionario.id_func='$id_func' and permanente.id_func='$id_func'");
 $r=$db->fetch_array($rs);
-$id_per=$r[id_per];
+$id_per=$r['id_per'];
 
 $rs3=$db->query("select id_sec from soc_secu where id_per='$r[id_per]'");
 if (mysql_num_rows($rs3)==1 )
@@ -21,12 +21,12 @@ $rs=$db->query("select * from funcionario, permanente where funcionario.id_func=
 
 if ($r=$db->fetch_array($rs))
 {
-	if (isset($_POST[save]))	
+	if (isset($_POST['save']))	
 	{
 		//
-		$name_medical_sec=strtoupper($_POST[name_medical_sec]);
-		$numb_secured=strtoupper($_POST[numb_secured]);
-		$date_start_sec=cambia_dateN_to_dateMy_1($_POST[date_start_sec]);
+		$name_medical_sec=strtoupper($_POST['name_medical_sec']);
+		$numb_secured=strtoupper($_POST['numb_secured']);
+		$date_start_sec=cambia_dateN_to_dateMy_1($_POST['date_start_sec']);
 		$rs1=$db->query("insert into soc_secu (id_per, name_sec, num_reg, date_afil) values ('$id_per','$name_medical_sec','$numb_secured','$date_start_sec')");
 		if ($rs1)
 		{
@@ -77,7 +77,7 @@ $(document).ready(function() {
 	</script>
 
 </head>
-<?
+<?php
 	if ($sw==1)
 	{
 		echo '<div class="successre">'.$msg.'</div>';
@@ -96,23 +96,23 @@ $(document).ready(function() {
   <table width="100%" border="0" cellpadding="5" cellspacing="0">
     <tr>
       <th><div align="left">Nombres:</div></th>
-      <td><div align="left"><strong><? echo $r[name]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['name']; ?></strong></div></td>
     </tr>
     <tr>
       <th><div align="left">Apellidos:</div></th>
-      <td><div align="left"><strong><? echo $r[l_name1]." ".$r[l_name2]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['l_name1']." ".$r['l_name2']; ?></strong></div></td>
     </tr>
     <tr>
-    <?			 	
+    <?php			 	
 		$rs2=$db->query("select level from cat_per where id_per='$r[id_per]'");
 		$r2=$db->fetch_array($rs2);
     ?>
       <th><div align="left">Cargo:</div></th>
-      <td><div align="left"><strong><? echo $r2[level]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r2['level']; ?></strong></div></td>
     </tr>
     <tr>
       <th><div align="left">Fecha de Ingreso:</div></th>
-      <td><div align="left"><strong><? echo cambia_dateMy_to_dateN($r[date_ent]); ?></strong></div></td>
+      <td><div align="left"><strong><?php echo cambia_dateMy_to_dateN($r['date_ent']); ?></strong></div></td>
     </tr>
     <tr>
       <th><div align="left">Nombre Seguro:</div></th>
@@ -146,7 +146,7 @@ $(document).ready(function() {
 </fieldset>
 </body>
 </html>
-<?
+<?php
 }
 $db->close();
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("security.php");
 $id_func=$_GET['id_func'];
 $id_con=$_GET['id_con'];
@@ -17,7 +17,7 @@ $db->connect();
 	WHERE id_func='$id_func'
 	");
 	$rsxp1=$db->fetch_array($rsp1);
-	if($rsxp1[p7]==1)
+	if($rsxp1['p7']==1)
 	{
 	header ("Location: exito.php");	
 	}
@@ -37,41 +37,41 @@ $db->connect();
 	
 
 
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 { 	
 $on_off=1;
 //TABLA cta_banc
 //id_cta_banc id_func bank type_ac num_ac dist_ac
-$bank=strtoupper($_POST[bank]); 
-$type_ac=$_POST[type_ac]; 
-$num_ac=$_POST[num_ac]; 
-$dist_ac=strtoupper($_POST[dist_ac]);
+$bank=strtoupper($_POST['bank']); 
+$type_ac=$_POST['type_ac']; 
+$num_ac=$_POST['num_ac']; 
+$dist_ac=strtoupper($_POST['dist_ac']);
 //TABLE consultor_docs
 //id_perm_docs id_cont contract addendum file_pers pers_dat_incomp
 //per_dat_conf cv ci date_cad_ci cn cm afp solvency
-$cv=$_POST[cv]; 
-$ci=$_POST[ci];  
-$date_cad_ci=$_POST[date_cad_ci];
+$cv=$_POST['cv']; 
+$ci=$_POST['ci'];  
+$date_cad_ci=$_POST['date_cad_ci'];
 $date_cad_ci=cambia_dateN_to_dateMy_1($date_cad_ci);	 
-$cn=$_POST[cn];  
-$cm=$_POST[cm];  
+$cn=$_POST['cn'];  
+$cm=$_POST['cm'];  
 //TABLE char_con
 //id_char_con
-$dir_g=strtoupper($_POST[dir_g]); 
-$unit=strtoupper($_POST[unit]); 
-$area=strtoupper($_POST[area]); 
-$boss_is=strtoupper($_POST[boss_is]); 
-$boss_ij=strtoupper($_POST[boss_ij]); 
-$charge=strtoupper($_POST[charge]); 
-$num_res_con=strtoupper($_POST[num_res_con]);
-$date_di=$_POST[date_di];
+$dir_g=strtoupper($_POST['dir_g']); 
+$unit=strtoupper($_POST['unit']); 
+$area=strtoupper($_POST['area']); 
+$boss_is=strtoupper($_POST['boss_is']); 
+$boss_ij=strtoupper($_POST['boss_ij']); 
+$charge=strtoupper($_POST['charge']); 
+$num_res_con=strtoupper($_POST['num_res_con']);
+$date_di=$_POST['date_di'];
 $date_di=cambia_dateN_to_dateMy_1($date_di);
 //TABLE contrato
 //$date_ent $date_end $ name_con
 
-	$date_ent=$_POST[date_ent];
-	$date_end=$_POST[date_end];
-	$name_con=strtoupper($_POST[name_con]);
+	$date_ent=$_POST['date_ent'];
+	$date_end=$_POST['date_end'];
+	$name_con=strtoupper($_POST['name_con']);
 //TABLA cta_banc
 //id_cta_banc id_func bank type_ac num_ac dist_ac
 	$rs1=$db->query("
@@ -567,8 +567,8 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
 		<td width="250">Nº RESOLUCIÓN O MEMO:</td>
 <tr> 		
         <td width="233"><input name="boss_ij" type="text" id="boss_ij" size="30" maxlength="64" class="required"/></td>	
-		<td width="244"><textarea name="charge" cols="30" rows="2" id="charge"OnFocus="this.blur()"><? echo $rexa[charge];?></textarea></td>	
-		<td width="250"><input name="num_res_con" type="text" id="num_res_con" size="30" maxlength="64" value="<? echo $rexa[num_res_con];?>" OnFocus="this.blur()" class="required" /></td>	
+		<td width="244"><textarea name="charge" cols="30" rows="2" id="charge"OnFocus="this.blur()"><?php echo $rexa['charge'];?></textarea></td>	
+		<td width="250"><input name="num_res_con" type="text" id="num_res_con" size="30" maxlength="64" value="<?php echo $rexa['num_res_con'];?>" OnFocus="this.blur()" class="required" /></td>	
 </tr>
 </table>
 <!--SOLO PARA CONTRATOS EVENTUALES/CONSULTORES-->
@@ -584,10 +584,10 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
 		<td width="191">NÚMERO DE CONTRATO</td>	
 </tr>
 <tr> 		
-        <td width="212"><input name="date_ent" type="text" id="date_ent" OnFocus="this.blur()" value="<? echo $rex[date_ent];?>" size="10" maxlength="64" readonly="readonly"/>
+        <td width="212"><input name="date_ent" type="text" id="date_ent" OnFocus="this.blur()" value="<?php echo $rex['date_ent'];?>" size="10" maxlength="64" readonly="readonly"/>
         </td>	
-		<td width="250"><input name="date_end" type="text" id="date_end" OnFocus="this.blur()" value="<? echo $rex[date_end];?>" size="10" maxlength="64" readonly="readonly"/></td>	
-		<td width="191"><input name="name_con" type="text" id="name_con" OnFocus="this.blur()" value="<? echo $rex[name_con];?>" size="20" maxlength="64" readonly="readonly"/></td>	
+		<td width="250"><input name="date_end" type="text" id="date_end" OnFocus="this.blur()" value="<?php echo $rex['date_end'];?>" size="10" maxlength="64" readonly="readonly"/></td>	
+		<td width="191"><input name="name_con" type="text" id="name_con" OnFocus="this.blur()" value="<?php echo $rex['name_con'];?>" size="20" maxlength="64" readonly="readonly"/></td>	
 </tr>
     <tr>
   	<td>
@@ -613,7 +613,7 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
       </ul>    </td>
   </tr>
 </table>
-<?
+<?php
 //$db->close();
 ?>
 

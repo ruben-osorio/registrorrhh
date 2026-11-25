@@ -1,7 +1,7 @@
 <?php
 require_once("security.php");
 //$id_func=4;
-$id_func=$_GET[id_func];
+$id_func=$_GET['id_func'];
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
@@ -26,7 +26,7 @@ $con=($post_numero-1)/9;
 {
 echo $post[0] . " = " . $post[1];
 }*/
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 {
 unset($_POST["save"]);
 //echo $con;
@@ -183,7 +183,7 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
 }
 </script>
 </head>
-<? 
+<?php 
 //------------------------------------
 //CONSULTA PARA OBTENER DATOS ACADEMICOS
 	$rsc2=$db->query("
@@ -210,7 +210,7 @@ stylos
 </table>   
 <table width="989" border="0" align="center" cellpadding="2" cellspacing="0">   
 <form action="" method="post" name="form1" class="form" id="form2">   
-<? 
+<?php 
 
 $c=0;
 $f=1;
@@ -219,20 +219,20 @@ while ($rex2=$db->fetch_array($rsc2))
 	{
 echo '<tr><td colspan="6"><H2>CAPACITACION '.$f.'</h2></td></tr>
 	<tr>	
-	<input name="id_cap'.$c.'" type="hidden" id="id_cap"  value="'.$rex2[id_cap].'"/>
+	<input name="id_cap'.$c.'" type="hidden" id="id_cap"  value="'.$rex2['id_cap'].'"/>
 	<td>
-	<LABEL for="date_start'.$c.'"><strong> FECHA DE INICIO:</strong></LABEL><input name="date_start'.$c.'" type="text" id="date_start'.$c.'" size="30" maxlength="64"  value="'.$rex2[date_start].'"/>
+	<LABEL for="date_start'.$c.'"><strong> FECHA DE INICIO:</strong></LABEL><input name="date_start'.$c.'" type="text" id="date_start'.$c.'" size="30" maxlength="64"  value="'.$rex2['date_start'].'"/>
 	</td>
 	<td>
-	<LABEL for="date_end'.$c.'"><strong>FECHA FIN:</strong></LABEL><input name="date_end'.$c.'" type="text" id="date_end'.$c.'" size="30" maxlength="64"  value="'.$rex2[date_end].'"/>
+	<LABEL for="date_end'.$c.'"><strong>FECHA FIN:</strong></LABEL><input name="date_end'.$c.'" type="text" id="date_end'.$c.'" size="30" maxlength="64"  value="'.$rex2['date_end'].'"/>
 	</td>
 	<td>
-	<LABEL for="name_event'.$c.'"><strong>NOMBRE DEL EVENTO:</strong></LABEL><input name="name_event'.$c.'" type="text" id="name_event'.$c.'" size="30" maxlength="64"  value="'.$rex2[name_event].'"/>
+	<LABEL for="name_event'.$c.'"><strong>NOMBRE DEL EVENTO:</strong></LABEL><input name="name_event'.$c.'" type="text" id="name_event'.$c.'" size="30" maxlength="64"  value="'.$rex2['name_event'].'"/>
 	</td>
 	<td>
 	<LABEL for="type_cap'.$c.'"><strong>CAPACITACION:</strong></LABEL>
 			<select name="type_cap'.$c.'" id="type_cap'.$c.'" >    
-                <option value="'.$rex2[type_cap].'">'.$rex2[type_cap].'</option>			    
+                <option value="'.$rex2['type_cap'].'">'.$rex2['type_cap'].'</option>			    
                 <option value="INTERNA">INTERNA</option>
                 <option value="EXTERNA">EXTERNA</option>
         	</select>
@@ -240,16 +240,16 @@ echo '<tr><td colspan="6"><H2>CAPACITACION '.$f.'</h2></td></tr>
 	</tr>
 	<tr>
 	<td>
-	<LABEL for="name_inst'.$c.'"><strong>NOMBRE DE LA INSTITUCION:</strong></LABEL><input name="name_inst'.$c.'" type="text" id="name_inst'.$c.'" size="30" maxlength="64"  value="'.$rex2[name_inst].'"/>
+	<LABEL for="name_inst'.$c.'"><strong>NOMBRE DE LA INSTITUCION:</strong></LABEL><input name="name_inst'.$c.'" type="text" id="name_inst'.$c.'" size="30" maxlength="64"  value="'.$rex2['name_inst'].'"/>
 	</td>
 	<td>
-	<LABEL for="place'.$c.'"><strong>LUGAR CIUDAD/PAIS:</strong></LABEL><input name="place'.$c.'" type="text" id="place'.$c.'" size="30" maxlength="64"  value="'.$rex2[place].'"/>
+	<LABEL for="place'.$c.'"><strong>LUGAR CIUDAD/PAIS:</strong></LABEL><input name="place'.$c.'" type="text" id="place'.$c.'" size="30" maxlength="64"  value="'.$rex2['place'].'"/>
 	<td>
-	<LABEL for="num_hrs'.$c.'"><strong>NUMERO DE HORAS:</strong></LABEL><input name="num_hrs'.$c.'" type="text" id="num_hrs'.$c.'" size="30" maxlength="64"  value="'.$rex2[num_hrs].'"/>
+	<LABEL for="num_hrs'.$c.'"><strong>NUMERO DE HORAS:</strong></LABEL><input name="num_hrs'.$c.'" type="text" id="num_hrs'.$c.'" size="30" maxlength="64"  value="'.$rex2['num_hrs'].'"/>
 	</td>
 	</tr>
 	<td colspan="4">
-	<div class="errorre"><a href="?id_cap='.$rex2[id_cap].'&&id_func='.$rex2[id_func].'&action=DELETE">BORRAR DATOS DE  CAPACITACIÓN '.$f.'</a><div>
+	<div class="errorre"><a href="?id_cap='.$rex2['id_cap'].'&&id_func='.$rex2['id_func'].'&action=DELETE">BORRAR DATOS DE  CAPACITACIÓN '.$f.'</a><div>
 	</td>
 	';
 	$c++;

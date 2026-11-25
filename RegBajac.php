@@ -1,4 +1,4 @@
-<?
+<?php
 //BAJA PERSONAL CONTRATO
 //ALP
 require_once("security.php");
@@ -8,8 +8,8 @@ require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-$id_func=$_GET[id_func];
-$id_con=$_GET[id_con];
+$id_func=$_GET['id_func'];
+$id_con=$_GET['id_con'];
 
 $rs=$db->query("
 				SELECT * FROM ".TABLE2.",".TABLE30."
@@ -20,14 +20,14 @@ $rs=$db->query("
 
 if ($r=$db->fetch_array($rs))
 {	
-	if (isset($_POST[save]))
+	if (isset($_POST['save']))
 	{
 		$rs2=$db->query("update ".TABLE30." set status='0' where id_func='$id_func'");
 		$rsX=$db->query("update ".TABLE2." set estado='0' where id_func='$id_func'");
 		if ($rs2)
 		{
-			$date_pres=cambia_dateN_to_dateMy_1($_POST[date_pres]);
-			$date_efec=cambia_dateN_to_dateMy_1($_POST[date_efec]);
+			$date_pres=cambia_dateN_to_dateMy_1($_POST['date_pres']);
+			$date_efec=cambia_dateN_to_dateMy_1($_POST['date_efec']);
 			echo $date_efec;
 			$rs1=$db->query("insert into ".TABLE36."(id_con, date_pres, date_efec, reasone, comment) values ('$id_con','$date_pres','$date_efec','$_POST[reason]','$_POST[comment]')");
 			$rs3=$db->query("
@@ -79,7 +79,7 @@ if ($r=$db->fetch_array($rs))
 	});
 	</script>
 
-<?
+<?php
 if ($sw==1)
 {
 	echo '<div class="successre">'.$msg.'</div>';
@@ -99,20 +99,20 @@ if ($sw==2)
     <tr>
       <th><div align="left">Nombres:</div></th>
       <td><div class="form_row">  
-        <input name="name" type="text" class="input " id="name" value="<? echo $r[name]; ?>" size="45" />
+        <input name="name" type="text" class="input " id="name" value="<?php echo $r['name']; ?>" size="45" />
     
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Apellido Paterno:</div></th>
       <td><div class="form_row">
-        <input name="lname_1" type="text" class="input " id="lname_1" value="<? echo $r[l_name1]; ?>" size="40" />
+        <input name="lname_1" type="text" class="input " id="lname_1" value="<?php echo $r['l_name1']; ?>" size="40" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Apellido Materno:</div></th>
       <td><div class="form_row">
-        <input name="lname_2" type="text" class="input " id="lname_2" value="<? echo $r[l_name2]; ?>" size="40" />
+        <input name="lname_2" type="text" class="input " id="lname_2" value="<?php echo $r['l_name2']; ?>" size="40" />
       </div></td>
     <tr>
       <th><div align="left">Fecha Presentaci&oacute;n:</div></th>

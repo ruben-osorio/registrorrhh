@@ -1,12 +1,12 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-if (isset($_POST[search]))
+if (isset($_POST['search']))
 {
-	$tosearch=strtoupper($_POST[tosearch]);
-	switch ($_POST[by])
+	$tosearch=strtoupper($_POST['tosearch']);
+	switch ($_POST['by'])
 	{
 		case 'app';
 			$rs=$db->query("select * from ".TABLE2." where l_name1 like '%$tosearch%'");	
@@ -60,7 +60,7 @@ if (isset($_POST[search]))
 
 </form>
 </fieldset>
-<?
+<?php
 if ($sw==1)
 {
 	echo '<fieldset>
@@ -77,14 +77,14 @@ if ($sw==1)
  while ($r=$db->fetch_array($rs))
  {
  	echo ' <tr>   
-    <td>'.$r[l_name1].'</td>
-    <td>'.$r[l_name2].'</td>
-	 <td>'.$r[name].'</td>
-	  <td>'.$r[source_fin].'</td>
+    <td>'.$r['l_name1'].'</td>
+    <td>'.$r['l_name2'].'</td>
+	 <td>'.$r['name'].'</td>
+	  <td>'.$r['source_fin'].'</td>
 
 	<td>
-	<a href="#" onclick="MM_openBrWindow(\'ActuBasicoFuncionario.php?id='.$r[id].'\',\'regpermiso\',\'scrollbars=yes,width=570,height=350\')" title="Modificar"><img src="data/images/modify.png"></a>
-	<a href="#" onclick="MM_openBrWindow(\'RegPermiso.php?id='.$r[id].'\',\'regpermiso\',\'scrollbars=yes,width=550,height=250\')" title="Modificar Avanzado"><img src="data/images/modify_adv.png"></a>
+	<a href="#" onclick="MM_openBrWindow(\'ActuBasicoFuncionario.php?id='.$r['id'].'\',\'regpermiso\',\'scrollbars=yes,width=570,height=350\')" title="Modificar"><img src="data/images/modify.png"></a>
+	<a href="#" onclick="MM_openBrWindow(\'RegPermiso.php?id='.$r['id'].'\',\'regpermiso\',\'scrollbars=yes,width=550,height=250\')" title="Modificar Avanzado"><img src="data/images/modify_adv.png"></a>
 	</td>
   </tr>';
  }

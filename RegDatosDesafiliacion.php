@@ -1,11 +1,11 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_per=$_GET[id_per];
-$id_func=$_GET[id_func];
+$id_per=$_GET['id_per'];
+$id_func=$_GET['id_func'];
 
 
 ?>

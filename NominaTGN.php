@@ -1,10 +1,10 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
-$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
+$db = new Database(DB_SERVER, DB_USER, DB_PASS,"registrorrhh");
 $db->connect();
 
-if (isset($_POST[to_excel]))
+if (isset($_POST['to_excel']))
 {
 	include("excelwriter.inc.php");  
 	$excel=new ExcelWriter("NominaTGN.xls");
@@ -24,11 +24,11 @@ if (isset($_POST[to_excel]))
 	while ($r=$db->fetch_array($rs))
 	{		
 		$excel->writeRow();
-		$excel->writeCol($r[l_name1]);
-		$excel->writeCol($r[l_name2]);
-		$excel->writeCol($r[name]);
-		$excel->writeCol($r[date_ent]);
-		$excel->writeCol($r[charge]);		
+		$excel->writeCol($r['l_name1']);
+		$excel->writeCol($r['l_name2']);
+		$excel->writeCol($r['name']);
+		$excel->writeCol($r['date_ent']);
+		$excel->writeCol($r['charge']);		
 	}	
 	$excel->close();
 	$msg= 'Los datos se han grabado con &eacute;xito. Descargue el fichero de <a href="NominaTGN.xls">Aqui</a>';	
@@ -67,11 +67,11 @@ echo '<fieldset>
   
 while ($r=$db->fetch_array($rs))
 {	echo ' <tr>   
-    <td>'.$r[l_name1].'</td>
-    <td>'.$r[l_name2].'</td>
-	 <td>'.$r[name].'</td>
-	  <td>'.$r[date_ent].'</td>
-	  <td>'.$r[charge].'</td>';	  
+    <td>'.$r['l_name1'].'</td>
+    <td>'.$r['l_name2'].'</td>
+	 <td>'.$r['name'].'</td>
+	  <td>'.$r['date_ent'].'</td>
+	  <td>'.$r['charge'].'</td>';	  
 }
  echo'
  </div></div>

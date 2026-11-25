@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("security.php");
 require ("config.inc.php");
 require ("database.class.php");
@@ -6,13 +6,13 @@ include ("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-if (isset($_POST[to_excel]))
+if (isset($_POST['to_excel']))
 {
 	echo "excel";
 }
-if (isset($_POST[submit]))
+if (isset($_POST['submit']))
 {
-	switch($_POST[source])
+	switch($_POST['source'])
 	{
 		case '1':									
 			$query="select * from ".TABLE2.", ".TABLE22." ,".TABLE15."
@@ -104,7 +104,7 @@ if (isset($_POST[submit]))
   </table>
 </form>
 </fieldset>
-<?
+<?php
 if (isset($query))
 {
 	echo '<fieldset>
@@ -128,11 +128,11 @@ if (isset($query))
 	while ($r=$db->fetch_array($rs) )
 	{
 		echo ' <tr>   
-			<td>'.$r[l_name1].'</td>
-			<td>'.$r[l_name2].'</td>
-		 	<td>'.$r[name].'</td>
-		  	<td>'.$r[afp].'</td>
-		  	<td>'.$r[nua].'
+			<td>'.$r['l_name1'].'</td>
+			<td>'.$r['l_name2'].'</td>
+		 	<td>'.$r['name'].'</td>
+		  	<td>'.$r['afp'].'</td>
+		  	<td>'.$r['nua'].'
 		</td>';	  	
 	}
 }

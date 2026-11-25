@@ -1,0 +1,8 @@
+hidden_files
+.ht*
+*.php
+classes
+index_icons
+languages
+templates
+download_file

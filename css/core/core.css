@@ -176,7 +176,7 @@ div#da-header
 		{
 			float:right;
 			border-left:1px solid #161616;
-			border-left:1px solid rgba(223, 0, 34);
+			border-left:1px solid rgba(0, 0, 0, 0.6);
 		}
 		
 		div#da-header #da-header-top #da-header-toolbar #da-user-profile, 
@@ -191,7 +191,7 @@ div#da-header
 			border-left:1px solid #535353;
 			border-left:1px solid rgba(255, 255, 255, 0.2);
 			border-right:1px solid #161616;
-			border-right:1px solid rgb(223, 0, 34);
+			border-right:1px solid rgba(0, 0, 0, 0.6);
 			padding:0 12px;
 			cursor:pointer;
 			background:url(../../images/user-drop-arrow.png) no-repeat right center;
@@ -220,7 +220,7 @@ div#da-header
 		div#da-header #da-header-top #da-header-toolbar #da-user-profile #da-user-info
 		{
 			font-size:12px;
-			color:#1a0609;
+			color:#ffffff;
 			line-height:1;
 			padding:13px 0;
 			font-weight:bold;
@@ -229,7 +229,7 @@ div#da-header
 		
 		div#da-header #da-header-top #da-header-toolbar #da-user-profile #da-user-info .da-user-title
 		{
-			color:#df0121;
+			color:#eaeaea;
 			font-size:11px;
 			margin-top:6px;
 			font-weight:normal;

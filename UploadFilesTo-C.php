@@ -7,14 +7,14 @@
 </head>
 
 <body>
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
 
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_func=$_GET[id_func];
+$id_func=$_GET['id_func'];
 $rs0=$db->query("select * from ".TABLE2." WHERE id_func='$id_func'");
 $r0=$db->fetch_array($rs0);
 
@@ -30,7 +30,7 @@ WHERE ".TABLE2.".id_func='$id_func' AND ".TABLE2.".id_func=".TABLE30.".id_func
 echo '<table width="100%" border="0" cellspacing="0" cellpadding="0">
  <tr>
   <th scope="col">NOMBRES:</th>
-  <td colspan="3"><strong>'.$r0[name].' '.$r0[l_name1].' '.$r0[l_name2].'</strong></th>
+  <td colspan="3"><strong>'.$r0['name'].' '.$r0['l_name1'].' '.$r0['l_name2'].'</strong></th>
  </tr>
  <tr>
  <th scope="col">FUENTE</th>
@@ -61,10 +61,10 @@ if (mysql_num_rows($rs2)!=0)
 		$r3=$db->fetch_array($rs3);
 		
 				
-		echo '<td>'.$r3[source_fin].'</td>'	;
-  		echo '<td>'.cambia_dateMy_to_dateN($r2[date_ent]).'</td>
-		<td>'.cambia_dateMy_to_dateN($r2[date_end]).'</td>
-		<td><a href="#" onclick="MM_openBrWindow(\'UploadFilesCon.php?id_con='.$r2[id_con].'&id_func='.$id_func.'\',\'uploadfiles_final\',\'scrollbars=yes,width=800,height=600\')" title="Cargar Archivos a File Personal"> <img src="data/images/upload_to_file.png"></a> </td>
+		echo '<td>'.$r3['source_fin'].'</td>'	;
+  		echo '<td>'.cambia_dateMy_to_dateN($r2['date_ent']).'</td>
+		<td>'.cambia_dateMy_to_dateN($r2['date_end']).'</td>
+		<td><a href="#" onclick="MM_openBrWindow(\'UploadFilesCon.php?id_con='.$r2['id_con'].'&id_func='.$id_func.'\',\'uploadfiles_final\',\'scrollbars=yes,width=800,height=600\')" title="Cargar Archivos a File Personal"> <img src="data/images/upload_to_file.png"></a> </td>
 		</tr>';		
 	}
 }
@@ -72,7 +72,7 @@ echo '</table>';
 ?> 
 </body>
 </html>
-<?
+<?php
 
 $db->close();
 ?>

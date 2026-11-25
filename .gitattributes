@@ -1,0 +1,7 @@
+* text=auto
+*.sh text eol=lf
+Dockerfile text eol=lf
+docker/* text eol=lf
+*.pdf binary
+*.xls binary
+*.rar binary

@@ -13,8 +13,8 @@ $CCConnectionSettings = array (
         "Database" => "registroRRHH",
         "Host" => "localhost",
         "Port" => "3306;Database=registroRRHH",
-        "User" => "ruben",
-        "Password" => "roacorp",
+        "User" => "registroRRHH",
+        "Password" => "",
         "Persistent" => false,
         "DateFormat" => array("dd", "/", "mm", "/", "yyyy"),
         "BooleanFormat" => array(1, 0, ""),
@@ -95,7 +95,7 @@ $MainPage = new clsMainPage();
 //madnes Connection Class @-BB72E24D
 class clsDBmadnes extends DB_Adapter
 {
-    function clsDBmadnes()
+    function __construct()
     {
         $this->Initialize();
     }
@@ -121,6 +121,9 @@ class clsDBmadnes extends DB_Adapter
         return $SQL;
     }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsDBmadnes() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End madnes Connection Class
 
@@ -337,7 +340,7 @@ function CCGetDBValue($sql, &$db)
 function CCGetListValues(&$db, $sql, $where = "", $order_by = "", $bound_column = "", $text_column = "", $dbformat = "", $datatype = "", $errorclass = "", $fieldname = "", $DSType = dsSQL)
 {
     $errors = new clsErrors();
-    $values = "";
+    $values = array();
     if(!strlen($bound_column))
         $bound_column = 0;
     if(!strlen($text_column))

@@ -1,4 +1,4 @@
-<?
+<?php
 require("config.inc.php");
 require("functions.inc.php");
 require("database.class.php");
@@ -31,9 +31,9 @@ while ($r=$db->fetch_array($rs))
 		//5 año y 1 dia hasta 10 años = 20
 		//10 año y 1 dia o mas = 30
 		//echo "<td> | <strong>YEAR: ".$r2[year_rat]." | MONTH: ".$r2[month_rat]." | DAYS: ".$r2[day_rat]."</strong> ||</td><td>";
-		if (($r2[year_rat]>=1 && $r2[month_rat]>=0 && $r2[day_ray]>=1)
-		 ||	($r2[year_rat]>=1 && $r2[month_rat]>=1 && $r2[day_ray]=0)		 
-		 || ($r2[year_rat]<=4 && $r2[year_rat]<=12 && $r2[day_rat]<=31))
+		if (($r2['year_rat']>=1 && $r2['month_rat']>=0 && $r2['day_ray']>=1)
+		 ||	($r2['year_rat']>=1 && $r2['month_rat']>=1 && $r2['day_ray']=0)		 
+		 || ($r2['year_rat']<=4 && $r2['year_rat']<=12 && $r2['day_rat']<=31))
 		{
 			$asigna=15.0;
 			//echo "15 dias<br />";
@@ -41,16 +41,16 @@ while ($r=$db->fetch_array($rs))
 		}
 		else
 		{
-			if (($r2[year_rat]>=5 && $r2[month_rat]>=0 && $r2[day_ray]>=1) 
-			 || ($r2[year_rat]>=5 && $r2[month_rat]>=1 && $r2[day_ray]=0) 
-			 || ($r2[year_rat]<=9 && $r2[year_rat]<=12 && $r2[day_rat]<=31))
+			if (($r2['year_rat']>=5 && $r2['month_rat']>=0 && $r2['day_ray']>=1) 
+			 || ($r2['year_rat']>=5 && $r2['month_rat']>=1 && $r2['day_ray']=0) 
+			 || ($r2['year_rat']<=9 && $r2['year_rat']<=12 && $r2['day_rat']<=31))
 			{
 				$asigna=20.0;
 				//echo "20 dias<br />";			
 			}
 			else
 			{
-				if (($r2[year_rat]>=10 && $r2[month_rat]>=0 && $r2[day_ray]>=0)) 
+				if (($r2['year_rat']>=10 && $r2['month_rat']>=0 && $r2['day_ray']>=0)) 
 				{
 					$asigna=30.0;
 					//echo "30 dias<br />";					

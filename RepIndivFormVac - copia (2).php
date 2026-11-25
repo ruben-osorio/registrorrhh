@@ -1,0 +1,170 @@
+<?php
+require_once("security.php");
+require("functions.inc.php");
+require("config.inc.php");
+require("database.class.php");
+$db = new Database(DB_SERVER, DB_USER, DB_PASS, "ssrp");
+$db->connect();
+$id_func=$_GET['id'];
+
+	$dbhandle = mysql_connect(DB_SERVER, 'ruben', '') 
+	or die("Unable to connect to MySQL");
+	
+	
+	$selected = mysql_select_db("registrorrhh",$dbhandle) 
+			or die("Could not select registrorrhh");
+
+
+if (isset($_GET['id']))
+{	
+	//$rs1=$db->query("select id_per, date_ent from permanente where id_func='$id_func' order by id_per desc limit 1");
+	//$r1=$db->fetch_array($rs1);
+	
+	$result = mysql_query("select id_per, date_ent from permanente where id_func='$id_func' order by id_per desc limit 1")
+	or die(mysql_error());  
+
+	$row = mysql_fetch_array( $result );
+
+	$id_per= $row['id_per'];
+	$fecha_entrada= $row['date_ent'];
+	//$r1[id_per];	
+	//$rs=$db->query("select * from funcionario where id_func='$id_func'");
+	
+	$result = mysql_query("select * from funcionario where id_func='$id_func'")
+	or die(mysql_error());  
+
+	//$row = mysql_fetch_array( $result );
+	if ($row1 = mysql_fetch_array( $result ))
+	
+	//if ($r=$db->fetch_array($rs))
+	{
+		/*if (isset($_POST[save]))
+		{
+			//echo "insert into ".TABLE3."(id_per, gestion_1, dias_g1, gestion_2, dias_g2, observaciones) values
+			//('$id_per','$_POST[g_1]','$_POST[dias_g1]','$_POST[g_2]','$_POST[dias_g2]','$_POST[observaciones]')";
+			$rs5=$db->query("update ".TABLE3." set gestion_1='$_POST[g_1]', dias_g1='$_POST[dias_g1]', gestion_2='$_POST[g_2]', dias_g2='$_POST[dias_g2]', observaciones='$_POST[observaciones]'  where id_per='$id_per'");
+			if ($rs5)
+			{
+				$sw=1;
+				$msg="Actualización completada";
+			}
+		}*/
+		if ($sw==1)
+		{
+			echo '<div class="alert success">'.$msg.'</div>';
+		}
+	
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="data/css/reportes.css" rel="stylesheet" type="text/css" />
+<link href="data/css/style-ext.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+<fieldset>
+<legend>Reporte Form.  Vacación
+  </legend>
+<form id="form1" name="form1" method="post" action=""  class="form">
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <th scope="col">Nombres</th>
+    <td ><?php echo $row1['name']?></td>
+	
+  </tr>
+  <tr>
+    <th>Apellidos:</td>
+    <td><?php echo $row1['l_name1']?> <?php echo $row1['l_name2']?></td>
+  </tr>
+  <tr>
+    <th>Fecha de Ingreso:</td>
+    <td><?php echo cambia_dateMy_to_dateN( $fecha_entrada )?></td>
+  </tr>
+  <tr>
+  <?php
+  $rs2=$db->query("select charge from char_per where id_per='$id_per'");
+  $r2=$db->fetch_array($rs2);
+  ?>
+    <th>Cargo:</td>
+    <td><?php echo $r2['charge']?></td>
+  </tr>
+  
+  <?php
+  $db = new Database(DB_SERVER, DB_USER, DB_PASS, "ssrp");
+$db->connect();
+
+  	$rs3=$db->query("select * from old_cas where id_per='$id_per' order by id_old_cas desc limit 1");
+ 	if (mysql_num_rows($rs3)==0)
+ 	{
+		echo "<tr>
+		<th>CAS:</th>
+    	<td>NO TIENE</td></tr>";
+	}
+ 	else
+ 	{
+		$r3=$db->fetch_array($rs3);
+		echo "<tr>
+		<th>CAS:</th>
+    	<td>AÑOS: <strong>".$r3['year_rat']."</strong> MESES: <strong>".$r3['month_rat']."</strong> DIAS: <strong>".$r3['day_rat']."</strong></td></tr>";
+	}
+  ?>
+    
+  
+  <tr>
+  <?php  
+
+  	$rs4=$db->query("select * from vacaciones where id_per='$id_per'");
+  	$r4=$db->fetch_array($rs4);  
+  ?>
+    <th>Gestión 1:</td>
+    <td><?php echo $r4['gestion_1']?> Dia(s): <strong><?php echo $r4['dias_g1']?></strong>
+  </tr>
+  <tr>
+    <th>Gestión 2:</td>
+    <td><?php echo $r4['gestion_2']?> Dia(s): <strong><?php echo $r4['dias_g2']?></strong></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <th scope="col">Tiempo</th>
+    <th scope="col">Desde Fecha:</th>   
+    <th scope="col">Hasta Fecha:</th>   
+    </tr>
+    <?php
+	$rs5=$db->query("select * from permisos where id_per='$id_per' order by fecha_ff");
+	while ($r5=$db->fetch_array($rs5))
+	{
+		//	fecha_i			fecha_f		hrs_f	obs
+		echo ' 
+	<tr>
+    <td>'.$r5['tiempo'].' dias</td>
+    <td>'.cambia_dateMy_to_dateN($r5['fecha_ii']).'</td>    
+    <td>'.cambia_dateMy_to_dateN($r5['fecha_ff']).'</td>
+    </tr>';
+	}
+    ?>
+ 
+</table>
+
+    </td>
+  </tr>
+  <tr>   
+    <td colspan="2">
+    <input type="submit" name="button" id="button" value="Imprimir" class="submit" onclick="window.print();"/>
+    </td>
+  </tr>   
+  
+</table></form>
+</fieldset>
+</body>
+</html>
+<?php
+	}
+	mysql_close($dbhandle);
+}
+?>

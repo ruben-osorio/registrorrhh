@@ -1,7 +1,7 @@
 <?php
 require_once("security.php");
 //$id_func='4';
-$id_func=$_GET[id_func];
+$id_func=$_GET['id_func'];
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
@@ -26,7 +26,7 @@ $con=($post_numero-1)/11;
 {
 echo $post[0] . " = " . $post[1];
 }*/
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 {
 unset($_POST["save"]);
 $on_off=1;
@@ -194,7 +194,7 @@ stylos
 stylos
 -->
 </head>
-<? 
+<?php 
 //------------------------------------
 //CONSULTA PARA OBTENER DATOS ACADEMICOS
 	$rsc2=$db->query("
@@ -213,7 +213,7 @@ stylos
 </table>   
 <table width="989" border="0" align="center" cellpadding="2" cellspacing="0">   
 <form action="" method="post" name="form1" class="form" id="form2">   
-<? 
+<?php 
 
 $c=0;
 $f=1;
@@ -222,48 +222,48 @@ while ($rex2=$db->fetch_array($rsc2))
 	{
 echo '<tr><td colspan="6"><h2>EXPERIENCIA LABORAL '.$f.'</h2></td></tr>
 	<tr>	
-	<input name="id_exp_lab'.$c.'" type="hidden" id="id_exp_lab"  value="'.$rex2[id_exp_lab].'"/>
+	<input name="id_exp_lab'.$c.'" type="hidden" id="id_exp_lab"  value="'.$rex2['id_exp_lab'].'"/>
 	<td>
-	<LABEL for="name_inst'.$c.'"><strong> NOMBRE DE LA INSTITUCION:</strong></LABEL><input name="name_inst'.$c.'" type="text" id="name_inst'.$c.'" size="30" maxlength="64"  value="'.$rex2[name_inst].'"/>
+	<LABEL for="name_inst'.$c.'"><strong> NOMBRE DE LA INSTITUCION:</strong></LABEL><input name="name_inst'.$c.'" type="text" id="name_inst'.$c.'" size="30" maxlength="64"  value="'.$rex2['name_inst'].'"/>
 	</td>
 	<td>
 	<LABEL for="type_inst"><strong>TIPO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL>
 			<select name="type_inst'.$c.'" id="type_inst'.$c.'" >    
-                <option value="'.$rex2[type_inst].'">'.$rex2[type_inst].'</option>			    
+                <option value="'.$rex2['type_inst'].'">'.$rex2['type_inst'].'</option>			    
                 <option value="PRIVADA">PRIVADA</option>
                 <option value="PUBLICA">PUBLICA</option>
         	</select>
 	</td>
 	<td>
-	<LABEL for="form_ent'.$c.'"><strong>FORMA DE INGRESO:</strong></LABEL><input name="form_ent'.$c.'" type="text" id="form_ent'.$c.'" size="30" maxlength="64"  value="'.$rex2[form_ent].'"/>
+	<LABEL for="form_ent'.$c.'"><strong>FORMA DE INGRESO:</strong></LABEL><input name="form_ent'.$c.'" type="text" id="form_ent'.$c.'" size="30" maxlength="64"  value="'.$rex2['form_ent'].'"/>
 	</td>
 	<td>
-	<LABEL for="date_ent'.$c.'"><strong>FECHA DE INGRESO:</strong></LABEL><input name="date_ent'.$c.'" type="text" id="date_ent'.$c.'" size="30" maxlength="64"  value="'.$rex2[date_ent].'"/>
+	<LABEL for="date_ent'.$c.'"><strong>FECHA DE INGRESO:</strong></LABEL><input name="date_ent'.$c.'" type="text" id="date_ent'.$c.'" size="30" maxlength="64"  value="'.$rex2['date_ent'].'"/>
 	</td>
 	</tr>
 	<tr>
 	<td>
-	<LABEL for="place_lab'.$c.'"><strong>LUGAR CIUDAD/PAIS:</strong></LABEL><input name="place_lab'.$c.'" type="text" id="place_lab'.$c.'" size="30" maxlength="64"  value="'.$rex2[place_lab].'"/>
+	<LABEL for="place_lab'.$c.'"><strong>LUGAR CIUDAD/PAIS:</strong></LABEL><input name="place_lab'.$c.'" type="text" id="place_lab'.$c.'" size="30" maxlength="64"  value="'.$rex2['place_lab'].'"/>
 	</td>
 	<td>
-	<LABEL for="charge'.$c.'"><strong>CARGO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="charge'.$c.'" type="text" id="charge'.$c.'" size="30" value="'.$rex2[charge].'"/>
+	<LABEL for="charge'.$c.'"><strong>CARGO:&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="charge'.$c.'" type="text" id="charge'.$c.'" size="30" value="'.$rex2['charge'].'"/>
 	<td>
-	<LABEL for="rea_cha'.$c.'"><strong>MOTIVO DE CAMBIO DE PUESTO:</strong></LABEL><input name="rea_cha'.$c.'" type="text" id="rea_cha'.$c.'" size="30" maxlength="64"  value="'.$rex2[rea_cha].'"/>
+	<LABEL for="rea_cha'.$c.'"><strong>MOTIVO DE CAMBIO DE PUESTO:</strong></LABEL><input name="rea_cha'.$c.'" type="text" id="rea_cha'.$c.'" size="30" maxlength="64"  value="'.$rex2['rea_cha'].'"/>
 	</td>
 	<td>
-	<LABEL for="date_start'.$c.'"><strong>DEL: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="date_start'.$c.'" type="text" id="date_start'.$c.'" size="30" maxlength="64"  value="'.$rex2[date_start].'"/>
+	<LABEL for="date_start'.$c.'"><strong>DEL: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="date_start'.$c.'" type="text" id="date_start'.$c.'" size="30" maxlength="64"  value="'.$rex2['date_start'].'"/>
 	</td>
 	</tr>
 	<tr>	
 	<td>
-	<LABEL for="date_end'.$c.'"><strong>AL: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="date_end'.$c.'" type="text" id="date_end'.$c.'" size="30" maxlength="64"  value="'.$rex2[date_end].'"/>
+	<LABEL for="date_end'.$c.'"><strong>AL: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</strong></LABEL><input name="date_end'.$c.'" type="text" id="date_end'.$c.'" size="30" maxlength="64"  value="'.$rex2['date_end'].'"/>
 	</td>
 	<td>
-	<LABEL for="date_ret'.$c.'"><strong>FECHA DE RETIRO: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </strong></LABEL><input name="date_ret'.$c.'" type="text" id="date_ret'.$c.'" size="30" maxlength="64"  value="'.$rex2[date_ret].'"/>
+	<LABEL for="date_ret'.$c.'"><strong>FECHA DE RETIRO: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </strong></LABEL><input name="date_ret'.$c.'" type="text" id="date_ret'.$c.'" size="30" maxlength="64"  value="'.$rex2['date_ret'].'"/>
 	</td>
 	</tr>
 	<td colspan="4">
-	<div class="errorre"><a href="?id_exp_lab='.$rex2[id_exp_lab].'&&id_func='.$rex2[id_func].'&action=DELETE">BORRAR DATOS DE  EXPERIENCIA LABORAL '.$f.'</a><div>
+	<div class="errorre"><a href="?id_exp_lab='.$rex2['id_exp_lab'].'&&id_func='.$rex2['id_func'].'&action=DELETE">BORRAR DATOS DE  EXPERIENCIA LABORAL '.$f.'</a><div>
 	</td>
 	';
 	$c++;

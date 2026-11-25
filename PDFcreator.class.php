@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('libs/tcpdf/config/lang/eng.php'); //llamada a la clase tcpdf
 require_once('libs/tcpdf/tcpdf.php'); //llamada a la clase tcpdf
 class PDF6 extends TCPDF {

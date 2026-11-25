@@ -1,20 +1,20 @@
-<?
+<?php
 require_once("security.php");
 require("functions.inc.php");
 require("config.inc.php");
 require("database.class.php");
 
-$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
+$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
 $db->connect();
 
-$id_func=$_GET[id];
-if (isset($_GET[id]))
+$id_func=$_GET['id'];
+if (isset($_GET['id']))
 {	
 
-	$rs1=$db->query("select id_per, date_ent from ".TABLE22." where id_func='$id_func' order by id_per desc limit 1");
+	$rs1=$db->query("select id_per, date_ent from permanente where id_func='$id_func' order by id_per desc limit 1");
 	$r1=$db->fetch_array($rs1);
-	$id_per= $r1[id_per];	
-	$rs=$db->query("select * from ".TABLE2." where id_func='$id_func'");
+	$id_per= $r1['id_per'];	
+	$rs=$db->query("select * from funcionario where id_func='$id_func'");
 	if ($r=$db->fetch_array($rs))
 	{
 		/*if (isset($_POST[save]))
@@ -40,75 +40,113 @@ if (isset($_GET[id]))
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="data/css/reportes.css" rel="stylesheet" type="text/css" />
 <link href="data/css/style-ext.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
-<fieldset>
-<legend>Reporte Individual Saldo Vacaciones
-  </legend><form id="form1" name="form1" method="post" action="">
-    <table width="100%" border="0" cellspacing="0" cellpadding="5">
-  <tr>
-    <th scope="col">Nombres</th>
-    <td ><? echo $r[name]?></td>
-  </tr>
-  <tr>
-    <th>Apellidos:</td>
-    <td><? echo $r[l_name1]?> <? echo $r[l_name2]?></td>
-  </tr>
-  <tr>
-    <th>Fecha de Ingreso:</td>
-    <td><? echo cambia_dateMy_to_dateN($r1[date_ent])?></td>
-  </tr>
-  <tr>
-  <?
-  $rs2=$db->query("select charge from ".TABLE28." where id_per='$id_per'");
-  $r2=$db->fetch_array($rs2);
-  ?>
-    <th>Cargo:</td>
-    <td><? echo $r2[charge]?></td>
-  </tr>
-  
-  <?
-  	$rs3=$db->query("select * from ".TABLE24." where id_per='$id_per'");
- 	if (mysql_num_rows($rs3)==0)
- 	{
+
+			<fieldset>
+			<legend>Reporte Individual Saldo Vacaciones
+			  </legend><form id="form1" name="form1" method="post" action="">
+				<table width="100%" border="0" cellspacing="0" cellpadding="5">
+			  <tr>
+				<th scope="col">Nombres</th>
+				<td ><?php echo $r['name']?></td>
+			  </tr>
+			  <tr>
+				<th>Apellidos:</td>
+				<td><?php echo $r['l_name1']?> <?php echo $r['l_name2']?></td>
+			  </tr>
+			  <tr>
+				<th>Fecha de Ingreso:</td>
+				<td><?php echo cambia_dateMy_to_dateN($r1['date_ent'])?></td>
+			  </tr>
+			  <tr>
+			  <?php
+			  
+			  
+			  $rs2=$db->query("select charge from char_per where id_per='$id_per'");
+			  $r2=$db->fetch_array($rs2);
+			  ?>
+				<th>Cargo:</td>
+				<td><?php echo $r2['charge']?></td>
+			  </tr>
+			  
+			  <?php
+			  
+				$db = new Database(DB_SERVER, DB_USER, DB_PASS, "ssrp");
+				$db->connect();
+				
+				$db_copy = new Database(DB_SERVER, DB_USER, DB_PASS, "ssrp");
+				$db_copy->connect();
+
+				$rs3=$db->query("select * from old_cas where id_per='$id_per' order by year_rat desc limit 1");
+
+				$rs3_copy=$db_copy->query("select date_start, date_last, date_cas, year_rat, month_rat, day_rat from old_cas_copy where id_per='$id_per' order by year_rat DESC limit 1");
+				
+				if (mysql_num_rows($rs3)==0)
+				{
+					echo "<tr>
+					<th>CAS:</th>
+					<td>NO TIENE</td></tr>";
+				}
+				else
+				{
+					//abre seg
+					
+					$r3=$db->fetch_array($rs3);
+		$r3_copy = $db_copy->fetch_array($rs3_copy);
+		//echo "estos son los dos datos : old_cas = " . $r3[year_rat]  . " y old_cas copy = " . $r3_copy[year_rat] . "\n";
+		if ( $r3['year_rat'] >= $r3_copy['year_rat'] ) 
+		{
+			$anyos_cas = $r3['year_rat'];
+			$mes_cas = $r3['month_rat'];
+			$dias_cas =$r3['day_rat'];
+		}
+		else
+		{
+			$anyos_cas = $r3_copy['year_rat'];
+			$mes_cas = $r3_copy['month_rat'];
+			$dias_cas = $r3_copy['day_rat'];
+		}
 		echo "<tr>
 		<th>CAS:</th>
-    	<td>NO TIENE</td></tr>";
-	}
- 	else
- 	{
-		$r3=$db->fetch_array($rs3);
-		echo "<tr>
-		<th>CAS:</th>
-    	<td>AÑOS: <strong>".$r3[year_rat]."</strong> MESES: <strong>".$r3[month_rat]."</strong> DIAS: <strong>".$r3[day_rat]."</strong></td></tr>";
-	}
-  ?>
-    
-  
-  <tr>
-  <?  
-  	$rs4=$db->query("select * from ".TABLE3." where id_per='$id_per'");
-  	$r4=$db->fetch_array($rs4);  
-  ?>
-    <th>Gestión 1:</td>
-    <td><? echo $r4[gestion_1]?> Dia(s): <strong><? echo $r4[dias_g1]?></strong>
-  </tr>
-  <tr>
-    <th>Gestión 2:</td>
-    <td><? echo $r4[gestion_2]?> Dia(s): <strong><? echo $r4[dias_g2]?></strong></td>
-  </tr> 
-  <tr>
-    <td>&nbsp;</td>
-    <td>
-      <input type="submit" name="save" id="save" value="Enviar" />
-    </td>
-  </tr>
-</table></form>
-</fieldset>
+    	<td><strong>".$anyos_cas ."</strong> AÑO(S) , <strong>".$mes_cas ."</strong> MES(ES) ,  <strong>".$dias_cas."</strong> DIA(S)</td></tr>";
+					
+					//cierra seg
+					
+				}
+			  ?>
+				
+			  
+			  <tr>
+			  <?php  
+				$rs4=$db->query("select * from vacaciones where id_per='$id_per'");
+				$r4=$db->fetch_array($rs4);  
+			  ?>
+				<th>Gestión 1:</td>
+				<td><?php echo $r4['gestion_1']?> Dia(s): <strong><?php echo $r4['dias_g1']?></strong>
+			  </tr>
+			  <tr>
+				<th>Gestión 2:</td>
+				<td><?php echo $r4['gestion_2']?> Dia(s): <strong><?php echo $r4['dias_g2']?></strong></td>
+			  </tr> 
+			  <tr>
+				<td>&nbsp;</td>
+				<td>
+				  <input type="submit" name="save" id="save" value="Enviar" />
+				  &nbsp;
+				  <input type="button" value="Imprimir" onclick="javascript:window.print()" />
+				</td>
+			  </tr>
+			</table></form>
+			</fieldset>
+
+	
+	
 </body>
 </html>
-<?
+<?php
 	}
 }
 ?>

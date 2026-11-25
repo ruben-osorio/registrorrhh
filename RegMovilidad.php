@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("security.php");
 require("config.inc.php");
 require("database.class.php");
@@ -6,8 +6,8 @@ require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-$id_func=$_GET[id_func];
-$id_per=$_GET[id_per];
+$id_func=$_GET['id_func'];
+$id_per=$_GET['id_per'];
 $rs=$db->query("
 	SELECT * FROM ".TABLE2."
 	WHERE funcionario.id_func='$id_func'
@@ -34,16 +34,16 @@ else
 }		
 		
 
-if (isset($_POST[save]))	{	
-				$date_end=cambia_dateN_to_dateMy_1($_POST[date_end]);	
-				$dir_g=strtoupper($_POST[dir_g]);
-				$unit=strtoupper($_POST[unit]);
-				$area=strtoupper($_POST[area]); 
-				$boss_is=strtoupper($_POST[boss_is]); 
-				$boss_ij=strtoupper($_POST[boss_ij]);  
-				$charge=strtoupper($_POST[charge]);  
-				$num_memo=$_POST[num_memo];  
-				$date_des=cambia_dateN_to_dateMy_1($_POST[date_des]);		
+if (isset($_POST['save']))	{	
+				$date_end=cambia_dateN_to_dateMy_1($_POST['date_end']);	
+				$dir_g=strtoupper($_POST['dir_g']);
+				$unit=strtoupper($_POST['unit']);
+				$area=strtoupper($_POST['area']); 
+				$boss_is=strtoupper($_POST['boss_is']); 
+				$boss_ij=strtoupper($_POST['boss_ij']);  
+				$charge=strtoupper($_POST['charge']);  
+				$num_memo=$_POST['num_memo'];  
+				$date_des=cambia_dateN_to_dateMy_1($_POST['date_des']);		
 				$rs3=$db->query("
 				UPDATE ".TABLE28."
 				SET date_end='$date_end'
@@ -98,7 +98,7 @@ if (isset($_POST[save]))	{
 	});
 	</script>
 
-<?
+<?php
 if ($sw==1)
 	{
 		echo '<div class="successre">'.$msg.'</div>';
@@ -117,32 +117,32 @@ if ($sw==1)
     <tr>
       <th><div align="left">Nombres:</div></th>
       <td><div class="form_row">  
-       <? echo $r[name]; ?>
+       <?php echo $r['name']; ?>
     
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Apellido Paterno:</div></th>
       <td><div class="form_row">
-       <? echo $r[l_name1]; ?>
+       <?php echo $r['l_name1']; ?>
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Apellido Materno:</div></th>
       <td><div class="form_row">
-       <? echo $r[l_name2]; ?>
+       <?php echo $r['l_name2']; ?>
       </div></td>
     </tr>
 <tr>
       <th><div align="left">Cargo Desempeñado:</div></th>
       <td><div class="form_row">
-        <? echo $r1[charge]; ?>
+        <?php echo $r1['charge']; ?>
       </div></td>
     </tr>
  <tr>
       <th><div align="left">Fecha Designaci&oacute;n:</div></th>
       <td><div class="form_row">
-       <? echo $r1[date_des]; ?>
+       <?php echo $r1['date_des']; ?>
       </div></td>
     </tr>   
       <tr>
@@ -162,10 +162,10 @@ if ($sw==1)
       <td><div class="form_row">  
         
 		
-		<?
+		<?php
 		$query = "SELECT id_dg, desc_dg from direccion_gral order by desc_dg ASC";
 		
-		$link = mysql_connect('localhost', 'registroRRHH', 'Registro4880!');
+		$link = mysql_connect('localhost', 'registroRRHH', '');
 		if (!$link) {
 			die('Could not connect: ' . mysql_error());
 		}
@@ -191,10 +191,10 @@ if ($sw==1)
     <tr>
       <th><div align="left">Unidad:</div></th>
       <td><div class="form_row">
-        <?
+        <?php
 		$query = "SELECT id_dg, desc_uni from unidad order by desc_uni ASC";
 		
-		$link = mysql_connect('localhost', 'registroRRHH', 'Registro4880!');
+		$link = mysql_connect('localhost', 'registroRRHH', '');
 		if (!$link) {
 			die('Could not connect: ' . mysql_error());
 		}
@@ -204,10 +204,8 @@ if ($sw==1)
 		echo "<select name='unidad' id='unidad' style='width:300px'>";
 		while (($row = mysql_fetch_row($res)) != null)
 		{
-			$cad = $row[1] ;
 			echo "<option value = '{$row[0]}'";
-		    echo ">{$cad}</option>";
-			
+		    echo ">{$row[1]}</option>";
 		}
 		echo "</select>";
 		mysql_close($link);
@@ -218,10 +216,10 @@ if ($sw==1)
       <th><div align="left">Area:</div></th>
       <td><div class="form_row">
         
-         <?
+         <?php
 		$query = "SELECT id_dg, desc_area from area order by desc_area ASC";
 		
-		$link = mysql_connect('localhost', 'registroRRHH', 'Registro4880!');
+		$link = mysql_connect('localhost', 'registroRRHH', '');
 		if (!$link) {
 			die('Could not connect: ' . mysql_error());
 		}

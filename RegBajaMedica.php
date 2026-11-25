@@ -1,10 +1,10 @@
-<?
+<?php
 require ("config.inc.php");
 require ("database.class.php");
 include ("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id=$_GET[id];
+$id=$_GET['id'];
 /*$rs2=$db->query("select * from ".TABLE9." where id_per='$id'");
 if (mysql_num_rows($rs2)==1)
 {
@@ -13,13 +13,13 @@ if (mysql_num_rows($rs2)==1)
 $rs=$db->query("select * from ".TABLE2. " where id='$id'");
 if ($r=$db->fetch_array($rs))
 {
-	if (isset($_POST[save]))	
+	if (isset($_POST['save']))	
 	{
 		//leave_from  leave_to total risk
-		$leave_from=cambia_dateN_to_dateMy_1($_POST[leave_from]);
-		$leave_to=cambia_dateN_to_dateMy_1($_POST[leave_to]);
-		$total=$_POST[total];
-		$risk=$_POST[risk];	
+		$leave_from=cambia_dateN_to_dateMy_1($_POST['leave_from']);
+		$leave_to=cambia_dateN_to_dateMy_1($_POST['leave_to']);
+		$total=$_POST['total'];
+		$risk=$_POST['risk'];	
 		
 		$rs1=$db->query("insert into ".TABLE10." (id_per, risk, leave_from, leave_to, total_days) values ('$id','$risk','$leave_from','$leave_to',$total)");
 		if ($rs1)
@@ -91,31 +91,31 @@ $(document).ready(function() {
 <table width="100%" border="0" cellpadding="5" cellspacing="0">
   <tr>
     <td><div align="left">Nombre(s):</div></td>
-    <td><div align="left"><strong><? echo $r[name]; ?></strong></div></td>
+    <td><div align="left"><strong><?php echo $r['name']; ?></strong></div></td>
   </tr>
   <tr>
     <td><div align="left">Apellidos:</div></td>
-    <td><div align="left"><strong><? echo $r[l_name1]." ".$r[l_name2]; ?></strong></div></td>
+    <td><div align="left"><strong><?php echo $r['l_name1']." ".$r['l_name2']; ?></strong></div></td>
   </tr>
   <tr>
       <td><div align="left">Cargo:</div></td>
-      <td><div align="left"><strong><? echo $r[office]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['office']; ?></strong></div></td>
   </tr>
   <tr>
       <td><div align="left">Fecha de Ingreso:</div></td>
-      <td><div align="left"><strong><? echo cambia_dateMy_to_dateN($r[fecha_ing]); ?></strong></div></td>
+      <td><div align="left"><strong><?php echo cambia_dateMy_to_dateN($r['fecha_ing']); ?></strong></div></td>
   </tr>
-  <?
+  <?php
   $rs3=$db->query("select name_sec, num_reg from ".TABLE9." where id_per='$id'");
   $r3=$db->fetch_array($rs3);
   ?>
   <tr>
     <td><div align="left">Numero Asegurado:</div></td>
-    <td><div align="left"><strong><? echo $r3[num_reg]; ?></strong></div></td>
+    <td><div align="left"><strong><?php echo $r3['num_reg']; ?></strong></div></td>
   </tr>
   <tr>
     <td><div align="left">Nombre de Seguro</div></td>
-    <td><div align="left"><strong><? echo $r3[name_sec]; ?></strong></div></td>
+    <td><div align="left"><strong><?php echo $r3['name_sec']; ?></strong></div></td>
   </tr>
   <tr>
     <td><div align="left">Riesgo</div></td>
@@ -156,7 +156,7 @@ $(document).ready(function() {
 </fieldset>
 </body>
 </html>
-<?
+<?php
 }
 $db->close();
 ?>

@@ -1,23 +1,23 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
-$id_func=$_GET[id_func];
+$id_func=$_GET['id_func'];
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 $sw=0;
 $rsexe=$db->query("SELECT * FROM ".TABLE2." WHERE id_func='$id_func'");
 $rexe=$db->fetch_array($rsexe);
 //echo mysql_num_rows($rsexe);
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 {	
-	$name=strtoupper($_POST[name]);
-	$l_name1=strtoupper($_POST[l_name1]);
-	$l_name2=strtoupper($_POST[l_name2]);
-	$ci=$_POST[ci];
-	$expe=$_POST[expe];	
-	$fecha_nac=$_POST[date_born];
-	$fech_nac=explode("-",$_POST[date_born]);	
+	$name=strtoupper($_POST['name']);
+	$l_name1=strtoupper($_POST['l_name1']);
+	$l_name2=strtoupper($_POST['l_name2']);
+	$ci=$_POST['ci'];
+	$expe=$_POST['expe'];	
+	$fecha_nac=$_POST['date_born'];
+	$fech_nac=explode("-",$_POST['date_born']);	
 	$dia=$fech_nac[0];
 	$mes=$fech_nac[1];
 	$ano=$fech_nac[2];
@@ -26,18 +26,18 @@ if (isset($_POST[save]))
 	$rsex=$db->query("SELECT id FROM ".TABLE4." WHERE id_func='$id_func'");
 	$rex=$db->fetch_array($rsex);
 	
-	$fuente=$_POST[fuente];	
-  	if (isset($_POST[key_form]))
+	$fuente=$_POST['fuente'];	
+  	if (isset($_POST['key_form']))
   	{
-		if ($_POST[key_form])
+		if ($_POST['key_form'])
 		{
 			$rs=$db->query("select * from ".TABLE2." where id_func='$id_func'");						
 			if ($rs)
 			{
 				if (strcmp("TGN",$fuente) == 0)
 				{				
-					$charge_=$_POST[charge_];
-					$start_date=cambia_dateN_to_dateMy_1($_POST[start_date]);
+					$charge_=$_POST['charge_'];
+					$start_date=cambia_dateN_to_dateMy_1($_POST['start_date']);
 					$year_=explode("-",$start_date);
 										
 					$rsver=$db->query("select * from ".TABLE30." where id_func='$id_func'");					
@@ -52,7 +52,7 @@ if (isset($_POST[save]))
 					
 					$rs5=$db->query("select id_per from ".TABLE22." order by id_per desc limit 1");
 					$r5=$db->fetch_array($rs5);					
-					$id_permanente=$r5[id_per];
+					$id_permanente=$r5['id_per'];
 					
 					$rs6=$db->query("insert into ".TABLE15." (id_per, source_fin) values ('$id_permanente','$fuente')");				
 													
@@ -69,7 +69,7 @@ if (isset($_POST[save]))
 					VALUES ('$id_func','$g1','0','','','')");
 					
 					$estructura = 'files/';
-					$filename=ucfirst(strtolower(str_replace(' ','',$_POST[name]))).ucfirst(strtolower($_POST[l_name1])).ucfirst(strtolower($_POST[l_name2]))."_".$dia.$mes.$ano."_".$ci;				
+					$filename=ucfirst(strtolower(str_replace(' ','',$_POST['name']))).ucfirst(strtolower($_POST['l_name1'])).ucfirst(strtolower($_POST['l_name2']))."_".$dia.$mes.$ano."_".$ci;				
 					//mkdir($estructura.$filename, 0777, true);
 					/*
 					mkdir($estructura."/".$filename."/".$year_[0]."-TGN");
@@ -100,11 +100,11 @@ if (isset($_POST[save]))
 				}
 				else
 				{
-					$num_cont=$_POST[num_cont];
-					$charge_cont=strtoupper($_POST[charge_cont]);
-					$date_start=cambia_dateN_to_dateMy_1($_POST[date_start]);
+					$num_cont=$_POST['num_cont'];
+					$charge_cont=strtoupper($_POST['charge_cont']);
+					$date_start=cambia_dateN_to_dateMy_1($_POST['date_start']);
 					$year=explode("-",$date_start);
-					$date_end=cambia_dateN_to_dateMy_1($_POST[date_end]);	
+					$date_end=cambia_dateN_to_dateMy_1($_POST['date_end']);	
 					//			
 					$rsver=$db->query("select * from ".TABLE22." where id_func='$id_func'");					
 					if (mysql_num_rows($rsver)!=0)
@@ -118,7 +118,7 @@ if (isset($_POST[save]))
 					
 					$rs5=$db->query("select id_con from ".TABLE30." order by id_con desc limit 1");
 					$r5=$db->fetch_array($rs5);
-					$id_contrato=$r5[id_con];
+					$id_contrato=$r5['id_con'];
 					
 					$rs6=$db->query("insert into ".TABLE17." (id_con, source_fin) values ('$id_contrato','$fuente')");
 													
@@ -127,8 +127,8 @@ if (isset($_POST[save]))
 					('$id_contrato','$charge_cont','$date_start','$num_cont')");	
 					
 					$estructura = 'files/';
-					$nombres=explode(" ",$_POST[name]);
-					$filename=ucfirst(strtolower($nombres[0])).ucfirst(strtolower($nombres[1])).ucfirst(strtolower($_POST[l_name1])).ucfirst(strtolower($_POST[l_name2]))."_".$dia.$mes.$ano."_".$ci;
+					$nombres=explode(" ",$_POST['name']);
+					$filename=ucfirst(strtolower($nombres[0])).ucfirst(strtolower($nombres[1])).ucfirst(strtolower($_POST['l_name1'])).ucfirst(strtolower($_POST['l_name2']))."_".$dia.$mes.$ano."_".$ci;
 									
 					//mkdir($estructura.$filename, 0777, true);
 					/*
@@ -220,25 +220,25 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
     <tr>
       <th><div align="left">NOMBRES:</div></th>
       <td><div >      
-        <input class="textarea_normal required"  name="name" type="text" id="name" size="45" value="<? echo $rexe[name]?>" />       
+        <input class="textarea_normal required"  name="name" type="text" id="name" size="45" value="<?php echo $rexe['name']?>" />       
       </div></td>
     </tr>
     <tr>
       <th><div align="left">APELLIDO PATERNO:</div></th>
       <td><div >
-        <input class="textarea_normal" name="l_name1" type="text"  id="l_name1" size="40" value="<? echo $rexe[l_name1]?>"  />
+        <input class="textarea_normal" name="l_name1" type="text"  id="l_name1" size="40" value="<?php echo $rexe['l_name1']?>"  />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">APELLIDO MATERNO:</div></th>
       <td><div >
-        <input class="textarea_normal required" name="l_name2" type="text"  id="l_name2" size="40"  value="<? echo $rexe[l_name2]?>" />
+        <input class="textarea_normal required" name="l_name2" type="text"  id="l_name2" size="40"  value="<?php echo $rexe['l_name2']?>" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">CARNET DE INDENTIDAD:</div></th>
       <td><div >
-        <input class="textarea_normal required number" name="ci" type="text"  id="ci" size="40" value="<? echo $rexe[ci]?>" />
+        <input class="textarea_normal required number" name="ci" type="text"  id="ci" size="40" value="<?php echo $rexe['ci']?>" />
       </div></td>
     </tr>
     <tr>
@@ -246,10 +246,10 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
       <td><div >
         <select name="expe" id="expe" class="textarea_normal">
         <option value="0">-</option>
-        <?
-			if (isset($rexe[expe]))
+        <?php
+			if (isset($rexe['expe']))
 			{
-				switch ($rexe[expe])
+				switch ($rexe['expe'])
 				{	
 					case 'LP':
 						echo '<option value="LP" selected="selected">LA PAZ</option>';
@@ -305,17 +305,17 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
         <tr>
       <th><div align="left">FECHA NACIMIENTO:</div></th>
       <td><div >
-        <input class="textarea_normal required" name="date_born" type="text"  id="date_born" size="25" value="<? echo cambia_dateMy_to_dateN($rexe[date_born])?>" />
+        <input class="textarea_normal required" name="date_born" type="text"  id="date_born" size="25" value="<?php echo cambia_dateMy_to_dateN($rexe['date_born'])?>" />
       </div></td>
     </tr>
     <tr>
       <th><div align="left">FUENTE DE FINANCIAMIENTO:</div></th>
       <td><div >
        <select class="select_normal required" name="fuente" id="fuente" class="textarea_normal" > 
-      <?
-	  if (isset($_POST[fuente]))
+      <?php
+	  if (isset($_POST['fuente']))
 	  {
-		 echo '<option value="'.$_POST[fuente].'" selected="selected">'.$_POST[fuente].'</option>';
+		 echo '<option value="'.$_POST['fuente'].'" selected="selected">'.$_POST['fuente'].'</option>';
 	  }
       ?>             
           <option value="TGN">TGN</option>
@@ -327,10 +327,10 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
         </select>
       </div></td>
     </tr>
-    <?
-	if (isset($_POST[save]))
+    <?php
+	if (isset($_POST['save']))
 	{
-		if ($_POST[fuente]=='TGN')
+		if ($_POST['fuente']=='TGN')
 		{
 			echo '<tr>
 					<th><div align="left">FECHA DE INGRESO:</div></th>
@@ -399,6 +399,6 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
   </table>
 </form>
 </fieldset>
-<?
+<?php
 $db->close();
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 $id_func=$_GET['id_func'];
 $id_per=$_GET['id_per'];
 /*while ($post = each($_POST))
@@ -16,7 +16,7 @@ $db->connect();
 	WHERE id_func='$id_func'
 	");
 	$rsxp1=$db->fetch_array($rsp1);
-	if($rsxp1[p7]==1)
+	if($rsxp1['p7']==1)
 	{
 	header ("Location: exito.php");	
 	}
@@ -49,54 +49,54 @@ ORDER BY id_char_per DESC LIMIT 1
 ");
 $rsx2=$db->fetch_array($rx2);
 
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 { 	
 //TABLA soc_secu
 //id_sec id_per name_sec num_reg date_afil type_sec date_des
 $on_off=1;
-$name_sec=strtoupper($_POST[name_sec]);
-$num_reg=strtoupper($_POST[num_reg]);
-$type_sec=$_POST[type_sec];
+$name_sec=strtoupper($_POST['name_sec']);
+$num_reg=strtoupper($_POST['num_reg']);
+$type_sec=$_POST['type_sec'];
 //TABLA old_cas
 //id_old_cas id_func date_start date_last year_rat month_rat day_rat
-$date_start=$_POST[date_start];
-$date_last=$_POST[date_last];
+$date_start=$_POST['date_start'];
+$date_last=$_POST['date_last'];
 $date_start=cambia_dateN_to_dateMy_1($date_start);	
 $date_last=cambia_dateN_to_dateMy_1($date_last);	 
-$year_rat=$_POST[year_rat];
-$month_rat=$_POST[moth_rat];
-$day_rat=$_POST[day_rat];
+$year_rat=$_POST['year_rat'];
+$month_rat=$_POST['moth_rat'];
+$day_rat=$_POST['day_rat'];
 //TABLA cta_banc
 //id_cta_banc id_func bank type_ac num_ac dist_ac
-$bank=strtoupper($_POST[bank]); 
-$type_ac=$_POST[type_ac]; 
-$num_ac=$_POST[num_ac]; 
-$dist_ac=strtoupper($_POST[dist_ac]);
+$bank=strtoupper($_POST['bank']); 
+$type_ac=$_POST['type_ac']; 
+$num_ac=$_POST['num_ac']; 
+$dist_ac=strtoupper($_POST['dist_ac']);
 //TABLE permanente_docs
 //id_perm_docs id_per memo file_pers pers_dat_incomp pers_dat_conf
 //cv ci date_cad_ci cn cm afp solvency ins_fund
-$cv=$_POST[cv]; 
-$ci=$_POST[ci];  
-$date_cad_ci=$_POST[date_cad_ci];
+$cv=$_POST['cv']; 
+$ci=$_POST['ci'];  
+$date_cad_ci=$_POST['date_cad_ci'];
 $date_cad_ci=cambia_dateN_to_dateMy_1($date_cad_ci);	 
-$cn=$_POST[cn];  
-$cm=$_POST[cm];  
+$cn=$_POST['cn'];  
+$cm=$_POST['cm'];  
 //TABLE ult_decl
 //id_ult_decl id_per date_dbr date_di
-$date_dbr=$_POST[date_dbr];
+$date_dbr=$_POST['date_dbr'];
 $date_dbr=cambia_dateN_to_dateMy_1($date_dbr);	 
-$date_di=$_POST[date_di];
+$date_di=$_POST['date_di'];
 $date_di=cambia_dateN_to_dateMy_1($date_di);
 //TABLE char_per
 //id_char_per id_per dir_g unit area boss_is boss_ij charge date_des num_memo
-$dir_g=strtoupper($_POST[dir_g]); 
-$unit=strtoupper($_POST[unit]); 
-$area=strtoupper($_POST[area]); 
-$boss_is=strtoupper($_POST[boss_is]); 
-$boss_ij=strtoupper($_POST[boss_ij]); 
-$charge=strtoupper($_POST[charge]); 
-$date_des=$_POST[date_des];
-$num_memo=strtoupper($_POST[num_memo]);
+$dir_g=strtoupper($_POST['dir_g']); 
+$unit=strtoupper($_POST['unit']); 
+$area=strtoupper($_POST['area']); 
+$boss_is=strtoupper($_POST['boss_is']); 
+$boss_ij=strtoupper($_POST['boss_ij']); 
+$charge=strtoupper($_POST['charge']); 
+$date_des=$_POST['date_des'];
+$num_memo=strtoupper($_POST['num_memo']);
 //-----------------------------
 //TABLA soc_secu
 //id_sec id_per name_sec num_reg date_afil type_sec date_des
@@ -220,10 +220,10 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información? \n\rHaga click en "CA
  </tr>
  <tr>
   	<td>
-  		<input name="name_sec" type="text" id="name_sec" size="35" value="<? echo "$rsx[name_sec]" ?>" maxlength="64"  readonly="readonly"/>
+  		<input name="name_sec" type="text" id="name_sec" size="35" value="<?php echo "$rsx[name_sec]" ?>" maxlength="64"  readonly="readonly"/>
    	</td>
 	<td>
-       <input name="num_reg" type="text" id="num_reg" size="25" value="<? echo "$rsx[num_reg]" ?>" maxlength="64"  readonly="readonly" />
+       <input name="num_reg" type="text" id="num_reg" size="25" value="<?php echo "$rsx[num_reg]" ?>" maxlength="64"  readonly="readonly" />
     </td>    
    	<td>
         <select name="type_sec" id="type_sec" >
@@ -254,12 +254,12 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información? \n\rHaga click en "CA
             <input name="date_start" type="text" id="date_start" size="7" maxlength="64" class="datepick" readonly="readonly"/>
         </td>
         <td width="105">
-            <input name="date_last" type="text" id="date_last" size="7" maxlength="64" value="<? echo "$rsx1[date_cas]" ?>"readonly="readonly" />
+            <input name="date_last" type="text" id="date_last" size="7" maxlength="64" value="<?php echo "$rsx1[date_cas]" ?>"readonly="readonly" />
         </td>
         <td width="149">
-           <input name="year_rat" type="text" id="year_rat" size="1" maxlength="64" value="<? echo "$rsx1[year_rat]" ?>" readonly="readonly" />
-           <input name="month_rat" type="text" id="month_rat" size="1" maxlength="64" value="<? echo "$rsx1[month_rat]" ?>" readonly="readonly" />
-           <input name="day_rat" type="text" id="day_rat" size="1" maxlength="64" value="<? echo "$rsx1[day_rat]" ?>" readonly="readonly" />
+           <input name="year_rat" type="text" id="year_rat" size="1" maxlength="64" value="<?php echo "$rsx1[year_rat]" ?>" readonly="readonly" />
+           <input name="month_rat" type="text" id="month_rat" size="1" maxlength="64" value="<?php echo "$rsx1[month_rat]" ?>" readonly="readonly" />
+           <input name="day_rat" type="text" id="day_rat" size="1" maxlength="64" value="<?php echo "$rsx1[day_rat]" ?>" readonly="readonly" />
        
         </td>    
 	</tr>
@@ -650,8 +650,8 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información? \n\rHaga click en "CA
 		<td width="250">Nº RESOLUCIÓN O MEMO:</td>
 <tr> 		
         <td width="233"><input name="boss_ij" type="text" id="boss_ij" size="30" maxlength="64" class="required" /></td>	
-		<td width="244"><textarea name="charge" cols="30" rows="2" readonly="readonly" id="charge"><? echo "$rsx2[charge]"?></textarea></td>	
-		<td width="247"><input name="date_des" type="text" id="date_des" size="10" maxlength="64" value="<? echo "$rsx2[date_des]" ?>" readonly="readonly"/></td>	
+		<td width="244"><textarea name="charge" cols="30" rows="2" readonly="readonly" id="charge"><?php echo "$rsx2[charge]"?></textarea></td>	
+		<td width="247"><input name="date_des" type="text" id="date_des" size="10" maxlength="64" value="<?php echo "$rsx2[date_des]" ?>" readonly="readonly"/></td>	
 		<td width="250"><input name="num_memo" type="text" id="num_memo" size="30" maxlength="64" /></td>	
 </tr>
   	<td width="165">
@@ -659,7 +659,7 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información? \n\rHaga click en "CA
     </td>
 </table>
 <!--SOLO PARA CONTRATOS EVENTUALES/CONSULTORES-->
-<?
+<?php
 
 //$db->close();
 ?>

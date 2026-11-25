@@ -1,4 +1,4 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
@@ -41,13 +41,13 @@ while ($r=$db->fetch_array($rs))
 		if ( $r2=$db->fetch_array($rs2))
 		{
 			echo ' <tr>   
-			<td>'.$r[l_name1].'</td>
-			<td>'.$r[l_name2].'</td>
-			<td>'.$r[name].'</td>
-			<td>'.cambia_dateMy_to_dateN($r[date_ent]).'</td>
-			<td><strong>'.cambia_dateMy_to_dateN($r1[date_efect]).'</strong></td>
+			<td>'.$r['l_name1'].'</td>
+			<td>'.$r['l_name2'].'</td>
+			<td>'.$r['name'].'</td>
+			<td>'.cambia_dateMy_to_dateN($r['date_ent']).'</td>
+			<td><strong>'.cambia_dateMy_to_dateN($r1['date_efect']).'</strong></td>
 			<td><img src="data/images/Bad.png"><strong>[NO DESAFILIADO]</strong></td>';
-			echo '<td><a href="#" onclick="MM_openBrWindow(\'RegDatosBaja.php?id='.$r[id_func].'&id_per='.$r[id_per].'\',\'regpermiso\',\'scrollbars=yes,width=600,height=420\')" title="Registrar Datos Seguro Médico">
+			echo '<td><a href="#" onclick="MM_openBrWindow(\'RegDatosBaja.php?id='.$r['id_func'].'&id_per='.$r['id_per'].'\',\'regpermiso\',\'scrollbars=yes,width=600,height=420\')" title="Registrar Datos Seguro Médico">
 			<img src="data/images/del_medical.png"></a></td>';
 		}
 	}

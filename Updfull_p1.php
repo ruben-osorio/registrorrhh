@@ -26,7 +26,7 @@ class clsRecordfuncionario { //funcionario Class @2-BE3EDF20
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -46,7 +46,7 @@ class clsRecordfuncionario { //funcionario Class @2-BE3EDF20
 //End Variables
 
 //Class_Initialize Event @2-445A17F1
-    function clsRecordfuncionario($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -609,13 +609,16 @@ class clsRecordfuncionario { //funcionario Class @2-BE3EDF20
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordfuncionario() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End funcionario Class @2-FCB6E20C
 
 class clsfuncionarioDataSource extends clsDBmadnes {  //funcionarioDataSource Class @2-5680E709
 
 //DataSource Variables @2-DBC1AF0A
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -667,7 +670,7 @@ class clsfuncionarioDataSource extends clsDBmadnes {  //funcionarioDataSource Cl
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-70401CC7
-    function clsfuncionarioDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record funcionario/Error";
@@ -1003,6 +1006,9 @@ class clsfuncionarioDataSource extends clsDBmadnes {  //funcionarioDataSource Cl
     }
 //End Delete Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsfuncionarioDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End funcionarioDataSource Class @2-FCB6E20C
 
 //Initialize Page @1-7381D006
@@ -1016,7 +1022,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 

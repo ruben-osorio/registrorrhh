@@ -1,0 +1,61 @@
+# =====================================================================
+# REPOSITORIO PÚBLICO: nunca publicar datos personales ni credenciales.
+# =====================================================================
+
+# Respaldos y volcados de base de datos (contienen datos personales)
+BACKS/
+*.sql
+*.sql.gz
+*.rar
+*.zip
+
+# Documentos de funcionarios: se cargan en el volumen de Railway, no en Git
+FormsVac/*
+!FormsVac/.gitkeep
+files/*
+!files/*.php
+!files/classes/
+!files/languages/
+!files/templates/
+!files/index_icons/
+!files/hidden_files
+!files/.gitkeep
+# Fotos de funcionarios (avatar_<CI>.jpg)
+images/tmp/*
+!images/tmp/default.jpg
+!images/tmp/.gitkeep
+
+# Material suelto sin relación con la aplicación (fichas escaneadas, música, pruebas)
+VARIOS/
+TOUPLOAD/
+TEMPORAL/
+TESTING/
+NOTES/
+
+# Reportes generados y documentos de oficina
+*.xls
+*.xlsx
+*.doc
+*.docx
+*.psd
+/*.pdf
+/reporteXXX.pdf
+/test.pdf
+
+# Configuración local y credenciales
+/.htaccess
+confighosting/
+config.inc_local.php
+**/.htpasswd*
+
+# Herramientas de administración de base de datos (no publicar)
+**/r1.php
+**/adminer*.php
+
+# Archivos del sistema / Office
+Thumbs.db
+~$*
+
+# Herramientas locales
+.codegraph/
+.vscode/

@@ -3,16 +3,13 @@
 	Date:  		 02/04/2012
 ******************************************************/
 
-
-
-
 body{
 	font-family: Tahoma, Verdana, Arial, sans-serif;
 	font-size: 12px;
 	color: #fff;
 	background-attachment: fixed;
-	background-color: #fff;
-	background-image: url(../../gebo/fnd_contentt.jpg);
+	background-color: #363d47;
+	background-image: url(../../gebo/fnd_content.jpg);
 	background-repeat: no-repeat;
 	background-position: center top;
 }
@@ -256,7 +253,7 @@ height:65px;
 background:url(../images/userbar_bg.png) top repeat-x;
 -webkit-border-radius:5px;
 -moz-border-radius:5px;
-border-radius:4px;
+border-radius:5px;
 border:1px solid #2B323B;
 -webkit-box-shadow:1px 2px 2px #323a43;
 -moz-box-shadow:1px 2px 2px #323a43;
@@ -264,22 +261,6 @@ box-shadow:1px 2px 2px #323a43;
 margin:5px;
 z-index:100;
 }
-
-#uk-navbar{
--moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background: #f7f7f7 linear-gradient(to bottom, #fff, #eee) repeat scroll 0 0 border-box;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.3);
-    border-image: none;
-    border-style: solid;
-    border-width: 1px;
-    color: #444;
-}
-
-
-
 #profile{
 height:65px;
 background:url(../images/userbar_bg.png) 65px repeat-x;
@@ -384,7 +365,7 @@ background:url(../images/userbar_bg.png) bottom repeat-x;
 background:url(../images/userbar_bg.png) center repeat-x;
 }
 #navigation li a{
-height:40px;
+height:30px;
 border-left:1px solid #505b6b;
 background-position:center 20px;
 color:#b6bfce;
@@ -592,9 +573,9 @@ margin-bottom:10px;
 
 -moz-border-radius:5px;
 border-radius:5px;
-
+-webkit-box-shadow:1px 2px 2px #323a43;
 -moz-box-shadow:1px 2px 2px #323a43;
-
+box-shadow:1px 2px 2px #323a43;
 }
 .block .titlebar{
 background:url(../images/block_title_bg.png) repeat-x;
@@ -602,8 +583,8 @@ background:url(../images/block_title_bg.png) repeat-x;
 -webkit-border-top-right-radius:5px;
 -moz-border-radius-topleft:5px;
 -moz-border-radius-topright:5px;
-border-top-left-radius:4px;
-border-top-right-radius:4px;
+border-top-left-radius:5px;
+border-top-right-radius:5px;
 border:1px solid #2b323b;
 position:relative;
 }
@@ -643,15 +624,15 @@ border-radius:0;
 .block .block_cont{
 color:#2e333b;
 background:#fff url(../images/block_cont_shadow.png) top repeat-x;
--webkit-border-bottom-right-radius:4px;
--webkit-border-bottom-left-radius:4px;
--moz-border-radius-bottomright:4px;
--moz-border-radius-bottomleft:4px;
-border-bottom-right-radius:4px;
-border-bottom-left-radius:4px;
-border-left:0px solid #ddd;
-border-right:0px solid #ddd;
-border-bottom:0px solid #ddd;
+-webkit-border-bottom-right-radius:5px;
+-webkit-border-bottom-left-radius:5px;
+-moz-border-radius-bottomright:5px;
+-moz-border-radius-bottomleft:5px;
+border-bottom-right-radius:5px;
+border-bottom-left-radius:5px;
+border-left:1px solid #272d35;
+border-right:1px solid #272d35;
+border-bottom:1px solid #272d35;
 padding:10px;
 }
 .block_cont p{
@@ -938,7 +919,7 @@ ul li,#body{
 margin:10px 0;
 }
 .form .input,.data-table-search input{
-height:25px;
+height:20px;
 border:1px solid #8e9bac;
 -webkit-border-radius:5px;
 -moz-border-radius:5px;
@@ -1058,4 +1039,3 @@ height:25px;
 	padding: 10px; 
 	background-color: #ff0000; color: #fff;
 }
-

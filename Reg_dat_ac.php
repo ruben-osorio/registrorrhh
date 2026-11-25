@@ -31,7 +31,7 @@ class clsGriddat_aca { //dat_aca class @2-D013C2B7
     public $RowNumber;
     public $ControlsVisible = array();
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -43,7 +43,7 @@ class clsGriddat_aca { //dat_aca class @2-D013C2B7
 //End Variables
 
 //Class_Initialize Event @2-EEE3B4A4
-    function clsGriddat_aca($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
         global $FileName;
         global $CCSLocales;
@@ -196,13 +196,16 @@ class clsGriddat_aca { //dat_aca class @2-D013C2B7
     }
 //End GetErrors Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsGriddat_aca() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End dat_aca Class @2-FCB6E20C
 
 class clsdat_acaDataSource extends clsDBmadnes {  //dat_acaDataSource Class @2-30446636
 
 //DataSource Variables @2-3F93F149
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -222,7 +225,7 @@ class clsdat_acaDataSource extends clsDBmadnes {  //dat_acaDataSource Class @2-3
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-423C76FB
-    function clsdat_acaDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Grid dat_aca";
@@ -260,7 +263,7 @@ class clsdat_acaDataSource extends clsDBmadnes {  //dat_acaDataSource Class @2-3
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], XXXXX, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'XXXXX', false);
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
              $this->wp->Criterion[1];
@@ -299,6 +302,9 @@ class clsdat_acaDataSource extends clsDBmadnes {  //dat_acaDataSource Class @2-3
     }
 //End SetValues Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsdat_acaDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End dat_acaDataSource Class @2-FCB6E20C
 
 class clsRecorddat_aca1 { //dat_aca1 Class @20-7AF47329
@@ -318,7 +324,7 @@ class clsRecorddat_aca1 { //dat_aca1 Class @20-7AF47329
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -338,7 +344,7 @@ class clsRecorddat_aca1 { //dat_aca1 Class @20-7AF47329
 //End Variables
 
 //Class_Initialize Event @20-31F0A629
-    function clsRecorddat_aca1($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -418,7 +424,7 @@ class clsRecorddat_aca1 { //dat_aca1 Class @20-7AF47329
             $this->end->HTML = true;
             if(!$this->FormSubmitted) {
                 if(!is_array($this->country->Value) && !strlen($this->country->Value) && $this->country->Value !== false)
-                    $this->country->SetText(BOLIVIA);
+                    $this->country->SetText('BOLIVIA');
             }
         }
     }
@@ -768,13 +774,16 @@ class clsRecorddat_aca1 { //dat_aca1 Class @20-7AF47329
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecorddat_aca1() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End dat_aca1 Class @20-FCB6E20C
 
 class clsdat_aca1DataSource extends clsDBmadnes {  //dat_aca1DataSource Class @20-1A9C2BF6
 
 //DataSource Variables @20-53FC6FF9
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -811,7 +820,7 @@ class clsdat_aca1DataSource extends clsDBmadnes {  //dat_aca1DataSource Class @2
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @20-23EE5A10
-    function clsdat_aca1DataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record dat_aca1/Error";
@@ -1041,6 +1050,9 @@ class clsdat_aca1DataSource extends clsDBmadnes {  //dat_aca1DataSource Class @2
     }
 //End Delete Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsdat_aca1DataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End dat_aca1DataSource Class @20-FCB6E20C
 
 //Initialize Page @1-882F5D3A
@@ -1054,7 +1066,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 

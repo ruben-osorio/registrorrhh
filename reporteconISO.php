@@ -232,16 +232,16 @@ $db->connect();
  </tr>
  <tr>
   	<td id="ftd">
-  		<? echo $rex[name];?>
+  		<?php echo $rex['name'];?>
    	</td>
   	<td id="ftd">
-  		<? echo $rex[l_name1];?>
+  		<?php echo $rex['l_name1'];?>
    	</td>
   	<td id="ftd">
-  		<? echo $rex[l_name2];?>
+  		<?php echo $rex['l_name2'];?>
    	</td>
   	<td id="ftd">
-  		<? echo $rex[c_status];?>
+  		<?php echo $rex['c_status'];?>
     </td>
 </tr>
  	<tr>
@@ -252,16 +252,16 @@ $db->connect();
  	</tr>
 	<tr>
       	<td id="ftd">
-  		<? echo $rex[l_name_es];?>
+  		<?php echo $rex['l_name_es'];?>
         </td>
       	<td id="ftd">
-  		<? echo $rex[nati];?>
+  		<?php echo $rex['nati'];?>
    		</td>
 		<td id="ftd">
-  		<? echo $rex[sex];?>
+  		<?php echo $rex['sex'];?>
    		</td>
 		<td id="ftd">
-  		<? echo $rex[g_blood];?>
+  		<?php echo $rex['g_blood'];?>
    		</td>
      </tr>
     <tr>
@@ -272,16 +272,16 @@ $db->connect();
  	</tr>
 	<tr>
 	<td id="ftd">
-  		<? echo $rex[ci];?>
+  		<?php echo $rex['ci'];?>
 	</td>
 	<td id="ftd">
-  		<? echo $rex[expe];?>
+  		<?php echo $rex['expe'];?>
 	</td>
 	<td id="ftd">
-  		<? echo $rex[nua];?>
+  		<?php echo $rex['nua'];?>
 	</td>
 	<td id="ftd">
-  		<? echo $rex[afp];?>
+  		<?php echo $rex['afp'];?>
 	</td>
 </tr>
     <tr>
@@ -292,16 +292,16 @@ $db->connect();
     </tr>
     <tr>
 	<td id="ftd">
-  		<? echo $rex[date_born];?>
+  		<?php echo $rex['date_born'];?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex[p1_born];?>
+  		<?php echo $rex['p1_born'];?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex[p2_born];?>
+  		<?php echo $rex['p2_born'];?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex[p3_born];?>
+  		<?php echo $rex['p3_born'];?>
    	</td>
 </tr>
     <tr>
@@ -312,16 +312,16 @@ $db->connect();
     </tr>   
     <tr>
 	<td id="ftd">
-  		<? echo $rex[adress];?>
+  		<?php echo $rex['adress'];?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex[place_res];?>
+  		<?php echo $rex['place_res'];?>
    	</td>    	
 	<td id="ftd">
-  		<? echo $rex[p_email];?>
+  		<?php echo $rex['p_email'];?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex[job_email];?>
+  		<?php echo $rex['job_email'];?>
    	</td>    
 </tr>
     <tr>
@@ -331,13 +331,13 @@ $db->connect();
         <td>&nbsp;</td>
    	</tr>   
 	<td id="ftd">
-  		<? echo $rex[phone_num];?>
+  		<?php echo $rex['phone_num'];?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex[cel_num];?>
+  		<?php echo $rex['cel_num'];?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex[phone_job];?>
+  		<?php echo $rex['phone_job'];?>
    	</td> 
 	<td>
   	
@@ -350,16 +350,16 @@ $db->connect();
    	</tr>   
     <tr>
 	<td id="ftd">
-  		<? echo $rex[prof];?>
+  		<?php echo $rex['prof'];?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex[col_prof];?>
+  		<?php echo $rex['col_prof'];?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex[num_prof];?>
+  		<?php echo $rex['num_prof'];?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex[nit]?>
+  		<?php echo $rex['nit']?>
    	</td>   
 </tr>
     <tr>
@@ -369,10 +369,10 @@ $db->connect();
     
     <tr>
 	<td id="ftd">
-  		<? echo $rex[lic_driv]?>
+  		<?php echo $rex['lic_driv']?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex[type_lic]?>
+  		<?php echo $rex['type_lic']?>
    	</td> 
 </tr>    
  </table>   
@@ -395,7 +395,7 @@ $db->connect();
 		<td width="178">LUGAR DE NACIMIENTO Y NACIONALIDAD:</td>
         <td width="107">TIPO Y NUMERO DE DOCUMENTO:</td>
     </tr>
-       	<?
+       	<?php
 		while($rex2=$db->fetch_array($rs4))
 	{
 		//type_p, name ,l_name1, l_name2, sex, born_date, pb_nat, tn_doc 
@@ -403,7 +403,7 @@ $db->connect();
 		echo "<td id=\"ftd\">"."$rex2[name]"."</td>";
 		echo "<td id=\"ftd\">"."$rex2[l_name1]"."</td>";
 		echo "<td id=\"ftd\">"."$rex2[l_name2]"."</td>";
-		if ($rex2[sex]=="MASCULINO" || $rex2[sex]=="Masculino" || $rex2[sex]=="masculino" || $rex2[sex]=="MALE")
+		if ($rex2['sex']=="MASCULINO" || $rex2['sex']=="Masculino" || $rex2['sex']=="masculino" || $rex2['sex']=="MALE")
 		{
 			echo "<td id=\"ftd\">M</td>";
 		}
@@ -434,16 +434,16 @@ $db->connect();
 </tr>
 <tr> 	
     <td id="ftd">
-  		<? echo $rex13[dir_g]?>
+  		<?php echo $rex13['dir_g']?>
    	</td> 
     <td id="ftd">
-  		<? echo $rex13[unit]?>
+  		<?php echo $rex13['unit']?>
    	</td> 
     <td id="ftd">
-  		<? echo $rex13[area]?>
+  		<?php echo $rex13['area']?>
    	</td> 
     <td id="ftd">
-  		<? echo $rex13[boss_is]?>
+  		<?php echo $rex13['boss_is']?>
    	</td> 	
 </tr>
 <tr> 		
@@ -454,16 +454,16 @@ $db->connect();
  </tr>
 <tr> 		
     <td id="ftd">
-  		<? echo $rex13[boss_ij]?>
+  		<?php echo $rex13['boss_ij']?>
    	</td> 
     <td id="ftd">
-  		<? echo $rex13[charge]?>
+  		<?php echo $rex13['charge']?>
    	</td> 
     <td id="ftd">
-  		<? echo $rex13[date_des]?>
+  		<?php echo $rex13['date_des']?>
    	</td> 
     <td id="ftd">
-  		<? echo $rex13[num_res_con]?>
+  		<?php echo $rex13['num_res_con']?>
    	</td>        
 </tr>
 </table>
@@ -485,19 +485,19 @@ $db->connect();
 	
 	<tr>	
 	<td id="ftd">
-  		<? echo $rex11[cv]; ?>
+  		<?php echo $rex11['cv']; ?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex11[ci];	?>
+  		<?php echo $rex11['ci'];	?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex11[date_cad_ci]?>
+  		<?php echo $rex11['date_cad_ci']?>
    	</td>
 	<td id="ftd">
-	<? echo $rex11[cn]; ?>
+	<?php echo $rex11['cn']; ?>
    	</td>
 	<td id="ftd">
-	<? echo $rex11[cm]; ?>
+	<?php echo $rex11['cm']; ?>
    	</td>
 	</tr>
 </table>    	        
@@ -509,10 +509,10 @@ $db->connect();
  		<td>DECLARACIÓN JURADA DE INCOMPATIBILIDAD:</td>
 	</tr>
     <td id="ftd">
-  		<? echo $rex12[date_dbr]?>
+  		<?php echo $rex12['date_dbr']?>
    	</td>
     <td id="ftd">
-  		<? echo $rex12[date_di]?>
+  		<?php echo $rex12['date_di']?>
    	</td>    
     
 	</tr>
@@ -536,16 +536,16 @@ $db->connect();
  </tr>
 <tr>
 	<td id="ftd">
-  		<? echo $rex10[bank]?>
+  		<?php echo $rex10['bank']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex10[type_ac]?>
+  		<?php echo $rex10['type_ac']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex10[num_ac]?>
+  		<?php echo $rex10['num_ac']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex10[dist_ac]?>
+  		<?php echo $rex10['dist_ac']?>
    	</td>
 </tr>    
 </table>
@@ -568,25 +568,25 @@ $db->connect();
 </tr>
 <tr> 		
         <td id="ftd">
-  			<? echo $rex15[cat]?>
+  			<?php echo $rex15['cat']?>
    		</td>
         <td id="ftd">
-  			<? echo $rex15[level]?>
+  			<?php echo $rex15['level']?>
    		</td>
         <td id="ftd">
-  			<? echo $rex15[post_car]?>
+  			<?php echo $rex15['post_car']?>
    		</td>
         <td id="ftd">
-  			<? echo $rex15[mod_ent]?>
+  			<?php echo $rex15['mod_ent']?>
    		</td>
         <td id="ftd">
-  			<? echo $rex15[form_rec]?>
+  			<?php echo $rex15['form_rec']?>
    		</td>
         <td id="ftd">
-  			<? echo $rex15[jornal]?>
+  			<?php echo $rex15['jornal']?>
    		</td>
         <td id="ftd">
-  			<? echo $rex15[sal_base]?>
+  			<?php echo $rex15['sal_base']?>
    		</td>
 </tr>
 </table>
@@ -606,7 +606,7 @@ $db->connect();
     	<td width="100">A FECHA:</td>
 
 </tr>
-       	<?
+       	<?php
 		while($rex16=$db->fetch_array($rs18))	
 		{	//id_old_mov id_func charge rea_chan num_res gral_dir unit area date_start date_end
 		echo "<tr><td id=\"ftd\">"."$rex16[charge]"."</td>";
@@ -634,13 +634,13 @@ $db->connect();
   </tr>
 <tr> 		
         <td id="ftd">
-  			<? echo $rex19[date_ent]?>
+  			<?php echo $rex19['date_ent']?>
    		</td>
         <td id="ftd">
-  			<? echo $rex19[date_end]?>
+  			<?php echo $rex19['date_end']?>
    		</td>
         <td id="ftd">
-  			<? echo $rex19[name_con]?>
+  			<?php echo $rex19['name_con']?>
    		</td>                
   </tr>
 </table>
@@ -655,7 +655,7 @@ $db->connect();
   </tr>
 <tr> 		
         <td id="ftd">
-  			<? echo $rex14[source_fin]?>
+  			<?php echo $rex14['source_fin']?>
    		</td>
   </tr>
 </table>
@@ -672,19 +672,19 @@ $db->connect();
         <td>TIPO DE RESPONSABLE:</td>		
 </tr>
     <td id="ftd">
-  		<? echo $rex17[date_eval]?>
+  		<?php echo $rex17['date_eval']?>
    	</td> 	
         <td id="ftd">
-  		<? echo $rex17[res_eval]?>
+  		<?php echo $rex17['res_eval']?>
    	</td> 	
         <td id="ftd">
-  		<? echo $rex17[cons_eval]?>
+  		<?php echo $rex17['cons_eval']?>
    	</td> 	
         <td id="ftd">
-  		<? echo $rex17[resp_eval]?>
+  		<?php echo $rex17['resp_eval']?>
    	</td> 	
         <td id="ftd">
-  		<? echo $rex17[type_resp]?>
+  		<?php echo $rex17['type_resp']?>
    	</td> 	
 </tr>    
 </table>
@@ -717,20 +717,20 @@ $db->connect();
     </tr>
      <tr>   
 	<td id="ftd">
-  		<? echo $rex[last_gra]?>
+  		<?php echo $rex['last_gra']?>
    	</td> 
     <td id="ftd">
-  		<? echo $rex[cole]?>
+  		<?php echo $rex['cole']?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex[ciudad_de]?>
+  		<?php echo $rex['ciudad_de']?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex[anyo_de]?>
+  		<?php echo $rex['anyo_de']?>
    	</td> 	
     
     <td id="ftd">
-  		<? if($rex[title]==1)
+  		<?php if($rex['title']==1)
 			{echo "SI";
 			}
 		else echo "NO";
@@ -761,7 +761,7 @@ $db->connect();
         <td width="80">TÍTULO ACADÉMICO:</td>
         <td width="83">TÍTULO EN PROVISIÓN NACIONAL:</td>
     </tr>
-       	<?
+       	<?php
 		while($rex3=$db->fetch_array($rs5))
 	{
 		//   city country acad_title revala inst_revala date_exp_a num_tit_a prov_nat_title revalp inst_revalp date_exp_p num_tit_p 
@@ -770,12 +770,12 @@ $db->connect();
 		echo "<td id=\"ftd\">"."$rex3[date_end]"."</td>";
 		echo "<td id=\"ftd\">"."$rex3[career_esp]"."</td>";
 		echo "<td id=\"ftd\">"."$rex3[name_inst]"."</td>";
-		if($rex3[end]==1) echo "<td id=\"ftd\">SI</td>";
+		if($rex3['end']==1) echo "<td id=\"ftd\">SI</td>";
 		else echo "<td id=\"ftd\">NO</td>";
 		echo "<td id=\"ftd\">"."$rex3[city]"."/"."$rex3[country]"."</td>";
-		if($rex3[acad_title]==1) echo "<td id=\"ftd\">SI</td>";
+		if($rex3['acad_title']==1) echo "<td id=\"ftd\">SI</td>";
 		else echo "<td id=\"ftd\">NO</td>";		
-		if($rex3[prov_nat_title]==1) echo "<td id=\"ftd\">SI</td>";
+		if($rex3['prov_nat_title']==1) echo "<td id=\"ftd\">SI</td>";
 		else echo "<td id=\"ftd\">NO</td>";	
 
 	}
@@ -816,111 +816,111 @@ $db->connect();
  <tr>
 <!--1-->
 	<td id="ftd">
-  		<? echo $rex4[descp]?>
+  		<?php echo $rex4['descp']?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex4[read_l]?>
+  		<?php echo $rex4['read_l']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[speak_l]?>
+  		<?php echo $rex4['speak_l']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[write_l]?>
+  		<?php echo $rex4['write_l']?>
    	</td>
 	<td></td>   
 	<td id="ftd">
-  		<? echo $rex5[desc_o]?>
+  		<?php echo $rex5['desc_o']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex5[level]?>
+  		<?php echo $rex5['level']?>
    	</td>
 </tr>
 <!--1-->
 <!--1-->
 	<td id="ftd">
-  		<? echo $rex4[descp1]?>
+  		<?php echo $rex4['descp1']?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex4[read_l1]?>
+  		<?php echo $rex4['read_l1']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[speak_l1]?>
+  		<?php echo $rex4['speak_l1']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[write_l1]?>
+  		<?php echo $rex4['write_l1']?>
    	</td>
 	<td></td>   
 	<td id="ftd">
-  		<? echo $rex5[desc_o1]?>
+  		<?php echo $rex5['desc_o1']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex5[level1]?>
+  		<?php echo $rex5['level1']?>
    	</td>
 </tr>
 <!--1-->
 <!--1-->
 	<td id="ftd">
-  		<? echo $rex4[descp2]?>
+  		<?php echo $rex4['descp2']?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex4[read_l2]?>
+  		<?php echo $rex4['read_l2']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[speak_l2]?>
+  		<?php echo $rex4['speak_l2']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[write_l2]?>
+  		<?php echo $rex4['write_l2']?>
    	</td>
 	<td></td>   
 	<td id="ftd">
-  		<? echo $rex5[desc_o2]?>
+  		<?php echo $rex5['desc_o2']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex5[level2]?>
+  		<?php echo $rex5['level2']?>
    	</td>
 </tr>
 <!--1-->
 <!--1-->
 	<td id="ftd">
-  		<? echo $rex4[descp3]?>
+  		<?php echo $rex4['descp3']?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex4[read_l3]?>
+  		<?php echo $rex4['read_l3']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[speak_l3]?>
+  		<?php echo $rex4['speak_l3']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[write_l3]?>
+  		<?php echo $rex4['write_l3']?>
    	</td>
 	<td></td>   
 	<td id="ftd">
-  		<? echo $rex5[desc_o3]?>
+  		<?php echo $rex5['desc_o3']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex5[level3]?>
+  		<?php echo $rex5['level3']?>
    	</td>
 </tr>
 <!--1-->
 <!--1-->
 	<td id="ftd">
-  		<? echo $rex4[descp4]?>
+  		<?php echo $rex4['descp4']?>
    	</td> 
 	<td id="ftd">
-  		<? echo $rex4[read_l4]?>
+  		<?php echo $rex4['read_l4']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[speak_l4]?>
+  		<?php echo $rex4['speak_l4']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex4[write_l4]?>
+  		<?php echo $rex4['write_l4']?>
    	</td>
 	<td></td>   
 	<td id="ftd">
-  		<? echo $rex5[desc_o4]?>
+  		<?php echo $rex5['desc_o4']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex5[level4]?>
+  		<?php echo $rex5['level4']?>
    	</td>
 </tr>
 <!--1-->
@@ -942,7 +942,7 @@ $db->connect();
   		<td>LUGAR (CIUDAD/PAÍS):</td>
     	<td>NÚMERO DE HORAS:</td>   
   </tr> 
-       	<?
+       	<?php
 		while($rex18=$db->fetch_array($rs20))	
 		{	
 		//id_func,date_start, date_end, name_event, type_cap, name_inst, place, num_hrs
@@ -972,45 +972,22 @@ $db->connect();
 <!--1-->
 <tr>
 	<td id="ftd">
-  		<? echo $rex6[univ]?>
+  		<?php echo $rex6['univ']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex6[asign]?>
+  		<?php echo $rex6['asign']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex6[career]?>
+  		<?php echo $rex6['career']?>
    	</td>
 	<td id="ftd">
-  		<? 	if($rex6[date_start]==0000-00-00) echo "-";
-			else echo $rex6[date_start];
+  		<?php 	if($rex6['date_start']==0000-00-00) echo "-";
+			else echo $rex6['date_start'];
 		?>
    	</td>
 	<td id="ftd">
-  		<? if($rex6[date_end]==0000-00-00) echo "-";
-			else echo $rex6[date_end];
-		?>
-   	</td>
-</tr>
-<!--1-->
-<!--1-->
-<tr>
-	<td id="ftd">
-  		<? echo $rex6[univ1]?>
-   	</td>
-	<td id="ftd">
-  		<? echo $rex6[asign1]?>
-   	</td>
-	<td id="ftd">
-  		<? echo $rex6[career1]?>
-   	</td>
-	<td id="ftd">
-  		<? 	if($rex6[date_start1]==0000-00-00) echo "-";
-			else echo $rex6[date_start1];
-		?>
-   	</td>
-	<td id="ftd">
-  		<? 	if($rex6[date_end1]==0000-00-00) echo "-";
-			else echo $rex6[date_end1];
+  		<?php if($rex6['date_end']==0000-00-00) echo "-";
+			else echo $rex6['date_end'];
 		?>
    	</td>
 </tr>
@@ -1018,45 +995,22 @@ $db->connect();
 <!--1-->
 <tr>
 	<td id="ftd">
-  		<? echo $rex6[univ2]?>
+  		<?php echo $rex6['univ1']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex6[asign2]?>
+  		<?php echo $rex6['asign1']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex6[career2]?>
+  		<?php echo $rex6['career1']?>
    	</td>
 	<td id="ftd">
-  		<? 	if($rex6[date_start2]==0000-00-00) echo "-";
-			else echo $rex6[date_start2];
+  		<?php 	if($rex6['date_start1']==0000-00-00) echo "-";
+			else echo $rex6['date_start1'];
 		?>
    	</td>
 	<td id="ftd">
-  		<? 	if($rex6[date_end2]==0000-00-00) echo "-";
-			else echo $rex6[date_end2];
-		?>
-   	</td>
-</tr>
-<!--1-->
-<!--1-->
-<tr>
-	<td id="ftd">
-  		<? echo $rex6[univ3]?>
-   	</td>
-	<td id="ftd">
-  		<? echo $rex6[asign3]?>
-   	</td>
-	<td id="ftd">
-  		<? echo $rex6[career3]?>
-   	</td>
-	<td id="ftd">
-  		<? 	if($rex6[date_start3]==0000-00-00) echo "-";
-			else echo $rex6[date_start3];
-		?>
-   	</td>
-	<td id="ftd">
-  		<? 	if($rex6[date_end3]==0000-00-00) echo "-";
-			else echo $rex6[date_end3];
+  		<?php 	if($rex6['date_end1']==0000-00-00) echo "-";
+			else echo $rex6['date_end1'];
 		?>
    	</td>
 </tr>
@@ -1064,22 +1018,68 @@ $db->connect();
 <!--1-->
 <tr>
 	<td id="ftd">
-  		<? echo $rex6[univ4]?>
+  		<?php echo $rex6['univ2']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex6[asign4]?>
+  		<?php echo $rex6['asign2']?>
    	</td>
 	<td id="ftd">
-  		<? echo $rex6[career4]?>
+  		<?php echo $rex6['career2']?>
    	</td>
 	<td id="ftd">
-  		<? 	if($rex6[date_start4]==0000-00-00) echo "-";
-			else echo $rex6[date_start4];
+  		<?php 	if($rex6['date_start2']==0000-00-00) echo "-";
+			else echo $rex6['date_start2'];
 		?>
    	</td>
 	<td id="ftd">
-  		<? 	if($rex6[date_end4]==0000-00-00) echo "-";
-			else echo $rex6[date_end4];
+  		<?php 	if($rex6['date_end2']==0000-00-00) echo "-";
+			else echo $rex6['date_end2'];
+		?>
+   	</td>
+</tr>
+<!--1-->
+<!--1-->
+<tr>
+	<td id="ftd">
+  		<?php echo $rex6['univ3']?>
+   	</td>
+	<td id="ftd">
+  		<?php echo $rex6['asign3']?>
+   	</td>
+	<td id="ftd">
+  		<?php echo $rex6['career3']?>
+   	</td>
+	<td id="ftd">
+  		<?php 	if($rex6['date_start3']==0000-00-00) echo "-";
+			else echo $rex6['date_start3'];
+		?>
+   	</td>
+	<td id="ftd">
+  		<?php 	if($rex6['date_end3']==0000-00-00) echo "-";
+			else echo $rex6['date_end3'];
+		?>
+   	</td>
+</tr>
+<!--1-->
+<!--1-->
+<tr>
+	<td id="ftd">
+  		<?php echo $rex6['univ4']?>
+   	</td>
+	<td id="ftd">
+  		<?php echo $rex6['asign4']?>
+   	</td>
+	<td id="ftd">
+  		<?php echo $rex6['career4']?>
+   	</td>
+	<td id="ftd">
+  		<?php 	if($rex6['date_start4']==0000-00-00) echo "-";
+			else echo $rex6['date_start4'];
+		?>
+   	</td>
+	<td id="ftd">
+  		<?php 	if($rex6['date_end4']==0000-00-00) echo "-";
+			else echo $rex6['date_end4'];
 		?>
    	</td>
 </tr>
@@ -1108,7 +1108,7 @@ $db->connect();
         <td width="84">AL:</td>
         <td width="84">FECHA DE RETIRO:</td>
  </tr>
-       	<?
+       	<?php
 		while($rex7=$db->fetch_array($rs9))
 	{	//name_inst type_inst form_ent date_ent place_lab charge rea_cha date_start date_end date_ret
 		echo "<tr><td id=\"ftd\">"."$rex7[name_inst]"."</td>";

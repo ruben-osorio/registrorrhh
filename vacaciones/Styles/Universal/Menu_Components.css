@@ -1,0 +1,746 @@
+/* htb - Horizontal Top to Bottom Menu */
+
+/* begin  hide/show blocks */
+	.Universal .menu_htb .right2 {
+		display: none;
+	}
+/* end hide/show blocks */
+
+.Universal .menu_htb a {
+	background-color: #525961;
+	background-image: url('Images/MenuBg.gif');background-repeat: repeat-x;background-position: top left;
+	height: auto;
+	width: auto;
+}
+
+.Universal .menu_htb a:hover, .Universal .menu_htb li:hover>a, .Universal ul.menu_htb .selected a {
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+/* <= ie6 */
+.Universal .menu_htb a:hover, .Universal .menu_htb .adxmhoverA, .Universal ul.menu_htb .selected a {		/* li:hover>a selector */
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_htb .text {
+	position: relative;
+	color: #e3e8f0;
+	margin-left: 1em; margin-right: 1em; 
+	padding-top: .5em; padding-bottom: .5em;
+	width: auto;
+	height: auto;
+	.display: inline; /* The IE Doubled Float-Margin Bug Fix */
+}
+
+html:first-child .Universal .menu_htb .text { /* Opera */
+	display: block;
+	float: none;
+}
+
+.Universal .menu_htb a:hover .text, .Universal .menu_htb li:hover>a .text, .Universal ul.menu_htb .selected a .text {
+	color: #e3e8f0;
+}
+
+/* <= ie6 */
+.Universal .menu_htb a:hover .text, .Universal .menu_htb .adxmhoverA .text, .Universal ul.menu_htb .selected a .text {
+	color: #e3e8f0;
+}
+
+.Universal .menu_htb a {
+	border: 0;
+}
+
+.Universal .menu_htb a:hover, .Universal .menu_htb li:hover>a, .Universal ul.menu_htb .selected a {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_htb a:hover, .Universal .menu_htb .adxmhoverA, .Universal ul.menu_htb .selected a {
+	border: 0;
+}
+
+.Universal .menu_htb, .Universal .menu_htb ul li {
+	background: transparent;
+}
+
+.Universal .menu_htb li {
+	border: 0;
+}
+
+/* second level */
+
+/* begin  hide/show blocks */
+	.Universal .menu_htb ul .right2 {
+		display: none;
+	}
+/* end hide/show blocks */
+
+.Universal .menu_htb ul .submenu .right2 {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 25%;
+	width: 10px;
+	height: 11px;
+	background-color: transparent;
+	background-image: url('Images/SubmenuArrow.gif');background-repeat: no-repeat;background-position: center left;
+}
+
+.Universal .menu_htb ul>li .submenu .right2 {
+	right: 0;
+	top: 0;
+	width: 10px;
+	height: 100%;
+}
+
+.Universal .menu_htb li li {	/* create borders around each item */
+	border: 0;
+}
+
+.Universal .menu_htb ul .text, .Universal ul.menu_htb .selected ul .text {
+	position: relative;
+	color: #e3e8f0;
+	height: auto;
+	margin-left: .5em; margin-right: .5em;
+	padding-top: .5em; padding-bottom: .5em;
+	.display: inline; /* The IE Doubled Float-Margin Bug Fix */
+}
+
+html:first-child .Universal .menu_htb ul .text { /* Opera */
+	display: block;
+	float: none;
+}
+
+.Universal .menu_htb ul a:hover .text, .Universal .menu_htb ul li:hover>a .text, .Universal ul.menu_htb .selected ul a:hover .text, .Universal ul.menu_htb .selected ul li:hover>a .text {
+	color: #e3e8f0;
+}
+
+/* <= ie6 */
+.Universal .menu_htb ul a:hover .text, .Universal .menu_htb ul .adxmhoverA .text, .Universal ul.menu_htb .selected ul a:hover .text, .Universal ul.menu_htb .selected ul .adxmhoverA .text {
+	color: #e3e8f0;
+}
+
+.Universal .menu_htb ul a, .Universal ul.menu_htb .selected ul a {
+	border: 0;
+}
+
+.Universal .menu_htb ul a:hover, .Universal .menu_htb ul li:hover>a, .Universal ul.menu_htb .selected ul a:hover, .Universal ul.menu_htb .selected ul li:hover>a {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_htb ul a:hover, .Universal .menu_htb ul .adxmhoverA, .Universal ul.menu_htb .selected ul a:hover, .Universal ul.menu_htb .selected ul .adxmhoverA {
+	border: 0;
+}
+
+.Universal ul.menu_htb ul li a, .Universal ul.menu_htb .selected ul li a { 
+	width: 100%;
+	height: auto;
+	background-color: #525961;
+	background-image: none;
+}
+
+.Universal .menu_htb ul a:hover, .Universal .menu_htb ul li:hover>a, .Universal ul.menu_htb .selected ul a:hover, .Universal ul.menu_htb .selected ul li:hover>a {
+	background-color: #353b43;
+	background-image: none;
+}
+
+/* <= ie6 */
+.Universal .menu_htb ul a:hover, .Universal .menu_htb ul .adxmhoverA, .Universal ul.menu_htb .selected ul a:hover, .Universal ul.menu_htb .selected ul .adxmhoverA {
+	background-color: #353b43;
+	background-image: none;
+}
+
+
+/* position of items */
+.Universal .menu_htb ul {
+	width: 15em;
+}
+
+.Universal .menu_htb a {
+	width: auto;
+	height: auto;
+	padding: 0;
+	cursor: hand;
+	float: left; /* is needed for ie, because it puts items to the next line */
+}
+
+html:first-child .Universal .menu_htb a { /* Opera */
+	float: none;
+}
+
+.Universal ul.menu_htb ul li a { 
+	width: 15em;
+	height: auto;
+	padding: 0;
+	overflow: hidden;
+	float: none;
+}
+
+.Universal .menu_htb li li:hover>ul {	/* inset 2nd+ submenus, to show off overlapping */
+	top: 5px;
+	left: 100%;
+}
+
+.Universal .menu_htb .adxmhoverUL .adxmhoverUL {	/* inset 2nd+ submenus, to show off overlapping */
+	top: 5px;
+	left: 100%;
+}
+
+
+/* hbt - Horizontal Bottom to Top */
+
+
+/* vlr - Vertical Left to Right */
+
+/* begin  hide/show blocks */
+	.Universal .menu_vlr .right2 {
+		display: none;
+	}
+/* end hide/show blocks */
+
+.Universal .menu_vlr a {
+	width: 100%;
+	height: auto;
+	background-color: #525961;
+	background-image: url('Images/MenuBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_vlr a:hover, .Universal .menu_vlr li:hover>a, .Universal ul.menu_vlr .selected a {
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr a:hover, .Universal .menu_vlr .adxmhoverA, .Universal ul.menu_vlr .selected a {		/* li:hover>a selector */
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_vlr .text {
+	position: relative;
+	height: auto;
+	width: 100%;
+	text-align: center;
+	color: #e3e8f0;
+	padding-top: .5em; padding-bottom: .5em;
+}
+
+.Universal .menu_vlr a:hover .text, .Universal .menu_vlr li:hover>a .text, .Universal ul.menu_vlr .selected a .text {
+	color: #e3e8f0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr a:hover .text, .Universal .menu_vlr .adxmhoverA .text, .Universal ul.menu_vlr .selected a .text {		/* li:hover>a selector */
+	color: #e3e8f0;
+}
+
+.Universal .menu_vlr a {
+	border: 0;
+}
+
+.Universal .menu_vlr a:hover, .Universal .menu_vlr li:hover>a, .Universal ul.menu_vlr .selected a {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr a:hover, .Universal .menu_vlr .adxmhoverA, .Universal ul.menu_vlr .selected a {		/* li:hover>a selector */
+	border: 0;
+}
+
+.Universal .menu_vlr, .Universal .menu_vlr ul li {
+	background: transparent;
+}
+
+.Universal .menu_vlr li {	/* create borders around each item */
+	border: 0;
+}
+
+/* second level */
+
+/* begin  hide/show blocks */
+	.Universal .menu_vlr ul .right2 {
+		display: none;
+	}
+/* end hide/show blocks */
+
+.Universal .menu_vlr ul li {	/* create borders around each item */
+	border: 0;
+}
+
+.Universal .menu_vlr ul .text, .Universal ul.menu_vlr .selected ul .text {
+	position: relative;
+	height: auto;
+	width: auto;
+	color: #e3e8f0;
+	text-align: left;
+	margin-left: .5em; margin-right: .5em;
+	padding-top: .5em; padding-bottom: .5em;
+	display: inline; /* The IE Doubled Float-Margin Bug Fix */
+}
+
+.Universal .menu_vlr ul a:hover .text, .Universal .menu_vlr ul li:hover>a .text, .Universal ul.menu_vlr .selected ul a:hover .text, .Universal ul.menu_vlr .selected ul li:hover>a .text {
+	color: #e3e8f0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr ul a:hover .text, .Universal .menu_vlr ul .adxmhoverA .text, .Universal ul.menu_vlr .selected ul a:hover .text, .Universal ul.menu_vlr .selected ul .adxmhoverA .text {		/* li:hover>a selector */
+	color: #e3e8f0;
+}
+
+.Universal .menu_vlr ul a, .Universal ul.menu_vlr .selected ul a {
+	border: 0;
+}
+
+.Universal .menu_vlr ul a:hover, .Universal .menu_vlr ul li:hover>a, .Universal ul.menu_vlr .selected ul a:hover, .Universal ul.menu_vlr .selected ul li:hover>a {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr ul a:hover, .Universal .menu_vlr ul .adxmhoverA, .Universal ul.menu_vlr .selected ul a:hover, .Universal ul.menu_vlr .selected ul .adxmhoverA {		/* li:hover>a selector */
+	border: 0;
+}
+
+.Universal .menu_vlr ul a, .Universal ul.menu_vlr .selected ul a {
+	width: 100%;
+	height: auto;
+	background-color: #525961;
+	background-image: none;
+}
+
+.Universal .menu_vlr ul a:hover, .Universal .menu_vlr ul li:hover>a, .Universal ul.menu_vlr .selected ul a:hover, .Universal ul.menu_vlr .selected ul li:hover>a {
+	background-color: #353b43;
+	background-image: none;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr ul a:hover, .Universal .menu_vlr ul .adxmhoverA, .Universal ul.menu_vlr .selected ul a:hover, .Universal ul.menu_vlr .selected ul .adxmhoverA {		/* li:hover>a selector */
+	background-color: #353b43;
+	background-image: none;
+}
+
+/* position of items */
+.Universal .menu_vlr, .Universal .menu_vlr ul {
+	width: 15em;
+}
+
+.Universal .menu_vlr li {
+	clear: both;
+}
+
+.Universal .menu_vlr a {
+	width: 15em;
+	height: auto;
+	padding: 0;
+	cursor: hand;
+	overflow: hidden;
+}
+
+.Universal .menu_vlr ul a {
+	width: 15em;
+	height: auto;
+	padding: 0;
+	overflow: hidden;
+}
+
+.Universal .menu_vlr li:hover>ul {	/* inset 2nd+ submenus, to show off overlapping */
+	top: 5px;
+	left: 100%;
+}
+
+.Universal .menu_vlr .adxmhoverUL {	/* inset 2nd+ submenus, to show off overlapping */
+	top: 5px;
+	left: 100%;
+}
+
+
+/* vrl - Vertical Right to Left */
+
+
+/* vlr_tree - Vertical Left to Right Tree */
+
+/* styles that are used with javascript */
+	.Universal .menu_vlr_tree .menu_vlr_tree_openedA .text {
+		font-weight: bold;
+	}
+
+	.Universal .menu_vlr_tree .menu_vlr_tree_openedUL {
+		display: block; 
+		visibility: visible;
+	}
+	
+	.Universal .menu_vlr_tree .menu_vlr_tree_closedUL {
+		display: none;
+		visibility: hidden;
+	}
+/* begin  hide/show blocks */
+	.Universal .menu_vlr_tree .right2 {
+		display: none;
+	}
+/* end hide/show blocks */
+
+.Universal .menu_vlr_tree a {
+	width: 100%;
+	height: auto;
+	background-color: #353b43;
+	background-image: url('Images/MenuBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_vlr_tree ul a {
+	background-color: #525961;
+	background-image: none;
+}
+
+.Universal .menu_vlr_tree a:hover, .Universal .menu_vlr_tree li:hover>a {
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr_tree a:hover, .Universal .menu_vlr_tree .adxmhoverA {		/* li:hover>a selector */
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_vlr_tree ul a:hover, .Universal .menu_vlr_tree ul li:hover>a {
+	background-image: none;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr_tree ul a:hover, .Universal .menu_vlr_tree ul .adxmhoverA {		/* li:hover>a selector */
+	background-image: none;
+}
+
+.Universal .menu_vlr_tree .menu_vlr_tree_openedA {
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_vlr_tree .text {
+	position: relative;
+	height: auto;
+	text-align: center;
+	color: #e3e8f0;
+	width: 100%;
+	padding-top: .5em; padding-bottom: .5em;
+}
+
+.Universal .menu_vlr_tree ul .text {
+	width: auto;
+	text-align: left;
+	margin-left: .5em; margin-right: .5em;
+	display: inline; /* The IE Doubled Float-Margin Bug Fix */
+}
+
+.Universal .menu_vlr_tree a:hover .text, .Universal .menu_vlr_tree li:hover>a .text {
+	color: #e3e8f0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr_tree a:hover .text, .Universal .menu_vlr_tree .adxmhoverA .text {		/* li:hover>a selector */
+	color: #e3e8f0;
+}
+
+.Universal .menu_vlr_tree .menu_vlr_tree_openedA .text {
+	color: #e3e8f0;
+}
+
+.Universal .menu_vlr_tree a {
+	border: 0;
+}
+
+.Universal .menu_vlr_tree ul a {
+	border: 0;
+}
+
+.Universal .menu_vlr_tree a:hover, .Universal .menu_vlr_tree li:hover>a {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr_tree a:hover, .Universal .menu_vlr_tree .adxmhoverA {		/* li:hover>a selector */
+	border: 0;
+}
+
+.Universal .menu_vlr_tree .menu_vlr_tree_openedA {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr_tree a:hover, .Universal .menu_vlr_tree .adxmhoverA {		/* li:hover>a selector */
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_vlr_tree, .Universal .menu_vlr_tree ul li {
+	background: transparent;
+}
+
+.Universal .menu_vlr_tree li {	/* create borders around each item */
+	border: 0;
+}
+
+/* second level */
+
+/* begin  hide/show blocks */
+	.Universal .menu_vlr_tree ul ul .right2 {
+		display: none;
+	}
+/* end hide/show blocks */
+
+.Universal .menu_vlr_tree ul ul li {	/* create borders around each item */
+	border: 0;
+}
+
+.Universal .menu_vlr_tree ul ul .text {
+	position: relative;
+	height: auto;
+	width: auto;
+	text-align: left;
+	color: #e3e8f0;
+	margin-left: .5em; margin-right: .5em;
+	padding-top: .5em; padding-bottom: .5em;
+	display: inline; /* The IE Doubled Float-Margin Bug Fix */
+}
+
+.Universal .menu_vlr_tree ul ul a:hover .text, .Universal .menu_vlr_tree ul ul li:hover>a .text {
+	color: #e3e8f0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr_tree ul ul a:hover .text, .Universal .menu_vlr_tree ul ul .adxmhoverA .text {		/* li:hover>a selector */
+	color: #e3e8f0;
+}
+
+.Universal .menu_vlr_tree ul ul a {
+	border: 0;
+}
+
+.Universal .menu_vlr_tree ul ul a:hover, .Universal .menu_vlr_tree ul ul li:hover>a {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr_tree ul ul a:hover, .Universal .menu_vlr_tree ul ul .adxmhoverA {		/* li:hover>a selector */
+	border: 0;
+}
+
+.Universal .menu_vlr_tree ul ul a {
+	width: 100%;
+	height: auto;
+	background-color: #525961;
+	background-image: none;
+}
+
+.Universal .menu_vlr_tree ul ul a:hover, .Universal .menu_vlr_tree ul ul li:hover>a {
+	background-color: #353b43;
+	background-image: none;
+}
+
+/* <= ie6 */
+.Universal .menu_vlr_tree ul ul a:hover, .Universal .menu_vlr_tree ul ul .adxmhoverA {		/* li:hover>a selector */
+	background-color: #353b43;
+	background-image: none;
+}
+
+/* position of items */
+.Universal .menu_vlr_tree, .Universal .menu_vlr_tree ul {
+	width: 15em;
+}
+
+.Universal .menu_vlr_tree ul {
+	float: left;
+}
+
+.Universal .menu_vlr_tree ul ul {
+	float: none;
+}
+
+.Universal .menu_vlr_tree a {
+	width: 15em;
+	height: auto;
+	padding: 0;
+	float: left;
+	cursor: hand;
+	overflow: hidden;
+}
+
+.Universal .menu_vlr_tree ul ul a {
+	width: 15em;
+	height: auto;
+	padding: 0;
+	float: left;
+	overflow: hidden;
+}
+
+.Universal .menu_vlr_tree li {
+	float: left;
+}
+
+/* vrl_tree - Vertical Right to Left Tree */
+
+
+/* vrl - Vertical Right to Left */
+
+/* begin  hide/show blocks */
+	.Universal .menu_vrl .right2 {
+		display: none;
+	}
+/* end hide/show blocks */
+
+.Universal .menu_vrl a {
+	width: 100%;
+	height: auto;
+	background-color: #525961;
+	background-image: url('Images/MenuBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_vrl a:hover, .Universal .menu_vrl li:hover>a, .Universal ul.menu_vrl .selected a {
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+/* <= ie6 */
+.Universal .menu_vrl a:hover, .Universal .menu_vrl .adxmhoverA, .Universal ul.menu_vrl .selected a {		/* li:hover>a selector */
+	background-color: #353b43;
+	background-image: url('Images/MenuActiveBg.gif');background-repeat: repeat-x;background-position: top left;
+}
+
+.Universal .menu_vrl .text {
+	position: relative;
+	height: auto;
+	width: 100%;
+	text-align: center;
+	color: #e3e8f0;
+	padding-top: .5em; padding-bottom: .5em;
+}
+
+.Universal .menu_vrl a:hover .text, .Universal .menu_vrl li:hover>a .text, .Universal ul.menu_vrl .selected a .text {
+	color: #e3e8f0;
+}
+
+/* <= ie6 */
+.Universal .menu_vrl a:hover .text, .Universal .menu_vrl .adxmhoverA .text, .Universal ul.menu_vrl .selected a .text {		/* li:hover>a selector */
+	color: #e3e8f0;
+}
+
+.Universal .menu_vrl a {
+	border: 0;
+}
+
+.Universal .menu_vrl a:hover, .Universal .menu_vrl li:hover>a, .Universal ul.menu_vrl .selected a {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_vrl a:hover, .Universal .menu_vrl .adxmhoverA, .Universal ul.menu_vrl .selected a {		/* li:hover>a selector */
+	border: 0;
+}
+
+.Universal .menu_vrl, .Universal .menu_vrl ul li {
+	background: transparent;
+}
+
+.Universal .menu_vrl li {	/* create borders around each item */
+	border: 0;
+}
+
+/* second level */
+
+/* begin  hide/show blocks */
+	.Universal .menu_vrl ul .right2 {
+		display: none;
+	}
+/* end hide/show blocks */
+
+.Universal .menu_vrl ul li {	/* create borders around each item */
+	border: 0;
+}
+
+.Universal .menu_vrl ul .text, .Universal ul.menu_vrl .selected ul .text {
+	position: relative;
+	height: auto;
+	width: auto;
+	color: #e3e8f0;
+	text-align: left;
+	margin-left: .5em; margin-right: .5em;
+	padding-top: .5em; padding-bottom: .5em;
+	display: inline; /* The IE Doubled Float-Margin Bug Fix */
+}
+
+.Universal .menu_vrl ul a:hover .text, .Universal .menu_vrl ul li:hover>a .text, .Universal ul.menu_vrl .selected ul a:hover .text, .Universal ul.menu_vrl .selected ul li:hover>a .text {
+	color: #e3e8f0;
+}
+
+/* <= ie6 */
+.Universal .menu_vrl ul a:hover .text, .Universal .menu_vrl ul .adxmhoverA .text, .Universal ul.menu_vrl .selected ul a:hover .text, .Universal ul.menu_vrl .selected ul .adxmhoverA .text {		/* li:hover>a selector */
+	color: #e3e8f0;
+}
+
+.Universal .menu_vrl ul a, .Universal ul.menu_vrl .selected ul a {
+	border: 0;
+}
+
+.Universal .menu_vrl ul a:hover, .Universal .menu_vrl ul li:hover>a, .Universal ul.menu_vrl .selected ul a:hover, .Universal ul.menu_vrl .selected ul li:hover>a {
+	border: 0;
+}
+
+/* <= ie6 */
+.Universal .menu_vrl ul a:hover, .Universal .menu_vrl ul .adxmhoverA, .Universal ul.menu_vrl .selected ul a:hover, .Universal ul.menu_vrl .selected ul .adxmhoverA {		/* li:hover>a selector */
+	border: 0;
+}
+
+.Universal .menu_vrl ul a, .Universal ul.menu_vrl .selected ul a {
+	width: 100%;
+	height: auto;
+	background-color: #525961;
+	background-image: none;
+}
+
+.Universal .menu_vrl ul a:hover, .Universal .menu_vrl ul li:hover>a, .Universal ul.menu_vrl .selected ul a:hover, .Universal ul.menu_vrl .selected ul li:hover>a {
+	background-color: #353b43;
+	background-image: none;
+}
+
+/* <= ie6 */
+.Universal .menu_vrl ul a:hover, .Universal .menu_vrl ul .adxmhoverA, .Universal ul.menu_vrl .selected ul a:hover, .Universal ul.menu_vrl .selected ul .adxmhoverA {		/* li:hover>a selector */
+	background-color: #353b43;
+	background-image: none;
+}
+
+/* position of items */
+.Universal .menu_vrl, .Universal .menu_vrl ul {
+	width: 15em;
+}
+
+.Universal .menu_vrl li {
+	clear: both;
+}
+
+.Universal .menu_vrl a {
+	width: 15em;
+	height: auto;
+	padding: 0;
+	cursor: hand;
+	overflow: hidden;
+}
+
+.Universal .menu_vrl ul a {
+	width: 15em;
+	height: auto;
+	padding: 0;
+	overflow: hidden;
+}
+
+.Universal .menu_vrl li:hover>ul {	/* inset 2nd+ submenus, to show off overlapping */
+	top: 5px;
+	right: 100%;
+}
+
+.Universal .menu_vrl .adxmhoverUL {	/* inset 2nd+ submenus, to show off overlapping */
+	top: 5px;
+	right: 100%;
+}
+

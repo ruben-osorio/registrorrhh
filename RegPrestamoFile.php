@@ -1,16 +1,16 @@
-<?
+<?php
 require("functions.inc.php");
 require("config.inc.php");
 require("database.class.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_fun=$_GET[id];
-if (isset($_GET[id]))
+$id_fun=$_GET['id'];
+if (isset($_GET['id']))
 {
-	if (isset($_POST[submit]))
+	if (isset($_POST['submit']))
 	{
-		$date_out=cambia_dateN_to_dateMy($_POST[date_out]);
-		$obs=$_POST[obs];
+		$date_out=cambia_dateN_to_dateMy($_POST['date_out']);
+		$obs=$_POST['obs'];
 		$rs1=$db->query("insert into ".TABLE6." (id_funcionario, fecha_salida, observaciones) values ('$id_fun','$date_out','$obs')");
 		if ($rs1)
 		{
@@ -55,11 +55,11 @@ if (isset($_GET[id]))
   <table width="100%" border="0" cellpadding="5">
     <tr>
       <td><div align="left">Nombres y Apellidos:</div></td>
-      <td><div align="left"><strong><? echo $r[name]." ".$r[l_name1]." ".$r[l_name2]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['name']." ".$r['l_name1']." ".$r['l_name2']; ?></strong></div></td>
     </tr>
     <tr>
       <td><div align="left">Cargo:</div></td>
-      <td><div align="left"><strong><? echo $r[office]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['office']; ?></strong></div></td>
     </tr>
     <tr>
       <td><div align="left">Fecha Pr&eacute;stamo:</div></td>
@@ -88,6 +88,6 @@ if (isset($_GET[id]))
   </table>
 </form>
 </fieldset>
-<?
+<?php
 }
 ?>

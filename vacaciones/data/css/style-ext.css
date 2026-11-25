@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+table{
+font-family:Tahoma, Verdana, Arial, sans-serif;
+font-size:12px;
+color:#000;
+}
+legend{
+font-family:Tahoma, Verdana, Arial, sans-serif;
+font-size: 15px;
+font-weight: bold;
+padding: 5px;
+}
+.alert {
+	padding:7px;
+	font-family:Tahoma, Verdana, Arial, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+}
+.success{
+	background-color:#ecfdce;
+	border: 1px solid #96cd00;
+}
+.form .submit, #loginbutton, #select_dest{
+display: block;
+height: 32px;
+background: url(../images/form_button.png) top repeat-x;
+color: white;
+text-align: center;
+text-shadow: 1px 1px 0 black;
+text-decoration: none;
+line-height: 30px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+border: 1px solid #2A3139;
+-webkit-box-shadow: 0 1px 1px #323A43;
+-moz-box-shadow: 0 1px 1px #323a43;
+box-shadow: 0 1px 1px #323A43;
+}

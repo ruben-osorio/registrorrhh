@@ -1,5 +1,7 @@
-<?php 
-session_start();
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
 
 class LoginSystem
 {
@@ -13,7 +15,7 @@ class LoginSystem
 	/**
 	 * Constructor
 	 */
-	function LoginSystem()
+	function __construct()
 	{
 		require_once('config.inc.php');		
 		$this->db_host = DB_SERVER;
@@ -23,84 +25,74 @@ class LoginSystem
 	}	
 	function isLoggedIn()
 	{
-		if($_SESSION['LoggedIn'])
-		{
-			return true;
-		}
-		else return false;
-	}	
+		return !empty($_SESSION['LoggedIn']);
+	}
 	function doLogin($username, $password)
 	{
-		$this->connect();		
+		$this->connect();
 		$this->username = strtoupper($username);
-		$this->password = $password;		
-		// check db for user and pass here.		
-/*		$sql = sprintf("SELECT * FROM ".TABLE1." WHERE username = '$this->clean($this->username)' 
-		and password = '$this->clean($this->password)'");*/
-					
-		$result = mysql_query("select * from ".TABLE4." where 
-		".TABLE4.".username='$username' and 
-		".TABLE4.".password='$password'	order by id ASC limit 1	
-		", $this->connection);
-	//	$resultp = mysql_query("SELECT id_per FROM permanente WHERE id_func = " . $_SESSION['id_func'] , $this->connection);
-		
-		// If no user/password combo exists return false
-		if(mysql_affected_rows($this->connection) != 1)
+		$this->password = $password;
+
+		// Consulta preparada: evita inyección SQL en el formulario de acceso.
+		$stmt = mysqli_prepare($this->connection,
+			"SELECT * FROM `".TABLE4."` WHERE username = ? AND password = ? ORDER BY id ASC LIMIT 1");
+		$row = null;
+		if ($stmt)
 		{
-			$IP=$_SERVER[REMOTE_ADDR];
-			//$FECHA=date("Y-m-d H:s",time());
-			$NAVEGADOR=$_SERVER['HTTP_USER_AGENT'];
-			$result1=mysql_query("INSERT INTO ".TABLE38."(user, ip, navigator, fecha_hora, action) values ('$username','$IP','$NAVEGADOR','$FECHA', 'LOGIN_FAIL')",$this->connection);
+			$user = (string) $username;
+			$pass = (string) $password;
+			mysqli_stmt_bind_param($stmt, 'ss', $user, $pass);
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+			$row = $result ? mysqli_fetch_assoc($result) : null;
+			mysqli_stmt_close($stmt);
+		}
+
+		if (!$row)
+		{
+			$this->logAccess($username, 'LOGIN_FAIL');
 			$this->disconnect();
-			return false;						
+			return false;
 		}
-		else // matching login ok
-		{
-			$row = mysql_fetch_array($result);
-			// more secure to regenerate a new id.
-			session_regenerate_id();
-			
-			//set session vars up
-			//id	username	password	nombre	ap_1	ap_2	fecha_nac	permisos
-			
-			$_SESSION['LoggedIn'] = true;			
-			$_SESSION['id_func'] = $row[id_func];
-			$_SESSION['username'] = $row[username];
-			$_SESSION['nombre_user'] = $row[nombre];
-			$_SESSION['ap_1_user'] = $row[ap_1];
-			$_SESSION['ap_2_user'] = $row[ap_2];
-			$_SESSION['permisos'] = $row[permisos];
-			
-			$IP=$_SERVER[REMOTE_ADDR];
-			//$FECHA=date("Y-m-d H:s",time());
-			$NAVEGADOR=$_SERVER['HTTP_USER_AGENT'];
-			$result1=mysql_query("INSERT INTO ".TABLE38."(user, ip, navigator, fecha_hora, action) values ('$row[username]','$IP','$NAVEGADOR','$FECHA', 'LOGIN_OK')",$this->connection);
-			
-			//FECHA ACTUAL
-			/*$actual_date=date ("Y-m-d",time());
-			$result1 = mysql_query( 'select rang_start,rang_end  from '.TABLE37.' where id_func='.$row[id_func].' ', $this->connection);
-			$r1=mysql_fetch_array($result1);
-			
-			$date_start=$r1[rang_start];
-			$date_end=$r1[rang_end];
-			
-			$result2=mysql_query("select * from ".TABLE37." where id_func=".$row[id_func]." AND  ",$this->connection);*/
-			
-			/*
-			$rowp = mysql_fetch_array($resultp);
-			if ($resultp )
-				$_SESSION['id_per'] = $rowp[id_per];
-			else
-				$_SESSION['id_per'] = 0;
-			*/
-			
-			/*
-			*/
-			
-		}
-		
+
+		// more secure to regenerate a new id.
+		session_regenerate_id(true);
+
+		//set session vars up
+		//id	username	password	nombre	ap_1	ap_2	fecha_nac	permisos
+		$_SESSION['LoggedIn'] = true;
+		$_SESSION['id_func'] = $row['id_func'];
+		$_SESSION['username'] = $row['username'];
+		$_SESSION['nombre_user'] = $row['nombre'];
+		$_SESSION['ap_1_user'] = $row['ap_1'];
+		$_SESSION['ap_2_user'] = $row['ap_2'];
+		$_SESSION['permisos'] = $row['permisos'];
+
+		$this->logAccess($row['username'], 'LOGIN_OK');
 		$this->disconnect();
 		return true;
+	}
+
+	/**
+	 * Registra el intento de acceso en logs_access.
+	 */
+	function logAccess($username, $action)
+	{
+		$stmt = mysqli_prepare($this->connection,
+			"INSERT INTO `".TABLE38."` (user, ip, navigator, fecha_hora, action) VALUES (?, ?, ?, ?, ?)");
+		if (!$stmt)
+		{
+			return;
+		}
+		$user = (string) $username;
+		$ip = isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+			? trim(explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0])
+			: (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
+		$navegador = isset($_SERVER['HTTP_USER_AGENT']) ? substr($_SERVER['HTTP_USER_AGENT'], 0, 255) : '';
+		$fecha = date("Y-m-d H:i:s");
+		mysqli_stmt_bind_param($stmt, 'sssss', $user, $ip, $navegador, $fecha, $action);
+		mysqli_stmt_execute($stmt);
+		mysqli_stmt_close($stmt);
 	}
 	
 	/**
@@ -120,36 +112,12 @@ class LoginSystem
 	 */
 	function connect()
 	{
-		/*echo "$this->db_host"."<br />";
-		echo "$this->db_user"."<br />";
-		echo "$this->db_password"."<br />";
-		*/
-		//$this->connection = mysql_connect("$this->db_host:3306", "$this->db_user", "$this->db_password") 
 		
+		// mysql_connect (compat.php) usa la configuración central / variables de entorno.
+		$this->connection = mysql_connect() or die("No se pudo conectar a MySQL");
+
+		mysql_select_db($this->db_name, $this->connection) or die("No se pudo seleccionar la base de datos");
 		
-		try
-		{
-			if ($this->connection = mysql_connect("localhost:3306", "ruben", "roacorp") )
-			{
-				//do something
-				mysql_select_db($this->db_name, $this->connection) or die("Unable to select DB!");
-			}
-			else
-			{
-				throw new Exception('Unable to connect');
-			}
-		}
-		catch(Exception $e)
-		{
-			die( $e->getMessage());
-		}
-
-		/*$this->connection = mysql_connect("localhost:3306", "ruben", "roacorp") 
-														or die("Unable to connect to MySQL");
-	
-
-		mysql_select_db($this->db_name, $this->connection) or die("Unable to select DB!");
-		*/
 		// Valid connection object? everything ok?
 		if($this->connection)
 		{
@@ -209,6 +177,9 @@ class LoginSystem
 		return $pass;
 	}
 
+
+	// Alias del constructor estilo PHP 4
+	function LoginSystem() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 ?>

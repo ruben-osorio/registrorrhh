@@ -21,7 +21,7 @@ foreach ($AllowedFiles as $FileMask => $FileType) {
             if (filesize($file_path))
                 $file_content = fread($fh, filesize($file_path));
             fclose($fh);
-            $file_content = preg_replace("/\\{res:\s*(\w+)\\}/ise", "CCConvertEncoding(\$CCSLocales->GetText('\\1'), \$FileEncoding, \$ClientFileEncoding)", $file_content);
+            $file_content = preg_replace_callback("/\\{res:\s*(\w+)\\}/is", function ($m) use ($CCSLocales, $FileEncoding, $ClientFileEncoding) { return CCConvertEncoding($CCSLocales->GetText($m[1]), $FileEncoding, $ClientFileEncoding); }, $file_content);
         }
             header($FileType);
         echo $file_content;

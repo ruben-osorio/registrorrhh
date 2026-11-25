@@ -1,46 +1,46 @@
-<?
+<?php
 require_once("security.php");
 require("functions.inc.php");
-$id_func=$_GET[id_func];
+$id_func=$_GET['id_func'];
 require("config.inc.php");
 require("database.class.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-if (isset($_POST[save1]))
-{ 	$name=strtoupper($_POST[name]);
-	$l_name1=strtoupper($_POST[l_name1]);
-	$l_name2=strtoupper($_POST[l_name2]);
-	$c_status=$_POST[c_status];
-	$l_name_es=strtoupper($_POST[l_name_es]);
-	$nati=strtoupper($_POST[nati]);
-	$expe=$_POST[expe];
-	$nua=$_POST[nua];
-	$afp=$_POST[afp];
-	$sex=$_POST[sex];
-	$g_blood=strtoupper($_POST[g_blood]);
-	$lic_driv=$_POST[lic_driv];
-	$type_lic=$_POST[type_lic];
-	$date_born=$_POST[date_born];
-	$p1_born=strtoupper($_POST[p1_born]);	
-	$p2_born=strtoupper($_POST[p2_born]);	
-	$p3_born=strtoupper($_POST[p3_born]);	
-	$adress=strtoupper($_POST[adress]);
-	$place_res=strtoupper($_POST[place_res]);
-	$p_email=strtolower($_POST[p_email]);
-	$job_email=strtolower($_POST[job_email]);
-	$phone_num=$_POST[phone_num];	
-	$cel_num=$_POST[cel_num];
-	$phone_job=$_POST[phone_job];
-	$prof=strtoupper($_POST[prof]);
-	$col_prof=strtoupper($_POST[col_prof]);
-	$num_prof=strtoupper($_POST[num_prof]); 
-	$nit=$_POST[nit];
-	$last_gra=strtoupper($_POST[last_gra]);
-	$cole=strtoupper($_POST[cole]);
-	$city_c=strtoupper($_POST[city_c]);
-	$year_end=strtoupper($_POST[year_end]);
-	$title=strtoupper($_POST[title]);
+if (isset($_POST['save1']))
+{ 	$name=strtoupper($_POST['name']);
+	$l_name1=strtoupper($_POST['l_name1']);
+	$l_name2=strtoupper($_POST['l_name2']);
+	$c_status=$_POST['c_status'];
+	$l_name_es=strtoupper($_POST['l_name_es']);
+	$nati=strtoupper($_POST['nati']);
+	$expe=$_POST['expe'];
+	$nua=$_POST['nua'];
+	$afp=$_POST['afp'];
+	$sex=$_POST['sex'];
+	$g_blood=strtoupper($_POST['g_blood']);
+	$lic_driv=$_POST['lic_driv'];
+	$type_lic=$_POST['type_lic'];
+	$date_born=$_POST['date_born'];
+	$p1_born=strtoupper($_POST['p1_born']);	
+	$p2_born=strtoupper($_POST['p2_born']);	
+	$p3_born=strtoupper($_POST['p3_born']);	
+	$adress=strtoupper($_POST['adress']);
+	$place_res=strtoupper($_POST['place_res']);
+	$p_email=strtolower($_POST['p_email']);
+	$job_email=strtolower($_POST['job_email']);
+	$phone_num=$_POST['phone_num'];	
+	$cel_num=$_POST['cel_num'];
+	$phone_job=$_POST['phone_job'];
+	$prof=strtoupper($_POST['prof']);
+	$col_prof=strtoupper($_POST['col_prof']);
+	$num_prof=strtoupper($_POST['num_prof']); 
+	$nit=$_POST['nit'];
+	$last_gra=strtoupper($_POST['last_gra']);
+	$cole=strtoupper($_POST['cole']);
+	$city_c=strtoupper($_POST['city_c']);
+	$year_end=strtoupper($_POST['year_end']);
+	$title=strtoupper($_POST['title']);
 	
 	//name l_name1 l_name2 c_status l_name_es
 	//nati expe nua afp sex g_blood lic_driv
@@ -59,7 +59,7 @@ WHERE id_func='$id_func'
 
 }
 //-----------------------------
-if (isset($_POST[save2]))
+if (isset($_POST['save2']))
 {	//last_gra cole city_c year_end title 
 	$rs1=$db->query("
 	UPDATE ".TABLE10." SET  last_gra='$last_gra', cole='$cole', city_c='$city_c', year_end='$year_end', title='$title'
@@ -73,7 +73,7 @@ if (isset($_POST[save2]))
 $post_numero = count($_POST);
 echo $post_numero;
 $con=($post_numero-1)/8;
-if (isset($_POST[save3]))
+if (isset($_POST['save3']))
 {	unset($_POST["save3"]);
 	$on_off=1;
 	$post_etiquetas = array_keys($_POST); // obtiene los nombres de las varibles
@@ -238,18 +238,18 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
  </tr>
  <tr>
   	<td>
-        <input name="name" type="text" id="name" size="35" maxlength="64" value="<? echo $rex[name];?>"/>
+        <input name="name" type="text" id="name" size="35" maxlength="64" value="<?php echo $rex['name'];?>"/>
    	</td>
   	<td>
-        <input name="l_name1" type="text" id="l_name1" size="35" maxlength="64" value="<? echo $rex[l_name1];?>"/>
+        <input name="l_name1" type="text" id="l_name1" size="35" maxlength="64" value="<?php echo $rex['l_name1'];?>"/>
    	</td>
   	<td>
-        <input name="l_name2" type="text" id="l_name2" size="35" maxlength="64" value="<? echo $rex[l_name2];?>"/>
+        <input name="l_name2" type="text" id="l_name2" size="35" maxlength="64" value="<?php echo $rex['l_name2'];?>"/>
 
    	</td>
 	<td>
         <select name="c_status" id="c_status" >        
-        	<option value="<? echo $rex[c_status];?>"><? echo $rex[c_status];?></option>
+        	<option value="<?php echo $rex['c_status'];?>"><?php echo $rex['c_status'];?></option>
             <option value="SOLTERA(O)">SOLTERA(O)</option>
         	<option value="CASADA(O)">CASADA(O)</option>
         	<option value="VIUDA(0)">VIUDA(O)</option>
@@ -265,18 +265,18 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
  	</tr>
 	<tr>
   		<td>
-  			<input name="l_name_es" type="text" id="l_name_es" size="35" maxlength="64" value="<? echo $rex[l_name_es];?>"/>
+  			<input name="l_name_es" type="text" id="l_name_es" size="35" maxlength="64" value="<?php echo $rex['l_name_es'];?>"/>
    		</td>
 	    <td>
-  			<input name="nati" type="text" id="nati" size="35" maxlength="64" class="required" value="<? echo $rex[nati];?>"/>
+  			<input name="nati" type="text" id="nati" size="35" maxlength="64" class="required" value="<?php echo $rex['nati'];?>"/>
    		</td>
 		<td><select name="sex" id="sex" >
 
-        <option value="<? echo $rex[sex];?>"><? echo $rex[sex];?></option>
+        <option value="<?php echo $rex['sex'];?>"><?php echo $rex['sex'];?></option>
 		  <option value="M">MASCULINO</option>
 		  <option value="F">FEMENINO</option>
 	    </select></td>
-		<td><input name="g_blood" type="text" id="g_blood" size="25" maxlength="64" class="required" value="<? echo $rex[g_blood];?>"/></td>
+		<td><input name="g_blood" type="text" id="g_blood" size="25" maxlength="64" class="required" value="<?php echo $rex['g_blood'];?>"/></td>
     </tr>
     <tr>
   		<td>NUA/CUA:</td>
@@ -284,10 +284,10 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
  	</tr>
 	<tr>	
         <td>
-   			<input name="nua" type="text" id="nua"  size="25" maxlength="35" class="required number " value="<? echo $rex[nua];?>"/></td>
+   			<input name="nua" type="text" id="nua"  size="25" maxlength="35" class="required number " value="<?php echo $rex['nua'];?>"/></td>
 		<td>
         	<select name="afp" id="afp">     
-            <option value="<? echo $rex[afp];?>"><? echo $rex[afp];?></option>           	<option value="FUTURO">FUTURO</option>
+            <option value="<?php echo $rex['afp'];?>"><?php echo $rex['afp'];?></option>           	<option value="FUTURO">FUTURO</option>
         	<option value="PREVISIÓN">PREVISION</option>
         	</select>
     	</td>	
@@ -301,10 +301,10 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
     
     <tr>
   		<td>
-        <input name="nua" type="text" id="nua"  size="25" maxlength="35" class="required number " value="<? echo $rex[nua];?>"/>
+        <input name="nua" type="text" id="nua"  size="25" maxlength="35" class="required number " value="<?php echo $rex['nua'];?>"/>
         </td>
 	    <td><select name="expe" id="expe">
-	      <option value="<? echo $rex[expe];?>"><? echo $rex[expe];?></option>
+	      <option value="<?php echo $rex['expe'];?>"><?php echo $rex['expe'];?></option>
 	      <option value="LP">LA PAZ</option>
 	      <option value="OR">ORURO</option>
 	      <option value="PT">POTOSI</option>
@@ -316,11 +316,11 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
 	      <option value="SCZ">SANTA CRUZ</option>
         </select></td>
 		<td>
-   			<input name="lic_driv" type="digits" id="lic_driv"  size="25" maxlength="35" value="<? echo $rex[lic_driv];?>" />
+   			<input name="lic_driv" type="digits" id="lic_driv"  size="25" maxlength="35" value="<?php echo $rex['lic_driv'];?>" />
    		</td>
 		<td>
         	<select name="type_lic" id="type_lic" >        
-            <option value="<? echo $rex[lic_driv];?>"><? echo $rex[lic_driv];?></option>
+            <option value="<?php echo $rex['lic_driv'];?>"><?php echo $rex['lic_driv'];?></option>
 			<option value="0">-</option>	
         	<option value="P">P</option>
         	<option value="A">A</option>
@@ -338,16 +338,16 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
     </tr>
     <tr>
         <td>
-        <input name="date_born" type="text" id="date_born" size="30" maxlength="64" value="<? echo $rex[date_born];?>" class="required" />
+        <input name="date_born" type="text" id="date_born" size="30" maxlength="64" value="<?php echo $rex['date_born'];?>" class="required" />
   		</td>
 	    <td>
-  			<input name="p1_born" type="text" id="p1_born" size="30" maxlength="64" class="required" value="<? echo $rex[p1_born];?>"/>
+  			<input name="p1_born" type="text" id="p1_born" size="30" maxlength="64" class="required" value="<?php echo $rex['p1_born'];?>"/>
        	</td>
 	    <td>
-  			<input name="p2_born" type="text" id="p2_born" size="30" maxlength="64" class="required" value="<? echo $rex[p2_born];?>"/>
+  			<input name="p2_born" type="text" id="p2_born" size="30" maxlength="64" class="required" value="<?php echo $rex['p2_born'];?>"/>
        	</td>
 	    <td>
-  			<input name="p3_born" type="text" id="p3_born" size="30" maxlength="64" class="required" value="<? echo $rex[p3_born];?>"/>
+  			<input name="p3_born" type="text" id="p3_born" size="30" maxlength="64" class="required" value="<?php echo $rex['p3_born'];?>"/>
        	</td>
 	</tr>
     <tr>
@@ -358,16 +358,16 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
     </tr>   
     <tr>
     	<td>
-  			<input name="adress" type="text" id="adress" size="30" maxlength="64" class="required" value="<? echo $rex[adress];?>"/>
+  			<input name="adress" type="text" id="adress" size="30" maxlength="64" class="required" value="<?php echo $rex['adress'];?>"/>
        	</td>  
  	    <td>
-  			<input name="place_res" type="text" id="place_res" size="30" maxlength="64" class="required" value="<? echo $rex[place_res];?>"/>
+  			<input name="place_res" type="text" id="place_res" size="30" maxlength="64" class="required" value="<?php echo $rex['place_res'];?>"/>
        	</td>  
         <td>   
-    	    <input name="p_email" type="email" id="p_email" size="30" maxlength="128" class="required" value="<? echo $rex[p_email];?>"/>
+    	    <input name="p_email" type="email" id="p_email" size="30" maxlength="128" class="required" value="<?php echo $rex['p_email'];?>"/>
         </td>  
         <td>   
-        	<input name="job_email" type="email" id="job_email" size="30" maxlength="128" class="required" value="<? echo $rex[job_email];?>"/>
+        	<input name="job_email" type="email" id="job_email" size="30" maxlength="128" class="required" value="<?php echo $rex['job_email'];?>"/>
         </td>  
     </tr>
     <tr>
@@ -378,13 +378,13 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
    	</tr>   
     <tr>
 		<td>
-   			<input name="phone_num" type="digits" id="phone_num"  size="25" maxlength="35" value="<? echo $rex[phone_num];?>"/>
+   			<input name="phone_num" type="digits" id="phone_num"  size="25" maxlength="35" value="<?php echo $rex['phone_num'];?>"/>
 		</td>
 		<td>
-   			<input name="cel_num" type="digits" id="cel_num"  size="25" maxlength="35" value="<? echo $rex[cel_num];?>" class="required"/>
+   			<input name="cel_num" type="digits" id="cel_num"  size="25" maxlength="35" value="<?php echo $rex['cel_num'];?>" class="required"/>
 		</td>    
 		<td>
-   			<input name="phone_job" type="digits" id="phone_job"  size="25" maxlength="35" value="<? echo $rex[phone_job];?>"/>
+   			<input name="phone_job" type="digits" id="phone_job"  size="25" maxlength="35" value="<?php echo $rex['phone_job'];?>"/>
 		</td>    
     	 <td>&nbsp;</td>
     </tr>
@@ -397,16 +397,16 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
     <tr>
   
 		<td>
-   			<input name="prof" type="text" id="prof"  size="35" maxlength="35"value="<? echo $rex[prof];?>"/>
+   			<input name="prof" type="text" id="prof"  size="35" maxlength="35"value="<?php echo $rex['prof'];?>"/>
 		</td>
 		<td>
-   			<input name="col_prof" type="text" id="col_prof"  size="30" maxlength="35" value="<? echo $rex[col_prof];?>"/>
+   			<input name="col_prof" type="text" id="col_prof"  size="30" maxlength="35" value="<?php echo $rex['col_prof'];?>"/>
 		</td>    
 		<td>
-   			<input name="num_prof" type="text" id="num_prof"  size="25" maxlength="35" value="<? echo $rex[num_prof];?>"/>
+   			<input name="num_prof" type="text" id="num_prof"  size="25" maxlength="35" value="<?php echo $rex['num_prof'];?>"/>
 		</td>    
 		<td>
-   			<input name="nit" type="text" id="nit"  size="25" maxlength="35"value="<? echo $rex[nit];?>"/>
+   			<input name="nit" type="text" id="nit"  size="25" maxlength="35"value="<?php echo $rex['nit'];?>"/>
 		</td>
   	  </tr>
       <tr>
@@ -430,20 +430,20 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
     </tr>
      <tr>   
         <td>
-        <input name="last_gra" type="text" id="last_gra" size="35" maxlength="64" class="required" value="<? echo $rex1[last_gra];?>"/>
+        <input name="last_gra" type="text" id="last_gra" size="35" maxlength="64" class="required" value="<?php echo $rex1['last_gra'];?>"/>
         </td>
         <td>
-        <input name="cole" type="text" id="cole" size="35" maxlength="64" class="required" value="<? echo $rex1[cole];?>"/>
+        <input name="cole" type="text" id="cole" size="35" maxlength="64" class="required" value="<?php echo $rex1['cole'];?>"/>
         </td>
         <td>
-        <input name="city_c" type="text" id="city_c" size="30" maxlength="64" class="required" value="<? echo $rex1[city_c];?>"/>
+        <input name="city_c" type="text" id="city_c" size="30" maxlength="64" class="required" value="<?php echo $rex1['city_c'];?>"/>
         </td>
         <td>
-        <input name="year_end" type="text" id="year_end" size="10" maxlength="64" class="required" value="<? echo $rex1[year_end];?>"/>
+        <input name="year_end" type="text" id="year_end" size="10" maxlength="64" class="required" value="<?php echo $rex1['year_end'];?>"/>
         </td>
          <td>
 				<select name="title" id="title">
-                <option value="<? echo $rex[title];?>"><? echo $rex[title];?></option>
+                <option value="<?php echo $rex['title'];?>"><?php echo $rex['title'];?></option>
                 <option value="0">NO</option>
                 <option value="1">SI</option>
                 </select>
@@ -459,37 +459,37 @@ if (!(confirm('¿Esta seguro de GUARDAR esta información, ya que luego NO PODR�
 
 <table width="989" border="0" align="center" cellpadding="2" cellspacing="0">   
  <form action="" method="post" name="form1" class="form" id="form2">   
-<? 
+<?php 
 //id_datf id_func type_p name l_name1 l_name2 sex born_date	pb_nat tn_doc
 $c=0;
 while ($rex2=$db->fetch_array($rsc2))
 	{
 echo '<tr>	
 	<td>
-	<input name="id_datf'.$c.'" type="text" id="id_datf" size="10" maxlength="64" class="required" value="'.$rex2[id_datf].'"/>
+	<input name="id_datf'.$c.'" type="text" id="id_datf" size="10" maxlength="64" class="required" value="'.$rex2['id_datf'].'"/>
 	</td>
 	<td>
-	<input name="name'.$c.'" type="text" id="name" size="10" maxlength="64" class="required" value="'.$rex2[name].'"/>
+	<input name="name'.$c.'" type="text" id="name" size="10" maxlength="64" class="required" value="'.$rex2['name'].'"/>
 	</td>
 	<td>
-	<input name="l_name1'.$c.'" type="text" id="l_name1" size="10" maxlength="64" class="required" value="'.$rex2[l_name1].'"/>
+	<input name="l_name1'.$c.'" type="text" id="l_name1" size="10" maxlength="64" class="required" value="'.$rex2['l_name1'].'"/>
 	</td>
 	<td>
-	<input name="l_name2'.$c.'" type="text" id="l_name2" size="10" maxlength="64" class="required" value="'.$rex2[l_name2].'"/>
+	<input name="l_name2'.$c.'" type="text" id="l_name2" size="10" maxlength="64" class="required" value="'.$rex2['l_name2'].'"/>
 	</td>
 	</tr>
 	<tr>
 	<td>
-	<input name="sex'.$c.'" type="text" id="sex" size="10" maxlength="64" class="required" value="'.$rex2[sex].'"/>
+	<input name="sex'.$c.'" type="text" id="sex" size="10" maxlength="64" class="required" value="'.$rex2['sex'].'"/>
 	</td>
 	<td>
-	<input name="born_date'.$c.'" type="text" id="born_date" size="10" maxlength="64" class="required" value="'.$rex2[born_date].'"/>
+	<input name="born_date'.$c.'" type="text" id="born_date" size="10" maxlength="64" class="required" value="'.$rex2['born_date'].'"/>
 	</td>
 	<td>
-	<input name="pb_nat'.$c.'" type="text" id="pb_nat" size="10" maxlength="64" class="required" value="'.$rex2[pb_nat].'"/>
+	<input name="pb_nat'.$c.'" type="text" id="pb_nat" size="10" maxlength="64" class="required" value="'.$rex2['pb_nat'].'"/>
 	</td>
 	<td>
-	<input name="tn_doc'.$c.'" type="text" id="tn_doc" size="10" maxlength="64" class="required" value="'.$rex2[tn_doc].'"/>
+	<input name="tn_doc'.$c.'" type="text" id="tn_doc" size="10" maxlength="64" class="required" value="'.$rex2['tn_doc'].'"/>
 	</td>
 	</tr>';
 	$c++;

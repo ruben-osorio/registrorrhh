@@ -15,7 +15,7 @@ SELECT * FROM ".TABLE37."
 WHERE id_func='$id_func'
 ");
 $rsh=$db->fetch_array($rshab);	
-if(($rsh[p1]+$rsh[p2]+$rsh[p3]+$rsh[p4]+$rsh[p5]+$rsh[p6]+$rsh[p7]+$rsh[p8]+$rsh[p9])!=9)
+if(($rsh['p1']+$rsh['p2']+$rsh['p3']+$rsh['p4']+$rsh['p5']+$rsh['p6']+$rsh['p7']+$rsh['p8']+$rsh['p9'])!=9)
 {	
 	//$html.= '<link href="css/reportes.css" rel="stylesheet" type="text/css">';
 	//$html.= '<link href="data/css/style-ext.css" rel="stylesheet" type="text/css">';
@@ -25,15 +25,15 @@ if(($rsh[p1]+$rsh[p2]+$rsh[p3]+$rsh[p4]+$rsh[p5]+$rsh[p6]+$rsh[p7]+$rsh[p8]+$rsh
 		
 		$html.= '<h2 class="errorre ">Debe completar todos los pasos para generar el reporte a imprimir !!! <br> Pasos pendientes a completar:</h2>';
 		$html.= '<div style="display:inline-block; background:#fff; ">';
-	 if($rsh[p1]==0) $html.= "<img src=\"data/images/menu/1.png\">";
-	 if($rsh[p2]==0) $html.= "<img src=\"data/images/menu/2.png\">";
-	 if($rsh[p3]==0) $html.= "<img src=\"data/images/menu/3.png\">";
-	 if($rsh[p4]==0) $html.= "<img src=\"data/images/menu/4.png\">";
-	 if($rsh[p5]==0) $html.= "<img src=\"data/images/menu/5.png\">";
-	 if($rsh[p6]==0) $html.= "<img src=\"data/images/menu/6.png\">";
-	 if($rsh[p7]==0) $html.= "<img src=\"data/images/menu/7.png\">";
-	 if($rsh[p8]==0) $html.= "<img src=\"data/images/menu/8.png\">";
-	 if($rsh[p9]==0) $html.= "<img src=\"data/images/menu/9.png\">";
+	 if($rsh['p1']==0) $html.= "<img src=\"data/images/menu/1.png\">";
+	 if($rsh['p2']==0) $html.= "<img src=\"data/images/menu/2.png\">";
+	 if($rsh['p3']==0) $html.= "<img src=\"data/images/menu/3.png\">";
+	 if($rsh['p4']==0) $html.= "<img src=\"data/images/menu/4.png\">";
+	 if($rsh['p5']==0) $html.= "<img src=\"data/images/menu/5.png\">";
+	 if($rsh['p6']==0) $html.= "<img src=\"data/images/menu/6.png\">";
+	 if($rsh['p7']==0) $html.= "<img src=\"data/images/menu/7.png\">";
+	 if($rsh['p8']==0) $html.= "<img src=\"data/images/menu/8.png\">";
+	 if($rsh['p9']==0) $html.= "<img src=\"data/images/menu/9.png\">";
 		$html.= "</div>";
 		$html.= '<div align="center"><input type="button" onclick="window.close();" id="loginbutton" value="Cerrar Ventana"></div>';
 	 $html.= "
@@ -173,7 +173,7 @@ if(($rsh[p1]+$rsh[p2]+$rsh[p3]+$rsh[p4]+$rsh[p5]+$rsh[p6]+$rsh[p7]+$rsh[p8]+$rsh
 			$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM+5); //margen inferior del el pie 
 			$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 			$pdf->setLanguageArray($l);
-			$pdf->setPageFormat(OFICIO,P);
+			$pdf->setPageFormat('OFICIO','P');
 			$sistema  = 'ssrp';
 			$pdf->setCabecera2($cabecera);
 			
@@ -183,7 +183,7 @@ if(($rsh[p1]+$rsh[p2]+$rsh[p3]+$rsh[p4]+$rsh[p5]+$rsh[p6]+$rsh[p7]+$rsh[p8]+$rsh
 			$pdf->SetTopMargin(5);
 			$pdf->SetLeftMargin(0);
 			$pdf-> SetRightMargin(0);			
-			$pdf->setPageOrientation(P,0,0);
+			$pdf->setPageOrientation('P',0,0);
 				
 $html .='
 <table width="500" height="42" border="1" align="center" cellpadding="2" cellspacing="0">

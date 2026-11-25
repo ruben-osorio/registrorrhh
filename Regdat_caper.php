@@ -1,4 +1,4 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
@@ -10,19 +10,19 @@ $db->connect();
 	WHERE id_func='$id_func'
 	");
 	$rsxp1=$db->fetch_array($rsp1);
-	if($rsxp1[p6]==1)
+	if($rsxp1['p6']==1)
 	{
 	header ("Location: exito.php");	
 	}
 //--------------------------------------
-if (isset($_POST[save]))
+if (isset($_POST['save']))
 { //id_eval_per id_char_per date_eval res_eval cons_eval resp_eval type_resp TABLE20: eval_per
-$date_eval=cambia_dateN_to_dateMy_1($_POST[date_eval]); 
+$date_eval=cambia_dateN_to_dateMy_1($_POST['date_eval']); 
 echo $date_eval;
-$res_eval=$_POST[res_eval];
-$cons_eval=$_POST[cons_eval]; 
-$resp_eval= strtoupper($_POST[resp_eval]);
-$type_resp=$_POST[type_resp]; 
+$res_eval=$_POST['res_eval'];
+$cons_eval=$_POST['cons_eval']; 
+$resp_eval= strtoupper($_POST['resp_eval']);
+$type_resp=$_POST['type_resp']; 
 //id_eval_per id_char_per date_eval res_eval cons_eval resp_eval type_resp 
 	echo "
 	INSERT INTO ".TABLE20."(date_eval, res_eval, cons_eval, resp_eval, type_resp)
@@ -142,7 +142,7 @@ $(document).ready(function() {
 </table>
 </form>
 
-<?
+<?php
 
 //$db->close();
 ?>

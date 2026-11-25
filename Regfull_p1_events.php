@@ -23,7 +23,7 @@ function funcionario_Button_Update1_OnClick(& $sender)
     // Write your own code here.
     $funcionario->on_off->SetValue("1");
     
-    $con=mysqli_connect("localhost","root","","registroRRHH");
+    $con=ssrp_mysqli_connect();
 // Check connection
   if (mysqli_connect_errno())
   {
@@ -53,7 +53,7 @@ function Page_BeforeShow(& $sender)
 //Custom Code @49-2A29BDB7
 // -------------------------
     // Write your own code here.
-    $con=mysqli_connect("localhost","root","","registroRRHH");
+    $con=ssrp_mysqli_connect();
 // Check connection
   if (mysqli_connect_errno())
   {
@@ -75,7 +75,7 @@ function Page_BeforeShow(& $sender)
     $Result = $db->next_record();
     if ($Result) 
     {
-		$evaluacion_planes->titulo->Value = $db->f("titulo");
+		if (isset($evaluacion_planes->titulo)) { $evaluacion_planes->titulo->Value = $db->f("titulo"); }
 		$flag = $db->f("p1");
     }
     $db->close();

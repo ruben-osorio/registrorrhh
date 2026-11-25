@@ -26,7 +26,7 @@ class clsTemplate
 
   public $getname_cache = array();
 
-  function clsTemplate($external_encoding = "", $out_encoding = "", $internal_encoding = "")
+  function __construct($external_encoding = "", $out_encoding = "", $internal_encoding = "")
   {
     $this->delimiter      = chr(27);   
     $this->tag_sign       = chr(15);  
@@ -89,7 +89,7 @@ class clsTemplate
     // preparing file content for parsing
     $file_content = preg_replace("/<!\-\-\s+BEGIN\s+([\w\s]*\w+)\s+\-\->/s",  $delimiter . $begin_block . $delimiter . "\\1" . $delimiter, $file_content);
     $file_content = preg_replace("/<!\-\-\s+END\s+([\w\s]*\w+)\s+\-\->/s",  $delimiter . $end_block . $delimiter . "\\1" . $delimiter, $file_content);
-    $file_content = preg_replace("/\\{res:\s*(\w+)\\}/ise", "CCConvertEncoding(\$CCSLocales->GetText('\\1'), \$FileEncoding, \$this->internal_encoding)", $file_content);
+    $file_content = preg_replace_callback("/\\{res:\s*(\w+)\\}/is", function ($m) use ($CCSLocales, $FileEncoding) { return CCConvertEncoding($CCSLocales->GetText($m[1]), $FileEncoding, $this->internal_encoding); }, $file_content);
     $file_content = preg_replace("/\\{([a-z_]\w*(:\w+)?)\\}/is", $delimiter . $tag_sign . $delimiter . "\\1" . $delimiter, $file_content);
     $this->parse_array = explode($delimiter, $file_content);
     $this->position = 0;
@@ -335,6 +335,9 @@ class clsTemplate
     echo "</table>";
   }
 
+
+	// Alias del constructor estilo PHP 4
+	function clsTemplate() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 
 /*//*/

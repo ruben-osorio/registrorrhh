@@ -1,58 +1,54 @@
-<?
-session_start();
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
+require_once('LoginSystem.class.php');
 
-require_once('LoginSystem.class.php');	
-
-if(isset($_POST['loginbutton']))
+/**
+ * Página de inicio según el rol del usuario (user.permisos):
+ * 0 admin, 1 funcionario de planta (TGN), 2 consultor, 3 social, 4 control.
+ * Los funcionarios y consultores van directo a llenar su ficha personal.
+ */
+function paginaInicioPorRol($permisos)
 {
-	if((!$_POST['Username']) || (!$_POST['Password']))		
+	switch ((string) $permisos)
 	{
-		// display error message
-		header('location: login.php?msg=1');// show error<strong></strong>
+		case '1':
+			return 'index.php?selected=FullRegister';
+		case '2':
+			return 'index.php?selected=FullRegisterc';
+		default:
+			return 'index.php';
+	}
+}
+
+// Si ya inició sesión, no mostrar el formulario otra vez
+if (!empty($_SESSION['LoggedIn']) && !isset($_POST['loginbutton']))
+{
+	header('Location: ' . paginaInicioPorRol($_SESSION['permisos']));
+	exit;
+}
+
+if (isset($_POST['loginbutton']))
+{
+	$usuario = isset($_POST['Username']) ? trim($_POST['Username']) : '';
+	$clave = isset($_POST['Password']) ? $_POST['Password'] : '';
+	if ($usuario === '' || $clave === '')
+	{
+		header('Location: login.php?msg=1');
 		exit;
 	}
 	$loginSystem = new LoginSystem();
-	if($loginSystem->doLogin($_POST['Username'],$_POST['Password']))
+	if ($loginSystem->doLogin($usuario, $clave))
 	{
-		header('location: index.php?selected=FullRegister');
-	}
-	else
-	{
-		header('location: login.php?msg=2');
-
-
+		header('Location: ' . paginaInicioPorRol($_SESSION['permisos']));
 		exit;
 	}
+	header('Location: login.php?msg=2');
+	exit;
 }
-	
-	/**
-	 * show Error messages
-	 *
-	 */
-	function showMessage()
-	{
-		if(is_numeric($_GET['msg']))
-		{
-			switch($_GET['msg'])
-			{
-				case 1: 
-					echo  '
-					<div id="msg_login">
-				<img src="data/images/ImgCritical_32.png">
-				<div id="msg">Por favor, rellene los campos username y password.</div>
-				</div>';
-				break;
-				
-				case 2: 
-				echo  '
-					<div id="msg_login">
-					<img src="data/images/ImgCritical_32.png">
-					<div id="msg">	Datos de ingreso incorrectos.</div>
-					</div>';
-				break;
-			}
-		}
-	}
+
+$msg = isset($_GET['msg']) ? (int) $_GET['msg'] : 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +71,7 @@ if(isset($_POST['loginbutton']))
             <link rel="shortcut icon" href="favicon.ico" />
             <link rel="apple-touch-icon-precomposed" href="icon.png" />
     
-        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
     
         <!--[if lte IE 8]>
             <script src="js/ie/html5.js"></script>
@@ -97,39 +93,16 @@ if(isset($_POST['loginbutton']))
 
     </head>
     <body class="login_page">
-     </br>
-    <div style=" margin-left: 30px; background-image: url(data/images/logo_min_desarrollo_productivo2.png); width:254px; height:60px;">
-        </div>
-        </br>
-    
-    <div   style=" margin-left:40px; margin-right:40px; top:0px;  background-color:#f8f8f8; border:1px solid #ddd; border-radius:4px; "   >
-    
-  
-     
-        
-        
-       <div style=" background:#444d5b; " > 
-         <div style="margin-left:20px; margin-right:20px;">
-               
-             <h3 style="color:#ffffff; padding:12px 2px 12px 2px; font-size:15px;" class="heading ">
-             UNIDAD DE RECURSOS HUMANOS GESTIÓN 2018
-             </h3>
-             
-         </div>
-      </div>
-       
-      
-       
-      <br>
-    
-    <div  class="row-fluid">
+    <h3 class="heading">UNIDAD DE RECURSOS HUMANOS Y DESARROLLO ORGANIZACIONAL</h3>
+    <div class="row-fluid">
 	  <div class="span12">
-							<div style="margin-left:20px; margin-right:20px;" class="alert alert-block alert-warning fade in">
+							<div class="alert alert-block alert-warning fade in">
                             <a href="#" data-dismiss="alert" class="close">×</a>
 <p style="text-shadow: 1px 1px 1px black;" ><strong>IMPORTANTE!!!</strong></p>
 							  <ul style="list-style:">
-
-  <strong>MANUAL DE USUARIO</strong> <strong>PARA SERVIDORES PUBLICOS</strong> (para el correcto llenado de Datos en el Formulario Web de la Ficha Personal) <a href="tutorial/MANUAL_SERVIDOR_PUBLICO.pdf" target="new">AQUI</a>
+<li><strong>TUTORIAL/MANUAL DE USUARIO</strong> <strong>PARA CONSULTORES DEL LÍNEA</strong> (para el correcto llenado de Datos en el Formulario Web de la Ficha Personal) <a href="tutorial/TutorialConsultores.pdf" target="new">AQUI</a></li>
+<li>
+  <strong>TUTORIAL/MANUAL DE USUARIO</strong> <strong>PARA FUNCIONARIOS CON ITEM TGN</strong> (para el correcto llenado de Datos en el Formulario Web de la Ficha Personal) <a href="tutorial/TutorialServidorTGN.pdf" target="new">AQUI</a>
 </li>
 <li><strong>LE RECOMENDAMOS UTILIZAR NAVEGADOR O BROWSER: <a href="http://www.mozilla.org/es-ES/firefox/new/" target="_blank">MOZILLA FIREFOX</a> O <a href="http://www.google.com/intl/es/chrome/" target="_blank">GOOGLE CHROME</a></strong>.</li>
 
@@ -142,16 +115,15 @@ if(isset($_POST['loginbutton']))
 						
 					</div>
     
-         </br>
+    
 		<div class="login_box">
 			
             <form name="login" id="login_form" action="" method="post">
-				<div class="top_b" >Ingrese sus datos por favor</div>    
+				<div class="top_b"> Ingrese sus datos por favor</div>    
 				<div class="alert alert-info alert-login">
-					Si olvidó sus datos comuníquese con el interno de la Unidad de RRHH.
+					Si olvidó sus datos comuníquese con el interno 9-1314 (teléfono IP).
 				</div>
 				<div class="cnt_b">
-				 
 					<div class="formRow">
 						<div class="input-prepend">
 							<span class="add-on"><i class="icon-user"></i></span>
@@ -167,31 +139,19 @@ if(isset($_POST['loginbutton']))
 						</div>
 					</div>
                     <?php
-
-                    if(is_numeric($_GET['msg']))
+                    if ($msg === 1)
                     {
-                        switch($_GET['msg'])
-                        {
-
-
-                                        case 2:
-                                            echo  '
-                                
-                                
-                                <div class="errorroa">
-                                        Datos Incorrectos, verifique su Nombre de Usuario y/o Password.
-                                 </div>
-                                
-                                ';
-
-                                break;
-                        }
+                        echo '<div class="errorroa">Por favor, ingrese su Nombre de Usuario y Password.</div>';
+                    }
+                    elseif ($msg === 2)
+                    {
+                        echo '<div class="errorroa">Datos Incorrectos, verifique su Nombre de Usuario y/o Password.</div>';
                     }
 
                     ?>
-				
+
 				</div>
-			  <div class="btm_b clearfix">
+				<div class="btm_b clearfix">
                 <img src="./data/images/logo_mini.jpg">
                 <button class="btn btn-inverse pull-right" type="submit" id="loginbutton" name="loginbutton">Ingrese</button>					
 			  </div>  
@@ -316,7 +276,5 @@ if(isset($_POST['loginbutton']))
 				});
             });
         </script>
-        </br></br>
-        </div>
     </body>
 </html>

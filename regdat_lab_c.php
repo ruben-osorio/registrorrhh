@@ -26,7 +26,7 @@ class clsRecordcta_banc { //cta_banc Class @2-71505876
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -46,7 +46,7 @@ class clsRecordcta_banc { //cta_banc Class @2-71505876
 //End Variables
 
 //Class_Initialize Event @2-54E7EE2C
-    function clsRecordcta_banc($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -288,13 +288,16 @@ class clsRecordcta_banc { //cta_banc Class @2-71505876
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordcta_banc() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End cta_banc Class @2-FCB6E20C
 
 class clscta_bancDataSource extends clsDBmadnes {  //cta_bancDataSource Class @2-4687C0B2
 
 //DataSource Variables @2-EFED0965
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -316,7 +319,7 @@ class clscta_bancDataSource extends clsDBmadnes {  //cta_bancDataSource Class @2
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-580D0C94
-    function clscta_bancDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record cta_banc/Error";
@@ -351,7 +354,7 @@ class clscta_bancDataSource extends clsDBmadnes {  //cta_bancDataSource Class @2
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -429,6 +432,9 @@ class clscta_bancDataSource extends clsDBmadnes {  //cta_bancDataSource Class @2
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clscta_bancDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End cta_bancDataSource Class @2-FCB6E20C
 
 class clsRecordconsultor_docs { //consultor_docs Class @12-1BB43BF4
@@ -448,7 +454,7 @@ class clsRecordconsultor_docs { //consultor_docs Class @12-1BB43BF4
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -468,7 +474,7 @@ class clsRecordconsultor_docs { //consultor_docs Class @12-1BB43BF4
 //End Variables
 
 //Class_Initialize Event @12-D40FD3EB
-    function clsRecordconsultor_docs($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -737,13 +743,16 @@ class clsRecordconsultor_docs { //consultor_docs Class @12-1BB43BF4
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordconsultor_docs() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End consultor_docs Class @12-FCB6E20C
 
 class clsconsultor_docsDataSource extends clsDBmadnes {  //consultor_docsDataSource Class @12-A3D697D7
 
 //DataSource Variables @12-F986E325
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -766,7 +775,7 @@ class clsconsultor_docsDataSource extends clsDBmadnes {  //consultor_docsDataSou
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @12-088718BE
-    function clsconsultor_docsDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record consultor_docs/Error";
@@ -805,7 +814,7 @@ class clsconsultor_docsDataSource extends clsDBmadnes {  //consultor_docsDataSou
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_con", ccsInteger, "", "", $this->Parameters["urlid_con"], xxxxxx, false);
+        $this->wp->AddParameter("1", "urlid_con", ccsInteger, "", "", $this->Parameters["urlid_con"], 'xxxxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_con", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -886,6 +895,9 @@ class clsconsultor_docsDataSource extends clsDBmadnes {  //consultor_docsDataSou
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsconsultor_docsDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End consultor_docsDataSource Class @12-FCB6E20C
 
 class clsRecordult_decl { //ult_decl Class @33-BB501711
@@ -905,7 +917,7 @@ class clsRecordult_decl { //ult_decl Class @33-BB501711
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -925,7 +937,7 @@ class clsRecordult_decl { //ult_decl Class @33-BB501711
 //End Variables
 
 //Class_Initialize Event @33-80B6F4CC
-    function clsRecordult_decl($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -1139,13 +1151,16 @@ class clsRecordult_decl { //ult_decl Class @33-BB501711
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordult_decl() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End ult_decl Class @33-FCB6E20C
 
 class clsult_declDataSource extends clsDBmadnes {  //ult_declDataSource Class @33-01D0F3B8
 
 //DataSource Variables @33-E042E003
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -1164,7 +1179,7 @@ class clsult_declDataSource extends clsDBmadnes {  //ult_declDataSource Class @3
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @33-0E2B4F2E
-    function clsult_declDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record ult_decl/Error";
@@ -1187,7 +1202,7 @@ class clsult_declDataSource extends clsDBmadnes {  //ult_declDataSource Class @3
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -1256,6 +1271,9 @@ class clsult_declDataSource extends clsDBmadnes {  //ult_declDataSource Class @3
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsult_declDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End ult_declDataSource Class @33-FCB6E20C
 
 class clsRecordchar_con { //char_con Class @45-A6A2CA3C
@@ -1275,7 +1293,7 @@ class clsRecordchar_con { //char_con Class @45-A6A2CA3C
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -1295,7 +1313,7 @@ class clsRecordchar_con { //char_con Class @45-A6A2CA3C
 //End Variables
 
 //Class_Initialize Event @45-430FBB83
-    function clsRecordchar_con($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -1609,13 +1627,16 @@ class clsRecordchar_con { //char_con Class @45-A6A2CA3C
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordchar_con() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End char_con Class @45-FCB6E20C
 
 class clschar_conDataSource extends clsDBmadnes {  //char_conDataSource Class @45-1EF42692
 
 //DataSource Variables @45-3EAA26FC
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -1642,7 +1663,7 @@ class clschar_conDataSource extends clsDBmadnes {  //char_conDataSource Class @4
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @45-F17FFEFA
-    function clschar_conDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record char_con/Error";
@@ -1697,7 +1718,7 @@ class clschar_conDataSource extends clsDBmadnes {  //char_conDataSource Class @4
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_con", ccsInteger, "", "", $this->Parameters["urlid_con"], xxxxxx, false);
+        $this->wp->AddParameter("1", "urlid_con", ccsInteger, "", "", $this->Parameters["urlid_con"], 'xxxxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_con", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -1790,6 +1811,9 @@ class clschar_conDataSource extends clsDBmadnes {  //char_conDataSource Class @4
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clschar_conDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End char_conDataSource Class @45-FCB6E20C
 
 class clsRecordcontrato { //contrato Class @70-16460E3F
@@ -1809,7 +1833,7 @@ class clsRecordcontrato { //contrato Class @70-16460E3F
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -1829,7 +1853,7 @@ class clsRecordcontrato { //contrato Class @70-16460E3F
 //End Variables
 
 //Class_Initialize Event @70-AAF35F6A
-    function clsRecordcontrato($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -2078,13 +2102,16 @@ class clsRecordcontrato { //contrato Class @70-16460E3F
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordcontrato() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End contrato Class @70-FCB6E20C
 
 class clscontratoDataSource extends clsDBmadnes {  //contratoDataSource Class @70-37B360C4
 
 //DataSource Variables @70-228BA7D7
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -2106,7 +2133,7 @@ class clscontratoDataSource extends clsDBmadnes {  //contratoDataSource Class @7
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @70-308C6CB1
-    function clscontratoDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record contrato/Error";
@@ -2142,7 +2169,7 @@ class clscontratoDataSource extends clsDBmadnes {  //contratoDataSource Class @7
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
         $this->wp->AddParameter("1", "urlid_con", ccsInteger, "", "", $this->Parameters["urlid_con"], "", false);
-        $this->wp->AddParameter("2", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxxxx, false);
+        $this->wp->AddParameter("2", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_con", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->wp->Criterion[2] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("2"), $this->ToSQL($this->wp->GetDBValue("2"), ccsInteger),false);
@@ -2223,6 +2250,9 @@ class clscontratoDataSource extends clsDBmadnes {  //contratoDataSource Class @7
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clscontratoDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End contratoDataSource Class @70-FCB6E20C
 
 class clsRecorddes_hab_temp { //des_hab_temp Class @88-8B2BA786
@@ -2242,7 +2272,7 @@ class clsRecorddes_hab_temp { //des_hab_temp Class @88-8B2BA786
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -2262,7 +2292,7 @@ class clsRecorddes_hab_temp { //des_hab_temp Class @88-8B2BA786
 //End Variables
 
 //Class_Initialize Event @88-B5901A69
-    function clsRecorddes_hab_temp($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -2456,13 +2486,16 @@ class clsRecorddes_hab_temp { //des_hab_temp Class @88-8B2BA786
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecorddes_hab_temp() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End des_hab_temp Class @88-FCB6E20C
 
 class clsdes_hab_tempDataSource extends clsDBmadnes {  //des_hab_tempDataSource Class @88-13C74130
 
 //DataSource Variables @88-9FC5C9A1
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -2478,7 +2511,7 @@ class clsdes_hab_tempDataSource extends clsDBmadnes {  //des_hab_tempDataSource 
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @88-4103F662
-    function clsdes_hab_tempDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record des_hab_temp/Error";
@@ -2496,7 +2529,7 @@ class clsdes_hab_tempDataSource extends clsDBmadnes {  //des_hab_tempDataSource 
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -2545,6 +2578,9 @@ class clsdes_hab_tempDataSource extends clsDBmadnes {  //des_hab_tempDataSource 
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsdes_hab_tempDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End des_hab_tempDataSource Class @88-FCB6E20C
 
 //Initialize Page @1-09CD1F9B
@@ -2558,7 +2594,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 

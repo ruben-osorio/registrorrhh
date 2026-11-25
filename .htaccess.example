@@ -1,0 +1,17 @@
+# Configuración PHP para WAMP local (mod_php).
+# En Docker/Railway no se usa: allí la configuración está en docker/php.ini.
+<IfModule php_module>
+	# Capa de compatibilidad PHP 5 -> 8 (ruta absoluta del entorno local)
+	php_value auto_prepend_file "C:/ruta/al/proyecto/compat.php"
+	# El código legado envía cabeceras después de generar salida
+	php_value output_buffering 4096
+	# E_ALL & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED
+	php_value error_reporting 24565
+	php_value date.timezone "America/La_Paz"
+</IfModule>
+
+# Credenciales de la base de datos local (copiar como .htaccess y ajustar)
+SetEnv DB_HOST localhost
+SetEnv DB_USER usuario_local
+SetEnv DB_PASS clave_local
+SetEnv DB_DATABASE rrhh

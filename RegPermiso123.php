@@ -1,59 +1,75 @@
-<?
+<?php
 require("config.inc.php");
 require("functions.inc.php");
 require("database.class.php");
 
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-$id_func=$_GET[id];
-if (isset($_GET[id]))
+$id_func=$_GET['id'];
+
+$dbhandle = mysql_connect(DB_SERVER, 'ruben', '') 
+	or die("Unable to connect to MySQL");
+		echo "<br>";
+	
+	$selected = mysql_select_db("registrorrhh",$dbhandle) 
+			or die("Could not select registrorrhh");
+			
+			
+			
+if (isset($_GET['id']))
 {
+	
+	
+	
 	$rs=$db->query("select * from ".TABLE2." where id_func='$id_func'");
 	$r=$db->fetch_array($rs);	
 
 	$rs4=$db->query("select * from ".TABLE22." WHERE id_func='$id_func' order by id_per desc limit 1");
 	$r4=$db->fetch_array($rs4);
-	$id_per=$r4[id_per];
+	$id_per=$r4['id_per'];
 		
-	if (isset($_POST[save]) || isset($_POST[save_i]))	
+	if (isset($_POST['save']) || isset($_POST['save_i']))	
 	{
-		$p_dias=$_POST[tiempo_1]+$_POST[tiempo_2];
+		$p_dias=$_POST['tiempo_1']+$_POST['tiempo_2'];
 		//echo "pide: ".$p_dias."<br />";
+		$db = new Database(DB_SERVER, DB_USER, DB_PASS, "ssrp");
+		$db->connect();
+
 		$rs1=$db->query("select dias_g1, dias_g2 from ".TABLE3." where id_per='$id_per'");
 		$r1=$db->fetch_array($rs1);
-		$f_dias=$r1[dias_g1]+$r1[dias_g2];
+		$f_dias=$r1['dias_g1']+$r1['dias_g2'];
 		//echo "saldo dias total ".$f_dias."<br />";
 		if ($f_dias>=$p_dias)
 		{
-			if ($r1[dias_g1]>=$p_dias)
+			if ($r1['dias_g1']>=$p_dias)
 			{
-				$saldo_g1=$r1[dias_g1]-$p_dias;
-				$saldo_g2=$r1[dias_g2];
+				$saldo_g1=$r1['dias_g1']-$p_dias;
+				$saldo_g2=$r1['dias_g2'];
 /*				echo "gestion 1: ".$saldo_g1."<br />"; //afecta solo a gestion 1
 				echo "gestion 2: ".$saldo_g2;*/
 			}
 			else
 			{
 				$saldo_g1=0;				
-				$nuevos_dias=$r1[dias_g1]-$p_dias;				
-				$saldo_g2=$r1[dias_g2]+$nuevos_dias;
+				$nuevos_dias=$r1['dias_g1']-$p_dias;				
+				$saldo_g2=$r1['dias_g2']+$nuevos_dias;
 /*				echo "gestion 1: ".$saldo_g1."<br />";
 				echo "gestion 2: ".$saldo_g2;	*/			
 			}
 			
 			$rs2=$db->query("update ".TABLE3." SET dias_g1='$saldo_g1', dias_g2='$saldo_g2' where id_per='$id_per'");
 			//id_user	tipo	tiempo	fecha_i	hrs_i	fecha_f	hrs_f
-			$tipo=$_POST[tipo];
+			$tipo=$_POST['tipo'];
 			
-			$fecha_i=$_POST[fecha_i];
+			$fecha_i=$_POST['fecha_i'];
 			//05-07-2012
-			$fecha_ii=cambia_dateN_to_dateMy_1($_POST[fecha_i]);
-			$hrs_i=$_POST[hrs_i];
+			$fecha_ii=cambia_dateN_to_dateMy_1($_POST['fecha_i']);
+			$hrs_i=$_POST['hrs_i'];
 			
-			$fecha_f=$_POST[fecha_f];
-			$fecha_ff=cambia_dateN_to_dateMy_1($_POST[fecha_f]);
-			$hrs_f=$_POST[hrs_f];
-			$obs=$_POST[obs];
+			$fecha_f=$_POST['fecha_f'];
+			$fecha_ff=cambia_dateN_to_dateMy_1($_POST['fecha_f']);
+			$hrs_f=$_POST['hrs_f'];
+			$obs=$_POST['obs'];
 			//id_user	tipo	tiempo	fecha_i	fecha_ii	hrs_i	fecha_f	fecha_ff	hrs_f	obs
 									
 			$rs3=$db->query("insert into ".TABLE5." (id_user,id_per,tipo,tiempo,fecha_i,fecha_ii,hrs_i,fecha_f,fecha_ff,hrs_f, obs) 
@@ -61,7 +77,7 @@ if (isset($_GET[id]))
 			
 			if ($rs2)
 			{
-				if (isset($_POST[save]))
+				if (isset($_POST['save']))
 				{
 					echo "<script>
 					window.opener.location.reload();
@@ -86,12 +102,12 @@ if (isset($_GET[id]))
 			$sw=1;
 		}
 	}
-	if ($_POST[calculate])
+	if ($_POST['calculate'])
 	{
-		$fecha_i=$_POST[fecha_i];
-		$fecha_f=$_POST[fecha_f];
-		$hrs_i=$_POST[hrs_i];
-		$hrs_f=$_POST[hrs_f];
+		$fecha_i=$_POST['fecha_i'];
+		$fecha_f=$_POST['fecha_f'];
+		$hrs_i=$_POST['hrs_i'];
+		$hrs_f=$_POST['hrs_f'];
 		
 		if ($fecha_i==$fecha_f)
 		{			
@@ -140,11 +156,7 @@ if (isset($_GET[id]))
 		}
 		//echo "total dias: ".$dias_to;		
 	}
-	if ($sw==1)
-	{
-		echo '<div class="alert success">'.$msg.'</div>';
-	}
-
+	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -178,6 +190,8 @@ $(document).ready(function() {
 			showOn: "button",
 			changeMonth: true,
 			changeYear: true,
+			numberOfMonths: 3,
+			showCurrentAtPos: 1,
 			buttonImage: "data/images/calendar.gif",
 			buttonImageOnly: true
 		});
@@ -185,6 +199,8 @@ $(document).ready(function() {
 			showOn: "button",
 			changeMonth: true,
 			changeYear: true,
+			numberOfMonths: 3,
+			showCurrentAtPos: 1,
 			buttonImage: "data/images/calendar.gif",
 			buttonImageOnly: true
 		});
@@ -199,28 +215,34 @@ $(document).ready(function() {
   <table width="100%" border="0" cellpadding="5" cellspacing="0">
     <tr>
       <td><div align="left">Nombres y Apellidos:</div></td>
-      <td><div align="left"><strong><? echo $r[name];?> <? echo $r[l_name1]." ".$r[l_name2];?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r['name'];?> <?php echo $r['l_name1']." ".$r['l_name2'];?></strong></div></td>
     </tr>
     <tr>
-    <?	 
-	 $rs5=$db->query("select * from ".TABLE28." where id_per='$id_per' ");
+    <?php	 
+	// $rs5=$db->query("select * from ".TABLE28." where id_per='$id_per' ");
+	$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
+$db->connect();
+
+	 $rs5=$db->query("select * from permanente where id_per='$id_per' ");
 	 $r5=$db->fetch_array($rs5);
     ?>
       <td>Fecha de Ingreso:</td>
-      <td><strong><? echo $r5[date_des];?></strong></td>
+      <td><strong><?php echo $r5['date_ent'];?></strong></td>
     </tr>
-    <? 
+    <?php 
+	$db = new Database(DB_SERVER, DB_USER, DB_PASS, "ssrp");
+$db->connect();
 	$rs1=$db->query("select gestion_1, dias_g1, gestion_2, dias_g2 from ".TABLE3." where id_per='$id_per'");
 	$r1=$db->fetch_array($rs1);
 	
 	?>
     <tr>
       <td><div align="left">Gestión 1:</div></td>
-      <td><div align="left"><strong><? echo $r1[gestion_1]." = ".cambia_formato_dias($r1[dias_g1]); ?> Dia(s)</strong></div></td>
+      <td><div align="left"><strong><?php echo $r1['gestion_1']." = ".cambia_formato_dias($r1['dias_g1']); ?> Dia(s)</strong></div></td>
     </tr>
     <tr>
       <td><div align="left">Gestión 2:</div></td>
-      <td><div align="left"><strong><? echo $r1[gestion_2]." = ".cambia_formato_dias($r1[dias_g2]); ?> Dia(s)</strong></div></div></td>
+      <td><div align="left"><strong><?php echo $r1['gestion_2']." = ".cambia_formato_dias($r1['dias_g2']); ?> Dia(s)</strong></div></div></td>
     </tr>
     <tr>
       <td><div align="left">Tipo de Permiso:</div></td>
@@ -236,11 +258,11 @@ $(document).ready(function() {
     <tr>
       <td>Desde:</td>
       <td>Fecha:         
-        <input class="required" name="fecha_i" type="text" id="fecha_i" size="15" value="<? echo $_POST[fecha_i];?>" />
+        <input class="required" name="fecha_i" type="text" id="fecha_i" size="15" value="<?php echo $_POST['fecha_i'];?>" />
       Hrs:
       <label>
       <select name="hrs_i" id="hrs_i">
-      	<option value="<? echo $hrs_i;?>"><? echo $hrs_i;?></option>
+      	<option value="<?php echo $hrs_i;?>"><?php echo $hrs_i;?></option>
         <option value="08:30">08:30</option>
         <option value="14:30">14:30</option>
       </select>
@@ -249,12 +271,12 @@ $(document).ready(function() {
     <tr>
       <td>hasta</td>
       <td>Fecha: 
-        <input class="required" name="fecha_f" type="text" id="fecha_f" size="15" value="<? echo $_POST[fecha_f];?>" />
+        <input class="required" name="fecha_f" type="text" id="fecha_f" size="15" value="<?php echo $_POST['fecha_f'];?>" />
 
         Hrs:
         <label>
         <select name="hrs_f" id="hrs_f">
-       <option value="<? echo $hrs_f;?>"><? echo $hrs_f;?></option>
+       <option value="<?php echo $hrs_f;?>"><?php echo $hrs_f;?></option>
           <option value="12:30">12:30</option>
           <option value="18:30">18:30</option>
         </select>
@@ -263,7 +285,7 @@ $(document).ready(function() {
     <tr>
       <td><div align="left">Tiempo:</div></td>
       <td><div align="left">
-        <? 
+        <?php 
 		if (is_float($dias_to)==1)
 		{
 			$num_dias_to=explode(".",$dias_to);
@@ -302,7 +324,7 @@ $(document).ready(function() {
           <input type="submit" name="calculate" id="loginbutton" value="Calcular" />
       </div></td>
       <td><div align="left">
-      <?
+      <?php
 	  if (empty($dias_to))
 	  {
 	  	echo '<label></label>
@@ -325,8 +347,16 @@ $(document).ready(function() {
   </table>
 </form>
 </fieldset>
+
 </body>
+
+
 </html>
-<?
+<?php
+if ($sw==1)
+	{
+		echo '<div class="alert success">'.$msg.'</div>';
+	}
+
 }
 ?>

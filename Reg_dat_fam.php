@@ -31,7 +31,7 @@ class clsGriddat_fam { //dat_fam class @2-E2F5616C
     public $RowNumber;
     public $ControlsVisible = array();
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -43,7 +43,7 @@ class clsGriddat_fam { //dat_fam class @2-E2F5616C
 //End Variables
 
 //Class_Initialize Event @2-3B875C1A
-    function clsGriddat_fam($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
         global $FileName;
         global $CCSLocales;
@@ -206,13 +206,16 @@ class clsGriddat_fam { //dat_fam class @2-E2F5616C
     }
 //End GetErrors Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsGriddat_fam() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End dat_fam Class @2-FCB6E20C
 
 class clsdat_famDataSource extends clsDBmadnes {  //dat_famDataSource Class @2-5CEB3720
 
 //DataSource Variables @2-216A5180
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -234,7 +237,7 @@ class clsdat_famDataSource extends clsDBmadnes {  //dat_famDataSource Class @2-5
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-49444487
-    function clsdat_famDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Grid dat_fam";
@@ -276,7 +279,7 @@ class clsdat_famDataSource extends clsDBmadnes {  //dat_famDataSource Class @2-5
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxx', false);
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
              $this->wp->Criterion[1];
@@ -316,6 +319,9 @@ class clsdat_famDataSource extends clsDBmadnes {  //dat_famDataSource Class @2-5
     }
 //End SetValues Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsdat_famDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End dat_famDataSource Class @2-FCB6E20C
 
 class clsRecorddat_fam1 { //dat_fam1 Class @24-6BC79ED6
@@ -335,7 +341,7 @@ class clsRecorddat_fam1 { //dat_fam1 Class @24-6BC79ED6
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -355,7 +361,7 @@ class clsRecorddat_fam1 { //dat_fam1 Class @24-6BC79ED6
 //End Variables
 
 //Class_Initialize Event @24-09F64EA1
-    function clsRecorddat_fam1($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -674,13 +680,16 @@ class clsRecorddat_fam1 { //dat_fam1 Class @24-6BC79ED6
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecorddat_fam1() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End dat_fam1 Class @24-FCB6E20C
 
 class clsdat_fam1DataSource extends clsDBmadnes {  //dat_fam1DataSource Class @24-EE2431F6
 
 //DataSource Variables @24-4B5B3C54
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -707,7 +716,7 @@ class clsdat_fam1DataSource extends clsDBmadnes {  //dat_fam1DataSource Class @2
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @24-6AE3E3F7
-    function clsdat_fam1DataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record dat_fam1/Error";
@@ -868,6 +877,9 @@ class clsdat_fam1DataSource extends clsDBmadnes {  //dat_fam1DataSource Class @2
     }
 //End Delete Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsdat_fam1DataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End dat_fam1DataSource Class @24-FCB6E20C
 
 //Initialize Page @1-769C56C0
@@ -881,7 +893,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 

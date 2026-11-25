@@ -1,4 +1,4 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
@@ -37,23 +37,23 @@ while ($r=$db->fetch_array($rs))
       </tr>
       <tr>
         <td><div align="right">Apellidos: </div></td>
-        <td style="border: 1px solid #000;"><div align="left">'.$r[ap_1].' '.$r[ap_2].'</div></td>
+        <td style="border: 1px solid #000;"><div align="left">'.$r['ap_1'].' '.$r['ap_2'].'</div></td>
       </tr>
       <tr>
         <td><div align="right">Nombres:</div></td>
-        <td style="border: 1px solid #000;"><div align="left">'.$r[nombre].'</div></td>
+        <td style="border: 1px solid #000;"><div align="left">'.$r['nombre'].'</div></td>
       </tr>
       <tr>
         <td><div align="right">Fuente Financiamiento:</div></td>
-        <td style="border: 1px solid #000;"><div align="left">'.$r[source_fin].'</div></td>
+        <td style="border: 1px solid #000;"><div align="left">'.$r['source_fin'].'</div></td>
       </tr>
       <tr>
         <td width="29%"><div align="right">Nombre de Usuario:</div></td>
-        <td width="71%" style="border: 1px solid #000;"><div align="left"><strong>'.$r[username].'</strong></div></td>
+        <td width="71%" style="border: 1px solid #000;"><div align="left"><strong>'.$r['username'].'</strong></div></td>
       </tr>
       <tr>
         <td><div align="right">Contraseña:</div></td>
-        <td style="border: 1px solid #000;"><div align="left"><strong>'.$r[password].'</strong></div></td>
+        <td style="border: 1px solid #000;"><div align="left"><strong>'.$r['password'].'</strong></div></td>
       </tr>
       <tr>
         <td colspan="2" style="font-size:9px;"><div align="left"><strong>Nota.-</strong> Los datos proporcionados en esta hoja deben ser conservados de manera segura y privada, por favor mantengala en lugar reservado o desechela una vez memorizada la información de acceso.</div></td>

@@ -1,14 +1,14 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
-if (isset($_POST[search]))
+if (isset($_POST['search']))
 {
-	$tosearch=strtoupper($_POST[tosearch]);
-	$to_search_source_fin= $_POST[source_fin];
-	$to_search_year= $_POST[year];	
-	switch ($_POST[by])
+	$tosearch=strtoupper($_POST['tosearch']);
+	$to_search_source_fin= $_POST['source_fin'];
+	$to_search_year= $_POST['year'];	
+	switch ($_POST['by'])
 	{
 
 		case 'app';
@@ -120,7 +120,7 @@ if (isset($_POST[search]))
 </form>
 </div>
 </fieldset>
-<?
+<?php
 if ($sw==1)
 {
 	echo '<fieldset>
@@ -136,32 +136,32 @@ if ($sw==1)
     <th>Acciones</th>
   </tr>';
  while ($r=$db->fetch_array($rs))
- {	if($r[status]==0) $st='PASIVO';
+ {	if($r['status']==0) $st='PASIVO';
  	else $st='ACTIVO'; 
  	echo ' <tr>   
-      <td>'.$r[l_name1].'</td>
-      <td>'.$r[l_name2].'</td>
-	  <td>'.$r[name].'</td>
+      <td>'.$r['l_name1'].'</td>
+      <td>'.$r['l_name2'].'</td>
+	  <td>'.$r['name'].'</td>
 	  <td><strong>'.$st.'</strong></td>
-	  <td><strong>'.$r[source_fin].'</strong></td>
+	  <td><strong>'.$r['source_fin'].'</strong></td>
 
 	<td>
-	<a href="#" onclick="MM_openBrWindow(\'UploadFilesTo.php?id_per='.$r[id_per].'&id_func='.$r[id_func].'\',\'uploadfiles\',\'scrollbars=yes,width=600,height=420\')" title="Cargar Archivos a File Personal"><img src="data/images/upload_.png"></a>	
+	<a href="#" onclick="MM_openBrWindow(\'UploadFilesTo.php?id_per='.$r['id_per'].'&id_func='.$r['id_func'].'\',\'uploadfiles\',\'scrollbars=yes,width=600,height=420\')" title="Cargar Archivos a File Personal"><img src="data/images/upload_.png"></a>	
 	</td>	
   </tr>';
  }
   while ($r1=$db->fetch_array($rs1))
- {	if($r1[status]==0) $st='PASIVO';
+ {	if($r1['status']==0) $st='PASIVO';
 	else $st='ACTIVO'; 
  	echo ' <tr>   
-    <td>'.$r1[l_name1].'</td>
-    <td>'.$r1[l_name2].'</td>
-	 <td>'.$r1[name].'</td>
+    <td>'.$r1['l_name1'].'</td>
+    <td>'.$r1['l_name2'].'</td>
+	 <td>'.$r1['name'].'</td>
 	 <td><strong>'.$st.'</strong></td>
-	  <td><strong>'.$r1[source_fin].'</strong></td>
+	  <td><strong>'.$r1['source_fin'].'</strong></td>
 
 	<td>
-	<a href="#" onclick="MM_openBrWindow(\'UploadFilesTo-C.php?id_per='.$r1[id_con].'&id_func='.$r1[id_func].'\',\'uploadfiles\',\'scrollbars=yes,width=600,height=420\')" title="Cargar Archivos a File Personal"><img src="data/images/upload_.png"></a>	
+	<a href="#" onclick="MM_openBrWindow(\'UploadFilesTo-C.php?id_per='.$r1['id_con'].'&id_func='.$r1['id_func'].'\',\'uploadfiles\',\'scrollbars=yes,width=600,height=420\')" title="Cargar Archivos a File Personal"><img src="data/images/upload_.png"></a>	
 	</td>	
   </tr>';
  }

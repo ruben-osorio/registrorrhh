@@ -16,7 +16,7 @@ var $errno = 0;
 var $affected_rows = 0;
 var $link_id = 0;
 var $query_id = 0;
-function Database($server, $user, $pass, $database, $pre=''){
+function __construct($server, $user, $pass, $database, $pre=''){
 	$this->server=$server;
 	$this->user=$user;
 	$this->pass=$pass;
@@ -157,5 +157,8 @@ function oops($msg='') {
 		</table>
 	<?php
 }
+
+	// Alias del constructor estilo PHP 4
+	function Database() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 ?>

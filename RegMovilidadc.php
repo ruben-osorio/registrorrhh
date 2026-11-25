@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("security.php");
 require("config.inc.php");
 require("database.class.php");
@@ -6,8 +6,8 @@ require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-$id_func=$_GET[id_func];
-$id_con=$_GET[id_con];
+$id_func=$_GET['id_func'];
+$id_con=$_GET['id_con'];
 				$rs=$db->query("
 				SELECT * FROM ".TABLE2."
 				WHERE funcionario.id_func='$id_func'
@@ -29,16 +29,16 @@ $r1=$db->fetch_array($rs1);
 				}		
 		
 
-if (isset($_POST[save]))	{	
-				$date_end=cambia_dateN_to_dateMy_1($_POST[date_end]);	
-				$dir_g=strtoupper($_POST[dir_g]);
-				$unit=strtoupper($_POST[unit]);
-				$area=strtoupper($_POST[area]); 
-				$boss_is=strtoupper($_POST[boss_is]); 
-				$boss_ij=strtoupper($_POST[boss_ij]);  
-				$charge=strtoupper($_POST[charge]);  
-				$num_res_con=$_POST[num_res_con];  
-				$date_des=cambia_dateN_to_dateMy_1($_POST[date_des]);		
+if (isset($_POST['save']))	{	
+				$date_end=cambia_dateN_to_dateMy_1($_POST['date_end']);	
+				$dir_g=strtoupper($_POST['dir_g']);
+				$unit=strtoupper($_POST['unit']);
+				$area=strtoupper($_POST['area']); 
+				$boss_is=strtoupper($_POST['boss_is']); 
+				$boss_ij=strtoupper($_POST['boss_ij']);  
+				$charge=strtoupper($_POST['charge']);  
+				$num_res_con=$_POST['num_res_con'];  
+				$date_des=cambia_dateN_to_dateMy_1($_POST['date_des']);		
 				$rs3=$db->query("
 				UPDATE ".TABLE31."
 				SET date_end='$date_end'
@@ -101,32 +101,32 @@ if (isset($_POST[save]))	{
     <tr>
       <th><div align="left">Nombres:</div></th>
       <td><div class="form_row">  
-       <? echo $r[name]; ?>
+       <?php echo $r['name']; ?>
     
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Apellido Paterno:</div></th>
       <td><div class="form_row">
-       <? echo $r[l_name1]; ?>
+       <?php echo $r['l_name1']; ?>
       </div></td>
     </tr>
     <tr>
       <th><div align="left">Apellido Materno:</div></th>
       <td><div class="form_row">
-       <? echo $r[l_name2]; ?>
+       <?php echo $r['l_name2']; ?>
       </div></td>
     </tr>
 <tr>
       <th><div align="left">Cargo Desempeñado:</div></th>
       <td><div class="form_row">
-        <? echo $r1[charge]; ?>
+        <?php echo $r1['charge']; ?>
       </div></td>
     </tr>
  <tr>
       <th><div align="left">Fecha Designaci&oacute;n:</div></th>
       <td><div class="form_row">
-       <? echo $r1[date_des]; ?>
+       <?php echo $r1['date_des']; ?>
       </div></td>
     </tr>   
       <tr>

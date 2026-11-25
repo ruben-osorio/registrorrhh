@@ -24,7 +24,7 @@ class clsCalendarNavigator {
   public $Attributes;
 
 
-  function clsCalendarNavigator($ComponentName, $CalendarNavigatorName, $CalendarType, $YearsRange = 10, & $Parent){
+  function __construct($ComponentName, $CalendarNavigatorName, $CalendarType, $YearsRange = 10, & $Parent){
     $this->TargetName = $ComponentName;
     $this->CalendarNavigatorName = $CalendarNavigatorName;
     $this->CalendarType = $CalendarType;
@@ -154,6 +154,9 @@ class clsCalendarNavigator {
     $this->CurrentProcessingDate = $this->CurrentDate;
     $this->ShowBlock($QueryString, $CalendarNavigatorBlock, "", false);
   } 
+
+	// Alias del constructor estilo PHP 4
+	function clsCalendarNavigator() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 }
 //End CalendarNavigator Class
 

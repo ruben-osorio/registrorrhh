@@ -1,11 +1,11 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require ("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-if (isset($_POST[to_excel]))
+if (isset($_POST['to_excel']))
 {
 	include("excelwriter.inc.php");  
 	$excel=new ExcelWriter("ListaAfiliadosCaja.xls");
@@ -27,14 +27,14 @@ if (isset($_POST[to_excel]))
 		$r2=$db->fetch_array($rs2);
 		
 		$excel->writeRow();
-		$excel->writeCol($r[l_name1]);
-		$excel->writeCol($r[l_name2]);
-		$excel->writeCol($r[name]);
-		$excel->writeCol(cambia_dateMy_to_dateN($r[date_ent]));
+		$excel->writeCol($r['l_name1']);
+		$excel->writeCol($r['l_name2']);
+		$excel->writeCol($r['name']);
+		$excel->writeCol(cambia_dateMy_to_dateN($r['date_ent']));
 		
-		$excel->writeCol(cambia_dateMy_to_dateN($r2[date_afil]));
-		$excel->writeCol($r2[name_sec]);
-		$excel->writeCol($r2[num_reg]);
+		$excel->writeCol(cambia_dateMy_to_dateN($r2['date_afil']));
+		$excel->writeCol($r2['name_sec']);
+		$excel->writeCol($r2['num_reg']);
 	}
 	$excel->close();
 	$msg= 'Los datos se han grabado con &eacute;xito. Descargue el fichero de <a href="VacacionesTGN.xls">Aqui</a>';
@@ -81,15 +81,15 @@ while ($r=$db->fetch_array($rs))
 	{
 		$r1=$db->fetch_array($rs1);
 		echo ' <tr>   
-    	<td>'.$r[l_name1].'</td>
-    	<td>'.$r[l_name2].'</td>
-	 	<td>'.$r[name].'</td>
-	  	<td>'.cambia_dateMy_to_dateN($r[date_ent]).'</td>';
+    	<td>'.$r['l_name1'].'</td>
+    	<td>'.$r['l_name2'].'</td>
+	 	<td>'.$r['name'].'</td>
+	  	<td>'.cambia_dateMy_to_dateN($r['date_ent']).'</td>';
 		$rs4=$db->query("select * from ".TABLE23." where id_per='$r[id_per]'");
 		$r4=$db->fetch_array($rs4);
-		echo '<td>'.cambia_dateMy_to_dateN($r4[date_afil]).'</td>
-		<td>'.$r4[name_sec].'</td>
-		<td>'.$r4[num_reg].'</td>
+		echo '<td>'.cambia_dateMy_to_dateN($r4['date_afil']).'</td>
+		<td>'.$r4['name_sec'].'</td>
+		<td>'.$r4['num_reg'].'</td>
 		';
 		$c++;
 	}

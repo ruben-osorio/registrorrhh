@@ -1,4 +1,4 @@
-<?
+<?php
 
 function cambia_formato_dias($numero)
 {

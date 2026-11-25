@@ -1,28 +1,40 @@
-<?
+<?php
 require ("config.inc.php");
 require ("database.class.php");
 include ("functions.inc.php");
-$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
+$db = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
 $db->connect();
-$id_func=$_GET[id];
+$id_func=$_GET['id'];
 
-$rs2=$db->query("select * from ".TABLE22." where id_func='$id_func' order by id_per desc limit 1");
+$rs2=$db->query("select * from permanente where id_func='$id_func' order by id_per desc limit 1");
 $r2=$db->fetch_array($rs2);
-$id_per=$r2[id_per];
-$date_ent=$r2[date_ent];
-$rs=$db->query("select * from ".TABLE2. " where id_func='$id_func'");
+$id_per=$r2['id_per'];
+$date_ent=$r2['date_ent'];
+$db = new Database(DB_SERVER, DB_USER, DB_PASS, 'registrorrhh');
+$db->connect();
+$rs=$db->query("select * from funcionario where id_func='$id_func'");
+
 if ($r=$db->fetch_array($rs))
 {	
-	if (isset($_POST[save]))	
+	if (isset($_POST['save']))	
 	{
 		echo "guardando";
-		$date_cas=cambia_dateN_to_dateMy_1($_POST[date_cas]);		
-		$years=$_POST[years];
-		$months=$_POST[months];
-		$days=$_POST[days];	
+		$date_cas=cambia_dateN_to_dateMy_1($_POST['date_cas']);		
+		$years=$_POST['years'];
+		$months=$_POST['months'];
+		$days=$_POST['days'];	
 		//id_func	
 		//echo "insert into ".TABLE24."(id_per, date_cas, year_rat, month_rat, day_rat) values ('$id_per','$date_cas','$years','$months','$days')";
-		$rs1=$db->query("insert into ".TABLE24."(id_per, date_cas, year_rat, month_rat, day_rat) values ('$id_per','$date_cas','$years','$months','$days')");
+		
+		$db = new Database(DB_SERVER, DB_USER, DB_PASS, 'registrorrhh');
+		$db->connect();
+
+		$rs1=$db->query("insert into old_cas (id_per, date_cas, year_rat, month_rat, day_rat) values ('$id_per','$date_cas','$years','$months','$days')");
+		
+		$db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
+		$db->connect();
+
+		$rs1=$db->query("insert into old_cas (id_per, date_cas, year_rat, month_rat, day_rat) values ('$id_per','$date_cas','$years','$months','$days')");
 		/*$rs1=$db->query("insert into ".TABLE11." (id_func, date_start, date_last,date_cas, year_rat, month_rat, day_rat) values ('$id','','','$date_cas','$years','$months','$days')");	*/	
 		if ($rs1)
 		{
@@ -94,23 +106,27 @@ $(document).ready(function() {
 <table width="100%" border="0" cellpadding="5" cellspacing="0">
   <tr>
     <td><div align="left">Nombre(s):</div></td>
-    <td><div align="left"><strong><? echo $r[name]; ?></strong></div></td>
+    <td><div align="left"><strong><?php echo $r['name']; ?></strong></div></td>
   </tr>
   <tr>
     <td><div align="left">Apellidos:</div></td>
-    <td><div align="left"><strong><? echo $r[l_name1]." ".$r[l_name2]; ?></strong></div></td>
+    <td><div align="left"><strong><?php echo $r['l_name1']." ".$r['l_name2']; ?></strong></div></td>
   </tr>
   <tr>
-  <?  	
-	$rs5=$db->query("select * from ".TABLE28." where id_per='$id_per' order by id_char_per desc limit 1");
-	$r5=$db->fetch_array($rs5);	
+  <?php
+
+  $db1 = new Database(DB_SERVER, DB_USER, DB_PASS, "registrorrhh");
+  $db1->connect();
+
+	$rs5=$db1->query("select * from char_per where id_per='$id_per' order by id_char_per desc limit 1");
+	$r5=$db1->fetch_array($rs5);
   ?>
       <td><div align="left">Cargo:</div></td>
-      <td><div align="left"><strong><? echo $r5[charge]; ?></strong></div></td>
+      <td><div align="left"><strong><?php echo $r5['charge']; ?></strong></div></td>
   </tr>
   <tr>
       <td><div align="left">Fecha de Ingreso:</div></td>
-      <td><div align="left"><strong><? echo cambia_dateMy_to_dateN($date_ent); ?></strong></div></td>
+      <td><div align="left"><strong><?php echo cambia_dateMy_to_dateN($date_ent); ?></strong></div></td>
   </tr>
   <tr>
     <td><div align="left">Fecha Certificado CAS</div></td>
@@ -148,7 +164,7 @@ $(document).ready(function() {
 </fieldset>
 </body>
 </html>
-<?
+<?php
 }
 $db->close();
 ?>

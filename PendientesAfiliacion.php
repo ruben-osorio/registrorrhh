@@ -1,11 +1,11 @@
-<?
+<?php
 require("config.inc.php");
 require("database.class.php");
 require("functions.inc.php");
 $db = new Database(DB_SERVER, DB_USER, DB_PASS, DB_DATABASE);
 $db->connect();
 
-if (isset($_POST[to_excel]))
+if (isset($_POST['to_excel']))
 {
 	include("excelwriter.inc.php");  
 	$excel=new ExcelWriter("ListaPendientesCAJA.xls");
@@ -27,10 +27,10 @@ if (isset($_POST[to_excel]))
 			$r2=$db->fetch_array($rs2);
 			
 			$excel->writeRow();
-			$excel->writeCol($r[l_name1]);
-			$excel->writeCol($r[l_name2]);
-			$excel->writeCol($r[name]);
-			$excel->writeCol(cambia_dateMy_to_dateN($r[date_ent]));
+			$excel->writeCol($r['l_name1']);
+			$excel->writeCol($r['l_name2']);
+			$excel->writeCol($r['name']);
+			$excel->writeCol(cambia_dateMy_to_dateN($r['date_ent']));
 			$excel->writeCol("NO EXISTEN DATOS DE AFILIACION");			
 		}
 	}	
@@ -78,12 +78,12 @@ while ($r=$db->fetch_array($rs))
 	{
 		$r1=$db->fetch_array($rs1);
 		echo ' <tr>   
-    	<td>'.$r[l_name1].'</td>
-    	<td>'.$r[l_name2].'</td>
-	 	<td>'.$r[name].'</td>
-	  	<td>'.$r[date_ent].'</td>
+    	<td>'.$r['l_name1'].'</td>
+    	<td>'.$r['l_name2'].'</td>
+	 	<td>'.$r['name'].'</td>
+	  	<td>'.$r['date_ent'].'</td>
 		<td><img src="data/images/Bad.png"><strong>[NO AFILIADO]</strong></td>';
-	  	echo '<td><a href="#" onclick="MM_openBrWindow(\'RegDatosAfiliacion.php?id='.$r[id_func].'\',\'regpermiso\',\'scrollbars=yes,width=600,height=420\')" title="Registrar Datos Seguro Médico"><img src="data/images/add_medical.png"></a></td>';
+	  	echo '<td><a href="#" onclick="MM_openBrWindow(\'RegDatosAfiliacion.php?id='.$r['id_func'].'\',\'regpermiso\',\'scrollbars=yes,width=600,height=420\')" title="Registrar Datos Seguro Médico"><img src="data/images/add_medical.png"></a></td>';
 		$c++;
 	}
 	

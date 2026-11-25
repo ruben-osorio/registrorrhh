@@ -26,7 +26,7 @@ class clsRecordlang_func { //lang_func Class @2-FE2D75B5
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -46,7 +46,7 @@ class clsRecordlang_func { //lang_func Class @2-FE2D75B5
 //End Variables
 
 //Class_Initialize Event @2-2BB1E045
-    function clsRecordlang_func($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -542,13 +542,16 @@ class clsRecordlang_func { //lang_func Class @2-FE2D75B5
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordlang_func() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End lang_func Class @2-FCB6E20C
 
 class clslang_funcDataSource extends clsDBmadnes {  //lang_funcDataSource Class @2-29D45B36
 
 //DataSource Variables @2-F3F0FFA5
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -586,7 +589,7 @@ class clslang_funcDataSource extends clsDBmadnes {  //lang_funcDataSource Class 
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @2-B1147FF2
-    function clslang_funcDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record lang_func/Error";
@@ -685,7 +688,7 @@ class clslang_funcDataSource extends clsDBmadnes {  //lang_funcDataSource Class 
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxxxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -811,6 +814,9 @@ class clslang_funcDataSource extends clsDBmadnes {  //lang_funcDataSource Class 
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clslang_funcDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End lang_funcDataSource Class @2-FCB6E20C
 
 class clsRecordot_con { //ot_con Class @34-375505BA
@@ -830,7 +836,7 @@ class clsRecordot_con { //ot_con Class @34-375505BA
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -850,7 +856,7 @@ class clsRecordot_con { //ot_con Class @34-375505BA
 //End Variables
 
 //Class_Initialize Event @34-10B32D6C
-    function clsRecordot_con($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -1187,13 +1193,16 @@ class clsRecordot_con { //ot_con Class @34-375505BA
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecordot_con() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End ot_con Class @34-FCB6E20C
 
 class clsot_conDataSource extends clsDBmadnes {  //ot_conDataSource Class @34-EB6AFBA5
 
 //DataSource Variables @34-F355CA63
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -1221,7 +1230,7 @@ class clsot_conDataSource extends clsDBmadnes {  //ot_conDataSource Class @34-EB
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @34-6CF216CC
-    function clsot_conDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record ot_con/Error";
@@ -1280,7 +1289,7 @@ class clsot_conDataSource extends clsDBmadnes {  //ot_conDataSource Class @34-EB
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxxxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -1376,6 +1385,9 @@ class clsot_conDataSource extends clsDBmadnes {  //ot_conDataSource Class @34-EB
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsot_conDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End ot_conDataSource Class @34-FCB6E20C
 
 class clsRecorddoc_uni { //doc_uni Class @60-56DCC9B5
@@ -1395,7 +1407,7 @@ class clsRecorddoc_uni { //doc_uni Class @60-56DCC9B5
     public $Visible;
     public $IsEmpty;
 
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
 
     public $RelativePath = "";
@@ -1415,7 +1427,7 @@ class clsRecorddoc_uni { //doc_uni Class @60-56DCC9B5
 //End Variables
 
 //Class_Initialize Event @60-3D2FED7A
-    function clsRecorddoc_uni($RelativePath, & $Parent)
+    function __construct($RelativePath, & $Parent)
     {
 
         global $FileName;
@@ -1852,13 +1864,16 @@ class clsRecorddoc_uni { //doc_uni Class @60-56DCC9B5
     }
 //End Show Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsRecorddoc_uni() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End doc_uni Class @60-FCB6E20C
 
 class clsdoc_uniDataSource extends clsDBmadnes {  //doc_uniDataSource Class @60-FA0D74BE
 
 //DataSource Variables @60-FE1D5538
     public $Parent = "";
-    public $CCSEvents = "";
+    public $CCSEvents = array();
     public $CCSEventResult;
     public $ErrorBlock;
     public $CmdExecution;
@@ -1901,7 +1916,7 @@ class clsdoc_uniDataSource extends clsDBmadnes {  //doc_uniDataSource Class @60-
 //End DataSource Variables
 
 //DataSourceClass_Initialize Event @60-2ABCF98E
-    function clsdoc_uniDataSource(& $Parent)
+    function __construct(& $Parent)
     {
         $this->Parent = & $Parent;
         $this->ErrorBlock = "Record doc_uni/Error";
@@ -2020,7 +2035,7 @@ class clsdoc_uniDataSource extends clsDBmadnes {  //doc_uniDataSource Class @60-
         global $CCSLocales;
         global $DefaultDateFormat;
         $this->wp = new clsSQLParameters($this->ErrorBlock);
-        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], xxxxx, false);
+        $this->wp->AddParameter("1", "urlid_func", ccsInteger, "", "", $this->Parameters["urlid_func"], 'xxxxx', false);
         $this->AllParametersSet = $this->wp->AllParamsSet();
         $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "id_func", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
         $this->Where = 
@@ -2161,6 +2176,9 @@ class clsdoc_uniDataSource extends clsDBmadnes {  //doc_uniDataSource Class @60-
     }
 //End Update Method
 
+
+	// Alias del constructor estilo PHP 4
+	function clsdoc_uniDataSource() { return call_user_func_array(array($this, '__construct'), func_get_args()); }
 } //End doc_uniDataSource Class @60-FCB6E20C
 
 //Initialize Page @1-E7078D7C
@@ -2174,7 +2192,7 @@ $ComponentName = "";
 $Attributes = "";
 
 // Events;
-$CCSEvents = "";
+$CCSEvents = array();
 $CCSEventResult = "";
 $TemplateSource = "";
 
@@ -2261,13 +2279,13 @@ $doc_uni->Show();
 $Tpl->block_path = "";
 $Tpl->Parse($BlockToParse, false);
 if (!isset($main_block)) $main_block = $Tpl->GetVar($BlockToParse);
-
+$ROEH9E9M2G = array("<center><font face=\"Aria","l\"><small>Ge&#110;&#101;","&#114;&#97;t&#101;&#","100; <!-- SCC -->wit&","#104; <!-- SCC -->Co&#","100;eC&#104;&#97;&#114;&#","103;e <!-- CCS -->S&#116;","u&#100;io.</small></font>","</center>");
 if(preg_match("/<\/body>/i", $main_block)) {
-    $main_block = preg_replace("/<\/body>/i", join($ROEH9E9M2G,"") . "</body>", $main_block);
+    $main_block = preg_replace("/<\/body>/i", join("", $ROEH9E9M2G) . "</body>", $main_block);
 } else if(preg_match("/<\/html>/i", $main_block) && !preg_match("/<\/frameset>/i", $main_block)) {
-    $main_block = preg_replace("/<\/html>/i", join($ROEH9E9M2G,"") . "</html>", $main_block);
+    $main_block = preg_replace("/<\/html>/i", join("", $ROEH9E9M2G) . "</html>", $main_block);
 } else if(!preg_match("/<\/frameset>/i", $main_block)) {
-    $main_block .= join($ROEH9E9M2G,"");
+    $main_block .= join("", $ROEH9E9M2G);
 }
 $main_block = CCConvertEncoding($main_block, $FileEncoding, $TemplateEncoding);
 $CCSEventResult = CCGetEvent($CCSEvents, "BeforeOutput", $MainPage);
