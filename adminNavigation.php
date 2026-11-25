@@ -2,6 +2,7 @@
 require_once("security.php");
 ?>
 <ul id="navigation"><!-- Main Navigation Begin -->
+				<li><a href="index.php?selected=Dashboard" class="icon_home">Inicio</a></li>
 				<li><a href="#" class="icon_users">Funcionarios</a>
 					<ul>
 						<li><a href="?selected=RegistroBasico">Registro Básico</a></li>

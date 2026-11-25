@@ -235,18 +235,21 @@ require_once("security.php");
 									
 						case 'RegistrarPrestamo':
 							require_once("BusFunPrestamoFile.php");
-						break;		
-												
-						default:							
-							require_once("Home.php");							
-						break;						
-					}					
-				}				
+						break;
+
+						case 'Dashboard':
+						default:
+							require_once("DashboardPersonal.php");
+						break;
+					}
+				}
 				else
 				{
-					require_once("Home.php");
+					require_once("DashboardPersonal.php");
 				}
-				case '3':				
+				break;
+
+				case '3':
 				if((is_string ($_GET['selected'])) && (isset ($_GET['selected']))) 
 				{
 					switch ( $_GET['selected'] )
