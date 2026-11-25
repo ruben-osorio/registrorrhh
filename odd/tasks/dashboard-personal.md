@@ -30,3 +30,12 @@ Desactivado. Verificación: lint PHP 8.4 + carga HTTP como admin (base local y b
 ## Notas
 - Datos registrados hasta 20/04/2018: la antigüedad "menos de 2" y "2 a 4" sale en 0 porque se calcula a hoy.
 - Sin modo oscuro: el tema de la aplicación es solo claro.
+
+## Iteración 2 (resumen de movimiento)
+- [x] D4 Fecha de corte = último movimiento registrado; edad y antigüedad se calculan a esa fecha
+- [x] D5 Fila nueva tras los indicadores: nuevos ingresos (3 meses previos al corte, primer ingreso),
+      posibles cargos acéfalos de planta (cargo+dirección sin ocupante activo; se filtran registros de prueba),
+      consultorías concluidas sin reemplazo (6 meses previos al corte)
+- [x] D6 Reparación de texto con doble codificación al mostrar (dash_txt)
+- Verificación: base consolidada 40 ingresos / 112 acéfalos / 6 consultorías; base local 9 / 96 / 0; sin errores PHP.
+- Decisión: NO se modifican fechas de la base real (son registros de personal / declaraciones juradas).

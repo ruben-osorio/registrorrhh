@@ -51,10 +51,49 @@ function dash_fecha_valida($f)
 	return $f && $f > '1900-01-01' && $f <= date('Y-m-d');
 }
 
-function dash_anios_desde($fecha)
+/** Años cumplidos entre $fecha y $referencia (por defecto, hoy). */
+function dash_anios_desde($fecha, $referencia = 'today')
 {
 	$d = date_create($fecha);
-	return $d ? (int) date_diff($d, date_create('today'))->y : null;
+	return $d ? (int) date_diff($d, date_create($referencia))->y : null;
+}
+
+/** Corrige texto con doble codificación UTF-8 (p. ej. "DISEÃ‘O" -> "DISEÑO"). */
+function dash_txt($s)
+{
+	$s = trim(preg_replace('/\s+/', ' ', (string) $s));
+	if (preg_match('/[ÃÂ][\x{80}-\x{FFFF}]/u', $s)) {
+		$r = mb_convert_encoding($s, 'Windows-1252', 'UTF-8');
+		if (mb_check_encoding($r, 'UTF-8')) {
+			return $r;
+		}
+	}
+	return $s;
+}
+
+/** Formatea una fecha Y-m-d como d/m/Y. */
+function dash_fecha($f)
+{
+	return ($f && $f > '1900-01-01') ? date('d/m/Y', strtotime($f)) : '—';
+}
+
+/** Lista compacta con título y detalle (para tarjetas de resumen). */
+function dash_lista($items, $max)
+{
+	$h = '<ul class="dash-list">';
+	foreach (array_slice($items, 0, $max) as $it) {
+		$h .= '<li><span class="dash-li-t" title="' . dash_e($it['titulo']) . '">' . dash_e($it['titulo']) . '</span>'
+			. '<span class="dash-li-d">' . dash_e($it['detalle']) . '</span></li>';
+	}
+	return $h . '</ul>';
+}
+
+/** Descarta registros de prueba o sin contenido real. */
+function dash_cargo_valido($cargo)
+{
+	return mb_strlen($cargo) >= 5
+		&& !preg_match('/^X+$/i', $cargo)
+		&& !in_array($cargo, array('HACKER', 'PRUEBA', 'TEST', 'NINGUNO'), true);
 }
 
 /** Escala "redonda" para el eje Y: devuelve [máximo, paso]. */
@@ -240,6 +279,15 @@ $COLOR_MUJERES = '#1baf7a';
 $COLOR_HOMBRES = '#6250d6';
 $COLOR_BAJAS = '#e34948';
 
+// Fecha de corte: último movimiento registrado (ingreso de planta, contrato o baja).
+// Los indicadores de tiempo se calculan a esta fecha para que reflejen el estado de la base.
+$ultimo = dash_filas($dashDb, "SELECT GREATEST(
+	IFNULL((SELECT MAX(date_ent) FROM permanente WHERE date_ent <= CURDATE()), '1900-01-01'),
+	IFNULL((SELECT MAX(date_ent) FROM contrato WHERE date_ent <= CURDATE()), '1900-01-01'),
+	IFNULL((SELECT MAX(date_efect) FROM baja WHERE date_efect <= CURDATE()), '1900-01-01')) f");
+$corte = ($ultimo && $ultimo[0]['f'] > '1900-01-01') ? $ultimo[0]['f'] : date('Y-m-d');
+$fechaDatos = dash_fecha($corte);
+
 // Personal activo
 $planta = dash_filas($dashDb, "SELECT p.id_func, p.id_per, p.date_ent FROM permanente p
 	JOIN (SELECT id_func, MAX(id_per) id_per FROM permanente WHERE status = 1 GROUP BY id_func) x
@@ -288,7 +336,7 @@ foreach ($funcionarios as $id => $f) {
 		$sinSexo++;
 	}
 	if (dash_fecha_valida($f['date_born'])) {
-		$edad = dash_anios_desde($f['date_born']);
+		$edad = dash_anios_desde($f['date_born'], $corte);
 		if ($edad !== null && $edad >= 16 && $edad <= 100) {
 			$sumaEdad += $edad;
 			$conEdad++;
@@ -316,7 +364,7 @@ $totalSexo = $sexo['Mujeres'] + $sexo['Hombres'];
 $antiguedad = array('Menos de 2' => 0, '2 a 4' => 0, '5 a 9' => 0, '10 a 19' => 0, '20 o más' => 0);
 foreach ($plantaPorFunc as $p) {
 	if (dash_fecha_valida($p['date_ent'])) {
-		$a = dash_anios_desde($p['date_ent']);
+		$a = dash_anios_desde($p['date_ent'], $corte);
 		if ($a < 2) $antiguedad['Menos de 2']++;
 		elseif ($a < 5) $antiguedad['2 a 4']++;
 		elseif ($a < 10) $antiguedad['5 a 9']++;
@@ -381,12 +429,82 @@ foreach ($anios as $a) {
 	$serieBajas[] = $bajasAnio[$a] ?? 0;
 }
 
-// Fecha del último movimiento registrado
-$ultimo = dash_filas($dashDb, "SELECT GREATEST(
-	IFNULL((SELECT MAX(date_ent) FROM permanente WHERE date_ent <= CURDATE()), '1900-01-01'),
-	IFNULL((SELECT MAX(date_ent) FROM contrato WHERE date_ent <= CURDATE()), '1900-01-01'),
-	IFNULL((SELECT MAX(date_efect) FROM baja WHERE date_efect <= CURDATE()), '1900-01-01')) f");
-$fechaDatos = ($ultimo && $ultimo[0]['f'] > '1900-01-01') ? date('d/m/Y', strtotime($ultimo[0]['f'])) : '—';
+// Nuevos ingresos: personas cuyo PRIMER ingreso (planta o contrato) cae en los 3 meses previos al corte
+$inicioIngresos = date('Y-m-d', strtotime($corte . ' -3 months'));
+$ingresosRecientes = array();
+$ingresosTipo = array('Planta' => 0, 'Consultor' => 0);
+foreach (dash_filas($dashDb, "SELECT z.id_func, z.primera, z.tipo, f.name, f.l_name1, f.l_name2,
+		COALESCE(
+			(SELECT cp.charge FROM permanente p JOIN char_per cp ON cp.id_per = p.id_per WHERE p.id_func = z.id_func ORDER BY cp.id_char_per DESC LIMIT 1),
+			(SELECT cc.charge FROM contrato c JOIN char_con cc ON cc.id_con = c.id_con WHERE c.id_func = z.id_func ORDER BY cc.id_char_con DESC LIMIT 1)
+		) cargo
+	FROM (
+		SELECT id_func, MIN(fe) primera, SUBSTRING_INDEX(GROUP_CONCAT(t ORDER BY fe), ',', 1) tipo FROM (
+			SELECT id_func, date_ent fe, 'Planta' t FROM permanente WHERE date_ent > '1900-01-01'
+			UNION ALL SELECT id_func, date_ent, 'Consultor' FROM contrato WHERE date_ent > '1900-01-01'
+		) u GROUP BY id_func
+	) z JOIN funcionario f ON f.id_func = z.id_func
+	WHERE z.primera > '" . $inicioIngresos . "' AND z.primera <= '" . $corte . "'
+	ORDER BY z.primera DESC") as $r) {
+	$ingresosTipo[$r['tipo']] = ($ingresosTipo[$r['tipo']] ?? 0) + 1;
+	$nombre = mb_convert_case(mb_strtolower(dash_txt($r['name'] . ' ' . $r['l_name1'] . ' ' . $r['l_name2']), 'UTF-8'), MB_CASE_TITLE, 'UTF-8');
+	$ingresosRecientes[] = array(
+		'titulo' => $nombre,
+		'detalle' => $r['tipo'] . ' · ' . dash_fecha($r['primera']) . ($r['cargo'] ? ' · ' . dash_txt($r['cargo']) : ''),
+		'nombre' => $nombre, 'tipo' => $r['tipo'], 'fecha' => dash_fecha($r['primera']), 'cargo' => dash_txt($r['cargo']),
+	);
+}
+
+// Posibles cargos acéfalos de planta: cargo + dirección cuyo último ocupante ya no está activo
+// y que hoy nadie ocupa. La base no registra números de ítem, por eso se compara por nombre de cargo.
+$acefalosPlanta = array();
+foreach (dash_filas($dashDb, "SELECT UPPER(TRIM(cp.charge)) cargo, UPPER(TRIM(IFNULL(cp.dir_g, ''))) dir,
+		MAX(p.id_per) ult_per, MAX(b.date_efect) baja
+	FROM permanente p
+	JOIN char_per cp ON cp.id_per = p.id_per
+	JOIN (SELECT id_per, MAX(id_char_per) m FROM char_per GROUP BY id_per) y ON y.m = cp.id_char_per
+	LEFT JOIN baja b ON b.id_per = p.id_per
+	WHERE TRIM(IFNULL(cp.charge, '')) <> ''
+	GROUP BY cargo, dir
+	HAVING SUM(p.status = 1) = 0
+	ORDER BY ult_per DESC") as $r) {
+	$cargo = dash_txt($r['cargo']);
+	if (!dash_cargo_valido($cargo)) {
+		continue;
+	}
+	$dir = dash_txt($r['dir']);
+	$dir = $dir === '' ? 'Sin dirección registrada' : preg_replace(array('/^DIRECCI[OÓ]N GENERAL DE /u', '/^VICEMINISTERIO DE /u'), array('DG ', 'VM '), $dir);
+	$acefalosPlanta[] = array(
+		'titulo' => $cargo,
+		'detalle' => $dir . ' · ' . ($r['baja'] > '1900-01-01' ? 'baja ' . dash_fecha($r['baja']) : 'sin baja registrada'),
+		'cargo' => $cargo, 'dir' => $dir, 'baja' => dash_fecha($r['baja']),
+	);
+}
+
+// Consultorías concluidas en los últimos 6 meses sin un contrato vigente con el mismo cargo y dirección
+$inicioConsultorias = date('Y-m-d', strtotime($corte . ' -6 months'));
+$consultoriasSinReemplazo = array();
+foreach (dash_filas($dashDb, "SELECT UPPER(TRIM(cc.charge)) cargo, UPPER(TRIM(IFNULL(cc.dir_g, ''))) dir,
+		MAX(c.date_end) fin, SUM(c.status = 1) vigentes
+	FROM contrato c
+	JOIN char_con cc ON cc.id_con = c.id_con
+	JOIN (SELECT id_con, MAX(id_char_con) m FROM char_con GROUP BY id_con) y ON y.m = cc.id_char_con
+	WHERE TRIM(IFNULL(cc.charge, '')) <> ''
+	GROUP BY cargo, dir
+	HAVING vigentes = 0 AND fin > '" . $inicioConsultorias . "' AND fin <= '" . $corte . "'
+	ORDER BY fin DESC") as $r) {
+	$cargo = dash_txt($r['cargo']);
+	if (!dash_cargo_valido($cargo)) {
+		continue;
+	}
+	$dir = dash_txt($r['dir']);
+	$dir = $dir === '' ? 'Sin dirección registrada' : preg_replace(array('/^DIRECCI[OÓ]N GENERAL DE /u', '/^VICEMINISTERIO DE /u'), array('DG ', 'VM '), $dir);
+	$consultoriasSinReemplazo[] = array(
+		'titulo' => $cargo,
+		'detalle' => $dir . ' · concluyó ' . dash_fecha($r['fin']),
+		'cargo' => $cargo, 'dir' => $dir, 'fin' => dash_fecha($r['fin']),
+	);
+}
 
 mysqli_close($dashDb);
 
@@ -418,6 +536,14 @@ $pctHombres = $totalSexo ? 100 - $pctMujeres : 0;
 .block_cont .dash-root .dash-head p { color: var(--ink-2); }
 .dash-grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
 .dash-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+.dash-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+.dash-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.block_cont .dash-root p.dash-kpi-num.dash-kpi-md { font-size: 26px; margin: 4px 0 2px; }
+.dash-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.dash-list li { display: block; margin: 0; padding: 6px 0; border-top: 1px solid var(--grid); background: none; min-width: 0; }
+.dash-li-t { display: block; color: var(--ink-1); font-weight: 600; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dash-li-d { display: block; color: var(--ink-2); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dash-nota { color: var(--ink-muted); font-size: 11.5px; margin: 8px 0 0; }
 .dash-card { background: var(--surface-1); border: 1px solid var(--ring); border-radius: 10px; padding: 14px 16px; min-width: 0; }
 .dash-card h3 { font-size: 14px; font-weight: 600; margin: 0 0 2px; color: var(--ink-1); background: none; padding: 0; border: 0; text-shadow: none; text-transform: none; }
 .block_cont .dash-root p.dash-sub { margin: 0 0 10px; color: var(--ink-2); }
@@ -473,7 +599,7 @@ $pctHombres = $totalSexo ? 100 - $pctMujeres : 0;
 .dash-tip.on { opacity: 1; }
 @media (max-width: 860px) {
 	.dash-grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-	.dash-grid2, .dash-cumple { grid-template-columns: 1fr; }
+	.dash-grid2, .dash-grid3, .dash-cumple { grid-template-columns: 1fr; }
 }
 </style>
 
@@ -514,16 +640,59 @@ $pctHombres = $totalSexo ? 100 - $pctMujeres : 0;
 		</div>
 	</div>
 
+	<div class="dash-grid3">
+		<div class="dash-card">
+			<h3>Nuevos ingresos · últimos 3 meses</h3>
+			<p class="dash-sub"><?php echo dash_fecha($inicioIngresos); ?> al <?php echo dash_e($fechaDatos); ?> · personas que ingresan por primera vez</p>
+			<p class="dash-kpi-num dash-kpi-md"><?php echo dash_n(count($ingresosRecientes)); ?></p>
+			<ul class="dash-legend">
+				<li><span class="dash-sw" style="background:<?php echo $COLOR_PLANTA; ?>"></span>Planta <b><?php echo dash_n($ingresosTipo['Planta']); ?></b></li>
+				<li><span class="dash-sw" style="background:<?php echo $COLOR_CONSULTOR; ?>"></span>Consultores <b><?php echo dash_n($ingresosTipo['Consultor']); ?></b></li>
+			</ul>
+			<?php if ($ingresosRecientes) { ?>
+				<?php echo dash_lista($ingresosRecientes, 5); ?>
+				<details class="dash-datos"><summary>Ver los <?php echo count($ingresosRecientes); ?> ingresos</summary><table><thead><tr><th>Nombre</th><th>Tipo</th><th>Ingreso</th><th>Cargo</th></tr></thead><tbody>
+					<?php foreach ($ingresosRecientes as $r) { ?><tr><td><?php echo dash_e($r['nombre']); ?></td><td><?php echo $r['tipo']; ?></td><td><?php echo $r['fecha']; ?></td><td><?php echo dash_e($r['cargo']); ?></td></tr><?php } ?>
+				</tbody></table></details>
+			<?php } else { ?><p class="dash-vacio">Sin ingresos en el periodo.</p><?php } ?>
+		</div>
+
+		<div class="dash-card">
+			<h3>Posibles cargos acéfalos · planta (TGN)</h3>
+			<p class="dash-sub">Cargos cuyo último ocupante ya no está activo y que nadie ocupa hoy</p>
+			<p class="dash-kpi-num dash-kpi-md"><?php echo dash_n(count($acefalosPlanta)); ?></p>
+			<?php if ($acefalosPlanta) { ?>
+				<?php echo dash_lista($acefalosPlanta, 5); ?>
+				<details class="dash-datos"><summary>Ver los <?php echo count($acefalosPlanta); ?> cargos</summary><table><thead><tr><th>Cargo</th><th>Dirección</th><th>Baja</th></tr></thead><tbody>
+					<?php foreach ($acefalosPlanta as $r) { ?><tr><td><?php echo dash_e($r['cargo']); ?></td><td><?php echo dash_e($r['dir']); ?></td><td><?php echo $r['baja']; ?></td></tr><?php } ?>
+				</tbody></table></details>
+			<?php } else { ?><p class="dash-vacio">No se detectaron cargos acéfalos.</p><?php } ?>
+		</div>
+
+		<div class="dash-card">
+			<h3>Consultorías concluidas sin reemplazo</h3>
+			<p class="dash-sub"><?php echo dash_fecha($inicioConsultorias); ?> al <?php echo dash_e($fechaDatos); ?> · sin contrato vigente para el mismo cargo</p>
+			<p class="dash-kpi-num dash-kpi-md"><?php echo dash_n(count($consultoriasSinReemplazo)); ?></p>
+			<?php if ($consultoriasSinReemplazo) { ?>
+				<?php echo dash_lista($consultoriasSinReemplazo, 5); ?>
+				<details class="dash-datos"><summary>Ver las <?php echo count($consultoriasSinReemplazo); ?> consultorías</summary><table><thead><tr><th>Cargo</th><th>Dirección</th><th>Concluyó</th></tr></thead><tbody>
+					<?php foreach ($consultoriasSinReemplazo as $r) { ?><tr><td><?php echo dash_e($r['cargo']); ?></td><td><?php echo dash_e($r['dir']); ?></td><td><?php echo $r['fin']; ?></td></tr><?php } ?>
+				</tbody></table></details>
+			<?php } else { ?><p class="dash-vacio">No hay consultorías concluidas sin reemplazo.</p><?php } ?>
+		</div>
+	</div>
+	<p class="dash-nota" style="margin:-4px 0 12px">Cargos acéfalos: estimación. La base no registra números de ítem; se compara por nombre de cargo y dirección del registro más reciente.</p>
+
 	<div class="dash-grid2">
 		<div class="dash-card">
 			<h3>Distribución por edad</h3>
-			<p class="dash-sub">Personal activo · edad promedio <b><?php echo $edadPromedio !== null ? $edadPromedio . ' años' : '—'; ?></b> (<?php echo dash_n($conEdad); ?> con fecha de nacimiento)</p>
+			<p class="dash-sub">Personal activo, a la fecha de corte · edad promedio <b><?php echo $edadPromedio !== null ? $edadPromedio . ' años' : '—'; ?></b> (<?php echo dash_n($conEdad); ?> con fecha de nacimiento)</p>
 			<?php echo dash_columnas($edades, $COLOR_PLANTA, 'personas'); ?>
 			<?php echo dash_tabla($edades, 'Rango de edad', 'Personas'); ?>
 		</div>
 		<div class="dash-card">
 			<h3>Antigüedad del personal de planta</h3>
-			<p class="dash-sub">Años desde el ingreso registrado, a la fecha de hoy</p>
+			<p class="dash-sub">Años desde el ingreso registrado, a la fecha de corte</p>
 			<?php echo dash_columnas($antiguedad, $COLOR_PLANTA, 'personas'); ?>
 			<?php echo dash_tabla($antiguedad, 'Años de antigüedad', 'Personas'); ?>
 		</div>
